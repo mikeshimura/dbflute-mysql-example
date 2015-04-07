@@ -1,0 +1,359 @@
+map:{
+    ; 2015/03/27 17:14:46 = map:{
+        ; diffDate = 2015/03/27 17:14:46
+        ; tableDiff = map:{
+            ; test = map:{
+                ; tableName = test
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; floatx = map:{
+                        ; columnName = floatx
+                        ; diffType = ADD
+                    }
+                    ; float = map:{
+                        ; columnName = float
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2015/03/20 11:56:52 = map:{
+        ; diffDate = 2015/03/20 11:56:52
+        ; tableDiff = map:{
+            ; test = map:{
+                ; tableName = test
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; float = map:{
+                        ; columnName = float
+                        ; diffType = ADD
+                    }
+                    ; real = map:{
+                        ; columnName = real
+                        ; diffType = ADD
+                    }
+                    ; timew = map:{
+                        ; columnName = timew
+                        ; diffType = ADD
+                    }
+                    ; bigint = map:{
+                        ; columnName = bigint
+                        ; diffType = ADD
+                    }
+                    ; bool = map:{
+                        ; columnName = bool
+                        ; diffType = ADD
+                    }
+                    ; chara = map:{
+                        ; columnName = chara
+                        ; diffType = ADD
+                    }
+                    ; text = map:{
+                        ; columnName = text
+                        ; diffType = ADD
+                    }
+                    ; timewo = map:{
+                        ; columnName = timewo
+                        ; diffType = ADD
+                    }
+                    ; timestampwo = map:{
+                        ; columnName = timestampwo
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2015/03/19 15:16:47 = map:{
+        ; diffDate = 2015/03/19 15:16:47
+        ; tableDiff = map:{
+            ; li_tbl = map:{
+                ; tableName = li_tbl
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; name = map:{
+                        ; columnName = name
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; li_tbl_login_id_key = map:{
+                        ; constraintName = li_tbl_login_id_key
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; test = map:{
+                ; tableName = test
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; string = map:{
+                        ; columnName = string
+                        ; diffType = ADD
+                    }
+                    ; stringnot = map:{
+                        ; columnName = stringnot
+                        ; diffType = ADD
+                    }
+                    ; timet = map:{
+                        ; columnName = timet
+                        ; diffType = ADD
+                    }
+                    ; date = map:{
+                        ; columnName = date
+                        ; diffType = ADD
+                    }
+                    ; nulldate = map:{
+                        ; columnName = nulldate
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2015/02/13 15:45:06 = map:{
+        ; diffDate = 2015/02/13 15:45:06
+        ; tableCount = map:{
+            ; next = 2
+            ; previous = 1
+        }
+        ; tableDiff = map:{
+            ; test = map:{
+                ; tableName = test
+                ; diffType = ADD
+            }
+        }
+        ; sequenceDiff = map:{
+            ; ftest.public.test_id_seq = map:{
+                ; sequenceName = ftest.public.test_id_seq
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/02/03 17:14:13 = map:{
+        ; diffDate = 2015/02/03 17:14:13
+        ; tableDiff = map:{
+            ; li_tbl = map:{
+                ; tableName = li_tbl
+                ; diffType = ADD
+            }
+            ; login = map:{
+                ; tableName = login
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2015/02/03 14:24:29 = map:{
+        ; diffDate = 2015/02/03 14:24:29
+        ; tableCount = map:{
+            ; next = 1
+            ; previous = 14
+        }
+        ; tableDiff = map:{
+            ; login = map:{
+                ; tableName = login
+                ; diffType = CHANGE
+                ; unifiedSchemaDiff = map:{
+                    ; next = ftest.public
+                    ; previous = frams.public
+                }
+                ; columnDiff = map:{
+                    ; password = map:{
+                        ; columnName = password
+                        ; diffType = DELETE
+                    }
+                    ; def_company = map:{
+                        ; columnName = def_company
+                        ; diffType = DELETE
+                    }
+                    ; def_fy = map:{
+                        ; columnName = def_fy
+                        ; diffType = DELETE
+                    }
+                    ; del_flag = map:{
+                        ; columnName = del_flag
+                        ; diffType = DELETE
+                    }
+                    ; register_datetime = map:{
+                        ; columnName = register_datetime
+                        ; diffType = DELETE
+                    }
+                    ; register_user = map:{
+                        ; columnName = register_user
+                        ; diffType = DELETE
+                    }
+                    ; register_process = map:{
+                        ; columnName = register_process
+                        ; diffType = DELETE
+                    }
+                    ; update_datetime = map:{
+                        ; columnName = update_datetime
+                        ; diffType = DELETE
+                    }
+                    ; update_user = map:{
+                        ; columnName = update_user
+                        ; diffType = DELETE
+                    }
+                    ; update_process = map:{
+                        ; columnName = update_process
+                        ; diffType = DELETE
+                    }
+                    ; adm = map:{
+                        ; columnName = adm
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; login_login_id_key = map:{
+                        ; constraintName = login_login_id_key
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; acct_code = map:{
+                ; tableName = acct_code
+                ; diffType = DELETE
+            }
+            ; auth_login = map:{
+                ; tableName = auth_login
+                ; diffType = DELETE
+            }
+            ; bal_start = map:{
+                ; tableName = bal_start
+                ; diffType = DELETE
+            }
+            ; company = map:{
+                ; tableName = company
+                ; diffType = DELETE
+            }
+            ; company_fy = map:{
+                ; tableName = company_fy
+                ; diffType = DELETE
+            }
+            ; journal = map:{
+                ; tableName = journal
+                ; diffType = DELETE
+            }
+            ; journal_wk = map:{
+                ; tableName = journal_wk
+                ; diffType = DELETE
+            }
+            ; session = map:{
+                ; tableName = session
+                ; diffType = DELETE
+            }
+            ; sub_code = map:{
+                ; tableName = sub_code
+                ; diffType = DELETE
+            }
+            ; sys_table = map:{
+                ; tableName = sys_table
+                ; diffType = DELETE
+            }
+            ; temp_item = map:{
+                ; tableName = temp_item
+                ; diffType = DELETE
+            }
+            ; template = map:{
+                ; tableName = template
+                ; diffType = DELETE
+            }
+            ; user_table = map:{
+                ; tableName = user_table
+                ; diffType = DELETE
+            }
+        }
+        ; sequenceDiff = map:{
+            ; ftest.public.login_id_seq = map:{
+                ; sequenceName = ftest.public.login_id_seq
+                ; diffType = ADD
+            }
+            ; frams.public.login_id_seq = map:{
+                ; sequenceName = frams.public.login_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.company_id_seq = map:{
+                ; sequenceName = frams.public.company_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.auth_login_id_seq = map:{
+                ; sequenceName = frams.public.auth_login_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.acct_code_id_seq = map:{
+                ; sequenceName = frams.public.acct_code_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.sub_code_id_seq = map:{
+                ; sequenceName = frams.public.sub_code_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.bal_start_id_seq = map:{
+                ; sequenceName = frams.public.bal_start_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.sys_table_id_seq = map:{
+                ; sequenceName = frams.public.sys_table_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.user_table_id_seq = map:{
+                ; sequenceName = frams.public.user_table_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.journal_id_seq = map:{
+                ; sequenceName = frams.public.journal_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.session_id_seq = map:{
+                ; sequenceName = frams.public.session_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.company_fy_id_seq = map:{
+                ; sequenceName = frams.public.company_fy_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.journal_wk_id_seq = map:{
+                ; sequenceName = frams.public.journal_wk_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.template_id_seq = map:{
+                ; sequenceName = frams.public.template_id_seq
+                ; diffType = DELETE
+            }
+            ; frams.public.temp_item_id_seq = map:{
+                ; sequenceName = frams.public.temp_item_id_seq
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2014/10/12 05:49:33 = map:{
+        ; diffDate = 2014/10/12 05:49:33
+        ; tableDiff = map:{
+            ; template = map:{
+                ; tableName = template
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; fy = map:{
+                        ; columnName = fy
+                        ; diffType = ADD
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; template_comp_id_code_del_flag_key = map:{
+                        ; constraintName = template_comp_id_code_del_flag_key
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = comp_id, fy, code, del_flag
+                            ; previous = comp_id, code, del_flag
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

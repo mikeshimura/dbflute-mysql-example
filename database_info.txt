@@ -1,0 +1,7 @@
+下記　５テーブルを削除後 jdbc.bat generate.bat
+
+VENDOR-NON COMPILABLE
+vendor_$_dollar　＄のテーブル名　非対応
+vendor_check array　使用の為
+vendor_uuid_bar　uuid 非対応
+vendor_uuid_foo　uuid 非対応

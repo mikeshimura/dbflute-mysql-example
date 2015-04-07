@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>postgresql history</title>
+	<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Verdana, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", "MS P Gothic", "MS Pゴシック", sans-serif;
+	font-size: 80%;
+	margin: 1em 1.5em;
+	background-color: #ffffee;
+}
+
+/* heading */
+h1 {
+	font-size: 1.5em;
+	border-bottom: 2px solid #af0000;
+	border-top: 2px solid #af0000;
+}
+h2 {
+	margin-top: 2em;
+	border-bottom: 2px solid #af0000;
+	border-left: 10px solid #af0000;
+	text-indent: 1em;
+	font-size: 1.6em;
+}
+h3 {
+	width: 14em;
+	margin: 0.8em 0;
+	padding-left: 1.8em;
+	border-bottom: solid 1px #333;
+	color: #555;
+	font-size: 1.2em;
+}
+h4 {
+	margin: 1em 0em;
+	font-size: 1em;
+	font-weight: normal;
+	display: list-item;
+}
+h5 {
+	width: 11em;
+	font-size: 80%;
+	border-bottom: solid 1px #333;
+	text-indent: 0.3em;
+	color: #555;
+}
+
+/* total info */
+.updatedate {
+	text-align: right;
+}
+.mainschema {
+	text-align: right;
+}
+.navilinkarea {
+	text-align: right;
+}
+.sisterlink {
+	margin-top: 0.6em;
+	font-size: 110%;
+}
+.sistersublink {
+	margin-top: 0.6em;
+	font-size: 80%;
+}
+
+/* history info */
+.table-content {
+	margin: 0 6em;
+}
+.column-content {
+	margin: 0.5em 1em 0.5em 3em;
+	line-height: 1.4em;
+}
+
+div.change-table-content {
+	margin-left: 3em;
+}
+
+dl.column-content dt {
+	display: list-item;
+}
+dl.column-content dd {
+	margin: 0 4em;
+}
+dl.column-content dd span {
+	display: block;
+	float: left;
+	width: 6em;
+	margin-right: 1.5em;
+	border-right: dotted 2px #333;
+	font-weight: bold;
+	font-size: 80%;
+	color: #555;
+}
+
+span.dt {
+	font-size: 80%;
+}
+p.comment {
+	margin-left: 23em;
+}
+p.tablecount {
+	margin-left: 23em;
+}
+	</style>
+</head>
+
+<body>
+<h1>History for postgresql (postgresql)</h1>
+<div class="navilinkarea">
+<p class="sisterlink"><a href="./schema-postgresql.html">to SchemaHTML</a></p>
+</div>
+
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2015/03/20 11:56:52</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-postgresql.html#test">test</a></h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>float</li>
+				<li>real</li>
+				<li>timew</li>
+				<li>bigint</li>
+				<li>bool</li>
+				<li>chara</li>
+				<li>text</li>
+				<li>timewo</li>
+				<li>timestampwo</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2015/03/19 15:16:47</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>li_tbl</h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>name</dt>
+				<dd><span>Not Null</span>true&nbsp;-&gt;&nbsp;false</dd>
+			</dl>
+			<h5>Add UQ</h5>
+			<ul class="column-content">
+				<li>li_tbl_login_id_key</li>
+			</ul>
+		</div>
+		<h4>test</h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>string</li>
+				<li>stringnot</li>
+				<li>timet</li>
+				<li>date</li>
+				<li>nulldate</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2015/02/13 15:45:06</h2>
+	<p class="tablecount"><span class="dt">table count: </span>1&nbsp;-&gt;&nbsp;2</p>
+
+	<h3>Add Table</h3>
+	<ul class="table-content">
+		<li>test</li>
+	</ul>
+	<h3>Add Sequence</h3>
+	<ul class="table-content">
+		<li>ftest.public.test_id_seq</li>
+	</ul>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2015/02/03 17:14:13</h2>
+
+	<h3>Add Table</h3>
+	<ul class="table-content">
+		<li>li_tbl</li>
+	</ul>
+	<h3>Delete Table</h3>
+	<ul class="table-content">
+		<li>login</li>
+	</ul>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2015/02/03 14:24:29</h2>
+	<p class="tablecount"><span class="dt">table count: </span>14&nbsp;-&gt;&nbsp;1</p>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>login</h4>
+		<div class="change-table-content">
+			<h5>Schema</h5>
+			<div class="column-content">frams.public&nbsp;-&gt;&nbsp;ftest.public</div>
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>password</li>
+				<li>def_company</li>
+				<li>def_fy</li>
+				<li>del_flag</li>
+				<li>register_datetime</li>
+				<li>register_user</li>
+				<li>register_process</li>
+				<li>update_datetime</li>
+				<li>update_user</li>
+				<li>update_process</li>
+				<li>adm</li>
+			</ul>
+			<h5>Delete UQ</h5>
+			<ul class="column-content">
+				<li>login_login_id_key</li>
+			</ul>
+		</div>
+	</div>
+	<h3>Delete Table</h3>
+	<ul class="table-content">
+		<li>acct_code</li>
+		<li>auth_login</li>
+		<li>bal_start</li>
+		<li>company</li>
+		<li>company_fy</li>
+		<li>journal</li>
+		<li>journal_wk</li>
+		<li>session</li>
+		<li>sub_code</li>
+		<li>sys_table</li>
+		<li>temp_item</li>
+		<li>template</li>
+		<li>user_table</li>
+	</ul>
+	<h3>Add Sequence</h3>
+	<ul class="table-content">
+		<li>ftest.public.login_id_seq</li>
+	</ul>
+	<h3>Delete Sequence</h3>
+	<ul class="table-content">
+		<li>frams.public.login_id_seq</li>
+		<li>frams.public.company_id_seq</li>
+		<li>frams.public.auth_login_id_seq</li>
+		<li>frams.public.acct_code_id_seq</li>
+		<li>frams.public.sub_code_id_seq</li>
+		<li>frams.public.bal_start_id_seq</li>
+		<li>frams.public.sys_table_id_seq</li>
+		<li>frams.public.user_table_id_seq</li>
+		<li>frams.public.journal_id_seq</li>
+		<li>frams.public.session_id_seq</li>
+		<li>frams.public.company_fy_id_seq</li>
+		<li>frams.public.journal_wk_id_seq</li>
+		<li>frams.public.template_id_seq</li>
+		<li>frams.public.temp_item_id_seq</li>
+	</ul>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2014/10/12 05:49:33</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>template</h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>fy</li>
+			</ul>
+			<h5>Change UQ</h5>
+			<dl class="column-content">
+				<dt>template_comp_id_code_del_flag_key</dt>
+				<dd><span>Column</span>comp_id,&nbsp;code,&nbsp;del_flag&nbsp;-&gt;&nbsp;comp_id,&nbsp;fy,&nbsp;code,&nbsp;del_flag</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+
+<h2>Thanks</h2>
+<p>
+	Created by <a href="http://dbflute.org/">DBFlute(AutoGenerator)</a>
+</p>
+</body>
+</html>
