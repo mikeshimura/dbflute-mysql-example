@@ -11,12 +11,13 @@ import com.mssoftech.dbflute.exentity.*;
 
 /**
  * The entity of summary_product as VIEW. <br>
+ * VIEW
  * <pre>
  * [primary-key]
  *     
  * 
  * [column]
- *     product_id, product_name, product_status_code, latest_purchase_datetime
+ *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
  * 
  * [sequence]
  *     
@@ -43,10 +44,12 @@ import com.mssoftech.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer productId = entity.getProductId();
  * String productName = entity.getProductName();
+ * String productHandleCode = entity.getProductHandleCode();
  * String productStatusCode = entity.getProductStatusCode();
  * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
  * entity.setProductId(productId);
  * entity.setProductName(productName);
+ * entity.setProductHandleCode(productHandleCode);
  * entity.setProductStatusCode(productStatusCode);
  * entity.setLatestPurchaseDatetime(latestPurchaseDatetime);
  * = = = = = = = = = =/
@@ -64,16 +67,19 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** product_id: {int4(10)} */
+    /** PRODUCT_ID: {NotNull, INT(10), default=[0]} */
     protected Integer _productId;
 
-    /** product_name: {varchar(50)} */
+    /** PRODUCT_NAME: {NotNull, VARCHAR(50)} */
     protected String _productName;
 
-    /** product_status_code: {bpchar(3)} */
+    /** PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} */
+    protected String _productHandleCode;
+
+    /** PRODUCT_STATUS_CODE: {NotNull, CHAR(3)} */
     protected String _productStatusCode;
 
-    /** latest_purchase_datetime: {timestamp(29, 6)} */
+    /** LATEST_PURCHASE_DATETIME: {DATETIME(19)} */
     protected java.time.LocalDateTime _latestPurchaseDatetime;
 
     // ===================================================================================
@@ -116,6 +122,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
             BsSummaryProduct other = (BsSummaryProduct)obj;
             if (!xSV(_productId, other._productId)) { return false; }
             if (!xSV(_productName, other._productName)) { return false; }
+            if (!xSV(_productHandleCode, other._productHandleCode)) { return false; }
             if (!xSV(_productStatusCode, other._productStatusCode)) { return false; }
             if (!xSV(_latestPurchaseDatetime, other._latestPurchaseDatetime)) { return false; }
             return true;
@@ -130,6 +137,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
         hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         hs = xCH(hs, _productName);
+        hs = xCH(hs, _productHandleCode);
         hs = xCH(hs, _productStatusCode);
         hs = xCH(hs, _latestPurchaseDatetime);
         return hs;
@@ -145,6 +153,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_productId));
         sb.append(dm).append(xfND(_productName));
+        sb.append(dm).append(xfND(_productHandleCode));
         sb.append(dm).append(xfND(_productStatusCode));
         sb.append(dm).append(xfND(_latestPurchaseDatetime));
         if (sb.length() > dm.length()) {
@@ -168,8 +177,9 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] product_id: {int4(10)} <br>
-     * @return The value of the column 'product_id'. (NullAllowed even if selected: for no constraint)
+     * [get] PRODUCT_ID: {NotNull, INT(10), default=[0]} <br>
+     * 商品ID
+     * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
         checkSpecifiedProperty("productId");
@@ -177,8 +187,9 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] product_id: {int4(10)} <br>
-     * @param productId The value of the column 'product_id'. (NullAllowed: null update allowed for no constraint)
+     * [set] PRODUCT_ID: {NotNull, INT(10), default=[0]} <br>
+     * 商品ID
+     * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
         registerModifiedProperty("productId");
@@ -186,8 +197,9 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] product_name: {varchar(50)} <br>
-     * @return The value of the column 'product_name'. (NullAllowed even if selected: for no constraint)
+     * [get] PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
+     * 商品名称
+     * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
         checkSpecifiedProperty("productName");
@@ -195,8 +207,9 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] product_name: {varchar(50)} <br>
-     * @param productName The value of the column 'product_name'. (NullAllowed: null update allowed for no constraint)
+     * [set] PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
+     * 商品名称
+     * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
         registerModifiedProperty("productName");
@@ -204,8 +217,28 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] product_status_code: {bpchar(3)} <br>
-     * @return The value of the column 'product_status_code'. (NullAllowed even if selected: for no constraint)
+     * [get] PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * 商品ハンドルコード: 商品を識別する業務上のコード。
+     * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
+     */
+    public String getProductHandleCode() {
+        checkSpecifiedProperty("productHandleCode");
+        return _productHandleCode;
+    }
+
+    /**
+     * [set] PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * 商品ハンドルコード: 商品を識別する業務上のコード。
+     * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
+     */
+    public void setProductHandleCode(String productHandleCode) {
+        registerModifiedProperty("productHandleCode");
+        _productHandleCode = productHandleCode;
+    }
+
+    /**
+     * [get] PRODUCT_STATUS_CODE: {NotNull, CHAR(3)} <br>
+     * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
         checkSpecifiedProperty("productStatusCode");
@@ -213,8 +246,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] product_status_code: {bpchar(3)} <br>
-     * @param productStatusCode The value of the column 'product_status_code'. (NullAllowed: null update allowed for no constraint)
+     * [set] PRODUCT_STATUS_CODE: {NotNull, CHAR(3)} <br>
+     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
         registerModifiedProperty("productStatusCode");
@@ -222,8 +255,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] latest_purchase_datetime: {timestamp(29, 6)} <br>
-     * @return The value of the column 'latest_purchase_datetime'. (NullAllowed even if selected: for no constraint)
+     * [get] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
+     * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getLatestPurchaseDatetime() {
         checkSpecifiedProperty("latestPurchaseDatetime");
@@ -231,8 +264,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] latest_purchase_datetime: {timestamp(29, 6)} <br>
-     * @param latestPurchaseDatetime The value of the column 'latest_purchase_datetime'. (NullAllowed: null update allowed for no constraint)
+     * [set] LATEST_PURCHASE_DATETIME: {DATETIME(19)} <br>
+     * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLatestPurchaseDatetime(java.time.LocalDateTime latestPurchaseDatetime) {
         registerModifiedProperty("latestPurchaseDatetime");

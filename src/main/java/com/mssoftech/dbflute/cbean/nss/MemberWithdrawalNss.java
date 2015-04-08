@@ -20,7 +20,7 @@ public class MemberWithdrawalNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * member by my member_id, named 'member'.
+     * member by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -29,7 +29,7 @@ public class MemberWithdrawalNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * withdrawal_reason by my withdrawal_reason_code, named 'withdrawalReason'.
+     * withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
      */
     public void withWithdrawalReason() {
         _query.xdoNss(() -> _query.queryWithdrawalReason());

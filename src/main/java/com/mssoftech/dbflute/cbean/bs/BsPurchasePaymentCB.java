@@ -78,7 +78,7 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param purchasePaymentId : PK, ID, NotNull, bigserial(19). (NotNull)
+     * @param purchasePaymentId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return this. (NotNull)
      */
     public PurchasePaymentCB acceptPK(Long purchasePaymentId) {
@@ -242,7 +242,7 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * purchase by my purchase_id, named 'purchase'.
+     * purchase by my PURCHASE_ID, named 'purchase'.
      * <pre>
      * <span style="color: #0000C0">purchasePaymentBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Purchase()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -311,50 +311,50 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * purchase_payment_id: {PK, ID, NotNull, bigserial(19)}
+         * PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPurchasePaymentId() { return doColumn("purchase_payment_id"); }
+        public SpecifiedColumn columnPurchasePaymentId() { return doColumn("PURCHASE_PAYMENT_ID"); }
         /**
-         * purchase_id: {NotNull, int8(19), FK to purchase}
+         * PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to purchase}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPurchaseId() { return doColumn("purchase_id"); }
+        public SpecifiedColumn columnPurchaseId() { return doColumn("PURCHASE_ID"); }
         /**
-         * payment_amount: {NotNull, numeric(10, 2)}
+         * PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPaymentAmount() { return doColumn("payment_amount"); }
+        public SpecifiedColumn columnPaymentAmount() { return doColumn("PAYMENT_AMOUNT"); }
         /**
-         * payment_datetime: {IX+, NotNull, timestamp(26, 3)}
+         * PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPaymentDatetime() { return doColumn("payment_datetime"); }
+        public SpecifiedColumn columnPaymentDatetime() { return doColumn("PAYMENT_DATETIME"); }
         /**
-         * payment_method_code: {NotNull, bpchar(3)}
+         * PAYMENT_METHOD_CODE: {NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPaymentMethodCode() { return doColumn("payment_method_code"); }
+        public SpecifiedColumn columnPaymentMethodCode() { return doColumn("PAYMENT_METHOD_CODE"); }
         /**
-         * register_datetime: {NotNull, timestamp(26, 3)}
+         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * register_user: {NotNull, varchar(200)}
+         * REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * update_datetime: {NotNull, timestamp(26, 3)}
+         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * update_user: {NotNull, varchar(200)}
+         * UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -369,7 +369,7 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
         protected String getTableDbName() { return "purchase_payment"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * purchase by my purchase_id, named 'purchase'.
+         * purchase by my PURCHASE_ID, named 'purchase'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public PurchaseCB.HpSpecification specifyPurchase() {

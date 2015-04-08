@@ -137,7 +137,7 @@ map:{
     #  It's also for DBFlute library project when you use ApplicationOutsideSql.
     #
     #; sqlDirectory = ../src/main/resources
-    ; sqlDirectory =  ..\..\..\..\go\src\dbflute\adf\bhv\sql
+    ; sqlDirectory =  ..\src\dbflute\adf\bhv\sql
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -23,10 +23,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of product_category as TABLE. <br>
  * <pre>
  * [primary key]
- *     product_category_code
+ *     PRODUCT_CATEGORY_CODE
  *
  * [column]
- *     product_category_code, product_category_name, parent_category_code
+ *     PRODUCT_CATEGORY_CODE, PRODUCT_CATEGORY_NAME, PARENT_CATEGORY_CODE
  *
  * [sequence]
  *     
@@ -157,7 +157,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
 
     /**
      * Select the entity by the primary-key value.
-     * @param productCategoryCode : PK, NotNull, bpchar(3). (NotNull)
+     * @param productCategoryCode : PK, NotNull, CHAR(3). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -361,7 +361,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * product by product_category_code, named 'productList'.
+     * product by PRODUCT_CATEGORY_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
@@ -392,7 +392,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * product by product_category_code, named 'productList'.
+     * product by PRODUCT_CATEGORY_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
@@ -425,7 +425,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
 
     /**
      * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
-     * product_category by parent_category_code, named 'productCategorySelfList'.
+     * product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelf</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryCB</span>.setupSelect...
@@ -456,7 +456,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
 
     /**
      * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
-     * product_category by parent_category_code, named 'productCategorySelfList'.
+     * product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelf</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryCB</span>.setupSelect...

@@ -46,21 +46,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("region", "com.mssoftech.dbflute.bsentity.dbmeta.RegionDbm");
         tmpMap.put("service_rank", "com.mssoftech.dbflute.bsentity.dbmeta.ServiceRankDbm");
         tmpMap.put("summary_product", "com.mssoftech.dbflute.bsentity.dbmeta.SummaryProductDbm");
-        tmpMap.put("vendor_date_fk", "com.mssoftech.dbflute.bsentity.dbmeta.VendorDateFkDbm");
-        tmpMap.put("vendor_date_pk", "com.mssoftech.dbflute.bsentity.dbmeta.VendorDatePkDbm");
-        tmpMap.put("vendor_inherit_inu", "com.mssoftech.dbflute.bsentity.dbmeta.VendorInheritInuDbm");
-        tmpMap.put("vendor_inherit_neko", "com.mssoftech.dbflute.bsentity.dbmeta.VendorInheritNekoDbm");
-        tmpMap.put("vendor_large_data", "com.mssoftech.dbflute.bsentity.dbmeta.VendorLargeDataDbm");
-        tmpMap.put("vendor_large_data_ref", "com.mssoftech.dbflute.bsentity.dbmeta.VendorLargeDataRefDbm");
-        tmpMap.put("vendor_part_man", "com.mssoftech.dbflute.bsentity.dbmeta.VendorPartManDbm");
-        tmpMap.put("vendor_part_man_high", "com.mssoftech.dbflute.bsentity.dbmeta.VendorPartManHighDbm");
-        tmpMap.put("white_compound_pk", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteCompoundPkDbm");
-        tmpMap.put("white_compound_pk_ref", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteCompoundPkRefDbm");
-        tmpMap.put("white_compound_pk_wrong_order", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteCompoundPkWrongOrderDbm");
-        tmpMap.put("white_not_pk", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteNotPkDbm");
-        tmpMap.put("white_same_name", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteSameNameDbm");
-        tmpMap.put("white_same_name_ref", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteSameNameRefDbm");
-        tmpMap.put("white_xls_man", "com.mssoftech.dbflute.bsentity.dbmeta.WhiteXlsManDbm");
+        tmpMap.put("summary_withdrawal", "com.mssoftech.dbflute.bsentity.dbmeta.SummaryWithdrawalDbm");
         tmpMap.put("withdrawal_reason", "com.mssoftech.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }

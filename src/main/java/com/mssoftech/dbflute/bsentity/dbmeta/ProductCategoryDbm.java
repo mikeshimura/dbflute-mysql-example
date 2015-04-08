@@ -78,25 +78,25 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductCategoryCode = cci("product_category_code", "product_category_code", null, null, String.class, "productCategoryCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "productList,productCategorySelfList", null, false);
+    protected final ColumnInfo _columnProductCategoryCode = cci("PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", null, null, String.class, "productCategoryCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "productList,productCategorySelfList", null, false);
 //"string"
-    protected final ColumnInfo _columnProductCategoryName = cci("product_category_name", "product_category_name", null, null, String.class, "productCategoryName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductCategoryName = cci("PRODUCT_CATEGORY_NAME", "PRODUCT_CATEGORY_NAME", null, null, String.class, "productCategoryName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
 //"string"
-    protected final ColumnInfo _columnParentCategoryCode = cci("parent_category_code", "parent_category_code", null, null, String.class, "parentCategoryCode", null, false, false, false, "bpchar", 3, 0, null, false, null, null, "productCategorySelf", null, null, false);
-//"sql.NullString"
+    protected final ColumnInfo _columnParentCategoryCode = cci("PARENT_CATEGORY_CODE", "PARENT_CATEGORY_CODE", null, null, String.class, "parentCategoryCode", null, false, false, false, "CHAR", 3, 0, null, false, null, null, "productCategorySelf", null, null, false);
+//"df.NullString"
 
     /**
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductCategoryCode() { return _columnProductCategoryCode; }
     /**
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductCategoryName() { return _columnProductCategoryName; }
     /**
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnParentCategoryCode() { return _columnParentCategoryCode; }
@@ -130,32 +130,32 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * product_category by my parent_category_code, named 'productCategorySelf'.
+     * product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProductCategorySelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnParentCategoryCode(), ProductCategoryDbm.getInstance().columnProductCategoryCode());
-        return cfi("fk_product_category_parent", "productCategorySelf", this, ProductCategoryDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "productCategorySelfList", false);
+        return cfi("FK_PRODUCT_CATEGORY_PARENT", "productCategorySelf", this, ProductCategoryDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "productCategorySelfList", false);
     }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * product by product_category_code, named 'productList'.
+     * product by PRODUCT_CATEGORY_CODE, named 'productList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductCategoryCode(), ProductDbm.getInstance().columnProductCategoryCode());
-        return cri("fk_product_product_category", "productList", this, ProductDbm.getInstance(), mp, false, "productCategory");
+        return cri("FK_PRODUCT_PRODUCT_CATEGORY", "productList", this, ProductDbm.getInstance(), mp, false, "productCategory");
     }
     /**
-     * product_category by parent_category_code, named 'productCategorySelfList'.
+     * product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductCategorySelfList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductCategoryCode(), ProductCategoryDbm.getInstance().columnParentCategoryCode());
-        return cri("fk_product_category_parent", "productCategorySelfList", this, ProductCategoryDbm.getInstance(), mp, false, "productCategorySelf");
+        return cri("FK_PRODUCT_CATEGORY_PARENT", "productCategorySelfList", this, ProductCategoryDbm.getInstance(), mp, false, "productCategorySelf");
     }
 
     // ===================================================================================

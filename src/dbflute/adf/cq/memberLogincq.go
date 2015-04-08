@@ -152,28 +152,28 @@ func (q *MemberLoginCQ) getCValueLoginDatetime() *df.ConditionValue {
 
 
 
-func (q *MemberLoginCQ) SetLoginDatetime_Equal(value df.Timestamp) *MemberLoginCQ {
+func (q *MemberLoginCQ) SetLoginDatetime_Equal(value df.MysqlTimestamp) *MemberLoginCQ {
 	q.regLoginDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *MemberLoginCQ) SetLoginDatetime_GreaterThan(value df.Timestamp) *MemberLoginCQ {
+func (q *MemberLoginCQ) SetLoginDatetime_GreaterThan(value df.MysqlTimestamp) *MemberLoginCQ {
 	q.regLoginDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *MemberLoginCQ) SetLoginDatetime_LessThan(value df.Timestamp) *MemberLoginCQ {
+func (q *MemberLoginCQ) SetLoginDatetime_LessThan(value df.MysqlTimestamp) *MemberLoginCQ {
 	q.regLoginDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *MemberLoginCQ) SetLoginDatetime_GreaterEqual(value df.Timestamp) *MemberLoginCQ {
+func (q *MemberLoginCQ) SetLoginDatetime_GreaterEqual(value df.MysqlTimestamp) *MemberLoginCQ {
 	q.regLoginDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *MemberLoginCQ) SetLoginDatetime_LessEqual(value df.Timestamp) *MemberLoginCQ {
+func (q *MemberLoginCQ) SetLoginDatetime_LessEqual(value df.MysqlTimestamp) *MemberLoginCQ {
 	q.regLoginDatetime(df.CK_LE_C, value)
 	return q
 }

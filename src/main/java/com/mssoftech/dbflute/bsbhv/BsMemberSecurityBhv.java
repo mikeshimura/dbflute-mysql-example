@@ -23,10 +23,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of member_security as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_id
+ *     MEMBER_ID
  *
  * [column]
- *     member_id, login_password, reminder_question, reminder_answer, reminder_use_count, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
  *     
@@ -35,7 +35,7 @@ import com.mssoftech.dbflute.cbean.*;
  *     
  *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member
@@ -157,7 +157,7 @@ public abstract class BsMemberSecurityBhv extends AbstractBehaviorWritable<Membe
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberId : PK, NotNull, int4(10), FK to member. (NotNull)
+     * @param memberId : PK, NotNull, INT(10), FK to member. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.

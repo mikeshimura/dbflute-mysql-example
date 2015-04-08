@@ -8,7 +8,7 @@ import (
 	"dbflute/adf/entity"
 	"dbflute/adf/pmb"
 	"fmt"
-	_ "github.com/lib/pq"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/mikeshimura/dbflute/df"
 	"github.com/mikeshimura/dbflute/log"
 	"testing"
@@ -18,8 +18,7 @@ import (
 func TestSelect(t *testing.T) {
 	var Db *sql.DB
 	var err error
-	Db, err = sql.Open("postgres", "user=exampledb password=exampledb dbname=exampledb sslmode=disable")
-
+	Db, err = sql.Open("mysql", "exampledb:exampledb@/exampledb")
 	if err != nil {
 		log.ErrorConv("factory", err.Error())
 
@@ -43,8 +42,7 @@ func TestSelect(t *testing.T) {
 func TestSelect2(t *testing.T) {
 	var Db *sql.DB
 	var err error
-	Db, err = sql.Open("postgres", "user=exampledb password=exampledb dbname=exampledb sslmode=disable")
-
+	Db, err = sql.Open("mysql", "exampledb:exampledb@/exampledb")
 	if err != nil {
 		log.ErrorConv("factory", err.Error())
 		return
@@ -68,8 +66,7 @@ func TestSelect2(t *testing.T) {
 func TestInsert(t *testing.T) {
 	var Db *sql.DB
 	var err error
-	Db, err = sql.Open("postgres", "user=exampledb password=exampledb dbname=exampledb sslmode=disable")
-
+	Db, err = sql.Open("mysql", "exampledb:exampledb@/exampledb")
 	if err != nil {
 		log.ErrorConv("factory", err.Error())
 	}
@@ -78,11 +75,9 @@ func TestInsert(t *testing.T) {
 	member.SetMemberName("testName")
 	member.SetMemberAccount("testAccount")
 	member.SetMemberStatusCode("FML")
-	member.SetRegisterDatetime(df.CreateTimestamp(time.Now()))
-	member.SetUpdateDatetime(df.CreateTimestamp(time.Now()))
+	member.SetRegisterDatetime(df.CreateMysqlTimestamp(time.Now()))
+	member.SetUpdateDatetime(df.CreateMysqlTimestamp(time.Now()))
 	member.SetRegisterUser("TEST")
-	member.SetRegisterProcess("TEST")
-	member.SetUpdateProcess("TEST")
 	member.SetUpdateUser("TEST")
 	_, err1 := bhv.MemberBhv_I.Insert(member, tx)
 	if err1!=nil{
@@ -107,15 +102,14 @@ func TestInsert(t *testing.T) {
 func TestOutsideSelect(t *testing.T) {
 	var Db *sql.DB
 	var err error
-	Db, err = sql.Open("postgres", "user=exampledb password=exampledb dbname=exampledb sslmode=disable")
-
+	Db, err = sql.Open("mysql", "exampledb:exampledb@/exampledb")
 	if err != nil {
 		log.ErrorConv("factory", err.Error())
 		return
 	}
 	tx, _ := Db.Begin()
 	pmb := new(pmb.C_SelectMemberPmb)
-	pmb.SetName(*new(sql.NullString))
+	pmb.SetName(*new(df.NullString))
 	l, err1 := pmb.SelectList(tx)
 	if err1!=nil{
 		log.ErrorConv("test",err1.Error())
@@ -129,17 +123,17 @@ func TestOutsideSelect(t *testing.T) {
 }
 
 func TestOutsideUpdate(t *testing.T) {
+	log.InternalDebugFlag=true
 	var Db *sql.DB
 	var err error
-	Db, err = sql.Open("postgres", "user=exampledb password=exampledb dbname=exampledb sslmode=disable")
-
+	Db, err = sql.Open("mysql", "exampledb:exampledb@/exampledb")
 	if err != nil {
 		log.ErrorConv("factory", err.Error())
 		return
 	}
 	tx, _ := Db.Begin()
 	pmb := new(pmb.C_UpdateMemberPmb)
-	pmb.SetName(df.CreateNullString("Mijatovic"))
+	pmb.SetName(df.CreateNullString("Mihajlovic"))
 	l, err1 := pmb.Execute(tx)
 	if err1!=nil{
 		log.ErrorConv("test",err1.Error())

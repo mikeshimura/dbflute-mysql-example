@@ -64,18 +64,18 @@ public class RegionDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, null, Integer.class, "regionId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "memberAddressList", null, false);
+    protected final ColumnInfo _columnRegionId = cci("REGION_ID", "REGION_ID", null, null, Integer.class, "regionId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "memberAddressList", null, false);
 //"int64"
-    protected final ColumnInfo _columnRegionName = cci("region_name", "region_name", null, null, String.class, "regionName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegionName = cci("REGION_NAME", "REGION_NAME", null, null, String.class, "regionName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
 //"string"
 
     /**
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegionId() { return _columnRegionId; }
     /**
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegionName() { return _columnRegionName; }
@@ -112,12 +112,12 @@ public class RegionDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * member_address by region_id, named 'memberAddressList'.
+     * member_address by REGION_ID, named 'memberAddressList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberAddressList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnRegionId(), MemberAddressDbm.getInstance().columnRegionId());
-        return cri("fk_member_address_region", "memberAddressList", this, MemberAddressDbm.getInstance(), mp, false, "region");
+        return cri("FK_MEMBER_ADDRESS_REGION", "memberAddressList", this, MemberAddressDbm.getInstance(), mp, false, "region");
     }
 
     // ===================================================================================

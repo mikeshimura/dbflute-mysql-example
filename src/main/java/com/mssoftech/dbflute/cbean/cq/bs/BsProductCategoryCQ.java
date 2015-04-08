@@ -109,17 +109,17 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("product_category_code"); return this; }
+    public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("PRODUCT_CATEGORY_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("product_category_code"); return this; }
+    public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("PRODUCT_CATEGORY_CODE"); return this; }
 
     protected ConditionValue _productCategoryName;
     public ConditionValue xdfgetProductCategoryName()
@@ -129,17 +129,17 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsProductCategoryCQ addOrderBy_ProductCategoryName_Asc() { regOBA("product_category_name"); return this; }
+    public BsProductCategoryCQ addOrderBy_ProductCategoryName_Asc() { regOBA("PRODUCT_CATEGORY_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsProductCategoryCQ addOrderBy_ProductCategoryName_Desc() { regOBD("product_category_name"); return this; }
+    public BsProductCategoryCQ addOrderBy_ProductCategoryName_Desc() { regOBD("PRODUCT_CATEGORY_NAME"); return this; }
 
     protected ConditionValue _parentCategoryCode;
     public ConditionValue xdfgetParentCategoryCode()
@@ -149,17 +149,17 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @return this. (NotNull)
      */
-    public BsProductCategoryCQ addOrderBy_ParentCategoryCode_Asc() { regOBA("parent_category_code"); return this; }
+    public BsProductCategoryCQ addOrderBy_ParentCategoryCode_Asc() { regOBA("PARENT_CATEGORY_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @return this. (NotNull)
      */
-    public BsProductCategoryCQ addOrderBy_ParentCategoryCode_Desc() { regOBD("parent_category_code"); return this; }
+    public BsProductCategoryCQ addOrderBy_ParentCategoryCode_Desc() { regOBD("PARENT_CATEGORY_CODE"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -212,7 +212,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * product_category by my parent_category_code, named 'productCategorySelf'.
+     * product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCategoryCQ queryProductCategorySelf() {

@@ -10,19 +10,19 @@ import com.mssoftech.dbflute.exentity.*;
  * The referrer loader of member_service as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_service_id
+ *     MEMBER_SERVICE_ID
  *
  * [column]
- *     member_service_id, member_id, service_point_count, service_rank_code, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     member_service_member_service_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     MEMBER_SERVICE_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member, service_rank

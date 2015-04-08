@@ -10,19 +10,19 @@ import com.mssoftech.dbflute.exentity.*;
  * The referrer loader of member_address as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_address_id
+ *     MEMBER_ADDRESS_ID
  *
  * [column]
- *     member_address_id, member_id, valid_begin_date, valid_end_date, address, region_id, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     member_address_member_address_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     MEMBER_ADDRESS_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member, region

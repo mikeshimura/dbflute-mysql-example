@@ -8,6 +8,7 @@ type SummaryProductCQ struct {
 	BaseConditionQuery *df.BaseConditionQuery
 	ProductId *df.ConditionValue
 	ProductName *df.ConditionValue
+	ProductHandleCode *df.ConditionValue
 	ProductStatusCode *df.ConditionValue
 	LatestPurchaseDatetime *df.ConditionValue
 }
@@ -60,14 +61,6 @@ func (q *SummaryProductCQ) SetProductId_RangeOf(minNumber int64, maxNumber int64
 }	
 
 
-func (q *SummaryProductCQ) SetProductId_IsNull() *SummaryProductCQ {
-	q.regProductId(df.CK_ISN_C, 0)
-	return q
-}
-func (q *SummaryProductCQ) SetProductId_IsNotNull() *SummaryProductCQ {
-	q.regProductId(df.CK_ISNN_C, 0)
-	return q
-}
 func (q *SummaryProductCQ) AddOrderBy_ProductId_Asc() *SummaryProductCQ {
 	q.BaseConditionQuery.RegOBA("productId")
 	return q
@@ -134,18 +127,6 @@ func (q *SummaryProductCQ) SetProductName_NotLikeSearch(value string, option *df
 
 
 
-func (q *SummaryProductCQ) SetProductName_IsNull() *SummaryProductCQ {
-	q.regProductName(df.CK_ISN_C, 0)
-	return q
-}
-func (q *SummaryProductCQ) SetProductName_IsNullOrEmpty() *SummaryProductCQ {
-	q.regProductName(df.CK_ISNOE_C, 0)
-	return q
-}
-func (q *SummaryProductCQ) SetProductName_IsNotNull() *SummaryProductCQ {
-	q.regProductName(df.CK_ISNN_C, 0)
-	return q
-}
 func (q *SummaryProductCQ) AddOrderBy_ProductName_Asc() *SummaryProductCQ {
 	q.BaseConditionQuery.RegOBA("productName")
 	return q
@@ -159,6 +140,72 @@ func (q *SummaryProductCQ) regProductName(key *df.ConditionKey, value interface{
 		q.ProductName = new(df.ConditionValue)
 	}
 	q.BaseConditionQuery.RegQ(key, value, q.ProductName, "productName")
+}
+
+func (q *SummaryProductCQ) getCValueProductHandleCode() *df.ConditionValue {
+	if q.ProductHandleCode == nil {
+		q.ProductHandleCode = new(df.ConditionValue)
+	}
+	return q.ProductHandleCode
+}
+
+
+func (q *SummaryProductCQ) SetProductHandleCode_Equal(value string) *SummaryProductCQ {
+	q.regProductHandleCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
+	return q
+}
+
+func (q *SummaryProductCQ) SetProductHandleCode_NotEqual(value string) *SummaryProductCQ {
+	q.regProductHandleCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+
+func (q *SummaryProductCQ) SetProductHandleCode_GreaterThan(value string) *SummaryProductCQ {
+	q.regProductHandleCode(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+
+func (q *SummaryProductCQ) SetProductHandleCode_LessThan(value string) *SummaryProductCQ {
+	q.regProductHandleCode(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+
+func (q *SummaryProductCQ) SetProductHandleCode_GreaterEqualThan(value string) *SummaryProductCQ {
+	q.regProductHandleCode(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+func (q *SummaryProductCQ) SetProductHandleCode_LessEqualThan(value string) *SummaryProductCQ {
+	q.regProductHandleCode(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+
+func (q *SummaryProductCQ) SetProductHandleCode_LikeSearch(value string, option *df.LikeSearchOption) error {
+	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueProductHandleCode(), "productHandleCode", option)
+}
+
+func (q *SummaryProductCQ) SetProductHandleCode_PrefixSearch(value string) error {
+	return q.SetProductHandleCode_LikeSearch(value, q.BaseConditionQuery.CLSOP())
+}
+
+func (q *SummaryProductCQ) SetProductHandleCode_NotLikeSearch(value string, option *df.LikeSearchOption) error {
+	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueProductHandleCode(), "productHandleCode", option)
+}
+
+
+
+func (q *SummaryProductCQ) AddOrderBy_ProductHandleCode_Asc() *SummaryProductCQ {
+	q.BaseConditionQuery.RegOBA("productHandleCode")
+	return q
+}
+func (q *SummaryProductCQ) AddOrderBy_ProductHandleCode_Desc() *SummaryProductCQ {
+	q.BaseConditionQuery.RegOBD("productHandleCode")
+	return q
+}
+func (q *SummaryProductCQ) regProductHandleCode(key *df.ConditionKey, value interface{}) {
+	if q.ProductHandleCode == nil {
+		q.ProductHandleCode = new(df.ConditionValue)
+	}
+	q.BaseConditionQuery.RegQ(key, value, q.ProductHandleCode, "productHandleCode")
 }
 
 func (q *SummaryProductCQ) getCValueProductStatusCode() *df.ConditionValue {
@@ -212,18 +259,6 @@ func (q *SummaryProductCQ) SetProductStatusCode_NotLikeSearch(value string, opti
 
 
 
-func (q *SummaryProductCQ) SetProductStatusCode_IsNull() *SummaryProductCQ {
-	q.regProductStatusCode(df.CK_ISN_C, 0)
-	return q
-}
-func (q *SummaryProductCQ) SetProductStatusCode_IsNullOrEmpty() *SummaryProductCQ {
-	q.regProductStatusCode(df.CK_ISNOE_C, 0)
-	return q
-}
-func (q *SummaryProductCQ) SetProductStatusCode_IsNotNull() *SummaryProductCQ {
-	q.regProductStatusCode(df.CK_ISNN_C, 0)
-	return q
-}
 func (q *SummaryProductCQ) AddOrderBy_ProductStatusCode_Asc() *SummaryProductCQ {
 	q.BaseConditionQuery.RegOBA("productStatusCode")
 	return q
@@ -249,28 +284,28 @@ func (q *SummaryProductCQ) getCValueLatestPurchaseDatetime() *df.ConditionValue 
 
 
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_Equal(value df.Timestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_Equal(value df.MysqlTimestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterThan(value df.Timestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterThan(value df.MysqlTimestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessThan(value df.Timestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessThan(value df.MysqlTimestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterEqual(value df.Timestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_GreaterEqual(value df.MysqlTimestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessEqual(value df.Timestamp) *SummaryProductCQ {
+func (q *SummaryProductCQ) SetLatestPurchaseDatetime_LessEqual(value df.MysqlTimestamp) *SummaryProductCQ {
 	q.regLatestPurchaseDatetime(df.CK_LE_C, value)
 	return q
 }

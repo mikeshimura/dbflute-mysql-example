@@ -23,19 +23,19 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of purchase as TABLE. <br>
  * <pre>
  * [primary key]
- *     purchase_id
+ *     PURCHASE_ID
  *
  * [column]
- *     purchase_id, member_id, product_id, purchase_datetime, purchase_count, purchase_price, payment_complete_flg, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
+ *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     purchase_purchase_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     PURCHASE_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member, product
@@ -157,7 +157,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Select the entity by the primary-key value.
-     * @param purchaseId : PK, ID, NotNull, bigserial(19). (NotNull)
+     * @param purchaseId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,9 +186,9 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Select the entity by the unique-key value.
-     * @param memberId : UQ+, NotNull, int4(10), FK to member. (NotNull)
-     * @param productId : +UQ, IX+, NotNull, int4(10), FK to product. (NotNull)
-     * @param purchaseDatetime : +UQ, IX+, NotNull, timestamp(26, 3). (NotNull)
+     * @param memberId : UQ+, IX+, NotNull, INT(10), FK to member. (NotNull)
+     * @param productId : +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
+     * @param purchaseDatetime : +UQ, IX+, NotNull, DATETIME(19). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -307,27 +307,10 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     // ===================================================================================
     //                                                                            Sequence
     //                                                                            ========
-    /**
-     * Select the next value as sequence. <br>
-     * This method is called when insert() and set to primary-key automatically.
-     * So you don't need to call this as long as you need to get next value before insert().
-     * @return The next value. (NotNull)
-     */
-    public Long selectNextVal() {
-        return facadeSelectNextVal();
-    }
-
-    protected Long facadeSelectNextVal() {
-        return doSelectNextVal(Long.class);
-    }
-
-    protected <RESULT> RESULT doSelectNextVal(Class<RESULT> tp) {
-        return delegateSelectNextVal(tp);
-    }
-
     @Override
     protected Number doReadNextVal() {
-        return facadeSelectNextVal();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
+        throw new UnsupportedOperationException(msg);
     }
 
     // ===================================================================================
@@ -405,7 +388,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * purchase_payment by purchase_id, named 'purchasePaymentList'.
+     * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
@@ -436,7 +419,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * purchase_payment by purchase_id, named 'purchasePaymentList'.
+     * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...

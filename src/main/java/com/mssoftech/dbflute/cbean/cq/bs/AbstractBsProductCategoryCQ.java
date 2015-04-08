@@ -45,7 +45,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     //                                                                               =====
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_Equal(String productCategoryCode) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_NotEqual(String productCategoryCode) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_GreaterThan(String productCategoryCode) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_LessThan(String productCategoryCode) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_GreaterEqual(String productCategoryCode) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_LessEqual(String productCategoryCode) {
@@ -107,7 +107,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCodeList The collection of productCategoryCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
@@ -115,12 +115,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
-        regINS(CK_INS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "product_category_code");
+        regINS(CK_INS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCodeList The collection of productCategoryCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
@@ -128,12 +128,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
-        regINS(CK_NINS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "product_category_code");
+        regINS(CK_NINS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)} <br>
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productCategoryCode The value of productCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -144,19 +144,19 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)} <br>
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productCategoryCode The value of productCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setProductCategoryCode_LikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "product_category_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -167,18 +167,18 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setProductCategoryCode_NotLikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "product_category_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select product_category_code from product where ...)} <br>
-     * product by product_category_code, named 'productAsOne'.
+     * {exists (select PRODUCT_CATEGORY_CODE from product where ...)} <br>
+     * product by PRODUCT_CATEGORY_CODE, named 'productAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
@@ -190,14 +190,14 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCB cb = new ProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_ExistsReferrer_ProductList(cb.query());
-        registerExistsReferrer(cb.query(), "product_category_code", "product_category_code", pp, "productList");
+        registerExistsReferrer(cb.query(), "PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", pp, "productList");
     }
     public abstract String keepProductCategoryCode_ExistsReferrer_ProductList(ProductCQ sq);
 
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select parent_category_code from product_category where ...)} <br>
-     * product_category by parent_category_code, named 'productCategorySelfAsOne'.
+     * {exists (select PARENT_CATEGORY_CODE from product_category where ...)} <br>
+     * product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsProductCategorySelf</span>(categoryCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     categoryCB.query().set...
@@ -209,14 +209,14 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_ExistsReferrer_ProductCategorySelfList(cb.query());
-        registerExistsReferrer(cb.query(), "product_category_code", "parent_category_code", pp, "productCategorySelfList");
+        registerExistsReferrer(cb.query(), "PRODUCT_CATEGORY_CODE", "PARENT_CATEGORY_CODE", pp, "productCategorySelfList");
     }
     public abstract String keepProductCategoryCode_ExistsReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
 
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select product_category_code from product where ...)} <br>
-     * product by product_category_code, named 'productAsOne'.
+     * {not exists (select PRODUCT_CATEGORY_CODE from product where ...)} <br>
+     * product by PRODUCT_CATEGORY_CODE, named 'productAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
@@ -228,14 +228,14 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCB cb = new ProductCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_NotExistsReferrer_ProductList(cb.query());
-        registerNotExistsReferrer(cb.query(), "product_category_code", "product_category_code", pp, "productList");
+        registerNotExistsReferrer(cb.query(), "PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", pp, "productList");
     }
     public abstract String keepProductCategoryCode_NotExistsReferrer_ProductList(ProductCQ sq);
 
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select parent_category_code from product_category where ...)} <br>
-     * product_category by parent_category_code, named 'productCategorySelfAsOne'.
+     * {not exists (select PARENT_CATEGORY_CODE from product_category where ...)} <br>
+     * product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsProductCategorySelf</span>(categoryCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     categoryCB.query().set...
@@ -247,7 +247,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_NotExistsReferrer_ProductCategorySelfList(cb.query());
-        registerNotExistsReferrer(cb.query(), "product_category_code", "parent_category_code", pp, "productCategorySelfList");
+        registerNotExistsReferrer(cb.query(), "PRODUCT_CATEGORY_CODE", "PARENT_CATEGORY_CODE", pp, "productCategorySelfList");
     }
     public abstract String keepProductCategoryCode_NotExistsReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
 
@@ -255,7 +255,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subQuery", sq);
         ProductCB cb = new ProductCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String pp = keepProductCategoryCode_SpecifyDerivedReferrer_ProductList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "product_category_code", "product_category_code", pp, "productList", al, op);
+        registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", pp, "productList", al, op);
     }
     public abstract String keepProductCategoryCode_SpecifyDerivedReferrer_ProductList(ProductCQ sq);
 
@@ -263,14 +263,14 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String pp = keepProductCategoryCode_SpecifyDerivedReferrer_ProductCategorySelfList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "product_category_code", "parent_category_code", pp, "productCategorySelfList", al, op);
+        registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_CATEGORY_CODE", "PARENT_CATEGORY_CODE", pp, "productCategorySelfList", al, op);
     }
     public abstract String keepProductCategoryCode_SpecifyDerivedReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
 
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from product where ...)} <br>
-     * product by product_category_code, named 'productAsOne'.
+     * product by PRODUCT_CATEGORY_CODE, named 'productAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedProduct()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -289,7 +289,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subQuery", sq);
         ProductCB cb = new ProductCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String sqpp = keepProductCategoryCode_QueryDerivedReferrer_ProductList(cb.query()); String prpp = keepProductCategoryCode_QueryDerivedReferrer_ProductListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "product_category_code", "product_category_code", sqpp, "productList", rd, vl, prpp, op);
+        registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", sqpp, "productList", rd, vl, prpp, op);
     }
     public abstract String keepProductCategoryCode_QueryDerivedReferrer_ProductList(ProductCQ sq);
     public abstract String keepProductCategoryCode_QueryDerivedReferrer_ProductListParameter(Object vl);
@@ -297,7 +297,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from product_category where ...)} <br>
-     * product_category by parent_category_code, named 'productCategorySelfAsOne'.
+     * product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedProductCategorySelf()</span>.<span style="color: #CC4747">max</span>(categoryCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     categoryCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -316,29 +316,29 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String sqpp = keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfList(cb.query()); String prpp = keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "product_category_code", "parent_category_code", sqpp, "productCategorySelfList", rd, vl, prpp, op);
+        registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_CATEGORY_CODE", "PARENT_CATEGORY_CODE", sqpp, "productCategorySelfList", rd, vl, prpp, op);
     }
     public abstract String keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
     public abstract String keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(Object vl);
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setProductCategoryCode_IsNull() { regProductCategoryCode(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * product_category_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setProductCategoryCode_IsNotNull() { regProductCategoryCode(CK_ISNN, DOBJ); }
 
-    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryCode(), "product_category_code"); }
+    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryCode(), "PRODUCT_CATEGORY_CODE"); }
     protected abstract ConditionValue xgetCValueProductCategoryCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_Equal(String productCategoryName) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_NotEqual(String productCategoryName) {
@@ -364,7 +364,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_GreaterThan(String productCategoryName) {
@@ -373,7 +373,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_LessThan(String productCategoryName) {
@@ -382,7 +382,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_GreaterEqual(String productCategoryName) {
@@ -391,7 +391,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_LessEqual(String productCategoryName) {
@@ -400,7 +400,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryNameList The collection of productCategoryName as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_InScope(Collection<String> productCategoryNameList) {
@@ -408,12 +408,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetProductCategoryName_InScope(Collection<String> productCategoryNameList) {
-        regINS(CK_INS, cTL(productCategoryNameList), xgetCValueProductCategoryName(), "product_category_name");
+        regINS(CK_INS, cTL(productCategoryNameList), xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryNameList The collection of productCategoryName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductCategoryName_NotInScope(Collection<String> productCategoryNameList) {
@@ -421,12 +421,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetProductCategoryName_NotInScope(Collection<String> productCategoryNameList) {
-        regINS(CK_NINS, cTL(productCategoryNameList), xgetCValueProductCategoryName(), "product_category_name");
+        regINS(CK_NINS, cTL(productCategoryNameList), xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)} <br>
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductCategoryName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productCategoryName The value of productCategoryName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -437,19 +437,19 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)} <br>
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductCategoryName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productCategoryName The value of productCategoryName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setProductCategoryName_LikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productCategoryName), xgetCValueProductCategoryName(), "product_category_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(productCategoryName), xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -460,20 +460,20 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_category_name: {NotNull, varchar(50)}
+     * PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)}
      * @param productCategoryName The value of productCategoryName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setProductCategoryName_NotLikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productCategoryName), xgetCValueProductCategoryName(), "product_category_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productCategoryName), xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME", likeSearchOption);
     }
 
-    protected void regProductCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryName(), "product_category_name"); }
+    protected void regProductCategoryName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryName(), "PRODUCT_CATEGORY_NAME"); }
     protected abstract ConditionValue xgetCValueProductCategoryName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_Equal(String parentCategoryCode) {
@@ -486,7 +486,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_NotEqual(String parentCategoryCode) {
@@ -499,7 +499,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_GreaterThan(String parentCategoryCode) {
@@ -508,7 +508,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_LessThan(String parentCategoryCode) {
@@ -517,7 +517,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_GreaterEqual(String parentCategoryCode) {
@@ -526,7 +526,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_LessEqual(String parentCategoryCode) {
@@ -535,7 +535,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCodeList The collection of parentCategoryCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_InScope(Collection<String> parentCategoryCodeList) {
@@ -543,12 +543,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetParentCategoryCode_InScope(Collection<String> parentCategoryCodeList) {
-        regINS(CK_INS, cTL(parentCategoryCodeList), xgetCValueParentCategoryCode(), "parent_category_code");
+        regINS(CK_INS, cTL(parentCategoryCodeList), xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCodeList The collection of parentCategoryCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setParentCategoryCode_NotInScope(Collection<String> parentCategoryCodeList) {
@@ -556,12 +556,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     }
 
     protected void doSetParentCategoryCode_NotInScope(Collection<String> parentCategoryCodeList) {
-        regINS(CK_NINS, cTL(parentCategoryCodeList), xgetCValueParentCategoryCode(), "parent_category_code");
+        regINS(CK_NINS, cTL(parentCategoryCodeList), xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category} <br>
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category} <br>
      * <pre>e.g. setParentCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param parentCategoryCode The value of parentCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -572,19 +572,19 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category} <br>
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category} <br>
      * <pre>e.g. setParentCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param parentCategoryCode The value of parentCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setParentCategoryCode_LikeSearch(String parentCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(parentCategoryCode), xgetCValueParentCategoryCode(), "parent_category_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(parentCategoryCode), xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -595,33 +595,33 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      * @param parentCategoryCode The value of parentCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setParentCategoryCode_NotLikeSearch(String parentCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(parentCategoryCode), xgetCValueParentCategoryCode(), "parent_category_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(parentCategoryCode), xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE", likeSearchOption);
     }
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      */
     public void setParentCategoryCode_IsNull() { regParentCategoryCode(CK_ISN, DOBJ); }
 
     /**
      * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      */
     public void setParentCategoryCode_IsNullOrEmpty() { regParentCategoryCode(CK_ISNOE, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * parent_category_code: {bpchar(3), FK to product_category}
+     * PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to product_category}
      */
     public void setParentCategoryCode_IsNotNull() { regParentCategoryCode(CK_ISNN, DOBJ); }
 
-    protected void regParentCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueParentCategoryCode(), "parent_category_code"); }
+    protected void regParentCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueParentCategoryCode(), "PARENT_CATEGORY_CODE"); }
     protected abstract ConditionValue xgetCValueParentCategoryCode();
 
     // ===================================================================================
@@ -753,7 +753,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void xsmyselfDerive(String fn, SubQuery<ProductCategoryCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "product_category_code";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "PRODUCT_CATEGORY_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(ProductCategoryCQ sq);
@@ -769,7 +769,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "product_category_code";
+        String pk = "PRODUCT_CATEGORY_CODE";
         String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
         String prpp = keepQueryMyselfDerivedParameter(vl);
         registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);

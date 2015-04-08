@@ -20,14 +20,14 @@ public class MemberNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * member_status by my member_status_code, named 'memberStatus'.
+     * member_status by my MEMBER_STATUS_CODE, named 'memberStatus'.
      */
     public void withMemberStatus() {
         _query.xdoNss(() -> _query.queryMemberStatus());
     }
     /**
      * With nested relation columns to select clause. <br>
-     * member_security by member_id, named 'memberSecurityAsOne'.
+     * member_security by MEMBER_ID, named 'memberSecurityAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberSecurityNss withMemberSecurityAsOne() {
@@ -36,7 +36,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * member_service by member_id, named 'memberServiceAsOne'.
+     * member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberServiceNss withMemberServiceAsOne() {
@@ -45,7 +45,7 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * member_withdrawal by member_id, named 'memberWithdrawalAsOne'.
+     * member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberWithdrawalNss withMemberWithdrawalAsOne() {

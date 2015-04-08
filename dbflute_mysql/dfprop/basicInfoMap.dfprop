@@ -106,7 +106,7 @@ map:{
     #     [app-solution]/source/[app-project(top-namespace)]/[part-namespace]/...
     #     [app-solution]/source/[app-project(top-namespace)]/Resources/...
     #
-    ; generateOutputDirectory = ../src/holdm
+    #; generateOutputDirectory = ../src/holdm
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -218,7 +218,7 @@ map:{
     # - - - GO Setting- - - - - - -/
     #
 	# The basic information for Go version.
-   ; goOutputDirectory = ../../../../go/src
-   ; goPackageBase = dbflutem
+   ; goOutputDirectory = ../src
+   ; goPackageBase = dbflute
 }
 # ----------------/

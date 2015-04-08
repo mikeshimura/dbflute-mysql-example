@@ -23,16 +23,16 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of purchase_payment as TABLE. <br>
  * <pre>
  * [primary key]
- *     purchase_payment_id
+ *     PURCHASE_PAYMENT_ID
  *
  * [column]
- *     purchase_payment_id, purchase_id, payment_amount, payment_datetime, payment_method_code, register_datetime, register_user, update_datetime, update_user
+ *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
- *     purchase_payment_purchase_payment_id_seq
+ *     
  *
  * [identity]
- *     
+ *     PURCHASE_PAYMENT_ID
  *
  * [version-no]
  *     
@@ -157,7 +157,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
 
     /**
      * Select the entity by the primary-key value.
-     * @param purchasePaymentId : PK, ID, NotNull, bigserial(19). (NotNull)
+     * @param purchasePaymentId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -280,27 +280,10 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     // ===================================================================================
     //                                                                            Sequence
     //                                                                            ========
-    /**
-     * Select the next value as sequence. <br>
-     * This method is called when insert() and set to primary-key automatically.
-     * So you don't need to call this as long as you need to get next value before insert().
-     * @return The next value. (NotNull)
-     */
-    public Long selectNextVal() {
-        return facadeSelectNextVal();
-    }
-
-    protected Long facadeSelectNextVal() {
-        return doSelectNextVal(Long.class);
-    }
-
-    protected <RESULT> RESULT doSelectNextVal(Class<RESULT> tp) {
-        return delegateSelectNextVal(tp);
-    }
-
     @Override
     protected Number doReadNextVal() {
-        return facadeSelectNextVal();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
+        throw new UnsupportedOperationException(msg);
     }
 
     // ===================================================================================

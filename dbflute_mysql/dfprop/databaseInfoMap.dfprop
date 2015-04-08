@@ -16,10 +16,10 @@
 #
 map:{
     ; driver   = com.mysql.jdbc.Driver
-    ; url      = jdbc:mysql://localhost:3306/test
+    ; url      = jdbc:mysql://localhost:3306/exampledb
     ; schema   = 
-    ; user     = test
-    ; password = testpass
+    ; user     = exampledb
+    ; password = exampledb
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default map:{})

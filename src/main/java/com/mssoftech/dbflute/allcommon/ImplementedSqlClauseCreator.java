@@ -66,7 +66,7 @@ public class ImplementedSqlClauseCreator implements SqlClauseCreator {
             sqlClause = createSqlClauseSybase(tableDbName);
         } else {
             // as the database when generating
-            sqlClause = createSqlClausePostgreSql(tableDbName);
+            sqlClause = createSqlClauseMySql(tableDbName);
         }
         prepareSupporterComponent(sqlClause);
         return sqlClause;

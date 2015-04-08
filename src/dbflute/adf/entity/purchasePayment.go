@@ -8,11 +8,11 @@ type PurchasePayment struct {
 	purchasePaymentId int64
 	purchaseId int64
 	paymentAmount df.Numeric
-	paymentDatetime df.Timestamp
+	paymentDatetime df.MysqlTimestamp
 	paymentMethodCode string
-	registerDatetime df.Timestamp
+	registerDatetime df.MysqlTimestamp
 	registerUser string
-	updateDatetime df.Timestamp
+	updateDatetime df.MysqlTimestamp
 	updateUser string
 	df.BaseEntity
 }
@@ -32,19 +32,19 @@ func (l *PurchasePayment) GetPurchaseId () int64 {
 func (l *PurchasePayment) GetPaymentAmount () df.Numeric {
 	return l.paymentAmount
 }
-func (l *PurchasePayment) GetPaymentDatetime () df.Timestamp {
+func (l *PurchasePayment) GetPaymentDatetime () df.MysqlTimestamp {
 	return l.paymentDatetime
 }
 func (l *PurchasePayment) GetPaymentMethodCode () string {
 	return l.paymentMethodCode
 }
-func (l *PurchasePayment) GetRegisterDatetime () df.Timestamp {
+func (l *PurchasePayment) GetRegisterDatetime () df.MysqlTimestamp {
 	return l.registerDatetime
 }
 func (l *PurchasePayment) GetRegisterUser () string {
 	return l.registerUser
 }
-func (l *PurchasePayment) GetUpdateDatetime () df.Timestamp {
+func (l *PurchasePayment) GetUpdateDatetime () df.MysqlTimestamp {
 	return l.updateDatetime
 }
 func (l *PurchasePayment) GetUpdateUser () string {
@@ -88,7 +88,7 @@ func (t *PurchasePayment) SetPaymentAmount(paymentAmount df.Numeric) {
 	t.AddPropertyName("paymentAmount")
 	t.paymentAmount = paymentAmount
 }
-func (t *PurchasePayment) SetPaymentDatetime(paymentDatetime df.Timestamp) {
+func (t *PurchasePayment) SetPaymentDatetime(paymentDatetime df.MysqlTimestamp) {
 	t.AddPropertyName("paymentDatetime")
 	t.paymentDatetime = paymentDatetime
 }
@@ -96,7 +96,7 @@ func (t *PurchasePayment) SetPaymentMethodCode(paymentMethodCode string) {
 	t.AddPropertyName("paymentMethodCode")
 	t.paymentMethodCode = paymentMethodCode
 }
-func (t *PurchasePayment) SetRegisterDatetime(registerDatetime df.Timestamp) {
+func (t *PurchasePayment) SetRegisterDatetime(registerDatetime df.MysqlTimestamp) {
 	t.AddPropertyName("registerDatetime")
 	t.registerDatetime = registerDatetime
 }
@@ -104,7 +104,7 @@ func (t *PurchasePayment) SetRegisterUser(registerUser string) {
 	t.AddPropertyName("registerUser")
 	t.registerUser = registerUser
 }
-func (t *PurchasePayment) SetUpdateDatetime(updateDatetime df.Timestamp) {
+func (t *PurchasePayment) SetUpdateDatetime(updateDatetime df.MysqlTimestamp) {
 	t.AddPropertyName("updateDatetime")
 	t.updateDatetime = updateDatetime
 }

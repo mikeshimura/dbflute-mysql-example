@@ -10,10 +10,10 @@ import com.mssoftech.dbflute.exentity.*;
  * The referrer loader of member_security as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_id
+ *     MEMBER_ID
  *
  * [column]
- *     member_id, login_password, reminder_question, reminder_answer, reminder_use_count, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
  *     
@@ -22,7 +22,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member

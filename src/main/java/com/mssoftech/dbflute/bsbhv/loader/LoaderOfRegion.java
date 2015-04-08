@@ -12,10 +12,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The referrer loader of region as TABLE. <br>
  * <pre>
  * [primary key]
- *     region_id
+ *     REGION_ID
  *
  * [column]
- *     region_id, region_name
+ *     REGION_ID, REGION_NAME
  *
  * [sequence]
  *     
@@ -65,7 +65,7 @@ public class LoaderOfRegion {
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * member_address by region_id, named 'memberAddressList'.
+     * member_address by REGION_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">regionBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">regionList</span>, <span style="color: #553000">regionLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">regionLoader</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

@@ -2,13 +2,12 @@ package entity
 
 import (
 	"github.com/mikeshimura/dbflute/df"
-	"database/sql"
 )
 
 type ProductCategory struct {
 	productCategoryCode string
 	productCategoryName string
-	parentCategoryCode sql.NullString
+	parentCategoryCode df.NullString
 	df.BaseEntity
 }
 
@@ -24,7 +23,7 @@ func (l *ProductCategory) GetProductCategoryCode () string {
 func (l *ProductCategory) GetProductCategoryName () string {
 	return l.productCategoryName
 }
-func (l *ProductCategory) GetParentCategoryCode () sql.NullString {
+func (l *ProductCategory) GetParentCategoryCode () df.NullString {
 	return l.parentCategoryCode
 }
 
@@ -55,7 +54,7 @@ func (t *ProductCategory) SetProductCategoryName(productCategoryName string) {
 	t.AddPropertyName("productCategoryName")
 	t.productCategoryName = productCategoryName
 }
-func (t *ProductCategory) SetParentCategoryCode(parentCategoryCode sql.NullString) {
+func (t *ProductCategory) SetParentCategoryCode(parentCategoryCode df.NullString) {
 	t.AddPropertyName("parentCategoryCode")
 	t.parentCategoryCode = parentCategoryCode
 }

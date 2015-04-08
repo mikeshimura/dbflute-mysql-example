@@ -95,17 +95,17 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Asc() { regOBA("withdrawal_reason_code"); return this; }
+    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Asc() { regOBA("WITHDRAWAL_REASON_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Desc() { regOBD("withdrawal_reason_code"); return this; }
+    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Desc() { regOBD("WITHDRAWAL_REASON_CODE"); return this; }
 
     protected ConditionValue _withdrawalReasonText;
     public ConditionValue xdfgetWithdrawalReasonText()
@@ -115,17 +115,17 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @return this. (NotNull)
      */
-    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonText_Asc() { regOBA("withdrawal_reason_text"); return this; }
+    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonText_Asc() { regOBA("WITHDRAWAL_REASON_TEXT"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @return this. (NotNull)
      */
-    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonText_Desc() { regOBD("withdrawal_reason_text"); return this; }
+    public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonText_Desc() { regOBD("WITHDRAWAL_REASON_TEXT"); return this; }
 
     protected ConditionValue _displayOrder;
     public ConditionValue xdfgetDisplayOrder()
@@ -135,17 +135,17 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsWithdrawalReasonCQ addOrderBy_DisplayOrder_Asc() { regOBA("display_order"); return this; }
+    public BsWithdrawalReasonCQ addOrderBy_DisplayOrder_Asc() { regOBA("DISPLAY_ORDER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsWithdrawalReasonCQ addOrderBy_DisplayOrder_Desc() { regOBD("display_order"); return this; }
+    public BsWithdrawalReasonCQ addOrderBy_DisplayOrder_Desc() { regOBD("DISPLAY_ORDER"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy

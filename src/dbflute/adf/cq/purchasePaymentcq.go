@@ -214,28 +214,28 @@ func (q *PurchasePaymentCQ) getCValuePaymentDatetime() *df.ConditionValue {
 
 
 
-func (q *PurchasePaymentCQ) SetPaymentDatetime_Equal(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetPaymentDatetime_Equal(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regPaymentDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *PurchasePaymentCQ) SetPaymentDatetime_GreaterThan(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetPaymentDatetime_GreaterThan(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regPaymentDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetPaymentDatetime_LessThan(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetPaymentDatetime_LessThan(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regPaymentDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetPaymentDatetime_GreaterEqual(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetPaymentDatetime_GreaterEqual(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regPaymentDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetPaymentDatetime_LessEqual(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetPaymentDatetime_LessEqual(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regPaymentDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -331,28 +331,28 @@ func (q *PurchasePaymentCQ) getCValueRegisterDatetime() *df.ConditionValue {
 
 
 
-func (q *PurchasePaymentCQ) SetRegisterDatetime_Equal(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetRegisterDatetime_Equal(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regRegisterDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *PurchasePaymentCQ) SetRegisterDatetime_GreaterThan(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetRegisterDatetime_GreaterThan(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regRegisterDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetRegisterDatetime_LessThan(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetRegisterDatetime_LessThan(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regRegisterDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetRegisterDatetime_GreaterEqual(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetRegisterDatetime_GreaterEqual(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regRegisterDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetRegisterDatetime_LessEqual(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetRegisterDatetime_LessEqual(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regRegisterDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -448,28 +448,28 @@ func (q *PurchasePaymentCQ) getCValueUpdateDatetime() *df.ConditionValue {
 
 
 
-func (q *PurchasePaymentCQ) SetUpdateDatetime_Equal(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetUpdateDatetime_Equal(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regUpdateDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *PurchasePaymentCQ) SetUpdateDatetime_GreaterThan(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetUpdateDatetime_GreaterThan(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regUpdateDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetUpdateDatetime_LessThan(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetUpdateDatetime_LessThan(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regUpdateDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetUpdateDatetime_GreaterEqual(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetUpdateDatetime_GreaterEqual(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regUpdateDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *PurchasePaymentCQ) SetUpdateDatetime_LessEqual(value df.Timestamp) *PurchasePaymentCQ {
+func (q *PurchasePaymentCQ) SetUpdateDatetime_LessEqual(value df.MysqlTimestamp) *PurchasePaymentCQ {
 	q.regUpdateDatetime(df.CK_LE_C, value)
 	return q
 }

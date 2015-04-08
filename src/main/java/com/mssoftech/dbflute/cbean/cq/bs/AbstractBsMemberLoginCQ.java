@@ -45,7 +45,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as equal. (NullAllowed: if null, no condition)
      */
     public void setMemberLoginId_Equal(Long memberLoginId) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as notEqual. (NullAllowed: if null, no condition)
      */
     public void setMemberLoginId_NotEqual(Long memberLoginId) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setMemberLoginId_GreaterThan(Long memberLoginId) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as lessThan. (NullAllowed: if null, no condition)
      */
     public void setMemberLoginId_LessThan(Long memberLoginId) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setMemberLoginId_GreaterEqual(Long memberLoginId) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setMemberLoginId_LessEqual(Long memberLoginId) {
@@ -109,7 +109,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param minNumber The min number of memberLoginId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of memberLoginId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -122,18 +122,18 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param minNumber The min number of memberLoginId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of memberLoginId. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setMemberLoginId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueMemberLoginId(), "member_login_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberLoginId(), "MEMBER_LOGIN_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginIdList The collection of memberLoginId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberLoginId_InScope(Collection<Long> memberLoginIdList) {
@@ -141,12 +141,12 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberLoginId_InScope(Collection<Long> memberLoginIdList) {
-        regINS(CK_INS, cTL(memberLoginIdList), xgetCValueMemberLoginId(), "member_login_id");
+        regINS(CK_INS, cTL(memberLoginIdList), xgetCValueMemberLoginId(), "MEMBER_LOGIN_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginIdList The collection of memberLoginId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberLoginId_NotInScope(Collection<Long> memberLoginIdList) {
@@ -154,27 +154,27 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberLoginId_NotInScope(Collection<Long> memberLoginIdList) {
-        regINS(CK_NINS, cTL(memberLoginIdList), xgetCValueMemberLoginId(), "member_login_id");
+        regINS(CK_NINS, cTL(memberLoginIdList), xgetCValueMemberLoginId(), "MEMBER_LOGIN_ID");
     }
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      */
     public void setMemberLoginId_IsNull() { regMemberLoginId(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      */
     public void setMemberLoginId_IsNotNull() { regMemberLoginId(CK_ISNN, DOBJ); }
 
-    protected void regMemberLoginId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberLoginId(), "member_login_id"); }
+    protected void regMemberLoginId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberLoginId(), "MEMBER_LOGIN_ID"); }
     protected abstract ConditionValue xgetCValueMemberLoginId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as equal. (NullAllowed: if null, no condition)
      */
     public void setMemberId_Equal(Integer memberId) {
@@ -187,7 +187,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as notEqual. (NullAllowed: if null, no condition)
      */
     public void setMemberId_NotEqual(Integer memberId) {
@@ -200,7 +200,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setMemberId_GreaterThan(Integer memberId) {
@@ -209,7 +209,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as lessThan. (NullAllowed: if null, no condition)
      */
     public void setMemberId_LessThan(Integer memberId) {
@@ -218,7 +218,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setMemberId_GreaterEqual(Integer memberId) {
@@ -227,7 +227,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setMemberId_LessEqual(Integer memberId) {
@@ -238,7 +238,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -251,18 +251,18 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueMemberId(), "member_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberIdList The collection of memberId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberId_InScope(Collection<Integer> memberIdList) {
@@ -270,12 +270,12 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
-        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "member_id");
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param memberIdList The collection of memberId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberId_NotInScope(Collection<Integer> memberIdList) {
@@ -283,15 +283,15 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
-        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "member_id");
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
-    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "member_id"); }
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "MEMBER_ID"); }
     protected abstract ConditionValue xgetCValueMemberId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @param loginDatetime The value of loginDatetime as equal. (NullAllowed: if null, no condition)
      */
     public void setLoginDatetime_Equal(java.time.LocalDateTime loginDatetime) {
@@ -300,7 +300,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @param loginDatetime The value of loginDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setLoginDatetime_GreaterThan(java.time.LocalDateTime loginDatetime) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @param loginDatetime The value of loginDatetime as lessThan. (NullAllowed: if null, no condition)
      */
     public void setLoginDatetime_LessThan(java.time.LocalDateTime loginDatetime) {
@@ -318,7 +318,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @param loginDatetime The value of loginDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setLoginDatetime_GreaterEqual(java.time.LocalDateTime loginDatetime) {
@@ -327,7 +327,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @param loginDatetime The value of loginDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setLoginDatetime_LessEqual(java.time.LocalDateTime loginDatetime) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * <pre>e.g. setLoginDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loginDatetime. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loginDatetime. (NullAllowed: if null, no to-condition)
@@ -350,23 +350,23 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * <pre>e.g. setLoginDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loginDatetime. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loginDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
     protected void setLoginDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
-        String nm = "login_datetime"; FromToOption op = fromToOption;
+        String nm = "LOGIN_DATETIME"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueLoginDatetime(), nm, op);
     }
 
-    protected void regLoginDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginDatetime(), "login_datetime"); }
+    protected void regLoginDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginDatetime(), "LOGIN_DATETIME"); }
     protected abstract ConditionValue xgetCValueLoginDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlg The value of mobileLoginFlg as equal. (NullAllowed: if null, no condition)
      */
     public void setMobileLoginFlg_Equal(Integer mobileLoginFlg) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlg The value of mobileLoginFlg as notEqual. (NullAllowed: if null, no condition)
      */
     public void setMobileLoginFlg_NotEqual(Integer mobileLoginFlg) {
@@ -392,7 +392,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlg The value of mobileLoginFlg as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setMobileLoginFlg_GreaterThan(Integer mobileLoginFlg) {
@@ -401,7 +401,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlg The value of mobileLoginFlg as lessThan. (NullAllowed: if null, no condition)
      */
     public void setMobileLoginFlg_LessThan(Integer mobileLoginFlg) {
@@ -410,7 +410,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlg The value of mobileLoginFlg as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setMobileLoginFlg_GreaterEqual(Integer mobileLoginFlg) {
@@ -419,7 +419,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlg The value of mobileLoginFlg as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setMobileLoginFlg_LessEqual(Integer mobileLoginFlg) {
@@ -430,7 +430,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param minNumber The min number of mobileLoginFlg. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of mobileLoginFlg. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -443,18 +443,18 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param minNumber The min number of mobileLoginFlg. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of mobileLoginFlg. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setMobileLoginFlg_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueMobileLoginFlg(), "mobile_login_flg", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMobileLoginFlg(), "MOBILE_LOGIN_FLG", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlgList The collection of mobileLoginFlg as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
@@ -462,12 +462,12 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
-        regINS(CK_INS, cTL(mobileLoginFlgList), xgetCValueMobileLoginFlg(), "mobile_login_flg");
+        regINS(CK_INS, cTL(mobileLoginFlgList), xgetCValueMobileLoginFlg(), "MOBILE_LOGIN_FLG");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @param mobileLoginFlgList The collection of mobileLoginFlg as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMobileLoginFlg_NotInScope(Collection<Integer> mobileLoginFlgList) {
@@ -475,15 +475,15 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMobileLoginFlg_NotInScope(Collection<Integer> mobileLoginFlgList) {
-        regINS(CK_NINS, cTL(mobileLoginFlgList), xgetCValueMobileLoginFlg(), "mobile_login_flg");
+        regINS(CK_NINS, cTL(mobileLoginFlgList), xgetCValueMobileLoginFlg(), "MOBILE_LOGIN_FLG");
     }
 
-    protected void regMobileLoginFlg(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMobileLoginFlg(), "mobile_login_flg"); }
+    protected void regMobileLoginFlg(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMobileLoginFlg(), "MOBILE_LOGIN_FLG"); }
     protected abstract ConditionValue xgetCValueMobileLoginFlg();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_Equal(String loginMemberStatusCode) {
@@ -496,7 +496,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_NotEqual(String loginMemberStatusCode) {
@@ -509,7 +509,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_GreaterThan(String loginMemberStatusCode) {
@@ -518,7 +518,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_LessThan(String loginMemberStatusCode) {
@@ -527,7 +527,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_GreaterEqual(String loginMemberStatusCode) {
@@ -536,7 +536,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_LessEqual(String loginMemberStatusCode) {
@@ -545,7 +545,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCodeList The collection of loginMemberStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
@@ -553,12 +553,12 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
-        regINS(CK_INS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "login_member_status_code");
+        regINS(CK_INS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "LOGIN_MEMBER_STATUS_CODE");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCodeList The collection of loginMemberStatusCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setLoginMemberStatusCode_NotInScope(Collection<String> loginMemberStatusCodeList) {
@@ -566,12 +566,12 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoginMemberStatusCode_NotInScope(Collection<String> loginMemberStatusCodeList) {
-        regINS(CK_NINS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "login_member_status_code");
+        regINS(CK_NINS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "LOGIN_MEMBER_STATUS_CODE");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status} <br>
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status} <br>
      * <pre>e.g. setLoginMemberStatusCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param loginMemberStatusCode The value of loginMemberStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -582,19 +582,19 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status} <br>
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status} <br>
      * <pre>e.g. setLoginMemberStatusCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param loginMemberStatusCode The value of loginMemberStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setLoginMemberStatusCode_LikeSearch(String loginMemberStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(loginMemberStatusCode), xgetCValueLoginMemberStatusCode(), "login_member_status_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(loginMemberStatusCode), xgetCValueLoginMemberStatusCode(), "LOGIN_MEMBER_STATUS_CODE", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -605,15 +605,15 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @param loginMemberStatusCode The value of loginMemberStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setLoginMemberStatusCode_NotLikeSearch(String loginMemberStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(loginMemberStatusCode), xgetCValueLoginMemberStatusCode(), "login_member_status_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(loginMemberStatusCode), xgetCValueLoginMemberStatusCode(), "LOGIN_MEMBER_STATUS_CODE", likeSearchOption);
     }
 
-    protected void regLoginMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginMemberStatusCode(), "login_member_status_code"); }
+    protected void regLoginMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginMemberStatusCode(), "LOGIN_MEMBER_STATUS_CODE"); }
     protected abstract ConditionValue xgetCValueLoginMemberStatusCode();
 
     // ===================================================================================
@@ -745,7 +745,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<MemberLoginCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "member_login_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MEMBER_LOGIN_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(MemberLoginCQ sq);
@@ -761,7 +761,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "member_login_id";
+        String pk = "MEMBER_LOGIN_ID";
         String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
         String prpp = keepQueryMyselfDerivedParameter(vl);
         registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);

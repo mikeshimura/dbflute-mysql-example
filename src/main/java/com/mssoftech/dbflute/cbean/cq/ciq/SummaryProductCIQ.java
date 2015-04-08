@@ -63,6 +63,7 @@ public class SummaryProductCIQ extends AbstractBsSummaryProductCQ {
     //                                                                ====================
     protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
     protected ConditionValue xgetCValueProductName() { return _myCQ.xdfgetProductName(); }
+    protected ConditionValue xgetCValueProductHandleCode() { return _myCQ.xdfgetProductHandleCode(); }
     protected ConditionValue xgetCValueProductStatusCode() { return _myCQ.xdfgetProductStatusCode(); }
     protected ConditionValue xgetCValueLatestPurchaseDatetime() { return _myCQ.xdfgetLatestPurchaseDatetime(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }

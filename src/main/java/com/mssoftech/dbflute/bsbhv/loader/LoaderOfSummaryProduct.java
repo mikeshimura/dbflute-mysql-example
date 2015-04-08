@@ -13,7 +13,7 @@ import com.mssoftech.dbflute.exentity.*;
  *     
  *
  * [column]
- *     product_id, product_name, product_status_code, latest_purchase_datetime
+ *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
  *
  * [sequence]
  *     

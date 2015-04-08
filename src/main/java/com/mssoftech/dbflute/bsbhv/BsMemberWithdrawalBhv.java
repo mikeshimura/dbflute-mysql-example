@@ -23,10 +23,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of member_withdrawal as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_id
+ *     MEMBER_ID
  *
  * [column]
- *     member_id, withdrawal_reason_code, withdrawal_reason_input_text, withdrawal_datetime, register_datetime, register_process, register_user, update_datetime, update_process, update_user
+ *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -157,7 +157,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberId : PK, NotNull, int4(10), FK to member. (NotNull)
+     * @param memberId : PK, NotNull, INT(10), FK to member. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.

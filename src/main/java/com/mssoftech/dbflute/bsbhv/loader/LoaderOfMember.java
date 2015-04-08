@@ -12,19 +12,19 @@ import com.mssoftech.dbflute.cbean.*;
  * The referrer loader of member as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_id
+ *     MEMBER_ID
  *
  * [column]
- *     member_id, member_name, member_account, member_status_code, formalized_datetime, birthdate, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
+ *     MEMBER_ID, MEMBER_NAME, MEMBER_ACCOUNT, MEMBER_STATUS_CODE, FORMALIZED_DATETIME, BIRTHDATE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     member_member_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     MEMBER_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member_status, member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
@@ -65,7 +65,7 @@ public class LoaderOfMember {
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * member_address by member_id, named 'memberAddressList'.
+     * member_address by MEMBER_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -99,7 +99,7 @@ public class LoaderOfMember {
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * member_login by member_id, named 'memberLoginList'.
+     * member_login by MEMBER_ID, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -133,7 +133,7 @@ public class LoaderOfMember {
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * purchase by member_id, named 'purchaseList'.
+     * purchase by MEMBER_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

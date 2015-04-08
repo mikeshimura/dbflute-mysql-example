@@ -10,16 +10,16 @@ import com.mssoftech.dbflute.exentity.*;
  * The referrer loader of purchase_payment as TABLE. <br>
  * <pre>
  * [primary key]
- *     purchase_payment_id
+ *     PURCHASE_PAYMENT_ID
  *
  * [column]
- *     purchase_payment_id, purchase_id, payment_amount, payment_datetime, payment_method_code, register_datetime, register_user, update_datetime, update_user
+ *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
- *     purchase_payment_purchase_payment_id_seq
+ *     
  *
  * [identity]
- *     
+ *     PURCHASE_PAYMENT_ID
  *
  * [version-no]
  *     

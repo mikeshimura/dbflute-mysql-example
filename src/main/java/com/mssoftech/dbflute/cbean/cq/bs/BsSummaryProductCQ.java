@@ -81,17 +81,17 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_ProductId_Asc() { regOBA("product_id"); return this; }
+    public BsSummaryProductCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_ProductId_Desc() { regOBD("product_id"); return this; }
+    public BsSummaryProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
 
     protected ConditionValue _productName;
     public ConditionValue xdfgetProductName()
@@ -101,17 +101,37 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_ProductName_Asc() { regOBA("product_name"); return this; }
+    public BsSummaryProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_ProductName_Desc() { regOBD("product_name"); return this; }
+    public BsSummaryProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
+
+    protected ConditionValue _productHandleCode;
+    public ConditionValue xdfgetProductHandleCode()
+    { if (_productHandleCode == null) { _productHandleCode = nCV(); }
+      return _productHandleCode; }
+    protected ConditionValue xgetCValueProductHandleCode() { return xdfgetProductHandleCode(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @return this. (NotNull)
+     */
+    public BsSummaryProductCQ addOrderBy_ProductHandleCode_Asc() { regOBA("PRODUCT_HANDLE_CODE"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @return this. (NotNull)
+     */
+    public BsSummaryProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
 
     protected ConditionValue _productStatusCode;
     public ConditionValue xdfgetProductStatusCode()
@@ -121,17 +141,17 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("product_status_code"); return this; }
+    public BsSummaryProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("product_status_code"); return this; }
+    public BsSummaryProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
 
     protected ConditionValue _latestPurchaseDatetime;
     public ConditionValue xdfgetLatestPurchaseDatetime()
@@ -141,17 +161,17 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Asc() { regOBA("latest_purchase_datetime"); return this; }
+    public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Asc() { regOBA("LATEST_PURCHASE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Desc() { regOBD("latest_purchase_datetime"); return this; }
+    public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Desc() { regOBD("LATEST_PURCHASE_DATETIME"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy

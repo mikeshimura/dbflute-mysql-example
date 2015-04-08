@@ -45,7 +45,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as equal. (NullAllowed: if null, no condition)
      */
     public void setProductId_Equal(Integer productId) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as notEqual. (NullAllowed: if null, no condition)
      */
     public void setProductId_NotEqual(Integer productId) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setProductId_GreaterThan(Integer productId) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as lessThan. (NullAllowed: if null, no condition)
      */
     public void setProductId_LessThan(Integer productId) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setProductId_GreaterEqual(Integer productId) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setProductId_LessEqual(Integer productId) {
@@ -109,7 +109,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -122,18 +122,18 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueProductId(), "product_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productIdList The collection of productId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductId_InScope(Collection<Integer> productIdList) {
@@ -141,12 +141,12 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     protected void doSetProductId_InScope(Collection<Integer> productIdList) {
-        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "product_id");
+        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productIdList The collection of productId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductId_NotInScope(Collection<Integer> productIdList) {
@@ -154,27 +154,15 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
-        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "product_id");
+        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
-     */
-    public void setProductId_IsNull() { regProductId(CK_ISN, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * product_id: {int4(10)}
-     */
-    public void setProductId_IsNotNull() { regProductId(CK_ISNN, DOBJ); }
-
-    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "product_id"); }
+    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "PRODUCT_ID"); }
     protected abstract ConditionValue xgetCValueProductId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_Equal(String productName) {
@@ -187,7 +175,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_NotEqual(String productName) {
@@ -200,7 +188,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_GreaterThan(String productName) {
@@ -209,7 +197,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_LessThan(String productName) {
@@ -218,7 +206,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_GreaterEqual(String productName) {
@@ -227,7 +215,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_LessEqual(String productName) {
@@ -236,7 +224,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productNameList The collection of productName as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_InScope(Collection<String> productNameList) {
@@ -244,12 +232,12 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     protected void doSetProductName_InScope(Collection<String> productNameList) {
-        regINS(CK_INS, cTL(productNameList), xgetCValueProductName(), "product_name");
+        regINS(CK_INS, cTL(productNameList), xgetCValueProductName(), "PRODUCT_NAME");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productNameList The collection of productName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductName_NotInScope(Collection<String> productNameList) {
@@ -257,12 +245,12 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     protected void doSetProductName_NotInScope(Collection<String> productNameList) {
-        regINS(CK_NINS, cTL(productNameList), xgetCValueProductName(), "product_name");
+        regINS(CK_NINS, cTL(productNameList), xgetCValueProductName(), "PRODUCT_NAME");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_name: {varchar(50)} <br>
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productName The value of productName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -273,19 +261,19 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_name: {varchar(50)} <br>
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productName The value of productName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setProductName_LikeSearch(String productName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(productName), xgetCValueProductName(), "PRODUCT_NAME", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -296,38 +284,155 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setProductName_NotLikeSearch(String productName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "PRODUCT_NAME", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
-     */
-    public void setProductName_IsNull() { regProductName(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
-     */
-    public void setProductName_IsNullOrEmpty() { regProductName(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * product_name: {varchar(50)}
-     */
-    public void setProductName_IsNotNull() { regProductName(CK_ISNN, DOBJ); }
-
-    protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "product_name"); }
+    protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "PRODUCT_NAME"); }
     protected abstract ConditionValue xgetCValueProductName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as equal. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_Equal(String productHandleCode) {
+        doSetProductHandleCode_Equal(fRES(productHandleCode));
+    }
+
+    protected void doSetProductHandleCode_Equal(String productHandleCode) {
+        regProductHandleCode(CK_EQ, productHandleCode);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_NotEqual(String productHandleCode) {
+        doSetProductHandleCode_NotEqual(fRES(productHandleCode));
+    }
+
+    protected void doSetProductHandleCode_NotEqual(String productHandleCode) {
+        regProductHandleCode(CK_NES, productHandleCode);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as greaterThan. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_GreaterThan(String productHandleCode) {
+        regProductHandleCode(CK_GT, fRES(productHandleCode));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as lessThan. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_LessThan(String productHandleCode) {
+        regProductHandleCode(CK_LT, fRES(productHandleCode));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_GreaterEqual(String productHandleCode) {
+        regProductHandleCode(CK_GE, fRES(productHandleCode));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as lessEqual. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_LessEqual(String productHandleCode) {
+        regProductHandleCode(CK_LE, fRES(productHandleCode));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCodeList The collection of productHandleCode as inScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_InScope(Collection<String> productHandleCodeList) {
+        doSetProductHandleCode_InScope(productHandleCodeList);
+    }
+
+    protected void doSetProductHandleCode_InScope(Collection<String> productHandleCodeList) {
+        regINS(CK_INS, cTL(productHandleCodeList), xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCodeList The collection of productHandleCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     */
+    public void setProductHandleCode_NotInScope(Collection<String> productHandleCodeList) {
+        doSetProductHandleCode_NotInScope(productHandleCodeList);
+    }
+
+    protected void doSetProductHandleCode_NotInScope(Collection<String> productHandleCodeList) {
+        regINS(CK_NINS, cTL(productHandleCodeList), xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * <pre>e.g. setProductHandleCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param productHandleCode The value of productHandleCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setProductHandleCode_LikeSearch(String productHandleCode, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setProductHandleCode_LikeSearch(productHandleCode, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * <pre>e.g. setProductHandleCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param productHandleCode The value of productHandleCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setProductHandleCode_LikeSearch(String productHandleCode, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(productHandleCode), xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setProductHandleCode_NotLikeSearch(String productHandleCode, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setProductHandleCode_NotLikeSearch(productHandleCode, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @param productHandleCode The value of productHandleCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setProductHandleCode_NotLikeSearch(String productHandleCode, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(productHandleCode), xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE", likeSearchOption);
+    }
+
+    protected void regProductHandleCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE"); }
+    protected abstract ConditionValue xgetCValueProductHandleCode();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_Equal(String productStatusCode) {
@@ -340,7 +445,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_NotEqual(String productStatusCode) {
@@ -353,7 +458,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_GreaterThan(String productStatusCode) {
@@ -362,7 +467,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_LessThan(String productStatusCode) {
@@ -371,7 +476,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_GreaterEqual(String productStatusCode) {
@@ -380,7 +485,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_LessEqual(String productStatusCode) {
@@ -389,7 +494,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCodeList The collection of productStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_InScope(Collection<String> productStatusCodeList) {
@@ -397,12 +502,12 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     protected void doSetProductStatusCode_InScope(Collection<String> productStatusCodeList) {
-        regINS(CK_INS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "product_status_code");
+        regINS(CK_INS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCodeList The collection of productStatusCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
@@ -410,12 +515,12 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     protected void doSetProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
-        regINS(CK_NINS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "product_status_code");
+        regINS(CK_NINS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_status_code: {bpchar(3)} <br>
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setProductStatusCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productStatusCode The value of productStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -426,19 +531,19 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_status_code: {bpchar(3)} <br>
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setProductStatusCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productStatusCode The value of productStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(productStatusCode), xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -449,38 +554,20 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @param productStatusCode The value of productStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productStatusCode), xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE", likeSearchOption);
     }
 
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
-     */
-    public void setProductStatusCode_IsNull() { regProductStatusCode(CK_ISN, DOBJ); }
-
-    /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
-     */
-    public void setProductStatusCode_IsNullOrEmpty() { regProductStatusCode(CK_ISNOE, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * product_status_code: {bpchar(3)}
-     */
-    public void setProductStatusCode_IsNotNull() { regProductStatusCode(CK_ISNN, DOBJ); }
-
-    protected void regProductStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusCode(), "product_status_code"); }
+    protected void regProductStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE"); }
     protected abstract ConditionValue xgetCValueProductStatusCode();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as equal. (NullAllowed: if null, no condition)
      */
     public void setLatestPurchaseDatetime_Equal(java.time.LocalDateTime latestPurchaseDatetime) {
@@ -489,7 +576,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setLatestPurchaseDatetime_GreaterThan(java.time.LocalDateTime latestPurchaseDatetime) {
@@ -498,7 +585,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessThan. (NullAllowed: if null, no condition)
      */
     public void setLatestPurchaseDatetime_LessThan(java.time.LocalDateTime latestPurchaseDatetime) {
@@ -507,7 +594,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setLatestPurchaseDatetime_GreaterEqual(java.time.LocalDateTime latestPurchaseDatetime) {
@@ -516,7 +603,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setLatestPurchaseDatetime_LessEqual(java.time.LocalDateTime latestPurchaseDatetime) {
@@ -526,7 +613,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * <pre>e.g. setLatestPurchaseDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
@@ -539,30 +626,30 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * <pre>e.g. setLatestPurchaseDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
     protected void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
-        String nm = "latest_purchase_datetime"; FromToOption op = fromToOption;
+        String nm = "LATEST_PURCHASE_DATETIME"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueLatestPurchaseDatetime(), nm, op);
     }
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      */
     public void setLatestPurchaseDatetime_IsNull() { regLatestPurchaseDatetime(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      */
     public void setLatestPurchaseDatetime_IsNotNull() { regLatestPurchaseDatetime(CK_ISNN, DOBJ); }
 
-    protected void regLatestPurchaseDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLatestPurchaseDatetime(), "latest_purchase_datetime"); }
+    protected void regLatestPurchaseDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLatestPurchaseDatetime(), "LATEST_PURCHASE_DATETIME"); }
     protected abstract ConditionValue xgetCValueLatestPurchaseDatetime();
 
     // ===================================================================================

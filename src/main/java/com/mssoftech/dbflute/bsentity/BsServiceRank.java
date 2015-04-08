@@ -15,10 +15,10 @@ import com.mssoftech.dbflute.exentity.*;
  * （ゴールドとかプラチナとか）
  * <pre>
  * [primary-key]
- *     service_rank_code
+ *     SERVICE_RANK_CODE
  * 
  * [column]
- *     service_rank_code, service_rank_name, service_point_incidence, new_acceptable_flg, description, display_order
+ *     SERVICE_RANK_CODE, SERVICE_RANK_NAME, SERVICE_POINT_INCIDENCE, NEW_ACCEPTABLE_FLG, DESCRIPTION, DISPLAY_ORDER
  * 
  * [sequence]
  *     
@@ -70,22 +70,22 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** service_rank_code: {PK, NotNull, bpchar(3)} */
+    /** SERVICE_RANK_CODE: {PK, NotNull, CHAR(3)} */
     protected String _serviceRankCode;
 
-    /** service_rank_name: {NotNull, varchar(50)} */
+    /** SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} */
     protected String _serviceRankName;
 
-    /** service_point_incidence: {NotNull, numeric(5, 3)} */
+    /** SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} */
     protected java.math.BigDecimal _servicePointIncidence;
 
-    /** new_acceptable_flg: {NotNull, int4(10)} */
+    /** NEW_ACCEPTABLE_FLG: {NotNull, INT(10)} */
     protected Integer _newAcceptableFlg;
 
-    /** description: {NotNull, varchar(200)} */
+    /** DESCRIPTION: {NotNull, VARCHAR(200)} */
     protected String _description;
 
-    /** display_order: {UQ, NotNull, int4(10)} */
+    /** DISPLAY_ORDER: {UQ, NotNull, INT(10)} */
     protected Integer _displayOrder;
 
     // ===================================================================================
@@ -113,7 +113,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param displayOrder : UQ, NotNull, int4(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
      */
     public void uniqueBy(Integer displayOrder) {
         __uniqueDrivenProperties.clear();
@@ -127,11 +127,11 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** member_service by service_rank_code, named 'memberServiceList'. */
+    /** member_service by SERVICE_RANK_CODE, named 'memberServiceList'. */
     protected List<MemberService> _memberServiceList;
 
     /**
-     * [get] member_service by service_rank_code, named 'memberServiceList'.
+     * [get] member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
      * @return The entity list of referrer property 'memberServiceList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberService> getMemberServiceList() {
@@ -140,7 +140,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] member_service by service_rank_code, named 'memberServiceList'.
+     * [set] member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
      * @param memberServiceList The entity list of referrer property 'memberServiceList'. (NullAllowed)
      */
     public void setMemberServiceList(List<MemberService> memberServiceList) {
@@ -217,9 +217,9 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] service_rank_code: {PK, NotNull, bpchar(3)} <br>
+     * [get] SERVICE_RANK_CODE: {PK, NotNull, CHAR(3)} <br>
      * サービスランクコード: サービスランクを識別するコード。
-     * @return The value of the column 'service_rank_code'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getServiceRankCode() {
         checkSpecifiedProperty("serviceRankCode");
@@ -227,9 +227,9 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] service_rank_code: {PK, NotNull, bpchar(3)} <br>
+     * [set] SERVICE_RANK_CODE: {PK, NotNull, CHAR(3)} <br>
      * サービスランクコード: サービスランクを識別するコード。
-     * @param serviceRankCode The value of the column 'service_rank_code'. (basically NotNull if update: for the constraint)
+     * @param serviceRankCode The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setServiceRankCode(String serviceRankCode) {
         registerModifiedProperty("serviceRankCode");
@@ -237,10 +237,10 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] service_rank_name: {NotNull, varchar(50)} <br>
+     * [get] SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br>
      * サービスランク名称: サービスランクの名称。<br>
      * （ゴールドとかプラチナとか基本的には威厳のある名前）
-     * @return The value of the column 'service_rank_name'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'SERVICE_RANK_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getServiceRankName() {
         checkSpecifiedProperty("serviceRankName");
@@ -248,10 +248,10 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] service_rank_name: {NotNull, varchar(50)} <br>
+     * [set] SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br>
      * サービスランク名称: サービスランクの名称。<br>
      * （ゴールドとかプラチナとか基本的には威厳のある名前）
-     * @param serviceRankName The value of the column 'service_rank_name'. (basically NotNull if update: for the constraint)
+     * @param serviceRankName The value of the column 'SERVICE_RANK_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setServiceRankName(String serviceRankName) {
         registerModifiedProperty("serviceRankName");
@@ -259,11 +259,10 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] service_point_incidence: {NotNull, numeric(5, 3)} <br>
+     * [get] SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} <br>
      * サービスポイント発生率: 購入ごとのサービスポイントの発生率。<br>
-     * 購入価格にこの値をかけた数が発生ポイント。<br>
-     * ExampleDBとして数少ない貴重な小数点ありのカラム。
-     * @return The value of the column 'service_point_incidence'. (basically NotNull if selected: for the constraint)
+     * 購入価格にこの値をかけた数が発生ポイント。
+     * @return The value of the column 'SERVICE_POINT_INCIDENCE'. (basically NotNull if selected: for the constraint)
      */
     public java.math.BigDecimal getServicePointIncidence() {
         checkSpecifiedProperty("servicePointIncidence");
@@ -271,11 +270,10 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] service_point_incidence: {NotNull, numeric(5, 3)} <br>
+     * [set] SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} <br>
      * サービスポイント発生率: 購入ごとのサービスポイントの発生率。<br>
-     * 購入価格にこの値をかけた数が発生ポイント。<br>
-     * ExampleDBとして数少ない貴重な小数点ありのカラム。
-     * @param servicePointIncidence The value of the column 'service_point_incidence'. (basically NotNull if update: for the constraint)
+     * 購入価格にこの値をかけた数が発生ポイント。
+     * @param servicePointIncidence The value of the column 'SERVICE_POINT_INCIDENCE'. (basically NotNull if update: for the constraint)
      */
     public void setServicePointIncidence(java.math.BigDecimal servicePointIncidence) {
         registerModifiedProperty("servicePointIncidence");
@@ -283,9 +281,9 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] new_acceptable_flg: {NotNull, int4(10)} <br>
+     * [get] NEW_ACCEPTABLE_FLG: {NotNull, INT(10)} <br>
      * 新規受け入れ可能フラグ: このランクへの新規受け入れができるかどうか。
-     * @return The value of the column 'new_acceptable_flg'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'NEW_ACCEPTABLE_FLG'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNewAcceptableFlg() {
         checkSpecifiedProperty("newAcceptableFlg");
@@ -293,9 +291,9 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] new_acceptable_flg: {NotNull, int4(10)} <br>
+     * [set] NEW_ACCEPTABLE_FLG: {NotNull, INT(10)} <br>
      * 新規受け入れ可能フラグ: このランクへの新規受け入れができるかどうか。
-     * @param newAcceptableFlg The value of the column 'new_acceptable_flg'. (basically NotNull if update: for the constraint)
+     * @param newAcceptableFlg The value of the column 'NEW_ACCEPTABLE_FLG'. (basically NotNull if update: for the constraint)
      */
     public void setNewAcceptableFlg(Integer newAcceptableFlg) {
         registerModifiedProperty("newAcceptableFlg");
@@ -303,9 +301,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] description: {NotNull, varchar(200)} <br>
-     * 説明: ランクに関する業務的な説明。
-     * @return The value of the column 'description'. (basically NotNull if selected: for the constraint)
+     * [get] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'DESCRIPTION'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
         checkSpecifiedProperty("description");
@@ -313,9 +310,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] description: {NotNull, varchar(200)} <br>
-     * 説明: ランクに関する業務的な説明。
-     * @param description The value of the column 'description'. (basically NotNull if update: for the constraint)
+     * [set] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
+     * @param description The value of the column 'DESCRIPTION'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {
         registerModifiedProperty("description");
@@ -323,9 +319,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] display_order: {UQ, NotNull, int4(10)} <br>
-     * 表示順: UI上の表示順を表現する番号。
-     * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
+     * [get] DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
+     * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
         checkSpecifiedProperty("displayOrder");
@@ -333,9 +328,8 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] display_order: {UQ, NotNull, int4(10)} <br>
-     * 表示順: UI上の表示順を表現する番号。
-     * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
+     * [set] DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
+     * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {
         registerModifiedProperty("displayOrder");

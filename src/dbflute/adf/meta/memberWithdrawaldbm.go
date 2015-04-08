@@ -11,10 +11,8 @@ type MemberWithdrawalDbm_T struct {
 	ColumnWithdrawalReasonInputText *df.ColumnInfo
 	ColumnWithdrawalDatetime *df.ColumnInfo
 	ColumnRegisterDatetime *df.ColumnInfo
-	ColumnRegisterProcess *df.ColumnInfo
 	ColumnRegisterUser *df.ColumnInfo
 	ColumnUpdateDatetime *df.ColumnInfo
-	ColumnUpdateProcess *df.ColumnInfo
 	ColumnUpdateUser *df.ColumnInfo
 }
 
@@ -41,55 +39,45 @@ func Create_MemberWithdrawalDbm() {
 	memberWithdrawal = MemberWithdrawalDbm
 	MemberWithdrawalDbm.DBMeta=&memberWithdrawal
 	memberIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo member_id
-	memberIdSqlName.ColumnSqlName = "member_id"
+	//colsqlname dayoo MEMBER_ID
+	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnMemberId = df.CCI(&memberWithdrawal, "member_id", memberIdSqlName, "", "", "Integer.class", "memberId", "", true, false,true, "int4", 10, 0, "",false,"","", "member","","",false,"int64")
+	MemberWithdrawalDbm.ColumnMemberId = df.CCI(&memberWithdrawal, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", true, false,true, "INT", 10, 0, "",false,"","", "member","","",false,"int64")
 	withdrawalReasonCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo withdrawal_reason_code
-	withdrawalReasonCodeSqlName.ColumnSqlName = "withdrawal_reason_code"
+	//colsqlname dayoo WITHDRAWAL_REASON_CODE
+	withdrawalReasonCodeSqlName.ColumnSqlName = "WITHDRAWAL_REASON_CODE"
 	withdrawalReasonCodeSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnWithdrawalReasonCode = df.CCI(&memberWithdrawal, "withdrawal_reason_code", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", false, false,false, "bpchar", 3, 0, "",false,"","", "withdrawalReason","","",false,"sql.NullString")
+	MemberWithdrawalDbm.ColumnWithdrawalReasonCode = df.CCI(&memberWithdrawal, "WITHDRAWAL_REASON_CODE", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "withdrawalReason","","",false,"df.NullString")
 	withdrawalReasonInputTextSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo withdrawal_reason_input_text
-	withdrawalReasonInputTextSqlName.ColumnSqlName = "withdrawal_reason_input_text"
+	//colsqlname dayoo WITHDRAWAL_REASON_INPUT_TEXT
+	withdrawalReasonInputTextSqlName.ColumnSqlName = "WITHDRAWAL_REASON_INPUT_TEXT"
 	withdrawalReasonInputTextSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnWithdrawalReasonInputText = df.CCI(&memberWithdrawal, "withdrawal_reason_input_text", withdrawalReasonInputTextSqlName, "", "", "String.class", "withdrawalReasonInputText", "", false, false,false, "text", 2147483647, 0, "",false,"","", "","","",false,"sql.NullString")
+	MemberWithdrawalDbm.ColumnWithdrawalReasonInputText = df.CCI(&memberWithdrawal, "WITHDRAWAL_REASON_INPUT_TEXT", withdrawalReasonInputTextSqlName, "", "", "String.class", "withdrawalReasonInputText", "", false, false,false, "TEXT", 65535, 0, "",false,"","", "","","",false,"df.NullString")
 	withdrawalDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo withdrawal_datetime
-	withdrawalDatetimeSqlName.ColumnSqlName = "withdrawal_datetime"
+	//colsqlname dayoo WITHDRAWAL_DATETIME
+	withdrawalDatetimeSqlName.ColumnSqlName = "WITHDRAWAL_DATETIME"
 	withdrawalDatetimeSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnWithdrawalDatetime = df.CCI(&memberWithdrawal, "withdrawal_datetime", withdrawalDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "withdrawalDatetime", "", false, false,true, "timestamp", 26, 3, "",false,"","", "","","",false,"df.Timestamp")
+	MemberWithdrawalDbm.ColumnWithdrawalDatetime = df.CCI(&memberWithdrawal, "WITHDRAWAL_DATETIME", withdrawalDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "withdrawalDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	registerDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo register_datetime
-	registerDatetimeSqlName.ColumnSqlName = "register_datetime"
+	//colsqlname dayoo REGISTER_DATETIME
+	registerDatetimeSqlName.ColumnSqlName = "REGISTER_DATETIME"
 	registerDatetimeSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnRegisterDatetime = df.CCI(&memberWithdrawal, "register_datetime", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "timestamp", 26, 3, "",false,"","", "","","",false,"df.Timestamp")
-	registerProcessSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo register_process
-	registerProcessSqlName.ColumnSqlName = "register_process"
-	registerProcessSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnRegisterProcess = df.CCI(&memberWithdrawal, "register_process", registerProcessSqlName, "", "", "String.class", "registerProcess", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberWithdrawalDbm.ColumnRegisterDatetime = df.CCI(&memberWithdrawal, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	registerUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo register_user
-	registerUserSqlName.ColumnSqlName = "register_user"
+	//colsqlname dayoo REGISTER_USER
+	registerUserSqlName.ColumnSqlName = "REGISTER_USER"
 	registerUserSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnRegisterUser = df.CCI(&memberWithdrawal, "register_user", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberWithdrawalDbm.ColumnRegisterUser = df.CCI(&memberWithdrawal, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	updateDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo update_datetime
-	updateDatetimeSqlName.ColumnSqlName = "update_datetime"
+	//colsqlname dayoo UPDATE_DATETIME
+	updateDatetimeSqlName.ColumnSqlName = "UPDATE_DATETIME"
 	updateDatetimeSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnUpdateDatetime = df.CCI(&memberWithdrawal, "update_datetime", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "timestamp", 26, 3, "",false,"","", "","","",false,"df.Timestamp")
-	updateProcessSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo update_process
-	updateProcessSqlName.ColumnSqlName = "update_process"
-	updateProcessSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnUpdateProcess = df.CCI(&memberWithdrawal, "update_process", updateProcessSqlName, "", "", "String.class", "updateProcess", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberWithdrawalDbm.ColumnUpdateDatetime = df.CCI(&memberWithdrawal, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	updateUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo update_user
-	updateUserSqlName.ColumnSqlName = "update_user"
+	//colsqlname dayoo UPDATE_USER
+	updateUserSqlName.ColumnSqlName = "UPDATE_USER"
 	updateUserSqlName.IrregularChar = false
-	MemberWithdrawalDbm.ColumnUpdateUser = df.CCI(&memberWithdrawal, "update_user", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberWithdrawalDbm.ColumnUpdateUser = df.CCI(&memberWithdrawal, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 
 	MemberWithdrawalDbm.ColumnInfoList = new(df.List)
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnMemberId)
@@ -97,10 +85,8 @@ func Create_MemberWithdrawalDbm() {
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnWithdrawalReasonInputText)
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnWithdrawalDatetime)
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnRegisterDatetime)
-	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnRegisterProcess)
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnRegisterUser)
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnUpdateDatetime)
-	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnUpdateProcess)
 	MemberWithdrawalDbm.ColumnInfoList.Add(MemberWithdrawalDbm.ColumnUpdateUser)
 
 
@@ -110,11 +96,9 @@ func Create_MemberWithdrawalDbm() {
 		MemberWithdrawalDbm.ColumnInfoMap["withdrawalReasonInputText"]=2
 		MemberWithdrawalDbm.ColumnInfoMap["withdrawalDatetime"]=3
 		MemberWithdrawalDbm.ColumnInfoMap["registerDatetime"]=4
-		MemberWithdrawalDbm.ColumnInfoMap["registerProcess"]=5
-		MemberWithdrawalDbm.ColumnInfoMap["registerUser"]=6
-		MemberWithdrawalDbm.ColumnInfoMap["updateDatetime"]=7
-		MemberWithdrawalDbm.ColumnInfoMap["updateProcess"]=8
-		MemberWithdrawalDbm.ColumnInfoMap["updateUser"]=9
+		MemberWithdrawalDbm.ColumnInfoMap["registerUser"]=5
+		MemberWithdrawalDbm.ColumnInfoMap["updateDatetime"]=6
+		MemberWithdrawalDbm.ColumnInfoMap["updateUser"]=7
 	    MemberWithdrawalDbm.PrimaryKey = true
     MemberWithdrawalDbm.CompoundPrimaryKey = false
 	ui := new(df.UniqueInfo)

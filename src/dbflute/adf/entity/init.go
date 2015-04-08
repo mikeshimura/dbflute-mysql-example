@@ -95,96 +95,12 @@ func EntityInit() {
 		return &te
 	}
 	df.BhvUtil_I.AddEntity("SummaryProduct", SummaryProduct)
-	VendorDateFk := func() *df.Entity {
-		var te df.Entity = new(VendorDateFk)
+	SummaryWithdrawal := func() *df.Entity {
+		var te df.Entity = new(SummaryWithdrawal)
 		te.SetUp()
 		return &te
 	}
-	df.BhvUtil_I.AddEntity("VendorDateFk", VendorDateFk)
-	VendorDatePk := func() *df.Entity {
-		var te df.Entity = new(VendorDatePk)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorDatePk", VendorDatePk)
-	VendorInheritInu := func() *df.Entity {
-		var te df.Entity = new(VendorInheritInu)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorInheritInu", VendorInheritInu)
-	VendorInheritNeko := func() *df.Entity {
-		var te df.Entity = new(VendorInheritNeko)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorInheritNeko", VendorInheritNeko)
-	VendorLargeData := func() *df.Entity {
-		var te df.Entity = new(VendorLargeData)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorLargeData", VendorLargeData)
-	VendorLargeDataRef := func() *df.Entity {
-		var te df.Entity = new(VendorLargeDataRef)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorLargeDataRef", VendorLargeDataRef)
-	VendorPartMan := func() *df.Entity {
-		var te df.Entity = new(VendorPartMan)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorPartMan", VendorPartMan)
-	VendorPartManHigh := func() *df.Entity {
-		var te df.Entity = new(VendorPartManHigh)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("VendorPartManHigh", VendorPartManHigh)
-	WhiteCompoundPk := func() *df.Entity {
-		var te df.Entity = new(WhiteCompoundPk)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteCompoundPk", WhiteCompoundPk)
-	WhiteCompoundPkRef := func() *df.Entity {
-		var te df.Entity = new(WhiteCompoundPkRef)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteCompoundPkRef", WhiteCompoundPkRef)
-	WhiteCompoundPkWrongOrder := func() *df.Entity {
-		var te df.Entity = new(WhiteCompoundPkWrongOrder)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteCompoundPkWrongOrder", WhiteCompoundPkWrongOrder)
-	WhiteNotPk := func() *df.Entity {
-		var te df.Entity = new(WhiteNotPk)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteNotPk", WhiteNotPk)
-	WhiteSameName := func() *df.Entity {
-		var te df.Entity = new(WhiteSameName)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteSameName", WhiteSameName)
-	WhiteSameNameRef := func() *df.Entity {
-		var te df.Entity = new(WhiteSameNameRef)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteSameNameRef", WhiteSameNameRef)
-	WhiteXlsMan := func() *df.Entity {
-		var te df.Entity = new(WhiteXlsMan)
-		te.SetUp()
-		return &te
-	}
-	df.BhvUtil_I.AddEntity("WhiteXlsMan", WhiteXlsMan)
+	df.BhvUtil_I.AddEntity("SummaryWithdrawal", SummaryWithdrawal)
 	WithdrawalReason := func() *df.Entity {
 		var te df.Entity = new(WithdrawalReason)
 		te.SetUp()

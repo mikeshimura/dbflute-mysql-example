@@ -81,17 +81,17 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_MemberLoginId_Asc() { regOBA("member_login_id"); return this; }
+    public BsMemberLoginCQ addOrderBy_MemberLoginId_Asc() { regOBA("MEMBER_LOGIN_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * member_login_id: {PK, ID, NotNull, bigserial(19)}
+     * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_MemberLoginId_Desc() { regOBD("member_login_id"); return this; }
+    public BsMemberLoginCQ addOrderBy_MemberLoginId_Desc() { regOBD("MEMBER_LOGIN_ID"); return this; }
 
     protected ConditionValue _memberId;
     public ConditionValue xdfgetMemberId()
@@ -101,17 +101,17 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_MemberId_Asc() { regOBA("member_id"); return this; }
+    public BsMemberLoginCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * member_id: {UQ+, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_MemberId_Desc() { regOBD("member_id"); return this; }
+    public BsMemberLoginCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
 
     protected ConditionValue _loginDatetime;
     public ConditionValue xdfgetLoginDatetime()
@@ -121,17 +121,17 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_LoginDatetime_Asc() { regOBA("login_datetime"); return this; }
+    public BsMemberLoginCQ addOrderBy_LoginDatetime_Asc() { regOBA("LOGIN_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+     * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_LoginDatetime_Desc() { regOBD("login_datetime"); return this; }
+    public BsMemberLoginCQ addOrderBy_LoginDatetime_Desc() { regOBD("LOGIN_DATETIME"); return this; }
 
     protected ConditionValue _mobileLoginFlg;
     public ConditionValue xdfgetMobileLoginFlg()
@@ -141,17 +141,17 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_MobileLoginFlg_Asc() { regOBA("mobile_login_flg"); return this; }
+    public BsMemberLoginCQ addOrderBy_MobileLoginFlg_Asc() { regOBA("MOBILE_LOGIN_FLG"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * mobile_login_flg: {NotNull, int4(10)}
+     * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_MobileLoginFlg_Desc() { regOBD("mobile_login_flg"); return this; }
+    public BsMemberLoginCQ addOrderBy_MobileLoginFlg_Desc() { regOBD("MOBILE_LOGIN_FLG"); return this; }
 
     protected ConditionValue _loginMemberStatusCode;
     public ConditionValue xdfgetLoginMemberStatusCode()
@@ -161,17 +161,17 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Asc() { regOBA("login_member_status_code"); return this; }
+    public BsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Asc() { regOBA("LOGIN_MEMBER_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+     * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
      * @return this. (NotNull)
      */
-    public BsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Desc() { regOBD("login_member_status_code"); return this; }
+    public BsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Desc() { regOBD("LOGIN_MEMBER_STATUS_CODE"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -227,7 +227,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * member_status by my login_member_status_code, named 'memberStatus'.
+     * member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberStatusCQ queryMemberStatus() {
@@ -247,7 +247,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * member by my member_id, named 'member'.
+     * member by my MEMBER_ID, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {

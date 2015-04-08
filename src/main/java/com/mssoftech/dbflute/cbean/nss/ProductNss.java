@@ -20,7 +20,7 @@ public class ProductNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * product_category by my product_category_code, named 'productCategory'.
+     * product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductCategoryNss withProductCategory() {
@@ -29,7 +29,7 @@ public class ProductNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * product_status by my product_status_code, named 'productStatus'.
+     * product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
      */
     public void withProductStatus() {
         _query.xdoNss(() -> _query.queryProductStatus());

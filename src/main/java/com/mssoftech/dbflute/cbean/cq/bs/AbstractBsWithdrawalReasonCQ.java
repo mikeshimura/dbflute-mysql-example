@@ -45,7 +45,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     //                                                                               =====
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_Equal(String withdrawalReasonCode) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_NotEqual(String withdrawalReasonCode) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_GreaterThan(String withdrawalReasonCode) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_LessThan(String withdrawalReasonCode) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_GreaterEqual(String withdrawalReasonCode) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_LessEqual(String withdrawalReasonCode) {
@@ -107,7 +107,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCodeList The collection of withdrawalReasonCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_InScope(Collection<String> withdrawalReasonCodeList) {
@@ -115,12 +115,12 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonCode_InScope(Collection<String> withdrawalReasonCodeList) {
-        regINS(CK_INS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "withdrawal_reason_code");
+        regINS(CK_INS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCodeList The collection of withdrawalReasonCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonCode_NotInScope(Collection<String> withdrawalReasonCodeList) {
@@ -128,12 +128,12 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonCode_NotInScope(Collection<String> withdrawalReasonCodeList) {
-        regINS(CK_NINS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "withdrawal_reason_code");
+        regINS(CK_NINS, cTL(withdrawalReasonCodeList), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)} <br>
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setWithdrawalReasonCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param withdrawalReasonCode The value of withdrawalReasonCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -144,19 +144,19 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)} <br>
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setWithdrawalReasonCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param withdrawalReasonCode The value of withdrawalReasonCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setWithdrawalReasonCode_LikeSearch(String withdrawalReasonCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(withdrawalReasonCode), xgetCValueWithdrawalReasonCode(), "withdrawal_reason_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(withdrawalReasonCode), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -167,18 +167,18 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setWithdrawalReasonCode_NotLikeSearch(String withdrawalReasonCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(withdrawalReasonCode), xgetCValueWithdrawalReasonCode(), "withdrawal_reason_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(withdrawalReasonCode), xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE", likeSearchOption);
     }
 
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select withdrawal_reason_code from member_withdrawal where ...)} <br>
-     * member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalAsOne'.
+     * {exists (select WITHDRAWAL_REASON_CODE from member_withdrawal where ...)} <br>
+     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsMemberWithdrawal</span>(withdrawalCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     withdrawalCB.query().set...
@@ -190,14 +190,14 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepWithdrawalReasonCode_ExistsReferrer_MemberWithdrawalList(cb.query());
-        registerExistsReferrer(cb.query(), "withdrawal_reason_code", "withdrawal_reason_code", pp, "memberWithdrawalList");
+        registerExistsReferrer(cb.query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", pp, "memberWithdrawalList");
     }
     public abstract String keepWithdrawalReasonCode_ExistsReferrer_MemberWithdrawalList(MemberWithdrawalCQ sq);
 
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select withdrawal_reason_code from member_withdrawal where ...)} <br>
-     * member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalAsOne'.
+     * {not exists (select WITHDRAWAL_REASON_CODE from member_withdrawal where ...)} <br>
+     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsMemberWithdrawal</span>(withdrawalCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     withdrawalCB.query().set...
@@ -209,7 +209,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepWithdrawalReasonCode_NotExistsReferrer_MemberWithdrawalList(cb.query());
-        registerNotExistsReferrer(cb.query(), "withdrawal_reason_code", "withdrawal_reason_code", pp, "memberWithdrawalList");
+        registerNotExistsReferrer(cb.query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", pp, "memberWithdrawalList");
     }
     public abstract String keepWithdrawalReasonCode_NotExistsReferrer_MemberWithdrawalList(MemberWithdrawalCQ sq);
 
@@ -217,14 +217,14 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
         assertObjectNotNull("subQuery", sq);
         MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String pp = keepWithdrawalReasonCode_SpecifyDerivedReferrer_MemberWithdrawalList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "withdrawal_reason_code", "withdrawal_reason_code", pp, "memberWithdrawalList", al, op);
+        registerSpecifyDerivedReferrer(fn, cb.query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", pp, "memberWithdrawalList", al, op);
     }
     public abstract String keepWithdrawalReasonCode_SpecifyDerivedReferrer_MemberWithdrawalList(MemberWithdrawalCQ sq);
 
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from member_withdrawal where ...)} <br>
-     * member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalAsOne'.
+     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedMemberWithdrawal()</span>.<span style="color: #CC4747">max</span>(withdrawalCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     withdrawalCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -243,29 +243,29 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
         assertObjectNotNull("subQuery", sq);
         MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String sqpp = keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalList(cb.query()); String prpp = keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "withdrawal_reason_code", "withdrawal_reason_code", sqpp, "memberWithdrawalList", rd, vl, prpp, op);
+        registerQueryDerivedReferrer(fn, cb.query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", sqpp, "memberWithdrawalList", rd, vl, prpp, op);
     }
     public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalList(MemberWithdrawalCQ sq);
     public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalListParameter(Object vl);
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setWithdrawalReasonCode_IsNull() { regWithdrawalReasonCode(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setWithdrawalReasonCode_IsNotNull() { regWithdrawalReasonCode(CK_ISNN, DOBJ); }
 
-    protected void regWithdrawalReasonCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonCode(), "withdrawal_reason_code"); }
+    protected void regWithdrawalReasonCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE"); }
     protected abstract ConditionValue xgetCValueWithdrawalReasonCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_Equal(String withdrawalReasonText) {
@@ -278,7 +278,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_NotEqual(String withdrawalReasonText) {
@@ -291,7 +291,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_GreaterThan(String withdrawalReasonText) {
@@ -300,7 +300,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_LessThan(String withdrawalReasonText) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_GreaterEqual(String withdrawalReasonText) {
@@ -318,7 +318,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_LessEqual(String withdrawalReasonText) {
@@ -327,7 +327,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonTextList The collection of withdrawalReasonText as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_InScope(Collection<String> withdrawalReasonTextList) {
@@ -335,12 +335,12 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonText_InScope(Collection<String> withdrawalReasonTextList) {
-        regINS(CK_INS, cTL(withdrawalReasonTextList), xgetCValueWithdrawalReasonText(), "withdrawal_reason_text");
+        regINS(CK_INS, cTL(withdrawalReasonTextList), xgetCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonTextList The collection of withdrawalReasonText as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setWithdrawalReasonText_NotInScope(Collection<String> withdrawalReasonTextList) {
@@ -348,12 +348,12 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetWithdrawalReasonText_NotInScope(Collection<String> withdrawalReasonTextList) {
-        regINS(CK_NINS, cTL(withdrawalReasonTextList), xgetCValueWithdrawalReasonText(), "withdrawal_reason_text");
+        regINS(CK_NINS, cTL(withdrawalReasonTextList), xgetCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)} <br>
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)} <br>
      * <pre>e.g. setWithdrawalReasonText_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param withdrawalReasonText The value of withdrawalReasonText as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -364,19 +364,19 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)} <br>
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)} <br>
      * <pre>e.g. setWithdrawalReasonText_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param withdrawalReasonText The value of withdrawalReasonText as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setWithdrawalReasonText_LikeSearch(String withdrawalReasonText, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(withdrawalReasonText), xgetCValueWithdrawalReasonText(), "withdrawal_reason_text", likeSearchOption);
+        regLSQ(CK_LS, fRES(withdrawalReasonText), xgetCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -387,20 +387,20 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * withdrawal_reason_text: {NotNull, text(2147483647)}
+     * WITHDRAWAL_REASON_TEXT: {NotNull, TEXT(65535)}
      * @param withdrawalReasonText The value of withdrawalReasonText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setWithdrawalReasonText_NotLikeSearch(String withdrawalReasonText, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(withdrawalReasonText), xgetCValueWithdrawalReasonText(), "withdrawal_reason_text", likeSearchOption);
+        regLSQ(CK_NLS, fRES(withdrawalReasonText), xgetCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT", likeSearchOption);
     }
 
-    protected void regWithdrawalReasonText(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonText(), "withdrawal_reason_text"); }
+    protected void regWithdrawalReasonText(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueWithdrawalReasonText(), "WITHDRAWAL_REASON_TEXT"); }
     protected abstract ConditionValue xgetCValueWithdrawalReasonText();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as equal. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_Equal(Integer displayOrder) {
@@ -413,7 +413,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as notEqual. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_NotEqual(Integer displayOrder) {
@@ -426,7 +426,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_GreaterThan(Integer displayOrder) {
@@ -435,7 +435,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as lessThan. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_LessThan(Integer displayOrder) {
@@ -444,7 +444,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_GreaterEqual(Integer displayOrder) {
@@ -453,7 +453,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_LessEqual(Integer displayOrder) {
@@ -464,7 +464,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param minNumber The min number of displayOrder. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of displayOrder. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -477,18 +477,18 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param minNumber The min number of displayOrder. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of displayOrder. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "display_order", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "DISPLAY_ORDER", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrderList The collection of displayOrder as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDisplayOrder_InScope(Collection<Integer> displayOrderList) {
@@ -496,12 +496,12 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetDisplayOrder_InScope(Collection<Integer> displayOrderList) {
-        regINS(CK_INS, cTL(displayOrderList), xgetCValueDisplayOrder(), "display_order");
+        regINS(CK_INS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrderList The collection of displayOrder as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
@@ -509,10 +509,10 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     }
 
     protected void doSetDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
-        regINS(CK_NINS, cTL(displayOrderList), xgetCValueDisplayOrder(), "display_order");
+        regINS(CK_NINS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
     }
 
-    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "display_order"); }
+    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "DISPLAY_ORDER"); }
     protected abstract ConditionValue xgetCValueDisplayOrder();
 
     // ===================================================================================
@@ -644,7 +644,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     public void xsmyselfDerive(String fn, SubQuery<WithdrawalReasonCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WithdrawalReasonCB cb = new WithdrawalReasonCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "withdrawal_reason_code";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "WITHDRAWAL_REASON_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WithdrawalReasonCQ sq);
@@ -660,7 +660,7 @@ public abstract class AbstractBsWithdrawalReasonCQ extends AbstractConditionQuer
     protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WithdrawalReasonCB cb = new WithdrawalReasonCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "withdrawal_reason_code";
+        String pk = "WITHDRAWAL_REASON_CODE";
         String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
         String prpp = keepQueryMyselfDerivedParameter(vl);
         registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);

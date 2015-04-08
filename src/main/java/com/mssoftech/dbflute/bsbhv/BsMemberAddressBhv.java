@@ -23,19 +23,19 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of member_address as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_address_id
+ *     MEMBER_ADDRESS_ID
  *
  * [column]
- *     member_address_id, member_id, valid_begin_date, valid_end_date, address, region_id, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     member_address_member_address_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     MEMBER_ADDRESS_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member, region
@@ -157,7 +157,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberAddressId : PK, ID, NotNull, serial(10). (NotNull)
+     * @param memberAddressId : PK, ID, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,8 +186,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
 
     /**
      * Select the entity by the unique-key value.
-     * @param memberId : UQ+, NotNull, int4(10), FK to member. (NotNull)
-     * @param validBeginDate : +UQ, NotNull, date(13). (NotNull)
+     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
+     * @param validBeginDate : +UQ, NotNull, DATE(10). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -306,27 +306,10 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     // ===================================================================================
     //                                                                            Sequence
     //                                                                            ========
-    /**
-     * Select the next value as sequence. <br>
-     * This method is called when insert() and set to primary-key automatically.
-     * So you don't need to call this as long as you need to get next value before insert().
-     * @return The next value. (NotNull)
-     */
-    public Integer selectNextVal() {
-        return facadeSelectNextVal();
-    }
-
-    protected Integer facadeSelectNextVal() {
-        return doSelectNextVal(Integer.class);
-    }
-
-    protected <RESULT> RESULT doSelectNextVal(Class<RESULT> tp) {
-        return delegateSelectNextVal(tp);
-    }
-
     @Override
     protected Number doReadNextVal() {
-        return facadeSelectNextVal();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
+        throw new UnsupportedOperationException(msg);
     }
 
     // ===================================================================================

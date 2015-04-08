@@ -10,16 +10,16 @@ import com.mssoftech.dbflute.exentity.*;
  * The referrer loader of member_login as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_login_id
+ *     MEMBER_LOGIN_ID
  *
  * [column]
- *     member_login_id, member_id, login_datetime, mobile_login_flg, login_member_status_code
+ *     MEMBER_LOGIN_ID, MEMBER_ID, LOGIN_DATETIME, MOBILE_LOGIN_FLG, LOGIN_MEMBER_STATUS_CODE
  *
  * [sequence]
- *     member_login_member_login_id_seq
+ *     
  *
  * [identity]
- *     
+ *     MEMBER_LOGIN_ID
  *
  * [version-no]
  *     

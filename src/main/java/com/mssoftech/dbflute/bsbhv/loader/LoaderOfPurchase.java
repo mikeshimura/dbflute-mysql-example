@@ -12,19 +12,19 @@ import com.mssoftech.dbflute.cbean.*;
  * The referrer loader of purchase as TABLE. <br>
  * <pre>
  * [primary key]
- *     purchase_id
+ *     PURCHASE_ID
  *
  * [column]
- *     purchase_id, member_id, product_id, purchase_datetime, purchase_count, purchase_price, payment_complete_flg, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
+ *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     purchase_purchase_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     PURCHASE_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member, product
@@ -65,7 +65,7 @@ public class LoaderOfPurchase {
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * purchase_payment by purchase_id, named 'purchasePaymentList'.
+     * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">purchaseLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseLoader</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

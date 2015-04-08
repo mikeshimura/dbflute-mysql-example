@@ -14,10 +14,8 @@ type ProductCQ struct {
 	RegularPrice *df.ConditionValue
 	RegisterDatetime *df.ConditionValue
 	RegisterUser *df.ConditionValue
-	RegisterProcess *df.ConditionValue
 	UpdateDatetime *df.ConditionValue
 	UpdateUser *df.ConditionValue
-	UpdateProcess *df.ConditionValue
 	VersionNo *df.ConditionValue
 }
 
@@ -424,28 +422,28 @@ func (q *ProductCQ) getCValueRegisterDatetime() *df.ConditionValue {
 
 
 
-func (q *ProductCQ) SetRegisterDatetime_Equal(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetRegisterDatetime_Equal(value df.MysqlTimestamp) *ProductCQ {
 	q.regRegisterDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *ProductCQ) SetRegisterDatetime_GreaterThan(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetRegisterDatetime_GreaterThan(value df.MysqlTimestamp) *ProductCQ {
 	q.regRegisterDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *ProductCQ) SetRegisterDatetime_LessThan(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetRegisterDatetime_LessThan(value df.MysqlTimestamp) *ProductCQ {
 	q.regRegisterDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *ProductCQ) SetRegisterDatetime_GreaterEqual(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetRegisterDatetime_GreaterEqual(value df.MysqlTimestamp) *ProductCQ {
 	q.regRegisterDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *ProductCQ) SetRegisterDatetime_LessEqual(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetRegisterDatetime_LessEqual(value df.MysqlTimestamp) *ProductCQ {
 	q.regRegisterDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -531,72 +529,6 @@ func (q *ProductCQ) regRegisterUser(key *df.ConditionKey, value interface{}) {
 	q.BaseConditionQuery.RegQ(key, value, q.RegisterUser, "registerUser")
 }
 
-func (q *ProductCQ) getCValueRegisterProcess() *df.ConditionValue {
-	if q.RegisterProcess == nil {
-		q.RegisterProcess = new(df.ConditionValue)
-	}
-	return q.RegisterProcess
-}
-
-
-func (q *ProductCQ) SetRegisterProcess_Equal(value string) *ProductCQ {
-	q.regRegisterProcess(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
-	return q
-}
-
-func (q *ProductCQ) SetRegisterProcess_NotEqual(value string) *ProductCQ {
-	q.regRegisterProcess(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetRegisterProcess_GreaterThan(value string) *ProductCQ {
-	q.regRegisterProcess(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetRegisterProcess_LessThan(value string) *ProductCQ {
-	q.regRegisterProcess(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetRegisterProcess_GreaterEqualThan(value string) *ProductCQ {
-	q.regRegisterProcess(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-func (q *ProductCQ) SetRegisterProcess_LessEqualThan(value string) *ProductCQ {
-	q.regRegisterProcess(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetRegisterProcess_LikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueRegisterProcess(), "registerProcess", option)
-}
-
-func (q *ProductCQ) SetRegisterProcess_PrefixSearch(value string) error {
-	return q.SetRegisterProcess_LikeSearch(value, q.BaseConditionQuery.CLSOP())
-}
-
-func (q *ProductCQ) SetRegisterProcess_NotLikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueRegisterProcess(), "registerProcess", option)
-}
-
-
-
-func (q *ProductCQ) AddOrderBy_RegisterProcess_Asc() *ProductCQ {
-	q.BaseConditionQuery.RegOBA("registerProcess")
-	return q
-}
-func (q *ProductCQ) AddOrderBy_RegisterProcess_Desc() *ProductCQ {
-	q.BaseConditionQuery.RegOBD("registerProcess")
-	return q
-}
-func (q *ProductCQ) regRegisterProcess(key *df.ConditionKey, value interface{}) {
-	if q.RegisterProcess == nil {
-		q.RegisterProcess = new(df.ConditionValue)
-	}
-	q.BaseConditionQuery.RegQ(key, value, q.RegisterProcess, "registerProcess")
-}
-
 func (q *ProductCQ) getCValueUpdateDatetime() *df.ConditionValue {
 	if q.UpdateDatetime == nil {
 		q.UpdateDatetime = new(df.ConditionValue)
@@ -607,28 +539,28 @@ func (q *ProductCQ) getCValueUpdateDatetime() *df.ConditionValue {
 
 
 
-func (q *ProductCQ) SetUpdateDatetime_Equal(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetUpdateDatetime_Equal(value df.MysqlTimestamp) *ProductCQ {
 	q.regUpdateDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *ProductCQ) SetUpdateDatetime_GreaterThan(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetUpdateDatetime_GreaterThan(value df.MysqlTimestamp) *ProductCQ {
 	q.regUpdateDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *ProductCQ) SetUpdateDatetime_LessThan(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetUpdateDatetime_LessThan(value df.MysqlTimestamp) *ProductCQ {
 	q.regUpdateDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *ProductCQ) SetUpdateDatetime_GreaterEqual(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetUpdateDatetime_GreaterEqual(value df.MysqlTimestamp) *ProductCQ {
 	q.regUpdateDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *ProductCQ) SetUpdateDatetime_LessEqual(value df.Timestamp) *ProductCQ {
+func (q *ProductCQ) SetUpdateDatetime_LessEqual(value df.MysqlTimestamp) *ProductCQ {
 	q.regUpdateDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -712,72 +644,6 @@ func (q *ProductCQ) regUpdateUser(key *df.ConditionKey, value interface{}) {
 		q.UpdateUser = new(df.ConditionValue)
 	}
 	q.BaseConditionQuery.RegQ(key, value, q.UpdateUser, "updateUser")
-}
-
-func (q *ProductCQ) getCValueUpdateProcess() *df.ConditionValue {
-	if q.UpdateProcess == nil {
-		q.UpdateProcess = new(df.ConditionValue)
-	}
-	return q.UpdateProcess
-}
-
-
-func (q *ProductCQ) SetUpdateProcess_Equal(value string) *ProductCQ {
-	q.regUpdateProcess(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
-	return q
-}
-
-func (q *ProductCQ) SetUpdateProcess_NotEqual(value string) *ProductCQ {
-	q.regUpdateProcess(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetUpdateProcess_GreaterThan(value string) *ProductCQ {
-	q.regUpdateProcess(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetUpdateProcess_LessThan(value string) *ProductCQ {
-	q.regUpdateProcess(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetUpdateProcess_GreaterEqualThan(value string) *ProductCQ {
-	q.regUpdateProcess(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-func (q *ProductCQ) SetUpdateProcess_LessEqualThan(value string) *ProductCQ {
-	q.regUpdateProcess(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *ProductCQ) SetUpdateProcess_LikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueUpdateProcess(), "updateProcess", option)
-}
-
-func (q *ProductCQ) SetUpdateProcess_PrefixSearch(value string) error {
-	return q.SetUpdateProcess_LikeSearch(value, q.BaseConditionQuery.CLSOP())
-}
-
-func (q *ProductCQ) SetUpdateProcess_NotLikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueUpdateProcess(), "updateProcess", option)
-}
-
-
-
-func (q *ProductCQ) AddOrderBy_UpdateProcess_Asc() *ProductCQ {
-	q.BaseConditionQuery.RegOBA("updateProcess")
-	return q
-}
-func (q *ProductCQ) AddOrderBy_UpdateProcess_Desc() *ProductCQ {
-	q.BaseConditionQuery.RegOBD("updateProcess")
-	return q
-}
-func (q *ProductCQ) regUpdateProcess(key *df.ConditionKey, value interface{}) {
-	if q.UpdateProcess == nil {
-		q.UpdateProcess = new(df.ConditionValue)
-	}
-	q.BaseConditionQuery.RegQ(key, value, q.UpdateProcess, "updateProcess")
 }
 
 func (q *ProductCQ) getCValueVersionNo() *df.ConditionValue {

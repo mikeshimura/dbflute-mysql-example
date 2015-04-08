@@ -95,17 +95,17 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsRegionCQ addOrderBy_RegionId_Asc() { regOBA("region_id"); return this; }
+    public BsRegionCQ addOrderBy_RegionId_Asc() { regOBA("REGION_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsRegionCQ addOrderBy_RegionId_Desc() { regOBD("region_id"); return this; }
+    public BsRegionCQ addOrderBy_RegionId_Desc() { regOBD("REGION_ID"); return this; }
 
     protected ConditionValue _regionName;
     public ConditionValue xdfgetRegionName()
@@ -115,17 +115,17 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsRegionCQ addOrderBy_RegionName_Asc() { regOBA("region_name"); return this; }
+    public BsRegionCQ addOrderBy_RegionName_Asc() { regOBA("REGION_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsRegionCQ addOrderBy_RegionName_Desc() { regOBD("region_name"); return this; }
+    public BsRegionCQ addOrderBy_RegionName_Desc() { regOBD("REGION_NAME"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy

@@ -15,10 +15,8 @@ type PurchaseCQ struct {
 	PaymentCompleteFlg *df.ConditionValue
 	RegisterDatetime *df.ConditionValue
 	RegisterUser *df.ConditionValue
-	RegisterProcess *df.ConditionValue
 	UpdateDatetime *df.ConditionValue
 	UpdateUser *df.ConditionValue
-	UpdateProcess *df.ConditionValue
 	VersionNo *df.ConditionValue
 }
 
@@ -219,28 +217,28 @@ func (q *PurchaseCQ) getCValuePurchaseDatetime() *df.ConditionValue {
 
 
 
-func (q *PurchaseCQ) SetPurchaseDatetime_Equal(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetPurchaseDatetime_Equal(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regPurchaseDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *PurchaseCQ) SetPurchaseDatetime_GreaterThan(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetPurchaseDatetime_GreaterThan(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regPurchaseDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetPurchaseDatetime_LessThan(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetPurchaseDatetime_LessThan(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regPurchaseDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetPurchaseDatetime_GreaterEqual(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetPurchaseDatetime_GreaterEqual(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regPurchaseDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetPurchaseDatetime_LessEqual(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetPurchaseDatetime_LessEqual(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regPurchaseDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -444,28 +442,28 @@ func (q *PurchaseCQ) getCValueRegisterDatetime() *df.ConditionValue {
 
 
 
-func (q *PurchaseCQ) SetRegisterDatetime_Equal(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetRegisterDatetime_Equal(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regRegisterDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *PurchaseCQ) SetRegisterDatetime_GreaterThan(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetRegisterDatetime_GreaterThan(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regRegisterDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetRegisterDatetime_LessThan(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetRegisterDatetime_LessThan(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regRegisterDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetRegisterDatetime_GreaterEqual(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetRegisterDatetime_GreaterEqual(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regRegisterDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetRegisterDatetime_LessEqual(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetRegisterDatetime_LessEqual(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regRegisterDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -551,72 +549,6 @@ func (q *PurchaseCQ) regRegisterUser(key *df.ConditionKey, value interface{}) {
 	q.BaseConditionQuery.RegQ(key, value, q.RegisterUser, "registerUser")
 }
 
-func (q *PurchaseCQ) getCValueRegisterProcess() *df.ConditionValue {
-	if q.RegisterProcess == nil {
-		q.RegisterProcess = new(df.ConditionValue)
-	}
-	return q.RegisterProcess
-}
-
-
-func (q *PurchaseCQ) SetRegisterProcess_Equal(value string) *PurchaseCQ {
-	q.regRegisterProcess(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
-	return q
-}
-
-func (q *PurchaseCQ) SetRegisterProcess_NotEqual(value string) *PurchaseCQ {
-	q.regRegisterProcess(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetRegisterProcess_GreaterThan(value string) *PurchaseCQ {
-	q.regRegisterProcess(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetRegisterProcess_LessThan(value string) *PurchaseCQ {
-	q.regRegisterProcess(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetRegisterProcess_GreaterEqualThan(value string) *PurchaseCQ {
-	q.regRegisterProcess(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-func (q *PurchaseCQ) SetRegisterProcess_LessEqualThan(value string) *PurchaseCQ {
-	q.regRegisterProcess(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetRegisterProcess_LikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueRegisterProcess(), "registerProcess", option)
-}
-
-func (q *PurchaseCQ) SetRegisterProcess_PrefixSearch(value string) error {
-	return q.SetRegisterProcess_LikeSearch(value, q.BaseConditionQuery.CLSOP())
-}
-
-func (q *PurchaseCQ) SetRegisterProcess_NotLikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueRegisterProcess(), "registerProcess", option)
-}
-
-
-
-func (q *PurchaseCQ) AddOrderBy_RegisterProcess_Asc() *PurchaseCQ {
-	q.BaseConditionQuery.RegOBA("registerProcess")
-	return q
-}
-func (q *PurchaseCQ) AddOrderBy_RegisterProcess_Desc() *PurchaseCQ {
-	q.BaseConditionQuery.RegOBD("registerProcess")
-	return q
-}
-func (q *PurchaseCQ) regRegisterProcess(key *df.ConditionKey, value interface{}) {
-	if q.RegisterProcess == nil {
-		q.RegisterProcess = new(df.ConditionValue)
-	}
-	q.BaseConditionQuery.RegQ(key, value, q.RegisterProcess, "registerProcess")
-}
-
 func (q *PurchaseCQ) getCValueUpdateDatetime() *df.ConditionValue {
 	if q.UpdateDatetime == nil {
 		q.UpdateDatetime = new(df.ConditionValue)
@@ -627,28 +559,28 @@ func (q *PurchaseCQ) getCValueUpdateDatetime() *df.ConditionValue {
 
 
 
-func (q *PurchaseCQ) SetUpdateDatetime_Equal(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetUpdateDatetime_Equal(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regUpdateDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *PurchaseCQ) SetUpdateDatetime_GreaterThan(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetUpdateDatetime_GreaterThan(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regUpdateDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetUpdateDatetime_LessThan(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetUpdateDatetime_LessThan(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regUpdateDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetUpdateDatetime_GreaterEqual(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetUpdateDatetime_GreaterEqual(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regUpdateDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *PurchaseCQ) SetUpdateDatetime_LessEqual(value df.Timestamp) *PurchaseCQ {
+func (q *PurchaseCQ) SetUpdateDatetime_LessEqual(value df.MysqlTimestamp) *PurchaseCQ {
 	q.regUpdateDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -732,72 +664,6 @@ func (q *PurchaseCQ) regUpdateUser(key *df.ConditionKey, value interface{}) {
 		q.UpdateUser = new(df.ConditionValue)
 	}
 	q.BaseConditionQuery.RegQ(key, value, q.UpdateUser, "updateUser")
-}
-
-func (q *PurchaseCQ) getCValueUpdateProcess() *df.ConditionValue {
-	if q.UpdateProcess == nil {
-		q.UpdateProcess = new(df.ConditionValue)
-	}
-	return q.UpdateProcess
-}
-
-
-func (q *PurchaseCQ) SetUpdateProcess_Equal(value string) *PurchaseCQ {
-	q.regUpdateProcess(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
-	return q
-}
-
-func (q *PurchaseCQ) SetUpdateProcess_NotEqual(value string) *PurchaseCQ {
-	q.regUpdateProcess(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetUpdateProcess_GreaterThan(value string) *PurchaseCQ {
-	q.regUpdateProcess(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetUpdateProcess_LessThan(value string) *PurchaseCQ {
-	q.regUpdateProcess(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetUpdateProcess_GreaterEqualThan(value string) *PurchaseCQ {
-	q.regUpdateProcess(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-func (q *PurchaseCQ) SetUpdateProcess_LessEqualThan(value string) *PurchaseCQ {
-	q.regUpdateProcess(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *PurchaseCQ) SetUpdateProcess_LikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueUpdateProcess(), "updateProcess", option)
-}
-
-func (q *PurchaseCQ) SetUpdateProcess_PrefixSearch(value string) error {
-	return q.SetUpdateProcess_LikeSearch(value, q.BaseConditionQuery.CLSOP())
-}
-
-func (q *PurchaseCQ) SetUpdateProcess_NotLikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueUpdateProcess(), "updateProcess", option)
-}
-
-
-
-func (q *PurchaseCQ) AddOrderBy_UpdateProcess_Asc() *PurchaseCQ {
-	q.BaseConditionQuery.RegOBA("updateProcess")
-	return q
-}
-func (q *PurchaseCQ) AddOrderBy_UpdateProcess_Desc() *PurchaseCQ {
-	q.BaseConditionQuery.RegOBD("updateProcess")
-	return q
-}
-func (q *PurchaseCQ) regUpdateProcess(key *df.ConditionKey, value interface{}) {
-	if q.UpdateProcess == nil {
-		q.UpdateProcess = new(df.ConditionValue)
-	}
-	q.BaseConditionQuery.RegQ(key, value, q.UpdateProcess, "updateProcess")
 }
 
 func (q *PurchaseCQ) getCValueVersionNo() *df.ConditionValue {

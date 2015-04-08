@@ -222,6 +222,18 @@ func InterfaceToStringQuote(arg interface{}) string {
 			return Quote((*nsv).String)
 		}
 		return "null"
+	case NullString:
+		nsv := arg.(NullString)
+		if nsv.Valid {
+			return Quote(nsv.String)
+		}
+		return "null"
+	case *NullString:
+		nsv := arg.(*NullString)
+		if nsv.Valid {
+			return Quote((*nsv).String)
+		}
+		return "null"
 	case pq.NullTime:
 		ntv := arg.(pq.NullTime)
 		if ntv.Valid {
@@ -362,6 +374,12 @@ func IsNotNull(arg interface{}) bool {
 	case *sql.NullString:
 		nsv := arg.(*sql.NullString)
 		return nsv.Valid
+	case NullString:
+		nsv := arg.(NullString)
+		return nsv.Valid
+	case *NullString:
+		nsv := arg.(*NullString)
+		return nsv.Valid
 	case pq.NullTime:
 		ntv := arg.(pq.NullTime)
 		return ntv.Valid
@@ -501,6 +519,18 @@ func InterfaceToString(arg interface{}) string {
 		return "null"
 	case *sql.NullString:
 		nsv := arg.(*sql.NullString)
+		if nsv.Valid {
+			return (*nsv).String
+		}
+		return "null"
+	case NullString:
+		nsv := arg.(NullString)
+		if nsv.Valid {
+			return nsv.String
+		}
+		return "null"
+	case *NullString:
+		nsv := arg.(*NullString)
 		if nsv.Valid {
 			return (*nsv).String
 		}

@@ -23,10 +23,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of member_status as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_status_code
+ *     MEMBER_STATUS_CODE
  *
  * [column]
- *     member_status_code, member_status_name, description, display_order
+ *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
  *
  * [sequence]
  *     
@@ -157,7 +157,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberStatusCode : PK, NotNull, bpchar(3). (NotNull)
+     * @param memberStatusCode : PK, NotNull, CHAR(3). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,7 +186,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
 
     /**
      * Select the entity by the unique-key value.
-     * @param displayOrder : UQ, NotNull, int4(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -386,7 +386,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
 
     /**
      * Load referrer of memberList by the set-upper of referrer. <br>
-     * member by member_status_code, named 'memberList'.
+     * member by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
@@ -417,7 +417,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
 
     /**
      * Load referrer of memberList by the set-upper of referrer. <br>
-     * member by member_status_code, named 'memberList'.
+     * member by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
@@ -450,7 +450,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * member_login by login_member_status_code, named 'memberLoginList'.
+     * member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">loginCB</span>.setupSelect...
@@ -481,7 +481,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * member_login by login_member_status_code, named 'memberLoginList'.
+     * member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">loginCB</span>.setupSelect...

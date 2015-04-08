@@ -13,24 +13,23 @@ import com.mssoftech.dbflute.exentity.*;
 
 /**
  * The entity of member_address as TABLE. <br>
- * 会員住所情報: 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br>
- * 会員を基点に考えた場合、構造的にはone-to-many だが、業務的な定型条件でone-to-one になる。このような構造を「業務的one-to-one」と呼ぶ。<br>
- * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0...1" である。
+ * 会員住所情報: 会員の住所に関する情報。<br>
+ * 同時に有効期間ごとに履歴管理されている。
  * <pre>
  * [primary-key]
- *     member_address_id
+ *     MEMBER_ADDRESS_ID
  * 
  * [column]
- *     member_address_id, member_id, valid_begin_date, valid_end_date, address, region_id, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  * 
  * [sequence]
- *     member_address_member_address_id_seq
- * 
- * [identity]
  *     
  * 
+ * [identity]
+ *     MEMBER_ADDRESS_ID
+ * 
  * [version-no]
- *     version_no
+ *     VERSION_NO
  * 
  * [foreign table]
  *     member, region
@@ -53,10 +52,8 @@ import com.mssoftech.dbflute.exentity.*;
  * String address = entity.getAddress();
  * Integer regionId = entity.getRegionId();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerProcess = entity.getRegisterProcess();
  * String registerUser = entity.getRegisterUser();
  * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateProcess = entity.getUpdateProcess();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
  * entity.setMemberAddressId(memberAddressId);
@@ -66,10 +63,8 @@ import com.mssoftech.dbflute.exentity.*;
  * entity.setAddress(address);
  * entity.setRegionId(regionId);
  * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterProcess(registerProcess);
  * entity.setRegisterUser(registerUser);
  * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateProcess(updateProcess);
  * entity.setUpdateUser(updateUser);
  * entity.setVersionNo(versionNo);
  * = = = = = = = = = =/
@@ -87,43 +82,37 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** member_address_id: {PK, ID, NotNull, serial(10)} */
+    /** MEMBER_ADDRESS_ID: {PK, ID, NotNull, INT(10)} */
     protected Integer _memberAddressId;
 
-    /** member_id: {UQ+, NotNull, int4(10), FK to member} */
+    /** MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} */
     protected Integer _memberId;
 
-    /** valid_begin_date: {+UQ, NotNull, date(13)} */
+    /** VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} */
     protected java.time.LocalDate _validBeginDate;
 
-    /** valid_end_date: {NotNull, date(13)} */
+    /** VALID_END_DATE: {NotNull, DATE(10)} */
     protected java.time.LocalDate _validEndDate;
 
-    /** address: {NotNull, varchar(200)} */
+    /** ADDRESS: {NotNull, VARCHAR(200)} */
     protected String _address;
 
-    /** region_id: {NotNull, int4(10), FK to region} */
+    /** REGION_ID: {IX, NotNull, INT(10), FK to region} */
     protected Integer _regionId;
 
-    /** register_datetime: {NotNull, timestamp(26, 3)} */
+    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** register_process: {NotNull, varchar(200)} */
-    protected String _registerProcess;
-
-    /** register_user: {NotNull, varchar(200)} */
+    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** update_datetime: {NotNull, timestamp(26, 3)} */
+    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** update_process: {NotNull, varchar(200)} */
-    protected String _updateProcess;
-
-    /** update_user: {NotNull, varchar(200)} */
+    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
 
-    /** version_no: {NotNull, int8(19)} */
+    /** VERSION_NO: {NotNull, BIGINT(19)} */
     protected Long _versionNo;
 
     // ===================================================================================
@@ -151,8 +140,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param memberId : UQ+, NotNull, int4(10), FK to member. (NotNull)
-     * @param validBeginDate : +UQ, NotNull, date(13). (NotNull)
+     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
+     * @param validBeginDate : +UQ, NotNull, DATE(10). (NotNull)
      */
     public void uniqueBy(Integer memberId, java.time.LocalDate validBeginDate) {
         __uniqueDrivenProperties.clear();
@@ -164,11 +153,11 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** member by my member_id, named 'member'. */
+    /** member by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] member by my member_id, named 'member'. <br>
+     * [get] member by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -178,18 +167,18 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] member by my member_id, named 'member'.
+     * [set] member by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {
         _member = member;
     }
 
-    /** region by my region_id, named 'region'. */
+    /** region by my REGION_ID, named 'region'. */
     protected OptionalEntity<Region> _region;
 
     /**
-     * [get] region by my region_id, named 'region'. <br>
+     * [get] region by my REGION_ID, named 'region'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'region'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -199,7 +188,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] region by my region_id, named 'region'.
+     * [set] region by my REGION_ID, named 'region'.
      * @param region The entity of foreign property 'region'. (NullAllowed)
      */
     public void setRegion(OptionalEntity<Region> region) {
@@ -258,10 +247,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
         sb.append(dm).append(xfND(_address));
         sb.append(dm).append(xfND(_regionId));
         sb.append(dm).append(xfND(_registerDatetime));
-        sb.append(dm).append(xfND(_registerProcess));
         sb.append(dm).append(xfND(_registerUser));
         sb.append(dm).append(xfND(_updateDatetime));
-        sb.append(dm).append(xfND(_updateProcess));
         sb.append(dm).append(xfND(_updateUser));
         sb.append(dm).append(xfND(_versionNo));
         if (sb.length() > dm.length()) {
@@ -293,10 +280,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] member_address_id: {PK, ID, NotNull, serial(10)} <br>
+     * [get] MEMBER_ADDRESS_ID: {PK, ID, NotNull, INT(10)} <br>
      * 会員住所ID: 会員住所を識別するID。<br>
      * 履歴分も含むテーブルなので、これ自体はFKではない。
-     * @return The value of the column 'member_address_id'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'MEMBER_ADDRESS_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberAddressId() {
         checkSpecifiedProperty("memberAddressId");
@@ -304,10 +291,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] member_address_id: {PK, ID, NotNull, serial(10)} <br>
+     * [set] MEMBER_ADDRESS_ID: {PK, ID, NotNull, INT(10)} <br>
      * 会員住所ID: 会員住所を識別するID。<br>
      * 履歴分も含むテーブルなので、これ自体はFKではない。
-     * @param memberAddressId The value of the column 'member_address_id'. (basically NotNull if update: for the constraint)
+     * @param memberAddressId The value of the column 'MEMBER_ADDRESS_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberAddressId(Integer memberAddressId) {
         registerModifiedProperty("memberAddressId");
@@ -315,13 +302,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] member_id: {UQ+, NotNull, int4(10), FK to member} <br>
+     * [get] MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} <br>
      * 会員ID: 会員を参照するID。<br>
-     * 履歴分を含むため、これだけではユニークにはならない。<br>
-     * 有効開始日と合わせて複合ユニーク制約となるが、<br>
-     * 厳密には完全な制約にはなっていない。<br>
-     * 有効期間の概念はRDBでは表現しきれないのである。
-     * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
+     * 履歴分を含むため、これだけではユニークにはならない。
+     * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
         checkSpecifiedProperty("memberId");
@@ -329,13 +313,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] member_id: {UQ+, NotNull, int4(10), FK to member} <br>
+     * [set] MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} <br>
      * 会員ID: 会員を参照するID。<br>
-     * 履歴分を含むため、これだけではユニークにはならない。<br>
-     * 有効開始日と合わせて複合ユニーク制約となるが、<br>
-     * 厳密には完全な制約にはなっていない。<br>
-     * 有効期間の概念はRDBでは表現しきれないのである。
-     * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
+     * 履歴分を含むため、これだけではユニークにはならない。
+     * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
         registerModifiedProperty("memberId");
@@ -343,10 +324,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] valid_begin_date: {+UQ, NotNull, date(13)} <br>
+     * [get] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * 有効開始日: 一つの有効期間の開始を示す日付。<br>
      * 前の有効終了日の次の日の値が格納される。
-     * @return The value of the column 'valid_begin_date'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDate getValidBeginDate() {
         checkSpecifiedProperty("validBeginDate");
@@ -354,10 +335,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] valid_begin_date: {+UQ, NotNull, date(13)} <br>
+     * [set] VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * 有効開始日: 一つの有効期間の開始を示す日付。<br>
      * 前の有効終了日の次の日の値が格納される。
-     * @param validBeginDate The value of the column 'valid_begin_date'. (basically NotNull if update: for the constraint)
+     * @param validBeginDate The value of the column 'VALID_BEGIN_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setValidBeginDate(java.time.LocalDate validBeginDate) {
         registerModifiedProperty("validBeginDate");
@@ -365,11 +346,11 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] valid_end_date: {NotNull, date(13)} <br>
+     * [get] VALID_END_DATE: {NotNull, DATE(10)} <br>
      * 有効終了日: 有効期間の終了日。<br>
      * 次の有効開始日の一日前の値が格納される。<br>
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
-     * @return The value of the column 'valid_end_date'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'VALID_END_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDate getValidEndDate() {
         checkSpecifiedProperty("validEndDate");
@@ -377,11 +358,11 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] valid_end_date: {NotNull, date(13)} <br>
+     * [set] VALID_END_DATE: {NotNull, DATE(10)} <br>
      * 有効終了日: 有効期間の終了日。<br>
      * 次の有効開始日の一日前の値が格納される。<br>
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
-     * @param validEndDate The value of the column 'valid_end_date'. (basically NotNull if update: for the constraint)
+     * @param validEndDate The value of the column 'VALID_END_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setValidEndDate(java.time.LocalDate validEndDate) {
         registerModifiedProperty("validEndDate");
@@ -389,9 +370,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] address: {NotNull, varchar(200)} <br>
+     * [get] ADDRESS: {NotNull, VARCHAR(200)} <br>
      * 住所: まるごと住所
-     * @return The value of the column 'address'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'ADDRESS'. (basically NotNull if selected: for the constraint)
      */
     public String getAddress() {
         checkSpecifiedProperty("address");
@@ -399,9 +380,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] address: {NotNull, varchar(200)} <br>
+     * [set] ADDRESS: {NotNull, VARCHAR(200)} <br>
      * 住所: まるごと住所
-     * @param address The value of the column 'address'. (basically NotNull if update: for the constraint)
+     * @param address The value of the column 'ADDRESS'. (basically NotNull if update: for the constraint)
      */
     public void setAddress(String address) {
         registerModifiedProperty("address");
@@ -409,11 +390,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] region_id: {NotNull, int4(10), FK to region} <br>
+     * [get] REGION_ID: {IX, NotNull, INT(10), FK to region} <br>
      * 地域ID: 地域を参照するID。<br>
-     * ここでは特に住所の内容と連動しているわけではない。<br>
-     * （業務的one-to-oneの親テーブルの表現したかっ...）
-     * @return The value of the column 'region_id'. (basically NotNull if selected: for the constraint)
+     * ここでは特に住所の内容と連動しているわけではない。
+     * @return The value of the column 'REGION_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegionId() {
         checkSpecifiedProperty("regionId");
@@ -421,11 +401,10 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] region_id: {NotNull, int4(10), FK to region} <br>
+     * [set] REGION_ID: {IX, NotNull, INT(10), FK to region} <br>
      * 地域ID: 地域を参照するID。<br>
-     * ここでは特に住所の内容と連動しているわけではない。<br>
-     * （業務的one-to-oneの親テーブルの表現したかっ...）
-     * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
+     * ここでは特に住所の内容と連動しているわけではない。
+     * @param regionId The value of the column 'REGION_ID'. (basically NotNull if update: for the constraint)
      */
     public void setRegionId(Integer regionId) {
         registerModifiedProperty("regionId");
@@ -433,8 +412,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
+     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
@@ -442,8 +421,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
+     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
@@ -451,26 +430,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
-     */
-    public String getRegisterProcess() {
-        checkSpecifiedProperty("registerProcess");
-        return _registerProcess;
-    }
-
-    /**
-     * [set] register_process: {NotNull, varchar(200)} <br>
-     * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
-     */
-    public void setRegisterProcess(String registerProcess) {
-        registerModifiedProperty("registerProcess");
-        _registerProcess = registerProcess;
-    }
-
-    /**
-     * [get] register_user: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
+     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
         checkSpecifiedProperty("registerUser");
@@ -478,8 +439,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br>
-     * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
+     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
         registerModifiedProperty("registerUser");
@@ -487,8 +448,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
+     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
@@ -496,8 +457,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
+     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
@@ -505,26 +466,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
-     */
-    public String getUpdateProcess() {
-        checkSpecifiedProperty("updateProcess");
-        return _updateProcess;
-    }
-
-    /**
-     * [set] update_process: {NotNull, varchar(200)} <br>
-     * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
-     */
-    public void setUpdateProcess(String updateProcess) {
-        registerModifiedProperty("updateProcess");
-        _updateProcess = updateProcess;
-    }
-
-    /**
-     * [get] update_user: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
+     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
         checkSpecifiedProperty("updateUser");
@@ -532,8 +475,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br>
-     * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
+     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
         registerModifiedProperty("updateUser");
@@ -541,8 +484,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] version_no: {NotNull, int8(19)} <br>
-     * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
+     * [get] VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
         checkSpecifiedProperty("versionNo");
@@ -550,8 +493,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br>
-     * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
+     * [set] VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {
         registerModifiedProperty("versionNo");

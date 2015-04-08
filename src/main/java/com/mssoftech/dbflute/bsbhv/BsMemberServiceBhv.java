@@ -23,19 +23,19 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of member_service as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_service_id
+ *     MEMBER_SERVICE_ID
  *
  * [column]
- *     member_service_id, member_id, service_point_count, service_rank_code, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  *
  * [sequence]
- *     member_service_member_service_id_seq
- *
- * [identity]
  *     
  *
+ * [identity]
+ *     MEMBER_SERVICE_ID
+ *
  * [version-no]
- *     version_no
+ *     VERSION_NO
  *
  * [foreign table]
  *     member, service_rank
@@ -157,7 +157,7 @@ public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<Member
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberServiceId : PK, ID, NotNull, serial(10). (NotNull)
+     * @param memberServiceId : PK, ID, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,7 +186,7 @@ public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<Member
 
     /**
      * Select the entity by the unique-key value.
-     * @param memberId : UQ, NotNull, int4(10), FK to member. (NotNull)
+     * @param memberId : UQ, NotNull, INT(10), FK to member. (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -305,27 +305,10 @@ public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<Member
     // ===================================================================================
     //                                                                            Sequence
     //                                                                            ========
-    /**
-     * Select the next value as sequence. <br>
-     * This method is called when insert() and set to primary-key automatically.
-     * So you don't need to call this as long as you need to get next value before insert().
-     * @return The next value. (NotNull)
-     */
-    public Integer selectNextVal() {
-        return facadeSelectNextVal();
-    }
-
-    protected Integer facadeSelectNextVal() {
-        return doSelectNextVal(Integer.class);
-    }
-
-    protected <RESULT> RESULT doSelectNextVal(Class<RESULT> tp) {
-        return delegateSelectNextVal(tp);
-    }
-
     @Override
     protected Number doReadNextVal() {
-        return facadeSelectNextVal();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
+        throw new UnsupportedOperationException(msg);
     }
 
     // ===================================================================================

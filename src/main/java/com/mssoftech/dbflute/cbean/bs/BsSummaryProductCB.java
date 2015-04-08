@@ -268,25 +268,30 @@ public class BsSummaryProductCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * product_id: {int4(10)}
+         * PRODUCT_ID: {NotNull, INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnProductId() { return doColumn("product_id"); }
+        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * product_name: {varchar(50)}
+         * PRODUCT_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnProductName() { return doColumn("product_name"); }
+        public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
         /**
-         * product_status_code: {bpchar(3)}
+         * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnProductStatusCode() { return doColumn("product_status_code"); }
+        public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
         /**
-         * latest_purchase_datetime: {timestamp(29, 6)}
+         * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnLatestPurchaseDatetime() { return doColumn("latest_purchase_datetime"); }
+        public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
+        /**
+         * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnLatestPurchaseDatetime() { return doColumn("LATEST_PURCHASE_DATETIME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override

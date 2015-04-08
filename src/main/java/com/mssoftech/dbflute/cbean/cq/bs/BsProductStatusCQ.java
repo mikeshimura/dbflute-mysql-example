@@ -95,17 +95,17 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_status_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsProductStatusCQ addOrderBy_ProductStatusCode_Asc() { regOBA("product_status_code"); return this; }
+    public BsProductStatusCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_status_code: {PK, NotNull, bpchar(3)}
+     * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsProductStatusCQ addOrderBy_ProductStatusCode_Desc() { regOBD("product_status_code"); return this; }
+    public BsProductStatusCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
 
     protected ConditionValue _productStatusName;
     public ConditionValue xdfgetProductStatusName()
@@ -115,17 +115,17 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * product_status_name: {NotNull, varchar(50)}
+     * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsProductStatusCQ addOrderBy_ProductStatusName_Asc() { regOBA("product_status_name"); return this; }
+    public BsProductStatusCQ addOrderBy_ProductStatusName_Asc() { regOBA("PRODUCT_STATUS_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * product_status_name: {NotNull, varchar(50)}
+     * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsProductStatusCQ addOrderBy_ProductStatusName_Desc() { regOBD("product_status_name"); return this; }
+    public BsProductStatusCQ addOrderBy_ProductStatusName_Desc() { regOBD("PRODUCT_STATUS_NAME"); return this; }
 
     protected ConditionValue _displayOrder;
     public ConditionValue xdfgetDisplayOrder()
@@ -135,17 +135,17 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsProductStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("display_order"); return this; }
+    public BsProductStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("DISPLAY_ORDER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsProductStatusCQ addOrderBy_DisplayOrder_Desc() { regOBD("display_order"); return this; }
+    public BsProductStatusCQ addOrderBy_DisplayOrder_Desc() { regOBD("DISPLAY_ORDER"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy

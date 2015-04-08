@@ -8,6 +8,7 @@ type SummaryProductDbm_T struct {
 	df.BaseDBMeta
 	ColumnProductId *df.ColumnInfo
 	ColumnProductName *df.ColumnInfo
+	ColumnProductHandleCode *df.ColumnInfo
 	ColumnProductStatusCode *df.ColumnInfo
 	ColumnLatestPurchaseDatetime *df.ColumnInfo
 }
@@ -35,29 +36,35 @@ func Create_SummaryProductDbm() {
 	summaryProduct = SummaryProductDbm
 	SummaryProductDbm.DBMeta=&summaryProduct
 	productIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo product_id
-	productIdSqlName.ColumnSqlName = "product_id"
+	//colsqlname dayoo PRODUCT_ID
+	productIdSqlName.ColumnSqlName = "PRODUCT_ID"
 	productIdSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductId = df.CCI(&summaryProduct, "product_id", productIdSqlName, "", "", "Integer.class", "productId", "", false, false,false, "int4", 10, 0, "",false,"","", "","","",false,"sql.NullInt64")
+	SummaryProductDbm.ColumnProductId = df.CCI(&summaryProduct, "PRODUCT_ID", productIdSqlName, "", "", "Integer.class", "productId", "", false, false,true, "INT", 10, 0, "0",false,"","", "","","",false,"int64")
 	productNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo product_name
-	productNameSqlName.ColumnSqlName = "product_name"
+	//colsqlname dayoo PRODUCT_NAME
+	productNameSqlName.ColumnSqlName = "PRODUCT_NAME"
 	productNameSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductName = df.CCI(&summaryProduct, "product_name", productNameSqlName, "", "", "String.class", "productName", "", false, false,false, "varchar", 50, 0, "",false,"","", "","","",false,"sql.NullString")
+	SummaryProductDbm.ColumnProductName = df.CCI(&summaryProduct, "PRODUCT_NAME", productNameSqlName, "", "", "String.class", "productName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
+	productHandleCodeSqlName := new(df.ColumnSqlName)
+	//colsqlname dayoo PRODUCT_HANDLE_CODE
+	productHandleCodeSqlName.ColumnSqlName = "PRODUCT_HANDLE_CODE"
+	productHandleCodeSqlName.IrregularChar = false
+	SummaryProductDbm.ColumnProductHandleCode = df.CCI(&summaryProduct, "PRODUCT_HANDLE_CODE", productHandleCodeSqlName, "", "", "String.class", "productHandleCode", "", false, false,true, "VARCHAR", 100, 0, "",false,"","", "","","",false,"string")
 	productStatusCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo product_status_code
-	productStatusCodeSqlName.ColumnSqlName = "product_status_code"
+	//colsqlname dayoo PRODUCT_STATUS_CODE
+	productStatusCodeSqlName.ColumnSqlName = "PRODUCT_STATUS_CODE"
 	productStatusCodeSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnProductStatusCode = df.CCI(&summaryProduct, "product_status_code", productStatusCodeSqlName, "", "", "String.class", "productStatusCode", "", false, false,false, "bpchar", 3, 0, "",false,"","", "","","",false,"sql.NullString")
+	SummaryProductDbm.ColumnProductStatusCode = df.CCI(&summaryProduct, "PRODUCT_STATUS_CODE", productStatusCodeSqlName, "", "", "String.class", "productStatusCode", "", false, false,true, "CHAR", 3, 0, "",false,"","", "","","",false,"string")
 	latestPurchaseDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo latest_purchase_datetime
-	latestPurchaseDatetimeSqlName.ColumnSqlName = "latest_purchase_datetime"
+	//colsqlname dayoo LATEST_PURCHASE_DATETIME
+	latestPurchaseDatetimeSqlName.ColumnSqlName = "LATEST_PURCHASE_DATETIME"
 	latestPurchaseDatetimeSqlName.IrregularChar = false
-	SummaryProductDbm.ColumnLatestPurchaseDatetime = df.CCI(&summaryProduct, "latest_purchase_datetime", latestPurchaseDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "latestPurchaseDatetime", "", false, false,false, "timestamp", 29, 6, "",false,"","", "","","",false,"df.NullTimestamp")
+	SummaryProductDbm.ColumnLatestPurchaseDatetime = df.CCI(&summaryProduct, "LATEST_PURCHASE_DATETIME", latestPurchaseDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "latestPurchaseDatetime", "", false, false,false, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlNullTimestamp")
 
 	SummaryProductDbm.ColumnInfoList = new(df.List)
 	SummaryProductDbm.ColumnInfoList.Add(SummaryProductDbm.ColumnProductId)
 	SummaryProductDbm.ColumnInfoList.Add(SummaryProductDbm.ColumnProductName)
+	SummaryProductDbm.ColumnInfoList.Add(SummaryProductDbm.ColumnProductHandleCode)
 	SummaryProductDbm.ColumnInfoList.Add(SummaryProductDbm.ColumnProductStatusCode)
 	SummaryProductDbm.ColumnInfoList.Add(SummaryProductDbm.ColumnLatestPurchaseDatetime)
 
@@ -65,8 +72,9 @@ func Create_SummaryProductDbm() {
 	SummaryProductDbm.ColumnInfoMap=make(map[string]int)
 	SummaryProductDbm.ColumnInfoMap["productId"]=0
 		SummaryProductDbm.ColumnInfoMap["productName"]=1
-		SummaryProductDbm.ColumnInfoMap["productStatusCode"]=2
-		SummaryProductDbm.ColumnInfoMap["latestPurchaseDatetime"]=3
+		SummaryProductDbm.ColumnInfoMap["productHandleCode"]=2
+		SummaryProductDbm.ColumnInfoMap["productStatusCode"]=3
+		SummaryProductDbm.ColumnInfoMap["latestPurchaseDatetime"]=4
 	    SummaryProductDbm.PrimaryKey = false
     SummaryProductDbm.CompoundPrimaryKey = false
 

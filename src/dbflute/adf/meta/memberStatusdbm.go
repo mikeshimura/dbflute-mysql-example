@@ -35,25 +35,25 @@ func Create_MemberStatusDbm() {
 	memberStatus = MemberStatusDbm
 	MemberStatusDbm.DBMeta=&memberStatus
 	memberStatusCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo member_status_code
-	memberStatusCodeSqlName.ColumnSqlName = "member_status_code"
+	//colsqlname dayoo MEMBER_STATUS_CODE
+	memberStatusCodeSqlName.ColumnSqlName = "MEMBER_STATUS_CODE"
 	memberStatusCodeSqlName.IrregularChar = false
-	MemberStatusDbm.ColumnMemberStatusCode = df.CCI(&memberStatus, "member_status_code", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", true, false,true, "bpchar", 3, 0, "",false,"","", "","memberList,memberLoginList","",false,"string")
+	MemberStatusDbm.ColumnMemberStatusCode = df.CCI(&memberStatus, "MEMBER_STATUS_CODE", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", true, false,true, "CHAR", 3, 0, "",false,"","", "","memberList,memberLoginList","",false,"string")
 	memberStatusNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo member_status_name
-	memberStatusNameSqlName.ColumnSqlName = "member_status_name"
+	//colsqlname dayoo MEMBER_STATUS_NAME
+	memberStatusNameSqlName.ColumnSqlName = "MEMBER_STATUS_NAME"
 	memberStatusNameSqlName.IrregularChar = false
-	MemberStatusDbm.ColumnMemberStatusName = df.CCI(&memberStatus, "member_status_name", memberStatusNameSqlName, "", "", "String.class", "memberStatusName", "", false, false,true, "varchar", 50, 0, "",false,"","", "","","",false,"string")
+	MemberStatusDbm.ColumnMemberStatusName = df.CCI(&memberStatus, "MEMBER_STATUS_NAME", memberStatusNameSqlName, "", "", "String.class", "memberStatusName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
 	descriptionSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo description
-	descriptionSqlName.ColumnSqlName = "description"
+	//colsqlname dayoo DESCRIPTION
+	descriptionSqlName.ColumnSqlName = "DESCRIPTION"
 	descriptionSqlName.IrregularChar = false
-	MemberStatusDbm.ColumnDescription = df.CCI(&memberStatus, "description", descriptionSqlName, "", "", "String.class", "description", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberStatusDbm.ColumnDescription = df.CCI(&memberStatus, "DESCRIPTION", descriptionSqlName, "", "", "String.class", "description", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	displayOrderSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo display_order
-	displayOrderSqlName.ColumnSqlName = "display_order"
+	//colsqlname dayoo DISPLAY_ORDER
+	displayOrderSqlName.ColumnSqlName = "DISPLAY_ORDER"
 	displayOrderSqlName.IrregularChar = false
-	MemberStatusDbm.ColumnDisplayOrder = df.CCI(&memberStatus, "display_order", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "int4", 10, 0, "",false,"","", "","","",false,"int64")
+	MemberStatusDbm.ColumnDisplayOrder = df.CCI(&memberStatus, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 
 	MemberStatusDbm.ColumnInfoList = new(df.List)
 	MemberStatusDbm.ColumnInfoList.Add(MemberStatusDbm.ColumnMemberStatusCode)

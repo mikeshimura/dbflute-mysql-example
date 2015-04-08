@@ -1,6 +1,6 @@
 -- #df:entity#
 -- !df:pmb!
--- !!sql.NullString name!!
+-- !!df.NullString name!!
 SELECT 
   member.member_id, 
   member.member_name, 
@@ -11,8 +11,8 @@ SELECT
   member_status.member_status_name, 
   member_status.description
 FROM 
-  public.member, 
-  public.member_status
+  member, 
+  member_status
 WHERE 
 /*IF pmb.name != null*/
   member.member_name like /*pmb.name*/'S%'

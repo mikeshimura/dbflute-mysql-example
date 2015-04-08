@@ -33,15 +33,15 @@ func Create_RegionDbm() {
 	region = RegionDbm
 	RegionDbm.DBMeta=&region
 	regionIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo region_id
-	regionIdSqlName.ColumnSqlName = "region_id"
+	//colsqlname dayoo REGION_ID
+	regionIdSqlName.ColumnSqlName = "REGION_ID"
 	regionIdSqlName.IrregularChar = false
-	RegionDbm.ColumnRegionId = df.CCI(&region, "region_id", regionIdSqlName, "", "", "Integer.class", "regionId", "", true, false,true, "int4", 10, 0, "",false,"","", "","memberAddressList","",false,"int64")
+	RegionDbm.ColumnRegionId = df.CCI(&region, "REGION_ID", regionIdSqlName, "", "", "Integer.class", "regionId", "", true, false,true, "INT", 10, 0, "",false,"","", "","memberAddressList","",false,"int64")
 	regionNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo region_name
-	regionNameSqlName.ColumnSqlName = "region_name"
+	//colsqlname dayoo REGION_NAME
+	regionNameSqlName.ColumnSqlName = "REGION_NAME"
 	regionNameSqlName.IrregularChar = false
-	RegionDbm.ColumnRegionName = df.CCI(&region, "region_name", regionNameSqlName, "", "", "String.class", "regionName", "", false, false,true, "varchar", 50, 0, "",false,"","", "","","",false,"string")
+	RegionDbm.ColumnRegionName = df.CCI(&region, "REGION_NAME", regionNameSqlName, "", "", "String.class", "regionName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
 
 	RegionDbm.ColumnInfoList = new(df.List)
 	RegionDbm.ColumnInfoList.Add(RegionDbm.ColumnRegionId)

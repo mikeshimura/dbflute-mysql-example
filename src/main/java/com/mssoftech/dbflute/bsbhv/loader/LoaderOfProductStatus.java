@@ -12,10 +12,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The referrer loader of product_status as TABLE. <br>
  * <pre>
  * [primary key]
- *     product_status_code
+ *     PRODUCT_STATUS_CODE
  *
  * [column]
- *     product_status_code, product_status_name, display_order
+ *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME, DISPLAY_ORDER
  *
  * [sequence]
  *     
@@ -65,7 +65,7 @@ public class LoaderOfProductStatus {
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * product by product_status_code, named 'productList'.
+     * product by PRODUCT_STATUS_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productStatusList</span>, <span style="color: #553000">statusLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">statusLoader</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

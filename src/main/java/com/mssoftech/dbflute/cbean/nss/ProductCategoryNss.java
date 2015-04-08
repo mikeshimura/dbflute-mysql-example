@@ -20,7 +20,7 @@ public class ProductCategoryNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * product_category by my parent_category_code, named 'productCategorySelf'.
+     * product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductCategoryNss withProductCategorySelf() {

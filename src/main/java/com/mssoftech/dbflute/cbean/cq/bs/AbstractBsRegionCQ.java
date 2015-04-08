@@ -45,7 +45,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionId The value of regionId as equal. (NullAllowed: if null, no condition)
      */
     public void setRegionId_Equal(Integer regionId) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionId The value of regionId as notEqual. (NullAllowed: if null, no condition)
      */
     public void setRegionId_NotEqual(Integer regionId) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionId The value of regionId as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setRegionId_GreaterThan(Integer regionId) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionId The value of regionId as lessThan. (NullAllowed: if null, no condition)
      */
     public void setRegionId_LessThan(Integer regionId) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionId The value of regionId as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setRegionId_GreaterEqual(Integer regionId) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionId The value of regionId as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setRegionId_LessEqual(Integer regionId) {
@@ -109,7 +109,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -122,18 +122,18 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueRegionId(), "region_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRegionId(), "REGION_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionIdList The collection of regionId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionId_InScope(Collection<Integer> regionIdList) {
@@ -141,12 +141,12 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionId_InScope(Collection<Integer> regionIdList) {
-        regINS(CK_INS, cTL(regionIdList), xgetCValueRegionId(), "region_id");
+        regINS(CK_INS, cTL(regionIdList), xgetCValueRegionId(), "REGION_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      * @param regionIdList The collection of regionId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionId_NotInScope(Collection<Integer> regionIdList) {
@@ -154,13 +154,13 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionId_NotInScope(Collection<Integer> regionIdList) {
-        regINS(CK_NINS, cTL(regionIdList), xgetCValueRegionId(), "region_id");
+        regINS(CK_NINS, cTL(regionIdList), xgetCValueRegionId(), "REGION_ID");
     }
 
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select region_id from member_address where ...)} <br>
-     * member_address by region_id, named 'memberAddressAsOne'.
+     * {exists (select REGION_ID from member_address where ...)} <br>
+     * member_address by REGION_ID, named 'memberAddressAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsMemberAddress</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
@@ -172,14 +172,14 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepRegionId_ExistsReferrer_MemberAddressList(cb.query());
-        registerExistsReferrer(cb.query(), "region_id", "region_id", pp, "memberAddressList");
+        registerExistsReferrer(cb.query(), "REGION_ID", "REGION_ID", pp, "memberAddressList");
     }
     public abstract String keepRegionId_ExistsReferrer_MemberAddressList(MemberAddressCQ sq);
 
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select region_id from member_address where ...)} <br>
-     * member_address by region_id, named 'memberAddressAsOne'.
+     * {not exists (select REGION_ID from member_address where ...)} <br>
+     * member_address by REGION_ID, named 'memberAddressAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsMemberAddress</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
@@ -191,7 +191,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepRegionId_NotExistsReferrer_MemberAddressList(cb.query());
-        registerNotExistsReferrer(cb.query(), "region_id", "region_id", pp, "memberAddressList");
+        registerNotExistsReferrer(cb.query(), "REGION_ID", "REGION_ID", pp, "memberAddressList");
     }
     public abstract String keepRegionId_NotExistsReferrer_MemberAddressList(MemberAddressCQ sq);
 
@@ -199,14 +199,14 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
         assertObjectNotNull("subQuery", sq);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String pp = keepRegionId_SpecifyDerivedReferrer_MemberAddressList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "region_id", "region_id", pp, "memberAddressList", al, op);
+        registerSpecifyDerivedReferrer(fn, cb.query(), "REGION_ID", "REGION_ID", pp, "memberAddressList", al, op);
     }
     public abstract String keepRegionId_SpecifyDerivedReferrer_MemberAddressList(MemberAddressCQ sq);
 
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from member_address where ...)} <br>
-     * member_address by region_id, named 'memberAddressAsOne'.
+     * member_address by REGION_ID, named 'memberAddressAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedMemberAddress()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -225,29 +225,29 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
         assertObjectNotNull("subQuery", sq);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String sqpp = keepRegionId_QueryDerivedReferrer_MemberAddressList(cb.query()); String prpp = keepRegionId_QueryDerivedReferrer_MemberAddressListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "region_id", "region_id", sqpp, "memberAddressList", rd, vl, prpp, op);
+        registerQueryDerivedReferrer(fn, cb.query(), "REGION_ID", "REGION_ID", sqpp, "memberAddressList", rd, vl, prpp, op);
     }
     public abstract String keepRegionId_QueryDerivedReferrer_MemberAddressList(MemberAddressCQ sq);
     public abstract String keepRegionId_QueryDerivedReferrer_MemberAddressListParameter(Object vl);
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      */
     public void setRegionId_IsNull() { regRegionId(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * region_id: {PK, NotNull, int4(10)}
+     * REGION_ID: {PK, NotNull, INT(10)}
      */
     public void setRegionId_IsNotNull() { regRegionId(CK_ISNN, DOBJ); }
 
-    protected void regRegionId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegionId(), "region_id"); }
+    protected void regRegionId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegionId(), "REGION_ID"); }
     protected abstract ConditionValue xgetCValueRegionId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_Equal(String regionName) {
@@ -260,7 +260,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_NotEqual(String regionName) {
@@ -273,7 +273,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_GreaterThan(String regionName) {
@@ -282,7 +282,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_LessThan(String regionName) {
@@ -291,7 +291,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_GreaterEqual(String regionName) {
@@ -300,7 +300,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_LessEqual(String regionName) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionNameList The collection of regionName as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_InScope(Collection<String> regionNameList) {
@@ -317,12 +317,12 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionName_InScope(Collection<String> regionNameList) {
-        regINS(CK_INS, cTL(regionNameList), xgetCValueRegionName(), "region_name");
+        regINS(CK_INS, cTL(regionNameList), xgetCValueRegionName(), "REGION_NAME");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionNameList The collection of regionName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionName_NotInScope(Collection<String> regionNameList) {
@@ -330,12 +330,12 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionName_NotInScope(Collection<String> regionNameList) {
-        regINS(CK_NINS, cTL(regionNameList), xgetCValueRegionName(), "region_name");
+        regINS(CK_NINS, cTL(regionNameList), xgetCValueRegionName(), "REGION_NAME");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * region_name: {NotNull, varchar(50)} <br>
+     * REGION_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setRegionName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -346,19 +346,19 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * region_name: {NotNull, varchar(50)} <br>
+     * REGION_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setRegionName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setRegionName_LikeSearch(String regionName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(regionName), xgetCValueRegionName(), "region_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(regionName), xgetCValueRegionName(), "REGION_NAME", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -369,15 +369,15 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * region_name: {NotNull, varchar(50)}
+     * REGION_NAME: {NotNull, VARCHAR(50)}
      * @param regionName The value of regionName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setRegionName_NotLikeSearch(String regionName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(regionName), xgetCValueRegionName(), "region_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(regionName), xgetCValueRegionName(), "REGION_NAME", likeSearchOption);
     }
 
-    protected void regRegionName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegionName(), "region_name"); }
+    protected void regRegionName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegionName(), "REGION_NAME"); }
     protected abstract ConditionValue xgetCValueRegionName();
 
     // ===================================================================================
@@ -509,7 +509,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<RegionCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         RegionCB cb = new RegionCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "region_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "REGION_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(RegionCQ sq);
@@ -525,7 +525,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         RegionCB cb = new RegionCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "region_id";
+        String pk = "REGION_ID";
         String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
         String prpp = keepQueryMyselfDerivedParameter(vl);
         registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);

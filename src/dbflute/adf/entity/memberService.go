@@ -9,11 +9,9 @@ type MemberService struct {
 	memberId int64
 	servicePointCount int64
 	serviceRankCode string
-	registerDatetime df.Timestamp
-	registerProcess string
+	registerDatetime df.MysqlTimestamp
 	registerUser string
-	updateDatetime df.Timestamp
-	updateProcess string
+	updateDatetime df.MysqlTimestamp
 	updateUser string
 	versionNo int64
 	df.BaseEntity
@@ -37,20 +35,14 @@ func (l *MemberService) GetServicePointCount () int64 {
 func (l *MemberService) GetServiceRankCode () string {
 	return l.serviceRankCode
 }
-func (l *MemberService) GetRegisterDatetime () df.Timestamp {
+func (l *MemberService) GetRegisterDatetime () df.MysqlTimestamp {
 	return l.registerDatetime
-}
-func (l *MemberService) GetRegisterProcess () string {
-	return l.registerProcess
 }
 func (l *MemberService) GetRegisterUser () string {
 	return l.registerUser
 }
-func (l *MemberService) GetUpdateDatetime () df.Timestamp {
+func (l *MemberService) GetUpdateDatetime () df.MysqlTimestamp {
 	return l.updateDatetime
-}
-func (l *MemberService) GetUpdateProcess () string {
-	return l.updateProcess
 }
 func (l *MemberService) GetUpdateUser () string {
 	return l.updateUser
@@ -60,18 +52,16 @@ func (l *MemberService) GetVersionNo () int64 {
 }
 
 func (t *MemberService) GetAsInterfaceArray() []interface{} {
-	i := make([]interface{}, 11)
+	i := make([]interface{}, 9)
 	i[0] = &(t.memberServiceId)
 	i[1] = &(t.memberId)
 	i[2] = &(t.servicePointCount)
 	i[3] = &(t.serviceRankCode)
 	i[4] = &(t.registerDatetime)
-	i[5] = &(t.registerProcess)
-	i[6] = &(t.registerUser)
-	i[7] = &(t.updateDatetime)
-	i[8] = &(t.updateProcess)
-	i[9] = &(t.updateUser)
-	i[10] = &(t.versionNo)
+	i[5] = &(t.registerUser)
+	i[6] = &(t.updateDatetime)
+	i[7] = &(t.updateUser)
+	i[8] = &(t.versionNo)
 	return i
 }
 
@@ -102,25 +92,17 @@ func (t *MemberService) SetServiceRankCode(serviceRankCode string) {
 	t.AddPropertyName("serviceRankCode")
 	t.serviceRankCode = serviceRankCode
 }
-func (t *MemberService) SetRegisterDatetime(registerDatetime df.Timestamp) {
+func (t *MemberService) SetRegisterDatetime(registerDatetime df.MysqlTimestamp) {
 	t.AddPropertyName("registerDatetime")
 	t.registerDatetime = registerDatetime
-}
-func (t *MemberService) SetRegisterProcess(registerProcess string) {
-	t.AddPropertyName("registerProcess")
-	t.registerProcess = registerProcess
 }
 func (t *MemberService) SetRegisterUser(registerUser string) {
 	t.AddPropertyName("registerUser")
 	t.registerUser = registerUser
 }
-func (t *MemberService) SetUpdateDatetime(updateDatetime df.Timestamp) {
+func (t *MemberService) SetUpdateDatetime(updateDatetime df.MysqlTimestamp) {
 	t.AddPropertyName("updateDatetime")
 	t.updateDatetime = updateDatetime
-}
-func (t *MemberService) SetUpdateProcess(updateProcess string) {
-	t.AddPropertyName("updateProcess")
-	t.updateProcess = updateProcess
 }
 func (t *MemberService) SetUpdateUser(updateUser string) {
 	t.AddPropertyName("updateUser")

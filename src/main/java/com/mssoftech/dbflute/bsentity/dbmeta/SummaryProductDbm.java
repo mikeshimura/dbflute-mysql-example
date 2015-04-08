@@ -44,6 +44,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductId(), (et, vl) -> ((SummaryProduct)et).setProductId(cti(vl)), "productId");
         setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductName(), (et, vl) -> ((SummaryProduct)et).setProductName((String)vl), "productName");
+        setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductHandleCode(), (et, vl) -> ((SummaryProduct)et).setProductHandleCode((String)vl), "productHandleCode");
         setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductStatusCode(), (et, vl) -> ((SummaryProduct)et).setProductStatusCode((String)vl), "productStatusCode");
         setupEpg(_epgMap, et -> ((SummaryProduct)et).getLatestPurchaseDatetime(), (et, vl) -> ((SummaryProduct)et).setLatestPurchaseDatetime(ctldt(vl)), "latestPurchaseDatetime");
     }
@@ -66,32 +67,39 @@ public class SummaryProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("product_id", "product_id", null, null, Integer.class, "productId", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null, false);
-//"sql.NullInt64"
-    protected final ColumnInfo _columnProductName = cci("product_name", "product_name", null, null, String.class, "productName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null, false);
-//"sql.NullString"
-    protected final ColumnInfo _columnProductStatusCode = cci("product_status_code", "product_status_code", null, null, String.class, "productStatusCode", null, false, false, false, "bpchar", 3, 0, null, false, null, null, null, null, null, false);
-//"sql.NullString"
-    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("latest_purchase_datetime", "latest_purchase_datetime", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "timestamp", 29, 6, null, false, null, null, null, null, null, false);
-//"df.NullTimestamp"
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, false, false, true, "INT", 10, 0, "0", false, null, null, null, null, null, false);
+//"int64"
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
+//"string"
+    protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, null, String.class, "productHandleCode", null, false, false, true, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
+//"string"
+    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+//"string"
+    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
+//"df.MysqlNullTimestamp"
 
     /**
-     * product_id: {int4(10)}
+     * PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductId() { return _columnProductId; }
     /**
-     * product_name: {varchar(50)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductName() { return _columnProductName; }
     /**
-     * product_status_code: {bpchar(3)}
+     * PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnProductHandleCode() { return _columnProductHandleCode; }
+    /**
+     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductStatusCode() { return _columnProductStatusCode; }
     /**
-     * latest_purchase_datetime: {timestamp(29, 6)}
+     * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnLatestPurchaseDatetime() { return _columnLatestPurchaseDatetime; }
@@ -100,6 +108,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnProductId());
         ls.add(columnProductName());
+        ls.add(columnProductHandleCode());
         ls.add(columnProductStatusCode());
         ls.add(columnLatestPurchaseDatetime());
         return ls;

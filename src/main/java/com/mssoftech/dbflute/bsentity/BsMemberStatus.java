@@ -11,17 +11,13 @@ import com.mssoftech.dbflute.exentity.*;
 
 /**
  * The entity of member_status as TABLE. <br>
- * 会員ステータス: 会員のステータスを示す固定的なマスタテーブル。<br>
- * 業務で増えることはなく、増減するときは実装もともなうレベルの業務変更と考えられる。<br>
- * <br>
- * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるという<br>
- * ところで割り切っている。実業務では統一的に定義することもある。
+ * 会員ステータス
  * <pre>
  * [primary-key]
- *     member_status_code
+ *     MEMBER_STATUS_CODE
  * 
  * [column]
- *     member_status_code, member_status_name, description, display_order
+ *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
  * 
  * [sequence]
  *     
@@ -69,16 +65,16 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** member_status_code: {PK, NotNull, bpchar(3)} */
+    /** MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)} */
     protected String _memberStatusCode;
 
-    /** member_status_name: {NotNull, varchar(50)} */
+    /** MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} */
     protected String _memberStatusName;
 
-    /** description: {NotNull, varchar(200)} */
+    /** DESCRIPTION: {NotNull, VARCHAR(200)} */
     protected String _description;
 
-    /** display_order: {UQ, NotNull, int4(10)} */
+    /** DISPLAY_ORDER: {UQ, NotNull, INT(10)} */
     protected Integer _displayOrder;
 
     // ===================================================================================
@@ -106,7 +102,7 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param displayOrder : UQ, NotNull, int4(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, INT(10). (NotNull)
      */
     public void uniqueBy(Integer displayOrder) {
         __uniqueDrivenProperties.clear();
@@ -120,11 +116,11 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** member by member_status_code, named 'memberList'. */
+    /** member by MEMBER_STATUS_CODE, named 'memberList'. */
     protected List<Member> _memberList;
 
     /**
-     * [get] member by member_status_code, named 'memberList'.
+     * [get] member by MEMBER_STATUS_CODE, named 'memberList'.
      * @return The entity list of referrer property 'memberList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Member> getMemberList() {
@@ -133,18 +129,18 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] member by member_status_code, named 'memberList'.
+     * [set] member by MEMBER_STATUS_CODE, named 'memberList'.
      * @param memberList The entity list of referrer property 'memberList'. (NullAllowed)
      */
     public void setMemberList(List<Member> memberList) {
         _memberList = memberList;
     }
 
-    /** member_login by login_member_status_code, named 'memberLoginList'. */
+    /** member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'. */
     protected List<MemberLogin> _memberLoginList;
 
     /**
-     * [get] member_login by login_member_status_code, named 'memberLoginList'.
+     * [get] member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * @return The entity list of referrer property 'memberLoginList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberLogin> getMemberLoginList() {
@@ -153,7 +149,7 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] member_login by login_member_status_code, named 'memberLoginList'.
+     * [set] member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * @param memberLoginList The entity list of referrer property 'memberLoginList'. (NullAllowed)
      */
     public void setMemberLoginList(List<MemberLogin> memberLoginList) {
@@ -232,12 +228,9 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] member_status_code: {PK, NotNull, bpchar(3)} <br>
-     * 会員ステータスコード: 会員ステータスを識別するコード。<br>
-     * 固定的なデータなので、連番とか番号にはせず、<br>
-     * データを直接見たときも人が直感的にわかるように、<br>
-     * このような３桁のコード形式にしている。
-     * @return The value of the column 'member_status_code'. (basically NotNull if selected: for the constraint)
+     * [get] MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 会員ステータスコード: 会員ステータスを識別するコード。
+     * @return The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusCode() {
         checkSpecifiedProperty("memberStatusCode");
@@ -245,12 +238,9 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] member_status_code: {PK, NotNull, bpchar(3)} <br>
-     * 会員ステータスコード: 会員ステータスを識別するコード。<br>
-     * 固定的なデータなので、連番とか番号にはせず、<br>
-     * データを直接見たときも人が直感的にわかるように、<br>
-     * このような３桁のコード形式にしている。
-     * @param memberStatusCode The value of the column 'member_status_code'. (basically NotNull if update: for the constraint)
+     * [set] MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 会員ステータスコード: 会員ステータスを識別するコード。
+     * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setMemberStatusCode(String memberStatusCode) {
         registerModifiedProperty("memberStatusCode");
@@ -258,9 +248,9 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] member_status_name: {NotNull, varchar(50)} <br>
-     * 会員ステータス名称:
-     * @return The value of the column 'member_status_name'. (basically NotNull if selected: for the constraint)
+     * [get] MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
+     * 会員ステータス名称
+     * @return The value of the column 'MEMBER_STATUS_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusName() {
         checkSpecifiedProperty("memberStatusName");
@@ -268,9 +258,9 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] member_status_name: {NotNull, varchar(50)} <br>
-     * 会員ステータス名称:
-     * @param memberStatusName The value of the column 'member_status_name'. (basically NotNull if update: for the constraint)
+     * [set] MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
+     * 会員ステータス名称
+     * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
         registerModifiedProperty("memberStatusName");
@@ -278,10 +268,10 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] description: {NotNull, varchar(200)} <br>
+     * [get] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * 説明: 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
-     * @return The value of the column 'description'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'DESCRIPTION'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
         checkSpecifiedProperty("description");
@@ -289,10 +279,10 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] description: {NotNull, varchar(200)} <br>
+     * [set] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * 説明: 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
-     * @param description The value of the column 'description'. (basically NotNull if update: for the constraint)
+     * @param description The value of the column 'DESCRIPTION'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {
         registerModifiedProperty("description");
@@ -300,10 +290,10 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [get] display_order: {UQ, NotNull, int4(10)} <br>
+     * [get] DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
      * 表示順: UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
-     * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
         checkSpecifiedProperty("displayOrder");
@@ -311,10 +301,10 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] display_order: {UQ, NotNull, int4(10)} <br>
+     * [set] DISPLAY_ORDER: {UQ, NotNull, INT(10)} <br>
      * 表示順: UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
-     * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
+     * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {
         registerModifiedProperty("displayOrder");

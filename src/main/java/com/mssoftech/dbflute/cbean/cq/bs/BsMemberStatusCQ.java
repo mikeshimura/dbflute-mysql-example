@@ -109,17 +109,17 @@ public class BsMemberStatusCQ extends AbstractBsMemberStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_MemberStatusCode_Asc() { regOBA("member_status_code"); return this; }
+    public BsMemberStatusCQ addOrderBy_MemberStatusCode_Asc() { regOBA("MEMBER_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_MemberStatusCode_Desc() { regOBD("member_status_code"); return this; }
+    public BsMemberStatusCQ addOrderBy_MemberStatusCode_Desc() { regOBD("MEMBER_STATUS_CODE"); return this; }
 
     protected ConditionValue _memberStatusName;
     public ConditionValue xdfgetMemberStatusName()
@@ -129,17 +129,17 @@ public class BsMemberStatusCQ extends AbstractBsMemberStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_MemberStatusName_Asc() { regOBA("member_status_name"); return this; }
+    public BsMemberStatusCQ addOrderBy_MemberStatusName_Asc() { regOBA("MEMBER_STATUS_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_MemberStatusName_Desc() { regOBD("member_status_name"); return this; }
+    public BsMemberStatusCQ addOrderBy_MemberStatusName_Desc() { regOBD("MEMBER_STATUS_NAME"); return this; }
 
     protected ConditionValue _description;
     public ConditionValue xdfgetDescription()
@@ -149,17 +149,17 @@ public class BsMemberStatusCQ extends AbstractBsMemberStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_Description_Asc() { regOBA("description"); return this; }
+    public BsMemberStatusCQ addOrderBy_Description_Asc() { regOBA("DESCRIPTION"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_Description_Desc() { regOBD("description"); return this; }
+    public BsMemberStatusCQ addOrderBy_Description_Desc() { regOBD("DESCRIPTION"); return this; }
 
     protected ConditionValue _displayOrder;
     public ConditionValue xdfgetDisplayOrder()
@@ -169,17 +169,17 @@ public class BsMemberStatusCQ extends AbstractBsMemberStatusCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("display_order"); return this; }
+    public BsMemberStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("DISPLAY_ORDER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberStatusCQ addOrderBy_DisplayOrder_Desc() { regOBD("display_order"); return this; }
+    public BsMemberStatusCQ addOrderBy_DisplayOrder_Desc() { regOBD("DISPLAY_ORDER"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy

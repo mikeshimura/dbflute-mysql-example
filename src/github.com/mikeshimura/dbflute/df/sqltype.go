@@ -3,10 +3,10 @@ package df
 import (
 	"database/sql/driver"
 	"errors"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
-	//"fmt"
 )
 
 const (
@@ -70,6 +70,42 @@ func (nn Numeric) GetDivValue() int64 {
 func (nn Numeric) Value() (driver.Value, error) {
 	ivalue, dvalue := nn.GetValues()
 	return strconv.Itoa(int(ivalue)) + "." + strconv.Itoa(int(dvalue)), nil
+}
+
+type NullString struct {
+	String string //total value 10.50 -> 1050
+	Valid  bool   // Valid is true if Value not null
+}
+
+func (nn *NullString) Scan(value interface{}) error {
+	if value == nil {
+		nn.Valid = false
+		return nil
+	}
+	nn.Valid = true
+	switch value.(type) {
+	case string:
+		var svalue = value.(string)
+		nn.String = svalue
+		return nil
+	case time.Time:
+		var tvalue time.Time = value.(time.Time)
+		nn.String = tvalue.Format(DISP_SQL_DEFAULT_DATE_FORMAT)
+		return nil
+	case []uint8:
+		nn.String = (string)(value.([]uint8))
+		return nil
+	}
+	panic("this type not supported :" + fmt.Sprintf("%T", value))
+	return nil
+}
+func (nn *NullString) Value() (driver.Value, error) {
+	if !nn.Valid {
+		return nil, nil
+	}
+	var sv []uint8
+	sv = ([]uint8)(nn.String)
+	return sv, nil
 }
 
 type NullNumeric struct {
@@ -363,16 +399,16 @@ func (nn MysqlNullTime) Value() (driver.Value, error) {
 
 type MysqlNullTimestamp struct {
 	Timestamp time.Time
-	Valid bool
+	Valid     bool
 }
 
 // Scan implements the Scanner interface.
 func (nn *MysqlNullTimestamp) Scan(value interface{}) error {
 	if value == nil {
-	nn.Valid=false
-	return nil
+		nn.Valid = false
+		return nil
 	}
-	nn.Valid=true
+	nn.Valid = true
 	var svalue = string(value.([]byte))
 	var err error
 	nn.Timestamp, err = time.Parse(MYSQL_DEFAULT_TIMESTAMP_FORMAT[0:len(svalue)], svalue)
@@ -380,15 +416,15 @@ func (nn *MysqlNullTimestamp) Scan(value interface{}) error {
 }
 
 func (nn MysqlNullTimestamp) String() string {
-	if nn.Valid==false{
+	if nn.Valid == false {
 		return "null"
 	}
 	return nn.Timestamp.Format(MYSQL_DEFAULT_TIMESTAMP_FORMAT)
 }
 
 func (nn MysqlNullTimestamp) Value() (driver.Value, error) {
-	if nn.Valid==false{
-		return nil,nil
+	if nn.Valid == false {
+		return nil, nil
 	}
 	return nn.Timestamp.Format(MYSQL_DEFAULT_TIMESTAMP_FORMAT), nil
 }

@@ -45,7 +45,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_Equal(String memberStatusCode) {
@@ -58,7 +58,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_NotEqual(String memberStatusCode) {
@@ -71,7 +71,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_GreaterThan(String memberStatusCode) {
@@ -80,7 +80,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_LessThan(String memberStatusCode) {
@@ -89,7 +89,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_GreaterEqual(String memberStatusCode) {
@@ -98,7 +98,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_LessEqual(String memberStatusCode) {
@@ -107,7 +107,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCodeList The collection of memberStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
@@ -115,12 +115,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
-        regINS(CK_INS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "member_status_code");
+        regINS(CK_INS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCodeList The collection of memberStatusCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
@@ -128,12 +128,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
-        regINS(CK_NINS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "member_status_code");
+        regINS(CK_NINS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)} <br>
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setMemberStatusCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param memberStatusCode The value of memberStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -144,19 +144,19 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)} <br>
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setMemberStatusCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param memberStatusCode The value of memberStatusCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setMemberStatusCode_LikeSearch(String memberStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(memberStatusCode), xgetCValueMemberStatusCode(), "member_status_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(memberStatusCode), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -167,18 +167,18 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      * @param memberStatusCode The value of memberStatusCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setMemberStatusCode_NotLikeSearch(String memberStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(memberStatusCode), xgetCValueMemberStatusCode(), "member_status_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(memberStatusCode), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE", likeSearchOption);
     }
 
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select member_status_code from member where ...)} <br>
-     * member by member_status_code, named 'memberAsOne'.
+     * {exists (select MEMBER_STATUS_CODE from member where ...)} <br>
+     * member by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
@@ -190,14 +190,14 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_ExistsReferrer_MemberList(cb.query());
-        registerExistsReferrer(cb.query(), "member_status_code", "member_status_code", pp, "memberList");
+        registerExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", pp, "memberList");
     }
     public abstract String keepMemberStatusCode_ExistsReferrer_MemberList(MemberCQ sq);
 
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select login_member_status_code from member_login where ...)} <br>
-     * member_login by login_member_status_code, named 'memberLoginAsOne'.
+     * {exists (select LOGIN_MEMBER_STATUS_CODE from member_login where ...)} <br>
+     * member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.query().set...
@@ -209,14 +209,14 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_ExistsReferrer_MemberLoginList(cb.query());
-        registerExistsReferrer(cb.query(), "member_status_code", "login_member_status_code", pp, "memberLoginList");
+        registerExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", pp, "memberLoginList");
     }
     public abstract String keepMemberStatusCode_ExistsReferrer_MemberLoginList(MemberLoginCQ sq);
 
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select member_status_code from member where ...)} <br>
-     * member by member_status_code, named 'memberAsOne'.
+     * {not exists (select MEMBER_STATUS_CODE from member where ...)} <br>
+     * member by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
@@ -228,14 +228,14 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_NotExistsReferrer_MemberList(cb.query());
-        registerNotExistsReferrer(cb.query(), "member_status_code", "member_status_code", pp, "memberList");
+        registerNotExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", pp, "memberList");
     }
     public abstract String keepMemberStatusCode_NotExistsReferrer_MemberList(MemberCQ sq);
 
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select login_member_status_code from member_login where ...)} <br>
-     * member_login by login_member_status_code, named 'memberLoginAsOne'.
+     * {not exists (select LOGIN_MEMBER_STATUS_CODE from member_login where ...)} <br>
+     * member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.query().set...
@@ -247,7 +247,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_NotExistsReferrer_MemberLoginList(cb.query());
-        registerNotExistsReferrer(cb.query(), "member_status_code", "login_member_status_code", pp, "memberLoginList");
+        registerNotExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", pp, "memberLoginList");
     }
     public abstract String keepMemberStatusCode_NotExistsReferrer_MemberLoginList(MemberLoginCQ sq);
 
@@ -255,7 +255,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subQuery", sq);
         MemberCB cb = new MemberCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String pp = keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "member_status_code", "member_status_code", pp, "memberList", al, op);
+        registerSpecifyDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", pp, "memberList", al, op);
     }
     public abstract String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(MemberCQ sq);
 
@@ -263,14 +263,14 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subQuery", sq);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String pp = keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "member_status_code", "login_member_status_code", pp, "memberLoginList", al, op);
+        registerSpecifyDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", pp, "memberLoginList", al, op);
     }
     public abstract String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(MemberLoginCQ sq);
 
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from member where ...)} <br>
-     * member by member_status_code, named 'memberAsOne'.
+     * member by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedMember()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -289,7 +289,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subQuery", sq);
         MemberCB cb = new MemberCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String sqpp = keepMemberStatusCode_QueryDerivedReferrer_MemberList(cb.query()); String prpp = keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "member_status_code", "member_status_code", sqpp, "memberList", rd, vl, prpp, op);
+        registerQueryDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", sqpp, "memberList", rd, vl, prpp, op);
     }
     public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberList(MemberCQ sq);
     public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object vl);
@@ -297,7 +297,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from member_login where ...)} <br>
-     * member_login by login_member_status_code, named 'memberLoginAsOne'.
+     * member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedMemberLogin()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -316,29 +316,29 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
         assertObjectNotNull("subQuery", sq);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this);
         lockCall(() -> sq.query(cb)); String sqpp = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(cb.query()); String prpp = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "member_status_code", "login_member_status_code", sqpp, "memberLoginList", rd, vl, prpp, op);
+        registerQueryDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", sqpp, "memberLoginList", rd, vl, prpp, op);
     }
     public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(MemberLoginCQ sq);
     public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object vl);
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setMemberStatusCode_IsNull() { regMemberStatusCode(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * member_status_code: {PK, NotNull, bpchar(3)}
+     * MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3)}
      */
     public void setMemberStatusCode_IsNotNull() { regMemberStatusCode(CK_ISNN, DOBJ); }
 
-    protected void regMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusCode(), "member_status_code"); }
+    protected void regMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }
     protected abstract ConditionValue xgetCValueMemberStatusCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_Equal(String memberStatusName) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_NotEqual(String memberStatusName) {
@@ -364,7 +364,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_GreaterThan(String memberStatusName) {
@@ -373,7 +373,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_LessThan(String memberStatusName) {
@@ -382,7 +382,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_GreaterEqual(String memberStatusName) {
@@ -391,7 +391,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_LessEqual(String memberStatusName) {
@@ -400,7 +400,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusNameList The collection of memberStatusName as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_InScope(Collection<String> memberStatusNameList) {
@@ -408,12 +408,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberStatusName_InScope(Collection<String> memberStatusNameList) {
-        regINS(CK_INS, cTL(memberStatusNameList), xgetCValueMemberStatusName(), "member_status_name");
+        regINS(CK_INS, cTL(memberStatusNameList), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusNameList The collection of memberStatusName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setMemberStatusName_NotInScope(Collection<String> memberStatusNameList) {
@@ -421,12 +421,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberStatusName_NotInScope(Collection<String> memberStatusNameList) {
-        regINS(CK_NINS, cTL(memberStatusNameList), xgetCValueMemberStatusName(), "member_status_name");
+        regINS(CK_NINS, cTL(memberStatusNameList), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)} <br>
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setMemberStatusName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param memberStatusName The value of memberStatusName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -437,19 +437,19 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)} <br>
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setMemberStatusName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param memberStatusName The value of memberStatusName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setMemberStatusName_LikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(memberStatusName), xgetCValueMemberStatusName(), "member_status_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(memberStatusName), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -460,20 +460,20 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * member_status_name: {NotNull, varchar(50)}
+     * MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
      * @param memberStatusName The value of memberStatusName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setMemberStatusName_NotLikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(memberStatusName), xgetCValueMemberStatusName(), "member_status_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(memberStatusName), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME", likeSearchOption);
     }
 
-    protected void regMemberStatusName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusName(), "member_status_name"); }
+    protected void regMemberStatusName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME"); }
     protected abstract ConditionValue xgetCValueMemberStatusName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as equal. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_Equal(String description) {
@@ -486,7 +486,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as notEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_NotEqual(String description) {
@@ -499,7 +499,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as greaterThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_GreaterThan(String description) {
@@ -508,7 +508,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as lessThan. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_LessThan(String description) {
@@ -517,7 +517,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as greaterEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_GreaterEqual(String description) {
@@ -526,7 +526,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as lessEqual. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_LessEqual(String description) {
@@ -535,7 +535,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param descriptionList The collection of description as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_InScope(Collection<String> descriptionList) {
@@ -543,12 +543,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDescription_InScope(Collection<String> descriptionList) {
-        regINS(CK_INS, cTL(descriptionList), xgetCValueDescription(), "description");
+        regINS(CK_INS, cTL(descriptionList), xgetCValueDescription(), "DESCRIPTION");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param descriptionList The collection of description as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDescription_NotInScope(Collection<String> descriptionList) {
@@ -556,12 +556,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDescription_NotInScope(Collection<String> descriptionList) {
-        regINS(CK_NINS, cTL(descriptionList), xgetCValueDescription(), "description");
+        regINS(CK_NINS, cTL(descriptionList), xgetCValueDescription(), "DESCRIPTION");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * description: {NotNull, varchar(200)} <br>
+     * DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setDescription_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param description The value of description as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -572,19 +572,19 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * description: {NotNull, varchar(200)} <br>
+     * DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setDescription_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param description The value of description as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     protected void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(description), xgetCValueDescription(), "description", likeSearchOption);
+        regLSQ(CK_LS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -595,20 +595,20 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * description: {NotNull, varchar(200)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @param description The value of description as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     protected void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "description", likeSearchOption);
+        regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
     }
 
-    protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDescription(), "description"); }
+    protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDescription(), "DESCRIPTION"); }
     protected abstract ConditionValue xgetCValueDescription();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as equal. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_Equal(Integer displayOrder) {
@@ -621,7 +621,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as notEqual. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_NotEqual(Integer displayOrder) {
@@ -634,7 +634,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as greaterThan. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_GreaterThan(Integer displayOrder) {
@@ -643,7 +643,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as lessThan. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_LessThan(Integer displayOrder) {
@@ -652,7 +652,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as greaterEqual. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_GreaterEqual(Integer displayOrder) {
@@ -661,7 +661,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as lessEqual. (NullAllowed: if null, no condition)
      */
     public void setDisplayOrder_LessEqual(Integer displayOrder) {
@@ -672,7 +672,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param minNumber The min number of displayOrder. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of displayOrder. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -685,18 +685,18 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param minNumber The min number of displayOrder. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of displayOrder. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     protected void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "display_order", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "DISPLAY_ORDER", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrderList The collection of displayOrder as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDisplayOrder_InScope(Collection<Integer> displayOrderList) {
@@ -704,12 +704,12 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDisplayOrder_InScope(Collection<Integer> displayOrderList) {
-        regINS(CK_INS, cTL(displayOrderList), xgetCValueDisplayOrder(), "display_order");
+        regINS(CK_INS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * display_order: {UQ, NotNull, int4(10)}
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrderList The collection of displayOrder as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
@@ -717,10 +717,10 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     }
 
     protected void doSetDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
-        regINS(CK_NINS, cTL(displayOrderList), xgetCValueDisplayOrder(), "display_order");
+        regINS(CK_NINS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
     }
 
-    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "display_order"); }
+    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "DISPLAY_ORDER"); }
     protected abstract ConditionValue xgetCValueDisplayOrder();
 
     // ===================================================================================
@@ -852,7 +852,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<MemberStatusCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         MemberStatusCB cb = new MemberStatusCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "member_status_code";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MEMBER_STATUS_CODE";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(MemberStatusCQ sq);
@@ -868,7 +868,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         MemberStatusCB cb = new MemberStatusCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "member_status_code";
+        String pk = "MEMBER_STATUS_CODE";
         String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
         String prpp = keepQueryMyselfDerivedParameter(vl);
         registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);

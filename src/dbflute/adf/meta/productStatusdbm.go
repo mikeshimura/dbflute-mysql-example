@@ -34,20 +34,20 @@ func Create_ProductStatusDbm() {
 	productStatus = ProductStatusDbm
 	ProductStatusDbm.DBMeta=&productStatus
 	productStatusCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo product_status_code
-	productStatusCodeSqlName.ColumnSqlName = "product_status_code"
+	//colsqlname dayoo PRODUCT_STATUS_CODE
+	productStatusCodeSqlName.ColumnSqlName = "PRODUCT_STATUS_CODE"
 	productStatusCodeSqlName.IrregularChar = false
-	ProductStatusDbm.ColumnProductStatusCode = df.CCI(&productStatus, "product_status_code", productStatusCodeSqlName, "", "", "String.class", "productStatusCode", "", true, false,true, "bpchar", 3, 0, "",false,"","", "","productList","",false,"string")
+	ProductStatusDbm.ColumnProductStatusCode = df.CCI(&productStatus, "PRODUCT_STATUS_CODE", productStatusCodeSqlName, "", "", "String.class", "productStatusCode", "", true, false,true, "CHAR", 3, 0, "",false,"","", "","productList","",false,"string")
 	productStatusNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo product_status_name
-	productStatusNameSqlName.ColumnSqlName = "product_status_name"
+	//colsqlname dayoo PRODUCT_STATUS_NAME
+	productStatusNameSqlName.ColumnSqlName = "PRODUCT_STATUS_NAME"
 	productStatusNameSqlName.IrregularChar = false
-	ProductStatusDbm.ColumnProductStatusName = df.CCI(&productStatus, "product_status_name", productStatusNameSqlName, "", "", "String.class", "productStatusName", "", false, false,true, "varchar", 50, 0, "",false,"","", "","","",false,"string")
+	ProductStatusDbm.ColumnProductStatusName = df.CCI(&productStatus, "PRODUCT_STATUS_NAME", productStatusNameSqlName, "", "", "String.class", "productStatusName", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
 	displayOrderSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo display_order
-	displayOrderSqlName.ColumnSqlName = "display_order"
+	//colsqlname dayoo DISPLAY_ORDER
+	displayOrderSqlName.ColumnSqlName = "DISPLAY_ORDER"
 	displayOrderSqlName.IrregularChar = false
-	ProductStatusDbm.ColumnDisplayOrder = df.CCI(&productStatus, "display_order", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "int4", 10, 0, "",false,"","", "","","",false,"int64")
+	ProductStatusDbm.ColumnDisplayOrder = df.CCI(&productStatus, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 
 	ProductStatusDbm.ColumnInfoList = new(df.List)
 	ProductStatusDbm.ColumnInfoList.Add(ProductStatusDbm.ColumnProductStatusCode)

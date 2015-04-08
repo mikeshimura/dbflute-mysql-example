@@ -21,13 +21,13 @@ public class DBCurrent {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected final String _projectName = "postgresql";
+    protected final String _projectName = "mysql";
     protected final String _projectPrefix = "";
     protected final String _generationGapBasePrefix = "Bs";
 
     protected DBDef _currentDBDef;
     {
-        _currentDBDef = DBDef.codeOf("postgresql");
+        _currentDBDef = DBDef.codeOf("mysql");
         if (_currentDBDef == null) {
             _currentDBDef = DBDef.Unknown;
         }

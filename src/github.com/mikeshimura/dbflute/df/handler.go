@@ -35,15 +35,12 @@ func (t *TnBasicUpdateHandler) execute(bindVariables *List, bindVariableTypes *S
 	//	ns.String="2"
 	//	var itest interface{}=ns
 	t.logSql(bindVariables, bindVariableTypes)
-
 	res, err1 := tx.Stmt(ps).Exec(bindVar.data...)
-	updateno, _ := res.RowsAffected()
-
 	if err1 != nil {
 		DFErrorLog(err1.Error())
 		return 0, err1
 	}
-
+	updateno, _ := res.RowsAffected()
 	log.InternalDebug(fmt.Sprintln("result no:", updateno))
 
 	//        logSql(args, argTypes);
@@ -70,7 +67,7 @@ type TnBasicSelectHandler struct {
 
 func (t *TnBasicSelectHandler) execute(bindVariables *List, bindVariableTypes *StringList, tx *sql.Tx, behavior *Behavior) (interface{}, error) {
 	dbc := (*(*behavior).GetBaseBehavior().GetBehaviorCommandInvoker().InvokerAssistant).GetDBCurrent()
-	fmt.Println("t.sql:"+t.sql)
+
 	ps, err2 := (*t.statementFactory).PrepareStatement(t.sql, tx, dbc)
 	if err2 != nil {
 		log.InternalDebug("err2:" + err2.Error())

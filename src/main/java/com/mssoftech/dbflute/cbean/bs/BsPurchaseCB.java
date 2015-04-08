@@ -78,7 +78,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param purchaseId : PK, ID, NotNull, bigserial(19). (NotNull)
+     * @param purchaseId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return this. (NotNull)
      */
     public PurchaseCB acceptPK(Long purchaseId) {
@@ -90,9 +90,9 @@ public class BsPurchaseCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param memberId : UQ+, NotNull, int4(10), FK to member. (NotNull)
-     * @param productId : +UQ, IX+, NotNull, int4(10), FK to product. (NotNull)
-     * @param purchaseDatetime : +UQ, IX+, NotNull, timestamp(26, 3). (NotNull)
+     * @param memberId : UQ+, IX+, NotNull, INT(10), FK to member. (NotNull)
+     * @param productId : +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
+     * @param purchaseDatetime : +UQ, IX+, NotNull, DATETIME(19). (NotNull)
      * @return this. (NotNull)
      */
     public PurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
@@ -256,7 +256,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * member by my member_id, named 'member'.
+     * member by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -285,7 +285,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * product by my product_id, named 'product'.
+     * product by my PRODUCT_ID, named 'product'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Product()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -355,75 +355,65 @@ public class BsPurchaseCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * purchase_id: {PK, ID, NotNull, bigserial(19)}
+         * PURCHASE_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPurchaseId() { return doColumn("purchase_id"); }
+        public SpecifiedColumn columnPurchaseId() { return doColumn("PURCHASE_ID"); }
         /**
-         * member_id: {UQ+, NotNull, int4(10), FK to member}
+         * MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberId() { return doColumn("member_id"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * product_id: {+UQ, IX+, NotNull, int4(10), FK to product}
+         * PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnProductId() { return doColumn("product_id"); }
+        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * purchase_datetime: {+UQ, IX+, NotNull, timestamp(26, 3)}
+         * PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPurchaseDatetime() { return doColumn("purchase_datetime"); }
+        public SpecifiedColumn columnPurchaseDatetime() { return doColumn("PURCHASE_DATETIME"); }
         /**
-         * purchase_count: {NotNull, int4(10)}
+         * PURCHASE_COUNT: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPurchaseCount() { return doColumn("purchase_count"); }
+        public SpecifiedColumn columnPurchaseCount() { return doColumn("PURCHASE_COUNT"); }
         /**
-         * purchase_price: {IX, NotNull, int4(10)}
+         * PURCHASE_PRICE: {IX, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPurchasePrice() { return doColumn("purchase_price"); }
+        public SpecifiedColumn columnPurchasePrice() { return doColumn("PURCHASE_PRICE"); }
         /**
-         * payment_complete_flg: {NotNull, int4(10)}
+         * PAYMENT_COMPLETE_FLG: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPaymentCompleteFlg() { return doColumn("payment_complete_flg"); }
+        public SpecifiedColumn columnPaymentCompleteFlg() { return doColumn("PAYMENT_COMPLETE_FLG"); }
         /**
-         * register_datetime: {NotNull, timestamp(26, 3)}
+         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * register_user: {NotNull, varchar(200)}
+         * REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * register_process: {NotNull, varchar(200)}
+         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * update_datetime: {NotNull, timestamp(26, 3)}
+         * UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         /**
-         * update_user: {NotNull, varchar(200)}
+         * VERSION_NO: {NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
-        /**
-         * update_process: {NotNull, varchar(200)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
-        /**
-         * version_no: {NotNull, int8(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
+        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -442,7 +432,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         protected String getTableDbName() { return "purchase"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * member by my member_id, named 'member'.
+         * member by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMember() {
@@ -462,7 +452,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * product by my product_id, named 'product'.
+         * product by my PRODUCT_ID, named 'product'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public ProductCB.HpSpecification specifyProduct() {
@@ -483,7 +473,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from purchase_payment where ...) as FOO_MAX} <br>
-         * purchase_payment by purchase_id, named 'purchasePaymentList'.
+         * purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(paymentCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     paymentCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

@@ -10,10 +10,10 @@ import com.mssoftech.dbflute.exentity.*;
  * The referrer loader of member_withdrawal as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_id
+ *     MEMBER_ID
  *
  * [column]
- *     member_id, withdrawal_reason_code, withdrawal_reason_input_text, withdrawal_datetime, register_datetime, register_process, register_user, update_datetime, update_process, update_user
+ *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     

@@ -23,10 +23,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of region as TABLE. <br>
  * <pre>
  * [primary key]
- *     region_id
+ *     REGION_ID
  *
  * [column]
- *     region_id, region_name
+ *     REGION_ID, REGION_NAME
  *
  * [sequence]
  *     
@@ -157,7 +157,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
 
     /**
      * Select the entity by the primary-key value.
-     * @param regionId : PK, NotNull, int4(10). (NotNull)
+     * @param regionId : PK, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -361,7 +361,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * member_address by region_id, named 'memberAddressList'.
+     * member_address by REGION_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">regionList</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
@@ -392,7 +392,7 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * member_address by region_id, named 'memberAddressList'.
+     * member_address by REGION_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">regionBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">region</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...

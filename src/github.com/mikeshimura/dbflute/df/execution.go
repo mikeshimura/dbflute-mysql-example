@@ -652,6 +652,9 @@ func (o *OutsideSqlBasicExecutor) doExecute(path string, pmb interface{}, tx *sq
 	}
 	cmd := o.createExecuteCommand(fullpath, pmb, tx)
 	res, err := o.behaviorCommandInvoker.Invoke(cmd)
+	if err !=nil{
+		return 0,err
+	}
 	var lres int64 = res.(int64)
 	return lres, err
 }
@@ -680,10 +683,9 @@ func (o *OutsideSqlBasicExecutor) SelectList(pmb interface{}, tx *sql.Tx) (*List
 	return o.doSelectList(path, pmb, entityType, tx)
 }
 func (o *OutsideSqlBasicExecutor) getFullPath(path string) (string, error) {
-	//fmt.Printf("Gopath %v\n",Gopath)
 	fullpath := filepath.Join(Gopath, "src", path)
 	files, _ := filepath.Glob(fullpath)
-	//fmt.Printf("files %v %T %d\n",files,files,len(files))
+	//	fmt.Printf("files %v %T %d\n",files,files,len(files))
 	if len(files) == 0 {
 		return "", errors.New("SQL File Not found. GOPATH NOT SET? " + fullpath)
 	}

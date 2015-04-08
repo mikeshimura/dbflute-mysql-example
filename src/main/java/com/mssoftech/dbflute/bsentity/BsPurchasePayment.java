@@ -17,16 +17,16 @@ import com.mssoftech.dbflute.exentity.*;
  * 分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。
  * <pre>
  * [primary-key]
- *     purchase_payment_id
+ *     PURCHASE_PAYMENT_ID
  * 
  * [column]
- *     purchase_payment_id, purchase_id, payment_amount, payment_datetime, payment_method_code, register_datetime, register_user, update_datetime, update_user
+ *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  * 
  * [sequence]
- *     purchase_payment_purchase_payment_id_seq
+ *     
  * 
  * [identity]
- *     
+ *     PURCHASE_PAYMENT_ID
  * 
  * [version-no]
  *     
@@ -78,31 +78,31 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** purchase_payment_id: {PK, ID, NotNull, bigserial(19)} */
+    /** PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)} */
     protected Long _purchasePaymentId;
 
-    /** purchase_id: {NotNull, int8(19), FK to purchase} */
+    /** PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to purchase} */
     protected Long _purchaseId;
 
-    /** payment_amount: {NotNull, numeric(10, 2)} */
+    /** PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)} */
     protected java.math.BigDecimal _paymentAmount;
 
-    /** payment_datetime: {IX+, NotNull, timestamp(26, 3)} */
+    /** PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _paymentDatetime;
 
-    /** payment_method_code: {NotNull, bpchar(3)} */
+    /** PAYMENT_METHOD_CODE: {NotNull, CHAR(3)} */
     protected String _paymentMethodCode;
 
-    /** register_datetime: {NotNull, timestamp(26, 3)} */
+    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** register_user: {NotNull, varchar(200)} */
+    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** update_datetime: {NotNull, timestamp(26, 3)} */
+    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** update_user: {NotNull, varchar(200)} */
+    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
 
     // ===================================================================================
@@ -130,11 +130,11 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** purchase by my purchase_id, named 'purchase'. */
+    /** purchase by my PURCHASE_ID, named 'purchase'. */
     protected OptionalEntity<Purchase> _purchase;
 
     /**
-     * [get] purchase by my purchase_id, named 'purchase'. <br>
+     * [get] purchase by my PURCHASE_ID, named 'purchase'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'purchase'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -144,7 +144,7 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] purchase by my purchase_id, named 'purchase'.
+     * [set] purchase by my PURCHASE_ID, named 'purchase'.
      * @param purchase The entity of foreign property 'purchase'. (NullAllowed)
      */
     public void setPurchase(OptionalEntity<Purchase> purchase) {
@@ -230,9 +230,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] purchase_payment_id: {PK, ID, NotNull, bigserial(19)} <br>
+     * [get] PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * 購入支払ID: 連番
-     * @return The value of the column 'purchase_payment_id'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PURCHASE_PAYMENT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getPurchasePaymentId() {
         checkSpecifiedProperty("purchasePaymentId");
@@ -240,9 +240,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] purchase_payment_id: {PK, ID, NotNull, bigserial(19)} <br>
+     * [set] PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * 購入支払ID: 連番
-     * @param purchasePaymentId The value of the column 'purchase_payment_id'. (basically NotNull if update: for the constraint)
+     * @param purchasePaymentId The value of the column 'PURCHASE_PAYMENT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPurchasePaymentId(Long purchasePaymentId) {
         registerModifiedProperty("purchasePaymentId");
@@ -250,9 +250,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] purchase_id: {NotNull, int8(19), FK to purchase} <br>
+     * [get] PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to purchase} <br>
      * 購入ID: 支払い対象の購入へのID
-     * @return The value of the column 'purchase_id'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PURCHASE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Long getPurchaseId() {
         checkSpecifiedProperty("purchaseId");
@@ -260,9 +260,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] purchase_id: {NotNull, int8(19), FK to purchase} <br>
+     * [set] PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to purchase} <br>
      * 購入ID: 支払い対象の購入へのID
-     * @param purchaseId The value of the column 'purchase_id'. (basically NotNull if update: for the constraint)
+     * @param purchaseId The value of the column 'PURCHASE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseId(Long purchaseId) {
         registerModifiedProperty("purchaseId");
@@ -270,9 +270,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] payment_amount: {NotNull, numeric(10, 2)} <br>
+     * [get] PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)} <br>
      * 支払金額: 支払った金額。さて、小数点なのはなぜでしょう？
-     * @return The value of the column 'payment_amount'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PAYMENT_AMOUNT'. (basically NotNull if selected: for the constraint)
      */
     public java.math.BigDecimal getPaymentAmount() {
         checkSpecifiedProperty("paymentAmount");
@@ -280,9 +280,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] payment_amount: {NotNull, numeric(10, 2)} <br>
+     * [set] PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)} <br>
      * 支払金額: 支払った金額。さて、小数点なのはなぜでしょう？
-     * @param paymentAmount The value of the column 'payment_amount'. (basically NotNull if update: for the constraint)
+     * @param paymentAmount The value of the column 'PAYMENT_AMOUNT'. (basically NotNull if update: for the constraint)
      */
     public void setPaymentAmount(java.math.BigDecimal paymentAmount) {
         registerModifiedProperty("paymentAmount");
@@ -290,9 +290,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] payment_datetime: {IX+, NotNull, timestamp(26, 3)} <br>
+     * [get] PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)} <br>
      * 支払日時: 支払ったときの日時
-     * @return The value of the column 'payment_datetime'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PAYMENT_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getPaymentDatetime() {
         checkSpecifiedProperty("paymentDatetime");
@@ -300,9 +300,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] payment_datetime: {IX+, NotNull, timestamp(26, 3)} <br>
+     * [set] PAYMENT_DATETIME: {IX+, NotNull, DATETIME(19)} <br>
      * 支払日時: 支払ったときの日時
-     * @param paymentDatetime The value of the column 'payment_datetime'. (basically NotNull if update: for the constraint)
+     * @param paymentDatetime The value of the column 'PAYMENT_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setPaymentDatetime(java.time.LocalDateTime paymentDatetime) {
         registerModifiedProperty("paymentDatetime");
@@ -310,9 +310,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] payment_method_code: {NotNull, bpchar(3)} <br>
+     * [get] PAYMENT_METHOD_CODE: {NotNull, CHAR(3)} <br>
      * 支払方法コード: 手渡しや銀行振込など
-     * @return The value of the column 'payment_method_code'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PAYMENT_METHOD_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getPaymentMethodCode() {
         checkSpecifiedProperty("paymentMethodCode");
@@ -320,9 +320,9 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] payment_method_code: {NotNull, bpchar(3)} <br>
+     * [set] PAYMENT_METHOD_CODE: {NotNull, CHAR(3)} <br>
      * 支払方法コード: 手渡しや銀行振込など
-     * @param paymentMethodCode The value of the column 'payment_method_code'. (basically NotNull if update: for the constraint)
+     * @param paymentMethodCode The value of the column 'PAYMENT_METHOD_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setPaymentMethodCode(String paymentMethodCode) {
         registerModifiedProperty("paymentMethodCode");
@@ -330,8 +330,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
+     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
@@ -339,8 +339,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
+     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
@@ -348,8 +348,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
+     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
         checkSpecifiedProperty("registerUser");
@@ -357,8 +357,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br>
-     * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
+     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
         registerModifiedProperty("registerUser");
@@ -366,8 +366,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
+     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
@@ -375,8 +375,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
+     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
@@ -384,8 +384,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
+     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
         checkSpecifiedProperty("updateUser");
@@ -393,8 +393,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br>
-     * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
+     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
         registerModifiedProperty("updateUser");

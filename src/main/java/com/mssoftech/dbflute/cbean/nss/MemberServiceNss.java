@@ -20,7 +20,7 @@ public class MemberServiceNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * member by my member_id, named 'member'.
+     * member by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -29,7 +29,7 @@ public class MemberServiceNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * service_rank by my service_rank_code, named 'serviceRank'.
+     * service_rank by my SERVICE_RANK_CODE, named 'serviceRank'.
      */
     public void withServiceRank() {
         _query.xdoNss(() -> _query.queryServiceRank());

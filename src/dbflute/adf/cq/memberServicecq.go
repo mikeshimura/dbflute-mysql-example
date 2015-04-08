@@ -11,10 +11,8 @@ type MemberServiceCQ struct {
 	ServicePointCount *df.ConditionValue
 	ServiceRankCode *df.ConditionValue
 	RegisterDatetime *df.ConditionValue
-	RegisterProcess *df.ConditionValue
 	RegisterUser *df.ConditionValue
 	UpdateDatetime *df.ConditionValue
-	UpdateProcess *df.ConditionValue
 	UpdateUser *df.ConditionValue
 	VersionNo *df.ConditionValue
 }
@@ -282,28 +280,28 @@ func (q *MemberServiceCQ) getCValueRegisterDatetime() *df.ConditionValue {
 
 
 
-func (q *MemberServiceCQ) SetRegisterDatetime_Equal(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetRegisterDatetime_Equal(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regRegisterDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *MemberServiceCQ) SetRegisterDatetime_GreaterThan(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetRegisterDatetime_GreaterThan(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regRegisterDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *MemberServiceCQ) SetRegisterDatetime_LessThan(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetRegisterDatetime_LessThan(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regRegisterDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *MemberServiceCQ) SetRegisterDatetime_GreaterEqual(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetRegisterDatetime_GreaterEqual(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regRegisterDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *MemberServiceCQ) SetRegisterDatetime_LessEqual(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetRegisterDatetime_LessEqual(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regRegisterDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -321,72 +319,6 @@ func (q *MemberServiceCQ) regRegisterDatetime(key *df.ConditionKey, value interf
 		q.RegisterDatetime = new(df.ConditionValue)
 	}
 	q.BaseConditionQuery.RegQ(key, value, q.RegisterDatetime, "registerDatetime")
-}
-
-func (q *MemberServiceCQ) getCValueRegisterProcess() *df.ConditionValue {
-	if q.RegisterProcess == nil {
-		q.RegisterProcess = new(df.ConditionValue)
-	}
-	return q.RegisterProcess
-}
-
-
-func (q *MemberServiceCQ) SetRegisterProcess_Equal(value string) *MemberServiceCQ {
-	q.regRegisterProcess(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
-	return q
-}
-
-func (q *MemberServiceCQ) SetRegisterProcess_NotEqual(value string) *MemberServiceCQ {
-	q.regRegisterProcess(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetRegisterProcess_GreaterThan(value string) *MemberServiceCQ {
-	q.regRegisterProcess(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetRegisterProcess_LessThan(value string) *MemberServiceCQ {
-	q.regRegisterProcess(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetRegisterProcess_GreaterEqualThan(value string) *MemberServiceCQ {
-	q.regRegisterProcess(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-func (q *MemberServiceCQ) SetRegisterProcess_LessEqualThan(value string) *MemberServiceCQ {
-	q.regRegisterProcess(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetRegisterProcess_LikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueRegisterProcess(), "registerProcess", option)
-}
-
-func (q *MemberServiceCQ) SetRegisterProcess_PrefixSearch(value string) error {
-	return q.SetRegisterProcess_LikeSearch(value, q.BaseConditionQuery.CLSOP())
-}
-
-func (q *MemberServiceCQ) SetRegisterProcess_NotLikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueRegisterProcess(), "registerProcess", option)
-}
-
-
-
-func (q *MemberServiceCQ) AddOrderBy_RegisterProcess_Asc() *MemberServiceCQ {
-	q.BaseConditionQuery.RegOBA("registerProcess")
-	return q
-}
-func (q *MemberServiceCQ) AddOrderBy_RegisterProcess_Desc() *MemberServiceCQ {
-	q.BaseConditionQuery.RegOBD("registerProcess")
-	return q
-}
-func (q *MemberServiceCQ) regRegisterProcess(key *df.ConditionKey, value interface{}) {
-	if q.RegisterProcess == nil {
-		q.RegisterProcess = new(df.ConditionValue)
-	}
-	q.BaseConditionQuery.RegQ(key, value, q.RegisterProcess, "registerProcess")
 }
 
 func (q *MemberServiceCQ) getCValueRegisterUser() *df.ConditionValue {
@@ -465,28 +397,28 @@ func (q *MemberServiceCQ) getCValueUpdateDatetime() *df.ConditionValue {
 
 
 
-func (q *MemberServiceCQ) SetUpdateDatetime_Equal(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetUpdateDatetime_Equal(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regUpdateDatetime(df.CK_EQ_C, value)
 	return q
 }
 
 
-func (q *MemberServiceCQ) SetUpdateDatetime_GreaterThan(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetUpdateDatetime_GreaterThan(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regUpdateDatetime(df.CK_GT_C, value)
 	return q
 }
 
-func (q *MemberServiceCQ) SetUpdateDatetime_LessThan(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetUpdateDatetime_LessThan(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regUpdateDatetime(df.CK_LT_C, value)
 	return q
 }
 
-func (q *MemberServiceCQ) SetUpdateDatetime_GreaterEqual(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetUpdateDatetime_GreaterEqual(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regUpdateDatetime(df.CK_GE_C, value)
 	return q
 }
 
-func (q *MemberServiceCQ) SetUpdateDatetime_LessEqual(value df.Timestamp) *MemberServiceCQ {
+func (q *MemberServiceCQ) SetUpdateDatetime_LessEqual(value df.MysqlTimestamp) *MemberServiceCQ {
 	q.regUpdateDatetime(df.CK_LE_C, value)
 	return q
 }
@@ -504,72 +436,6 @@ func (q *MemberServiceCQ) regUpdateDatetime(key *df.ConditionKey, value interfac
 		q.UpdateDatetime = new(df.ConditionValue)
 	}
 	q.BaseConditionQuery.RegQ(key, value, q.UpdateDatetime, "updateDatetime")
-}
-
-func (q *MemberServiceCQ) getCValueUpdateProcess() *df.ConditionValue {
-	if q.UpdateProcess == nil {
-		q.UpdateProcess = new(df.ConditionValue)
-	}
-	return q.UpdateProcess
-}
-
-
-func (q *MemberServiceCQ) SetUpdateProcess_Equal(value string) *MemberServiceCQ {
-	q.regUpdateProcess(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
-	return q
-}
-
-func (q *MemberServiceCQ) SetUpdateProcess_NotEqual(value string) *MemberServiceCQ {
-	q.regUpdateProcess(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetUpdateProcess_GreaterThan(value string) *MemberServiceCQ {
-	q.regUpdateProcess(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetUpdateProcess_LessThan(value string) *MemberServiceCQ {
-	q.regUpdateProcess(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetUpdateProcess_GreaterEqualThan(value string) *MemberServiceCQ {
-	q.regUpdateProcess(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-func (q *MemberServiceCQ) SetUpdateProcess_LessEqualThan(value string) *MemberServiceCQ {
-	q.regUpdateProcess(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
-	return q
-}	
-
-func (q *MemberServiceCQ) SetUpdateProcess_LikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValueUpdateProcess(), "updateProcess", option)
-}
-
-func (q *MemberServiceCQ) SetUpdateProcess_PrefixSearch(value string) error {
-	return q.SetUpdateProcess_LikeSearch(value, q.BaseConditionQuery.CLSOP())
-}
-
-func (q *MemberServiceCQ) SetUpdateProcess_NotLikeSearch(value string, option *df.LikeSearchOption) error {
-	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValueUpdateProcess(), "updateProcess", option)
-}
-
-
-
-func (q *MemberServiceCQ) AddOrderBy_UpdateProcess_Asc() *MemberServiceCQ {
-	q.BaseConditionQuery.RegOBA("updateProcess")
-	return q
-}
-func (q *MemberServiceCQ) AddOrderBy_UpdateProcess_Desc() *MemberServiceCQ {
-	q.BaseConditionQuery.RegOBD("updateProcess")
-	return q
-}
-func (q *MemberServiceCQ) regUpdateProcess(key *df.ConditionKey, value interface{}) {
-	if q.UpdateProcess == nil {
-		q.UpdateProcess = new(df.ConditionValue)
-	}
-	q.BaseConditionQuery.RegQ(key, value, q.UpdateProcess, "updateProcess")
 }
 
 func (q *MemberServiceCQ) getCValueUpdateUser() *df.ConditionValue {

@@ -12,10 +12,8 @@ type MemberSecurityDbm_T struct {
 	ColumnReminderAnswer *df.ColumnInfo
 	ColumnReminderUseCount *df.ColumnInfo
 	ColumnRegisterDatetime *df.ColumnInfo
-	ColumnRegisterProcess *df.ColumnInfo
 	ColumnRegisterUser *df.ColumnInfo
 	ColumnUpdateDatetime *df.ColumnInfo
-	ColumnUpdateProcess *df.ColumnInfo
 	ColumnUpdateUser *df.ColumnInfo
 	ColumnVersionNo *df.ColumnInfo
 }
@@ -43,65 +41,55 @@ func Create_MemberSecurityDbm() {
 	memberSecurity = MemberSecurityDbm
 	MemberSecurityDbm.DBMeta=&memberSecurity
 	memberIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo member_id
-	memberIdSqlName.ColumnSqlName = "member_id"
+	//colsqlname dayoo MEMBER_ID
+	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnMemberId = df.CCI(&memberSecurity, "member_id", memberIdSqlName, "", "", "Integer.class", "memberId", "", true, false,true, "int4", 10, 0, "",false,"","", "member","","",false,"int64")
+	MemberSecurityDbm.ColumnMemberId = df.CCI(&memberSecurity, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", true, false,true, "INT", 10, 0, "",false,"","", "member","","",false,"int64")
 	loginPasswordSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo login_password
-	loginPasswordSqlName.ColumnSqlName = "login_password"
+	//colsqlname dayoo LOGIN_PASSWORD
+	loginPasswordSqlName.ColumnSqlName = "LOGIN_PASSWORD"
 	loginPasswordSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnLoginPassword = df.CCI(&memberSecurity, "login_password", loginPasswordSqlName, "", "", "String.class", "loginPassword", "", false, false,true, "varchar", 50, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnLoginPassword = df.CCI(&memberSecurity, "LOGIN_PASSWORD", loginPasswordSqlName, "", "", "String.class", "loginPassword", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
 	reminderQuestionSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo reminder_question
-	reminderQuestionSqlName.ColumnSqlName = "reminder_question"
+	//colsqlname dayoo REMINDER_QUESTION
+	reminderQuestionSqlName.ColumnSqlName = "REMINDER_QUESTION"
 	reminderQuestionSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnReminderQuestion = df.CCI(&memberSecurity, "reminder_question", reminderQuestionSqlName, "", "", "String.class", "reminderQuestion", "", false, false,true, "varchar", 50, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnReminderQuestion = df.CCI(&memberSecurity, "REMINDER_QUESTION", reminderQuestionSqlName, "", "", "String.class", "reminderQuestion", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
 	reminderAnswerSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo reminder_answer
-	reminderAnswerSqlName.ColumnSqlName = "reminder_answer"
+	//colsqlname dayoo REMINDER_ANSWER
+	reminderAnswerSqlName.ColumnSqlName = "REMINDER_ANSWER"
 	reminderAnswerSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnReminderAnswer = df.CCI(&memberSecurity, "reminder_answer", reminderAnswerSqlName, "", "", "String.class", "reminderAnswer", "", false, false,true, "varchar", 50, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnReminderAnswer = df.CCI(&memberSecurity, "REMINDER_ANSWER", reminderAnswerSqlName, "", "", "String.class", "reminderAnswer", "", false, false,true, "VARCHAR", 50, 0, "",false,"","", "","","",false,"string")
 	reminderUseCountSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo reminder_use_count
-	reminderUseCountSqlName.ColumnSqlName = "reminder_use_count"
+	//colsqlname dayoo REMINDER_USE_COUNT
+	reminderUseCountSqlName.ColumnSqlName = "REMINDER_USE_COUNT"
 	reminderUseCountSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnReminderUseCount = df.CCI(&memberSecurity, "reminder_use_count", reminderUseCountSqlName, "", "", "Integer.class", "reminderUseCount", "", false, false,true, "int4", 10, 0, "",false,"","", "","","",false,"int64")
+	MemberSecurityDbm.ColumnReminderUseCount = df.CCI(&memberSecurity, "REMINDER_USE_COUNT", reminderUseCountSqlName, "", "", "Integer.class", "reminderUseCount", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	registerDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo register_datetime
-	registerDatetimeSqlName.ColumnSqlName = "register_datetime"
+	//colsqlname dayoo REGISTER_DATETIME
+	registerDatetimeSqlName.ColumnSqlName = "REGISTER_DATETIME"
 	registerDatetimeSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnRegisterDatetime = df.CCI(&memberSecurity, "register_datetime", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "timestamp", 26, 3, "",false,"","", "","","",false,"df.Timestamp")
-	registerProcessSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo register_process
-	registerProcessSqlName.ColumnSqlName = "register_process"
-	registerProcessSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnRegisterProcess = df.CCI(&memberSecurity, "register_process", registerProcessSqlName, "", "", "String.class", "registerProcess", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnRegisterDatetime = df.CCI(&memberSecurity, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	registerUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo register_user
-	registerUserSqlName.ColumnSqlName = "register_user"
+	//colsqlname dayoo REGISTER_USER
+	registerUserSqlName.ColumnSqlName = "REGISTER_USER"
 	registerUserSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnRegisterUser = df.CCI(&memberSecurity, "register_user", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnRegisterUser = df.CCI(&memberSecurity, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	updateDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo update_datetime
-	updateDatetimeSqlName.ColumnSqlName = "update_datetime"
+	//colsqlname dayoo UPDATE_DATETIME
+	updateDatetimeSqlName.ColumnSqlName = "UPDATE_DATETIME"
 	updateDatetimeSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnUpdateDatetime = df.CCI(&memberSecurity, "update_datetime", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "timestamp", 26, 3, "",false,"","", "","","",false,"df.Timestamp")
-	updateProcessSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo update_process
-	updateProcessSqlName.ColumnSqlName = "update_process"
-	updateProcessSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnUpdateProcess = df.CCI(&memberSecurity, "update_process", updateProcessSqlName, "", "", "String.class", "updateProcess", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnUpdateDatetime = df.CCI(&memberSecurity, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	updateUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo update_user
-	updateUserSqlName.ColumnSqlName = "update_user"
+	//colsqlname dayoo UPDATE_USER
+	updateUserSqlName.ColumnSqlName = "UPDATE_USER"
 	updateUserSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnUpdateUser = df.CCI(&memberSecurity, "update_user", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "varchar", 200, 0, "",false,"","", "","","",false,"string")
+	MemberSecurityDbm.ColumnUpdateUser = df.CCI(&memberSecurity, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	versionNoSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo version_no
-	versionNoSqlName.ColumnSqlName = "version_no"
+	//colsqlname dayoo VERSION_NO
+	versionNoSqlName.ColumnSqlName = "VERSION_NO"
 	versionNoSqlName.IrregularChar = false
-	MemberSecurityDbm.ColumnVersionNo = df.CCI(&memberSecurity, "version_no", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "int8", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")
+	MemberSecurityDbm.ColumnVersionNo = df.CCI(&memberSecurity, "VERSION_NO", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "BIGINT", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")
 
 	MemberSecurityDbm.ColumnInfoList = new(df.List)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnMemberId)
@@ -110,10 +98,8 @@ func Create_MemberSecurityDbm() {
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnReminderAnswer)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnReminderUseCount)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnRegisterDatetime)
-	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnRegisterProcess)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnRegisterUser)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnUpdateDatetime)
-	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnUpdateProcess)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnUpdateUser)
 	MemberSecurityDbm.ColumnInfoList.Add(MemberSecurityDbm.ColumnVersionNo)
 
@@ -125,12 +111,10 @@ func Create_MemberSecurityDbm() {
 		MemberSecurityDbm.ColumnInfoMap["reminderAnswer"]=3
 		MemberSecurityDbm.ColumnInfoMap["reminderUseCount"]=4
 		MemberSecurityDbm.ColumnInfoMap["registerDatetime"]=5
-		MemberSecurityDbm.ColumnInfoMap["registerProcess"]=6
-		MemberSecurityDbm.ColumnInfoMap["registerUser"]=7
-		MemberSecurityDbm.ColumnInfoMap["updateDatetime"]=8
-		MemberSecurityDbm.ColumnInfoMap["updateProcess"]=9
-		MemberSecurityDbm.ColumnInfoMap["updateUser"]=10
-		MemberSecurityDbm.ColumnInfoMap["versionNo"]=11
+		MemberSecurityDbm.ColumnInfoMap["registerUser"]=6
+		MemberSecurityDbm.ColumnInfoMap["updateDatetime"]=7
+		MemberSecurityDbm.ColumnInfoMap["updateUser"]=8
+		MemberSecurityDbm.ColumnInfoMap["versionNo"]=9
 	    MemberSecurityDbm.PrimaryKey = true
     MemberSecurityDbm.CompoundPrimaryKey = false
 	ui := new(df.UniqueInfo)

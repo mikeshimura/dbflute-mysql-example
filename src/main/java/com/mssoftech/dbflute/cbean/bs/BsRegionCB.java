@@ -77,7 +77,7 @@ public class BsRegionCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param regionId : PK, NotNull, int4(10). (NotNull)
+     * @param regionId : PK, NotNull, INT(10). (NotNull)
      * @return this. (NotNull)
      */
     public RegionCB acceptPK(Integer regionId) {
@@ -280,15 +280,15 @@ public class BsRegionCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * region_id: {PK, NotNull, int4(10)}
+         * REGION_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegionId() { return doColumn("region_id"); }
+        public SpecifiedColumn columnRegionId() { return doColumn("REGION_ID"); }
         /**
-         * region_name: {NotNull, varchar(50)}
+         * REGION_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnRegionName() { return doColumn("region_name"); }
+        public SpecifiedColumn columnRegionName() { return doColumn("REGION_NAME"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -300,7 +300,7 @@ public class BsRegionCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from member_address where ...) as FOO_MAX} <br>
-         * member_address by region_id, named 'memberAddressList'.
+         * member_address by REGION_ID, named 'memberAddressList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     addressCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

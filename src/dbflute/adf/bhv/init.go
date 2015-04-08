@@ -117,111 +117,13 @@ func init() {
 	var summaryProduct df.Behavior =SummaryProductBhv_I
 	SummaryProductBhv_I.BaseBehavior.Behavior=&summaryProduct
 	SummaryProductBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorDateFkBhv_I = new(VendorDateFkBhv)
-	VendorDateFkBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorDateFkBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorDateFkBhv_I.BaseBehavior.TableDbName = "VendorDateFk"
-	var vendorDateFk df.Behavior =VendorDateFkBhv_I
-	VendorDateFkBhv_I.BaseBehavior.Behavior=&vendorDateFk
-	VendorDateFkBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorDatePkBhv_I = new(VendorDatePkBhv)
-	VendorDatePkBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorDatePkBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorDatePkBhv_I.BaseBehavior.TableDbName = "VendorDatePk"
-	var vendorDatePk df.Behavior =VendorDatePkBhv_I
-	VendorDatePkBhv_I.BaseBehavior.Behavior=&vendorDatePk
-	VendorDatePkBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorInheritInuBhv_I = new(VendorInheritInuBhv)
-	VendorInheritInuBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorInheritInuBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorInheritInuBhv_I.BaseBehavior.TableDbName = "VendorInheritInu"
-	var vendorInheritInu df.Behavior =VendorInheritInuBhv_I
-	VendorInheritInuBhv_I.BaseBehavior.Behavior=&vendorInheritInu
-	VendorInheritInuBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorInheritNekoBhv_I = new(VendorInheritNekoBhv)
-	VendorInheritNekoBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorInheritNekoBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorInheritNekoBhv_I.BaseBehavior.TableDbName = "VendorInheritNeko"
-	var vendorInheritNeko df.Behavior =VendorInheritNekoBhv_I
-	VendorInheritNekoBhv_I.BaseBehavior.Behavior=&vendorInheritNeko
-	VendorInheritNekoBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorLargeDataBhv_I = new(VendorLargeDataBhv)
-	VendorLargeDataBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorLargeDataBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorLargeDataBhv_I.BaseBehavior.TableDbName = "VendorLargeData"
-	var vendorLargeData df.Behavior =VendorLargeDataBhv_I
-	VendorLargeDataBhv_I.BaseBehavior.Behavior=&vendorLargeData
-	VendorLargeDataBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorLargeDataRefBhv_I = new(VendorLargeDataRefBhv)
-	VendorLargeDataRefBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorLargeDataRefBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorLargeDataRefBhv_I.BaseBehavior.TableDbName = "VendorLargeDataRef"
-	var vendorLargeDataRef df.Behavior =VendorLargeDataRefBhv_I
-	VendorLargeDataRefBhv_I.BaseBehavior.Behavior=&vendorLargeDataRef
-	VendorLargeDataRefBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorPartManBhv_I = new(VendorPartManBhv)
-	VendorPartManBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorPartManBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorPartManBhv_I.BaseBehavior.TableDbName = "VendorPartMan"
-	var vendorPartMan df.Behavior =VendorPartManBhv_I
-	VendorPartManBhv_I.BaseBehavior.Behavior=&vendorPartMan
-	VendorPartManBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	VendorPartManHighBhv_I = new(VendorPartManHighBhv)
-	VendorPartManHighBhv_I.BaseBehavior = new(df.BaseBehavior)
-	VendorPartManHighBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	VendorPartManHighBhv_I.BaseBehavior.TableDbName = "VendorPartManHigh"
-	var vendorPartManHigh df.Behavior =VendorPartManHighBhv_I
-	VendorPartManHighBhv_I.BaseBehavior.Behavior=&vendorPartManHigh
-	VendorPartManHighBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteCompoundPkBhv_I = new(WhiteCompoundPkBhv)
-	WhiteCompoundPkBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteCompoundPkBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteCompoundPkBhv_I.BaseBehavior.TableDbName = "WhiteCompoundPk"
-	var whiteCompoundPk df.Behavior =WhiteCompoundPkBhv_I
-	WhiteCompoundPkBhv_I.BaseBehavior.Behavior=&whiteCompoundPk
-	WhiteCompoundPkBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteCompoundPkRefBhv_I = new(WhiteCompoundPkRefBhv)
-	WhiteCompoundPkRefBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteCompoundPkRefBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteCompoundPkRefBhv_I.BaseBehavior.TableDbName = "WhiteCompoundPkRef"
-	var whiteCompoundPkRef df.Behavior =WhiteCompoundPkRefBhv_I
-	WhiteCompoundPkRefBhv_I.BaseBehavior.Behavior=&whiteCompoundPkRef
-	WhiteCompoundPkRefBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteCompoundPkWrongOrderBhv_I = new(WhiteCompoundPkWrongOrderBhv)
-	WhiteCompoundPkWrongOrderBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteCompoundPkWrongOrderBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteCompoundPkWrongOrderBhv_I.BaseBehavior.TableDbName = "WhiteCompoundPkWrongOrder"
-	var whiteCompoundPkWrongOrder df.Behavior =WhiteCompoundPkWrongOrderBhv_I
-	WhiteCompoundPkWrongOrderBhv_I.BaseBehavior.Behavior=&whiteCompoundPkWrongOrder
-	WhiteCompoundPkWrongOrderBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteNotPkBhv_I = new(WhiteNotPkBhv)
-	WhiteNotPkBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteNotPkBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteNotPkBhv_I.BaseBehavior.TableDbName = "WhiteNotPk"
-	var whiteNotPk df.Behavior =WhiteNotPkBhv_I
-	WhiteNotPkBhv_I.BaseBehavior.Behavior=&whiteNotPk
-	WhiteNotPkBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteSameNameBhv_I = new(WhiteSameNameBhv)
-	WhiteSameNameBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteSameNameBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteSameNameBhv_I.BaseBehavior.TableDbName = "WhiteSameName"
-	var whiteSameName df.Behavior =WhiteSameNameBhv_I
-	WhiteSameNameBhv_I.BaseBehavior.Behavior=&whiteSameName
-	WhiteSameNameBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteSameNameRefBhv_I = new(WhiteSameNameRefBhv)
-	WhiteSameNameRefBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteSameNameRefBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteSameNameRefBhv_I.BaseBehavior.TableDbName = "WhiteSameNameRef"
-	var whiteSameNameRef df.Behavior =WhiteSameNameRefBhv_I
-	WhiteSameNameRefBhv_I.BaseBehavior.Behavior=&whiteSameNameRef
-	WhiteSameNameRefBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
-	WhiteXlsManBhv_I = new(WhiteXlsManBhv)
-	WhiteXlsManBhv_I.BaseBehavior = new(df.BaseBehavior)
-	WhiteXlsManBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
-	WhiteXlsManBhv_I.BaseBehavior.TableDbName = "WhiteXlsMan"
-	var whiteXlsMan df.Behavior =WhiteXlsManBhv_I
-	WhiteXlsManBhv_I.BaseBehavior.Behavior=&whiteXlsMan
-	WhiteXlsManBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
+	SummaryWithdrawalBhv_I = new(SummaryWithdrawalBhv)
+	SummaryWithdrawalBhv_I.BaseBehavior = new(df.BaseBehavior)
+	SummaryWithdrawalBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()
+	SummaryWithdrawalBhv_I.BaseBehavior.TableDbName = "SummaryWithdrawal"
+	var summaryWithdrawal df.Behavior =SummaryWithdrawalBhv_I
+	SummaryWithdrawalBhv_I.BaseBehavior.Behavior=&summaryWithdrawal
+	SummaryWithdrawalBhv_I.BaseBehavior.BehaviorCommandInvoker = df.Bci
 	WithdrawalReasonBhv_I = new(WithdrawalReasonBhv)
 	WithdrawalReasonBhv_I.BaseBehavior = new(df.BaseBehavior)
 	WithdrawalReasonBhv_I.BaseBehavior.CreateBehaviorCommandInvoker()

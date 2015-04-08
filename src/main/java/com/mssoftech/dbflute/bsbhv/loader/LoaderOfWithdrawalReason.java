@@ -12,10 +12,10 @@ import com.mssoftech.dbflute.cbean.*;
  * The referrer loader of withdrawal_reason as TABLE. <br>
  * <pre>
  * [primary key]
- *     withdrawal_reason_code
+ *     WITHDRAWAL_REASON_CODE
  *
  * [column]
- *     withdrawal_reason_code, withdrawal_reason_text, display_order
+ *     WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_TEXT, DISPLAY_ORDER
  *
  * [sequence]
  *     
@@ -65,7 +65,7 @@ public class LoaderOfWithdrawalReason {
 
     /**
      * Load referrer of memberWithdrawalList by the set-upper of referrer. <br>
-     * member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalList'.
+     * member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
      * <pre>
      * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">withdrawalReasonList</span>, <span style="color: #553000">reasonLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">reasonLoader</span>.<span style="color: #CC4747">loadMemberWithdrawal</span>(<span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

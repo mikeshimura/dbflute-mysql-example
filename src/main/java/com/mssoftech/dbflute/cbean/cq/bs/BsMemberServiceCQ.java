@@ -81,17 +81,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * member_service_id: {PK, ID, NotNull, serial(10)}
+     * MEMBER_SERVICE_ID: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_MemberServiceId_Asc() { regOBA("member_service_id"); return this; }
+    public BsMemberServiceCQ addOrderBy_MemberServiceId_Asc() { regOBA("MEMBER_SERVICE_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * member_service_id: {PK, ID, NotNull, serial(10)}
+     * MEMBER_SERVICE_ID: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_MemberServiceId_Desc() { regOBD("member_service_id"); return this; }
+    public BsMemberServiceCQ addOrderBy_MemberServiceId_Desc() { regOBD("MEMBER_SERVICE_ID"); return this; }
 
     protected ConditionValue _memberId;
     public ConditionValue xdfgetMemberId()
@@ -101,17 +101,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * member_id: {UQ, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_MemberId_Asc() { regOBA("member_id"); return this; }
+    public BsMemberServiceCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * member_id: {UQ, NotNull, int4(10), FK to member}
+     * MEMBER_ID: {UQ, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_MemberId_Desc() { regOBD("member_id"); return this; }
+    public BsMemberServiceCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
 
     protected ConditionValue _servicePointCount;
     public ConditionValue xdfgetServicePointCount()
@@ -121,17 +121,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * service_point_count: {IX, NotNull, int4(10)}
+     * SERVICE_POINT_COUNT: {IX, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_ServicePointCount_Asc() { regOBA("service_point_count"); return this; }
+    public BsMemberServiceCQ addOrderBy_ServicePointCount_Asc() { regOBA("SERVICE_POINT_COUNT"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * service_point_count: {IX, NotNull, int4(10)}
+     * SERVICE_POINT_COUNT: {IX, NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_ServicePointCount_Desc() { regOBD("service_point_count"); return this; }
+    public BsMemberServiceCQ addOrderBy_ServicePointCount_Desc() { regOBD("SERVICE_POINT_COUNT"); return this; }
 
     protected ConditionValue _serviceRankCode;
     public ConditionValue xdfgetServiceRankCode()
@@ -141,17 +141,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * service_rank_code: {NotNull, bpchar(3), FK to service_rank}
+     * SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_ServiceRankCode_Asc() { regOBA("service_rank_code"); return this; }
+    public BsMemberServiceCQ addOrderBy_ServiceRankCode_Asc() { regOBA("SERVICE_RANK_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * service_rank_code: {NotNull, bpchar(3), FK to service_rank}
+     * SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_ServiceRankCode_Desc() { regOBD("service_rank_code"); return this; }
+    public BsMemberServiceCQ addOrderBy_ServiceRankCode_Desc() { regOBD("SERVICE_RANK_CODE"); return this; }
 
     protected ConditionValue _registerDatetime;
     public ConditionValue xdfgetRegisterDatetime()
@@ -161,37 +161,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * register_datetime: {NotNull, timestamp(26, 3)}
+     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_RegisterDatetime_Asc() { regOBA("register_datetime"); return this; }
+    public BsMemberServiceCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * register_datetime: {NotNull, timestamp(26, 3)}
+     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_RegisterDatetime_Desc() { regOBD("register_datetime"); return this; }
-
-    protected ConditionValue _registerProcess;
-    public ConditionValue xdfgetRegisterProcess()
-    { if (_registerProcess == null) { _registerProcess = nCV(); }
-      return _registerProcess; }
-    protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
-
-    /** 
-     * Add order-by as ascend. <br>
-     * register_process: {NotNull, varchar(200)}
-     * @return this. (NotNull)
-     */
-    public BsMemberServiceCQ addOrderBy_RegisterProcess_Asc() { regOBA("register_process"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * register_process: {NotNull, varchar(200)}
-     * @return this. (NotNull)
-     */
-    public BsMemberServiceCQ addOrderBy_RegisterProcess_Desc() { regOBD("register_process"); return this; }
+    public BsMemberServiceCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
 
     protected ConditionValue _registerUser;
     public ConditionValue xdfgetRegisterUser()
@@ -201,17 +181,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * register_user: {NotNull, varchar(200)}
+     * REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_RegisterUser_Asc() { regOBA("register_user"); return this; }
+    public BsMemberServiceCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * register_user: {NotNull, varchar(200)}
+     * REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_RegisterUser_Desc() { regOBD("register_user"); return this; }
+    public BsMemberServiceCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
 
     protected ConditionValue _updateDatetime;
     public ConditionValue xdfgetUpdateDatetime()
@@ -221,37 +201,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * update_datetime: {NotNull, timestamp(26, 3)}
+     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_UpdateDatetime_Asc() { regOBA("update_datetime"); return this; }
+    public BsMemberServiceCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * update_datetime: {NotNull, timestamp(26, 3)}
+     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_UpdateDatetime_Desc() { regOBD("update_datetime"); return this; }
-
-    protected ConditionValue _updateProcess;
-    public ConditionValue xdfgetUpdateProcess()
-    { if (_updateProcess == null) { _updateProcess = nCV(); }
-      return _updateProcess; }
-    protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
-
-    /** 
-     * Add order-by as ascend. <br>
-     * update_process: {NotNull, varchar(200)}
-     * @return this. (NotNull)
-     */
-    public BsMemberServiceCQ addOrderBy_UpdateProcess_Asc() { regOBA("update_process"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * update_process: {NotNull, varchar(200)}
-     * @return this. (NotNull)
-     */
-    public BsMemberServiceCQ addOrderBy_UpdateProcess_Desc() { regOBD("update_process"); return this; }
+    public BsMemberServiceCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
 
     protected ConditionValue _updateUser;
     public ConditionValue xdfgetUpdateUser()
@@ -261,17 +221,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * update_user: {NotNull, varchar(200)}
+     * UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_UpdateUser_Asc() { regOBA("update_user"); return this; }
+    public BsMemberServiceCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * update_user: {NotNull, varchar(200)}
+     * UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_UpdateUser_Desc() { regOBD("update_user"); return this; }
+    public BsMemberServiceCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
 
     protected ConditionValue _versionNo;
     public ConditionValue xdfgetVersionNo()
@@ -281,17 +241,17 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * version_no: {NotNull, int8(19)}
+     * VERSION_NO: {NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_VersionNo_Asc() { regOBA("version_no"); return this; }
+    public BsMemberServiceCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * version_no: {NotNull, int8(19)}
+     * VERSION_NO: {NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
-    public BsMemberServiceCQ addOrderBy_VersionNo_Desc() { regOBD("version_no"); return this; }
+    public BsMemberServiceCQ addOrderBy_VersionNo_Desc() { regOBD("VERSION_NO"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -347,7 +307,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * member by my member_id, named 'member'.
+     * member by my MEMBER_ID, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {
@@ -367,7 +327,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * service_rank by my service_rank_code, named 'serviceRank'.
+     * service_rank by my SERVICE_RANK_CODE, named 'serviceRank'.
      * @return The instance of condition-query. (NotNull)
      */
     public ServiceRankCQ queryServiceRank() {

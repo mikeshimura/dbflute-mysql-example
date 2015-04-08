@@ -23,16 +23,16 @@ import com.mssoftech.dbflute.cbean.*;
  * The behavior of member_login as TABLE. <br>
  * <pre>
  * [primary key]
- *     member_login_id
+ *     MEMBER_LOGIN_ID
  *
  * [column]
- *     member_login_id, member_id, login_datetime, mobile_login_flg, login_member_status_code
+ *     MEMBER_LOGIN_ID, MEMBER_ID, LOGIN_DATETIME, MOBILE_LOGIN_FLG, LOGIN_MEMBER_STATUS_CODE
  *
  * [sequence]
- *     member_login_member_login_id_seq
+ *     
  *
  * [identity]
- *     
+ *     MEMBER_LOGIN_ID
  *
  * [version-no]
  *     
@@ -157,7 +157,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberLoginId : PK, ID, NotNull, bigserial(19). (NotNull)
+     * @param memberLoginId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -186,8 +186,8 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
 
     /**
      * Select the entity by the unique-key value.
-     * @param memberId : UQ+, NotNull, int4(10), FK to member. (NotNull)
-     * @param loginDatetime : +UQ, IX, NotNull, timestamp(26, 3). (NotNull)
+     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
+     * @param loginDatetime : +UQ, IX, NotNull, DATETIME(19). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -306,27 +306,10 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     // ===================================================================================
     //                                                                            Sequence
     //                                                                            ========
-    /**
-     * Select the next value as sequence. <br>
-     * This method is called when insert() and set to primary-key automatically.
-     * So you don't need to call this as long as you need to get next value before insert().
-     * @return The next value. (NotNull)
-     */
-    public Long selectNextVal() {
-        return facadeSelectNextVal();
-    }
-
-    protected Long facadeSelectNextVal() {
-        return doSelectNextVal(Long.class);
-    }
-
-    protected <RESULT> RESULT doSelectNextVal(Class<RESULT> tp) {
-        return delegateSelectNextVal(tp);
-    }
-
     @Override
     protected Number doReadNextVal() {
-        return facadeSelectNextVal();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
+        throw new UnsupportedOperationException(msg);
     }
 
     // ===================================================================================

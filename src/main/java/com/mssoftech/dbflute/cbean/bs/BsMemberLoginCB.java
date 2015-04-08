@@ -78,7 +78,7 @@ public class BsMemberLoginCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberLoginId : PK, ID, NotNull, bigserial(19). (NotNull)
+     * @param memberLoginId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return this. (NotNull)
      */
     public MemberLoginCB acceptPK(Long memberLoginId) {
@@ -90,8 +90,8 @@ public class BsMemberLoginCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param memberId : UQ+, NotNull, int4(10), FK to member. (NotNull)
-     * @param loginDatetime : +UQ, IX, NotNull, timestamp(26, 3). (NotNull)
+     * @param memberId : UQ+, NotNull, INT(10), FK to member. (NotNull)
+     * @param loginDatetime : +UQ, IX, NotNull, DATETIME(19). (NotNull)
      * @return this. (NotNull)
      */
     public MemberLoginCB acceptUniqueOf(Integer memberId, java.time.LocalDateTime loginDatetime) {
@@ -250,7 +250,7 @@ public class BsMemberLoginCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * member_status by my login_member_status_code, named 'memberStatus'.
+     * member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
      * <pre>
      * <span style="color: #0000C0">memberLoginBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -275,7 +275,7 @@ public class BsMemberLoginCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * member by my member_id, named 'member'.
+     * member by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">memberLoginBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -345,30 +345,30 @@ public class BsMemberLoginCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * member_login_id: {PK, ID, NotNull, bigserial(19)}
+         * MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberLoginId() { return doColumn("member_login_id"); }
+        public SpecifiedColumn columnMemberLoginId() { return doColumn("MEMBER_LOGIN_ID"); }
         /**
-         * member_id: {UQ+, NotNull, int4(10), FK to member}
+         * MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberId() { return doColumn("member_id"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
+         * LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnLoginDatetime() { return doColumn("login_datetime"); }
+        public SpecifiedColumn columnLoginDatetime() { return doColumn("LOGIN_DATETIME"); }
         /**
-         * mobile_login_flg: {NotNull, int4(10)}
+         * MOBILE_LOGIN_FLG: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMobileLoginFlg() { return doColumn("mobile_login_flg"); }
+        public SpecifiedColumn columnMobileLoginFlg() { return doColumn("MOBILE_LOGIN_FLG"); }
         /**
-         * login_member_status_code: {NotNull, bpchar(3), FK to member_status}
+         * LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnLoginMemberStatusCode() { return doColumn("login_member_status_code"); }
+        public SpecifiedColumn columnLoginMemberStatusCode() { return doColumn("LOGIN_MEMBER_STATUS_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -387,7 +387,7 @@ public class BsMemberLoginCB extends AbstractConditionBean {
         protected String getTableDbName() { return "member_login"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * member_status by my login_member_status_code, named 'memberStatus'.
+         * member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberStatusCB.HpSpecification specifyMemberStatus() {
@@ -407,7 +407,7 @@ public class BsMemberLoginCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * member by my member_id, named 'member'.
+         * member by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMember() {

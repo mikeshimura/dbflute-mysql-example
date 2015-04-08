@@ -28,20 +28,6 @@
     <component name="regionBhv" class="com.mssoftech.dbflute.exbhv.RegionBhv"/>
     <component name="serviceRankBhv" class="com.mssoftech.dbflute.exbhv.ServiceRankBhv"/>
     <component name="summaryProductBhv" class="com.mssoftech.dbflute.exbhv.SummaryProductBhv"/>
-    <component name="vendorDateFkBhv" class="com.mssoftech.dbflute.exbhv.VendorDateFkBhv"/>
-    <component name="vendorDatePkBhv" class="com.mssoftech.dbflute.exbhv.VendorDatePkBhv"/>
-    <component name="vendorInheritInuBhv" class="com.mssoftech.dbflute.exbhv.VendorInheritInuBhv"/>
-    <component name="vendorInheritNekoBhv" class="com.mssoftech.dbflute.exbhv.VendorInheritNekoBhv"/>
-    <component name="vendorLargeDataBhv" class="com.mssoftech.dbflute.exbhv.VendorLargeDataBhv"/>
-    <component name="vendorLargeDataRefBhv" class="com.mssoftech.dbflute.exbhv.VendorLargeDataRefBhv"/>
-    <component name="vendorPartManBhv" class="com.mssoftech.dbflute.exbhv.VendorPartManBhv"/>
-    <component name="vendorPartManHighBhv" class="com.mssoftech.dbflute.exbhv.VendorPartManHighBhv"/>
-    <component name="whiteCompoundPkBhv" class="com.mssoftech.dbflute.exbhv.WhiteCompoundPkBhv"/>
-    <component name="whiteCompoundPkRefBhv" class="com.mssoftech.dbflute.exbhv.WhiteCompoundPkRefBhv"/>
-    <component name="whiteCompoundPkWrongOrderBhv" class="com.mssoftech.dbflute.exbhv.WhiteCompoundPkWrongOrderBhv"/>
-    <component name="whiteNotPkBhv" class="com.mssoftech.dbflute.exbhv.WhiteNotPkBhv"/>
-    <component name="whiteSameNameBhv" class="com.mssoftech.dbflute.exbhv.WhiteSameNameBhv"/>
-    <component name="whiteSameNameRefBhv" class="com.mssoftech.dbflute.exbhv.WhiteSameNameRefBhv"/>
-    <component name="whiteXlsManBhv" class="com.mssoftech.dbflute.exbhv.WhiteXlsManBhv"/>
+    <component name="summaryWithdrawalBhv" class="com.mssoftech.dbflute.exbhv.SummaryWithdrawalBhv"/>
     <component name="withdrawalReasonBhv" class="com.mssoftech.dbflute.exbhv.WithdrawalReasonBhv"/>
 </components>

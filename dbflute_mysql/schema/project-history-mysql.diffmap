@@ -1,0 +1,177 @@
+map:{
+    ; 2015/04/08 09:14:13 = map:{
+        ; diffDate = 2015/04/08 09:14:13
+        ; tableCount = map:{
+            ; next = 17
+            ; previous = 25
+        }
+        ; tableDiff = map:{
+            ; vendor_constraint_name_auto_bar = map:{
+                ; tableName = vendor_constraint_name_auto_bar
+                ; diffType = DELETE
+            }
+            ; vendor_constraint_name_auto_foo = map:{
+                ; tableName = vendor_constraint_name_auto_foo
+                ; diffType = DELETE
+            }
+            ; vendor_constraint_name_auto_qux = map:{
+                ; tableName = vendor_constraint_name_auto_qux
+                ; diffType = DELETE
+            }
+            ; vendor_constraint_name_auto_ref = map:{
+                ; tableName = vendor_constraint_name_auto_ref
+                ; diffType = DELETE
+            }
+            ; vendor_large_data = map:{
+                ; tableName = vendor_large_data
+                ; diffType = DELETE
+            }
+            ; vendor_large_data_ref = map:{
+                ; tableName = vendor_large_data_ref
+                ; diffType = DELETE
+            }
+            ; vendor_the_long_and_winding_table_and_column = map:{
+                ; tableName = vendor_the_long_and_winding_table_and_column
+                ; diffType = DELETE
+            }
+            ; vendor_the_long_and_winding_table_and_column_ref = map:{
+                ; tableName = vendor_the_long_and_winding_table_and_column_ref
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2015/04/07 18:23:03 = map:{
+        ; diffDate = 2015/04/07 18:23:03
+        ; tableCount = map:{
+            ; next = 25
+            ; previous = 26
+        }
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2015/04/07 18:20:24 = map:{
+        ; diffDate = 2015/04/07 18:20:24
+        ; tableCount = map:{
+            ; next = 26
+            ; previous = 2
+        }
+        ; tableDiff = map:{
+            ; member = map:{
+                ; tableName = member
+                ; diffType = ADD
+            }
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = ADD
+            }
+            ; member_login = map:{
+                ; tableName = member_login
+                ; diffType = ADD
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = ADD
+            }
+            ; member_service = map:{
+                ; tableName = member_service
+                ; diffType = ADD
+            }
+            ; member_status = map:{
+                ; tableName = member_status
+                ; diffType = ADD
+            }
+            ; member_withdrawal = map:{
+                ; tableName = member_withdrawal
+                ; diffType = ADD
+            }
+            ; product = map:{
+                ; tableName = product
+                ; diffType = ADD
+            }
+            ; product_category = map:{
+                ; tableName = product_category
+                ; diffType = ADD
+            }
+            ; product_status = map:{
+                ; tableName = product_status
+                ; diffType = ADD
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = ADD
+            }
+            ; purchase_payment = map:{
+                ; tableName = purchase_payment
+                ; diffType = ADD
+            }
+            ; region = map:{
+                ; tableName = region
+                ; diffType = ADD
+            }
+            ; service_rank = map:{
+                ; tableName = service_rank
+                ; diffType = ADD
+            }
+            ; summary_product = map:{
+                ; tableName = summary_product
+                ; diffType = ADD
+            }
+            ; summary_withdrawal = map:{
+                ; tableName = summary_withdrawal
+                ; diffType = ADD
+            }
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = ADD
+            }
+            ; vendor_constraint_name_auto_bar = map:{
+                ; tableName = vendor_constraint_name_auto_bar
+                ; diffType = ADD
+            }
+            ; vendor_constraint_name_auto_foo = map:{
+                ; tableName = vendor_constraint_name_auto_foo
+                ; diffType = ADD
+            }
+            ; vendor_constraint_name_auto_qux = map:{
+                ; tableName = vendor_constraint_name_auto_qux
+                ; diffType = ADD
+            }
+            ; vendor_constraint_name_auto_ref = map:{
+                ; tableName = vendor_constraint_name_auto_ref
+                ; diffType = ADD
+            }
+            ; vendor_large_data = map:{
+                ; tableName = vendor_large_data
+                ; diffType = ADD
+            }
+            ; vendor_large_data_ref = map:{
+                ; tableName = vendor_large_data_ref
+                ; diffType = ADD
+            }
+            ; vendor_the_long_and_winding_table_and_column = map:{
+                ; tableName = vendor_the_long_and_winding_table_and_column
+                ; diffType = ADD
+            }
+            ; vendor_the_long_and_winding_table_and_column_ref = map:{
+                ; tableName = vendor_the_long_and_winding_table_and_column_ref
+                ; diffType = ADD
+            }
+            ; withdrawal_reason = map:{
+                ; tableName = withdrawal_reason
+                ; diffType = ADD
+            }
+            ; li_tbl = map:{
+                ; tableName = li_tbl
+                ; diffType = DELETE
+            }
+            ; test = map:{
+                ; tableName = test
+                ; diffType = DELETE
+            }
+        }
+    }
+}

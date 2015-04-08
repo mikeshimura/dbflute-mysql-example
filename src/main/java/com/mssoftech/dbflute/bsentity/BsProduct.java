@@ -13,22 +13,23 @@ import com.mssoftech.dbflute.exentity.*;
 
 /**
  * The entity of product as TABLE. <br>
- * 商品:
+ * 商品: 会員へ販売する商品のマスタ。<br>
+ * 販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。
  * <pre>
  * [primary-key]
- *     product_id
+ *     PRODUCT_ID
  * 
  * [column]
- *     product_id, product_name, product_handle_code, product_category_code, product_status_code, regular_price, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
+ *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
  * 
  * [sequence]
- *     product_product_id_seq
- * 
- * [identity]
  *     
  * 
+ * [identity]
+ *     PRODUCT_ID
+ * 
  * [version-no]
- *     version_no
+ *     VERSION_NO
  * 
  * [foreign table]
  *     product_category, product_status
@@ -52,10 +53,8 @@ import com.mssoftech.dbflute.exentity.*;
  * Integer regularPrice = entity.getRegularPrice();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
- * String registerProcess = entity.getRegisterProcess();
  * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
- * String updateProcess = entity.getUpdateProcess();
  * Long versionNo = entity.getVersionNo();
  * entity.setProductId(productId);
  * entity.setProductName(productName);
@@ -65,10 +64,8 @@ import com.mssoftech.dbflute.exentity.*;
  * entity.setRegularPrice(regularPrice);
  * entity.setRegisterDatetime(registerDatetime);
  * entity.setRegisterUser(registerUser);
- * entity.setRegisterProcess(registerProcess);
  * entity.setUpdateDatetime(updateDatetime);
  * entity.setUpdateUser(updateUser);
- * entity.setUpdateProcess(updateProcess);
  * entity.setVersionNo(versionNo);
  * = = = = = = = = = =/
  * </pre>
@@ -85,43 +82,37 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** product_id: {PK, ID, NotNull, serial(10)} */
+    /** PRODUCT_ID: {PK, ID, NotNull, INT(10)} */
     protected Integer _productId;
 
-    /** product_name: {IX, NotNull, varchar(50)} */
+    /** PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} */
     protected String _productName;
 
-    /** product_handle_code: {UQ, NotNull, varchar(100)} */
+    /** PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} */
     protected String _productHandleCode;
 
-    /** product_category_code: {NotNull, bpchar(3), FK to product_category} */
+    /** PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category} */
     protected String _productCategoryCode;
 
-    /** product_status_code: {NotNull, bpchar(3), FK to product_status} */
+    /** PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status} */
     protected String _productStatusCode;
 
-    /** regular_price: {NotNull, int4(10)} */
+    /** REGULAR_PRICE: {NotNull, INT(10)} */
     protected Integer _regularPrice;
 
-    /** register_datetime: {NotNull, timestamp(26, 3)} */
+    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** register_user: {NotNull, varchar(200)} */
+    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** register_process: {NotNull, varchar(200)} */
-    protected String _registerProcess;
-
-    /** update_datetime: {NotNull, timestamp(26, 3)} */
+    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** update_user: {NotNull, varchar(200)} */
+    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
 
-    /** update_process: {NotNull, varchar(200)} */
-    protected String _updateProcess;
-
-    /** version_no: {NotNull, int8(19)} */
+    /** VERSION_NO: {NotNull, BIGINT(19)} */
     protected Long _versionNo;
 
     // ===================================================================================
@@ -149,7 +140,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param productHandleCode : UQ, NotNull, varchar(100). (NotNull)
+     * @param productHandleCode : UQ, NotNull, VARCHAR(100). (NotNull)
      */
     public void uniqueBy(String productHandleCode) {
         __uniqueDrivenProperties.clear();
@@ -160,11 +151,11 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** product_category by my product_category_code, named 'productCategory'. */
+    /** product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'. */
     protected OptionalEntity<ProductCategory> _productCategory;
 
     /**
-     * [get] product_category by my product_category_code, named 'productCategory'. <br>
+     * [get] product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'productCategory'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -174,18 +165,18 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_category by my product_category_code, named 'productCategory'.
+     * [set] product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
      * @param productCategory The entity of foreign property 'productCategory'. (NullAllowed)
      */
     public void setProductCategory(OptionalEntity<ProductCategory> productCategory) {
         _productCategory = productCategory;
     }
 
-    /** product_status by my product_status_code, named 'productStatus'. */
+    /** product_status by my PRODUCT_STATUS_CODE, named 'productStatus'. */
     protected OptionalEntity<ProductStatus> _productStatus;
 
     /**
-     * [get] product_status by my product_status_code, named 'productStatus'. <br>
+     * [get] product_status by my PRODUCT_STATUS_CODE, named 'productStatus'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'productStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -195,7 +186,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_status by my product_status_code, named 'productStatus'.
+     * [set] product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @param productStatus The entity of foreign property 'productStatus'. (NullAllowed)
      */
     public void setProductStatus(OptionalEntity<ProductStatus> productStatus) {
@@ -205,11 +196,11 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** purchase by product_id, named 'purchaseList'. */
+    /** purchase by PRODUCT_ID, named 'purchaseList'. */
     protected List<Purchase> _purchaseList;
 
     /**
-     * [get] purchase by product_id, named 'purchaseList'.
+     * [get] purchase by PRODUCT_ID, named 'purchaseList'.
      * @return The entity list of referrer property 'purchaseList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Purchase> getPurchaseList() {
@@ -218,7 +209,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] purchase by product_id, named 'purchaseList'.
+     * [set] purchase by PRODUCT_ID, named 'purchaseList'.
      * @param purchaseList The entity list of referrer property 'purchaseList'. (NullAllowed)
      */
     public void setPurchaseList(List<Purchase> purchaseList) {
@@ -277,10 +268,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
         sb.append(dm).append(xfND(_regularPrice));
         sb.append(dm).append(xfND(_registerDatetime));
         sb.append(dm).append(xfND(_registerUser));
-        sb.append(dm).append(xfND(_registerProcess));
         sb.append(dm).append(xfND(_updateDatetime));
         sb.append(dm).append(xfND(_updateUser));
-        sb.append(dm).append(xfND(_updateProcess));
         sb.append(dm).append(xfND(_versionNo));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -313,8 +302,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] product_id: {PK, ID, NotNull, serial(10)} <br>
-     * @return The value of the column 'product_id'. (basically NotNull if selected: for the constraint)
+     * [get] PRODUCT_ID: {PK, ID, NotNull, INT(10)} <br>
+     * 商品ID
+     * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
         checkSpecifiedProperty("productId");
@@ -322,8 +312,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_id: {PK, ID, NotNull, serial(10)} <br>
-     * @param productId The value of the column 'product_id'. (basically NotNull if update: for the constraint)
+     * [set] PRODUCT_ID: {PK, ID, NotNull, INT(10)} <br>
+     * 商品ID
+     * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
         registerModifiedProperty("productId");
@@ -331,11 +322,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] product_name: {IX, NotNull, varchar(50)} <br>
-     * 商品名称: ExampleDBとして、コメントの少ないケースを表現するため、<br>
-     * あえてコメントを控えている。実業務ではしっかりとコメントを<br>
-     * 入れることが強く強く推奨される。
-     * @return The value of the column 'product_name'. (basically NotNull if selected: for the constraint)
+     * [get] PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
+     * 商品名称
+     * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
         checkSpecifiedProperty("productName");
@@ -343,11 +332,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_name: {IX, NotNull, varchar(50)} <br>
-     * 商品名称: ExampleDBとして、コメントの少ないケースを表現するため、<br>
-     * あえてコメントを控えている。実業務ではしっかりとコメントを<br>
-     * 入れることが強く強く推奨される。
-     * @param productName The value of the column 'product_name'. (basically NotNull if update: for the constraint)
+     * [set] PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
+     * 商品名称
+     * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
         registerModifiedProperty("productName");
@@ -355,9 +342,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] product_handle_code: {UQ, NotNull, varchar(100)} <br>
+     * [get] PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
      * 商品ハンドルコード: 商品を識別する業務上のコード。
-     * @return The value of the column 'product_handle_code'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductHandleCode() {
         checkSpecifiedProperty("productHandleCode");
@@ -365,9 +352,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_handle_code: {UQ, NotNull, varchar(100)} <br>
+     * [set] PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
      * 商品ハンドルコード: 商品を識別する業務上のコード。
-     * @param productHandleCode The value of the column 'product_handle_code'. (basically NotNull if update: for the constraint)
+     * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductHandleCode(String productHandleCode) {
         registerModifiedProperty("productHandleCode");
@@ -375,8 +362,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] product_category_code: {NotNull, bpchar(3), FK to product_category} <br>
-     * @return The value of the column 'product_category_code'. (basically NotNull if selected: for the constraint)
+     * [get] PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category} <br>
+     * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductCategoryCode() {
         checkSpecifiedProperty("productCategoryCode");
@@ -384,8 +371,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_category_code: {NotNull, bpchar(3), FK to product_category} <br>
-     * @param productCategoryCode The value of the column 'product_category_code'. (basically NotNull if update: for the constraint)
+     * [set] PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category} <br>
+     * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductCategoryCode(String productCategoryCode) {
         registerModifiedProperty("productCategoryCode");
@@ -393,8 +380,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] product_status_code: {NotNull, bpchar(3), FK to product_status} <br>
-     * @return The value of the column 'product_status_code'. (basically NotNull if selected: for the constraint)
+     * [get] PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status} <br>
+     * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
         checkSpecifiedProperty("productStatusCode");
@@ -402,8 +389,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] product_status_code: {NotNull, bpchar(3), FK to product_status} <br>
-     * @param productStatusCode The value of the column 'product_status_code'. (basically NotNull if update: for the constraint)
+     * [set] PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status} <br>
+     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
         registerModifiedProperty("productStatusCode");
@@ -411,8 +398,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] regular_price: {NotNull, int4(10)} <br>
-     * @return The value of the column 'regular_price'. (basically NotNull if selected: for the constraint)
+     * [get] REGULAR_PRICE: {NotNull, INT(10)} <br>
+     * 定価: 特に割引などがない場合の販売価格
+     * @return The value of the column 'REGULAR_PRICE'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegularPrice() {
         checkSpecifiedProperty("regularPrice");
@@ -420,8 +408,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] regular_price: {NotNull, int4(10)} <br>
-     * @param regularPrice The value of the column 'regular_price'. (basically NotNull if update: for the constraint)
+     * [set] REGULAR_PRICE: {NotNull, INT(10)} <br>
+     * 定価: 特に割引などがない場合の販売価格
+     * @param regularPrice The value of the column 'REGULAR_PRICE'. (basically NotNull if update: for the constraint)
      */
     public void setRegularPrice(Integer regularPrice) {
         registerModifiedProperty("regularPrice");
@@ -429,8 +418,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
+     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
@@ -438,8 +427,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
+     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
@@ -447,8 +436,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
+     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
         checkSpecifiedProperty("registerUser");
@@ -456,8 +445,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br>
-     * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
+     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
         registerModifiedProperty("registerUser");
@@ -465,26 +454,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
-     */
-    public String getRegisterProcess() {
-        checkSpecifiedProperty("registerProcess");
-        return _registerProcess;
-    }
-
-    /**
-     * [set] register_process: {NotNull, varchar(200)} <br>
-     * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
-     */
-    public void setRegisterProcess(String registerProcess) {
-        registerModifiedProperty("registerProcess");
-        _registerProcess = registerProcess;
-    }
-
-    /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
+     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
@@ -492,8 +463,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
-     * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
+     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
@@ -501,8 +472,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
+     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
         checkSpecifiedProperty("updateUser");
@@ -510,8 +481,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br>
-     * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
+     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
         registerModifiedProperty("updateUser");
@@ -519,26 +490,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br>
-     * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
-     */
-    public String getUpdateProcess() {
-        checkSpecifiedProperty("updateProcess");
-        return _updateProcess;
-    }
-
-    /**
-     * [set] update_process: {NotNull, varchar(200)} <br>
-     * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
-     */
-    public void setUpdateProcess(String updateProcess) {
-        registerModifiedProperty("updateProcess");
-        _updateProcess = updateProcess;
-    }
-
-    /**
-     * [get] version_no: {NotNull, int8(19)} <br>
-     * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
+     * [get] VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
         checkSpecifiedProperty("versionNo");
@@ -546,8 +499,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br>
-     * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
+     * [set] VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {
         registerModifiedProperty("versionNo");
