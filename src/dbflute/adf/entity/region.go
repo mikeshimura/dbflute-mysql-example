@@ -49,7 +49,6 @@ func (t *Region) SetRegionName(regionName string) {
 	t.AddPropertyName("regionName")
 	t.regionName = regionName
 }
-
 func (t *Region) SetUp(){
 	
 }

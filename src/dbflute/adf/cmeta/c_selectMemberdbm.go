@@ -46,11 +46,11 @@ func Create_C_SelectMemberDbm() {
 	memberNameSqlName := new(df.ColumnSqlName)
 	memberNameSqlName.ColumnSqlName = "member_name"
 	memberNameSqlName.IrregularChar = false
-	C_SelectMemberDbm.ColumnMemberName = df.CCI(&selectMember, "member_name", memberNameSqlName, "", "", "String.class", "memberName", "", false, false,false, "VARCHAR", 180, 0, "",false,"","", "","","",false,"df.NullString")
+	C_SelectMemberDbm.ColumnMemberName = df.CCI(&selectMember, "member_name", memberNameSqlName, "", "", "String.class", "memberName", "", false, false,false, "VARCHAR", 180, 0, "",false,"","", "","","",false,"sql.NullString")
 	memberAccountSqlName := new(df.ColumnSqlName)
 	memberAccountSqlName.ColumnSqlName = "member_account"
 	memberAccountSqlName.IrregularChar = false
-	C_SelectMemberDbm.ColumnMemberAccount = df.CCI(&selectMember, "member_account", memberAccountSqlName, "", "", "String.class", "memberAccount", "", false, false,false, "VARCHAR", 50, 0, "",false,"","", "","","",false,"df.NullString")
+	C_SelectMemberDbm.ColumnMemberAccount = df.CCI(&selectMember, "member_account", memberAccountSqlName, "", "", "String.class", "memberAccount", "", false, false,false, "VARCHAR", 50, 0, "",false,"","", "","","",false,"sql.NullString")
 	birthdateSqlName := new(df.ColumnSqlName)
 	birthdateSqlName.ColumnSqlName = "birthdate"
 	birthdateSqlName.IrregularChar = false
@@ -62,15 +62,15 @@ func Create_C_SelectMemberDbm() {
 	memberStatusCodeSqlName := new(df.ColumnSqlName)
 	memberStatusCodeSqlName.ColumnSqlName = "member_status_code"
 	memberStatusCodeSqlName.IrregularChar = false
-	C_SelectMemberDbm.ColumnMemberStatusCode = df.CCI(&selectMember, "member_status_code", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "","","",false,"df.NullString")
+	C_SelectMemberDbm.ColumnMemberStatusCode = df.CCI(&selectMember, "member_status_code", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "","","",false,"sql.NullString")
 	memberStatusNameSqlName := new(df.ColumnSqlName)
 	memberStatusNameSqlName.ColumnSqlName = "member_status_name"
 	memberStatusNameSqlName.IrregularChar = false
-	C_SelectMemberDbm.ColumnMemberStatusName = df.CCI(&selectMember, "member_status_name", memberStatusNameSqlName, "", "", "String.class", "memberStatusName", "", false, false,false, "VARCHAR", 50, 0, "",false,"","", "","","",false,"df.NullString")
+	C_SelectMemberDbm.ColumnMemberStatusName = df.CCI(&selectMember, "member_status_name", memberStatusNameSqlName, "", "", "String.class", "memberStatusName", "", false, false,false, "VARCHAR", 50, 0, "",false,"","", "","","",false,"sql.NullString")
 	descriptionSqlName := new(df.ColumnSqlName)
 	descriptionSqlName.ColumnSqlName = "description"
 	descriptionSqlName.IrregularChar = false
-	C_SelectMemberDbm.ColumnDescription = df.CCI(&selectMember, "description", descriptionSqlName, "", "", "String.class", "description", "", false, false,false, "VARCHAR", 200, 0, "",false,"","", "","","",false,"df.NullString")
+	C_SelectMemberDbm.ColumnDescription = df.CCI(&selectMember, "description", descriptionSqlName, "", "", "String.class", "description", "", false, false,false, "VARCHAR", 200, 0, "",false,"","", "","","",false,"sql.NullString")
 
 	C_SelectMemberDbm.ColumnInfoList = new(df.List)
 	C_SelectMemberDbm.ColumnInfoList.Add(C_SelectMemberDbm.ColumnMemberId)

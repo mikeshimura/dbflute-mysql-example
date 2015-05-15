@@ -14,6 +14,8 @@ type MemberWithdrawalCQ struct {
 	RegisterUser *df.ConditionValue
 	UpdateDatetime *df.ConditionValue
 	UpdateUser *df.ConditionValue
+    conditionQueryMember *MemberCQ
+    conditionQueryWithdrawalReason *WithdrawalReasonCQ
 }
 
 func (q *MemberWithdrawalCQ) GetBaseConditionQuery() *df.BaseConditionQuery{
@@ -34,7 +36,10 @@ func (q *MemberWithdrawalCQ) SetMemberId_Equal(value int64) *MemberWithdrawalCQ 
 	q.regMemberId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberWithdrawalCQ) SetMemberId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberId(), "memberId")
+}
 func (q *MemberWithdrawalCQ) SetMemberId_NotEqual(value int64) *MemberWithdrawalCQ {
 	q.regMemberId(df.CK_NE_C, value)
 	return q
@@ -99,7 +104,10 @@ func (q *MemberWithdrawalCQ) SetWithdrawalReasonCode_Equal(value string) *Member
 	q.regWithdrawalReasonCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberWithdrawalCQ) SetWithdrawalReasonCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonCode(), "withdrawalReasonCode")
+}
 func (q *MemberWithdrawalCQ) SetWithdrawalReasonCode_NotEqual(value string) *MemberWithdrawalCQ {
 	q.regWithdrawalReasonCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -177,7 +185,10 @@ func (q *MemberWithdrawalCQ) SetWithdrawalReasonInputText_Equal(value string) *M
 	q.regWithdrawalReasonInputText(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberWithdrawalCQ) SetWithdrawalReasonInputText_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonInputText(), "withdrawalReasonInputText")
+}
 func (q *MemberWithdrawalCQ) SetWithdrawalReasonInputText_NotEqual(value string) *MemberWithdrawalCQ {
 	q.regWithdrawalReasonInputText(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -357,7 +368,10 @@ func (q *MemberWithdrawalCQ) SetRegisterUser_Equal(value string) *MemberWithdraw
 	q.regRegisterUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberWithdrawalCQ) SetRegisterUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegisterUser(), "registerUser")
+}
 func (q *MemberWithdrawalCQ) SetRegisterUser_NotEqual(value string) *MemberWithdrawalCQ {
 	q.regRegisterUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -474,7 +488,10 @@ func (q *MemberWithdrawalCQ) SetUpdateUser_Equal(value string) *MemberWithdrawal
 	q.regUpdateUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberWithdrawalCQ) SetUpdateUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueUpdateUser(), "updateUser")
+}
 func (q *MemberWithdrawalCQ) SetUpdateUser_NotEqual(value string) *MemberWithdrawalCQ {
 	q.regUpdateUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -528,3 +545,70 @@ func (q *MemberWithdrawalCQ) regUpdateUser(key *df.ConditionKey, value interface
 	q.BaseConditionQuery.RegQ(key, value, q.UpdateUser, "updateUser")
 }
 
+
+func (q *MemberWithdrawalCQ) QueryMember() *MemberCQ {
+	if q.conditionQueryMember == nil {
+		q.conditionQueryMember = q.xcreateQueryMember()
+		q.xsetupOuterJoinMember()
+	}
+	return q.conditionQueryMember
+}
+
+func (q *MemberWithdrawalCQ) xcreateQueryMember() *MemberCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberWithdrawal", "Member")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateMemberCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "Member"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberWithdrawalCQ) xsetupOuterJoinMember() {
+	    cq := q.QueryMember()
+        joinOnMap := make(map[string]string)
+        joinOnMap["memberId"]="memberId"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "Member");
+}	
+	
+func (q *MemberWithdrawalCQ) QueryWithdrawalReason() *WithdrawalReasonCQ {
+	if q.conditionQueryWithdrawalReason == nil {
+		q.conditionQueryWithdrawalReason = q.xcreateQueryWithdrawalReason()
+		q.xsetupOuterJoinWithdrawalReason()
+	}
+	return q.conditionQueryWithdrawalReason
+}
+
+func (q *MemberWithdrawalCQ) xcreateQueryWithdrawalReason() *WithdrawalReasonCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberWithdrawal", "WithdrawalReason")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateWithdrawalReasonCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "WithdrawalReason"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberWithdrawalCQ) xsetupOuterJoinWithdrawalReason() {
+	    cq := q.QueryWithdrawalReason()
+        joinOnMap := make(map[string]string)
+        joinOnMap["withdrawalReasonCode"]="withdrawalReasonCode"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "WithdrawalReason");
+}	
+	
+func CreateMemberWithdrawalCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *MemberWithdrawalCQ {
+	cq := new(MemberWithdrawalCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "MemberWithdrawal"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

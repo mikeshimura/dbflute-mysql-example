@@ -11,6 +11,8 @@ type MemberLoginCQ struct {
 	LoginDatetime *df.ConditionValue
 	MobileLoginFlg *df.ConditionValue
 	LoginMemberStatusCode *df.ConditionValue
+    conditionQueryMemberStatus *MemberStatusCQ
+    conditionQueryMember *MemberCQ
 }
 
 func (q *MemberLoginCQ) GetBaseConditionQuery() *df.BaseConditionQuery{
@@ -31,7 +33,10 @@ func (q *MemberLoginCQ) SetMemberLoginId_Equal(value int64) *MemberLoginCQ {
 	q.regMemberLoginId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberLoginCQ) SetMemberLoginId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberLoginId(), "memberLoginId")
+}
 func (q *MemberLoginCQ) SetMemberLoginId_NotEqual(value int64) *MemberLoginCQ {
 	q.regMemberLoginId(df.CK_NE_C, value)
 	return q
@@ -97,7 +102,10 @@ func (q *MemberLoginCQ) SetMemberId_Equal(value int64) *MemberLoginCQ {
 	q.regMemberId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberLoginCQ) SetMemberId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberId(), "memberId")
+}
 func (q *MemberLoginCQ) SetMemberId_NotEqual(value int64) *MemberLoginCQ {
 	q.regMemberId(df.CK_NE_C, value)
 	return q
@@ -206,7 +214,10 @@ func (q *MemberLoginCQ) SetMobileLoginFlg_Equal(value int64) *MemberLoginCQ {
 	q.regMobileLoginFlg(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberLoginCQ) SetMobileLoginFlg_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMobileLoginFlg(), "mobileLoginFlg")
+}
 func (q *MemberLoginCQ) SetMobileLoginFlg_NotEqual(value int64) *MemberLoginCQ {
 	q.regMobileLoginFlg(df.CK_NE_C, value)
 	return q
@@ -263,7 +274,10 @@ func (q *MemberLoginCQ) SetLoginMemberStatusCode_Equal(value string) *MemberLogi
 	q.regLoginMemberStatusCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberLoginCQ) SetLoginMemberStatusCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueLoginMemberStatusCode(), "loginMemberStatusCode")
+}
 func (q *MemberLoginCQ) SetLoginMemberStatusCode_NotEqual(value string) *MemberLoginCQ {
 	q.regLoginMemberStatusCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -317,3 +331,70 @@ func (q *MemberLoginCQ) regLoginMemberStatusCode(key *df.ConditionKey, value int
 	q.BaseConditionQuery.RegQ(key, value, q.LoginMemberStatusCode, "loginMemberStatusCode")
 }
 
+
+func (q *MemberLoginCQ) QueryMemberStatus() *MemberStatusCQ {
+	if q.conditionQueryMemberStatus == nil {
+		q.conditionQueryMemberStatus = q.xcreateQueryMemberStatus()
+		q.xsetupOuterJoinMemberStatus()
+	}
+	return q.conditionQueryMemberStatus
+}
+
+func (q *MemberLoginCQ) xcreateQueryMemberStatus() *MemberStatusCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberLogin", "MemberStatus")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateMemberStatusCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "MemberStatus"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberLoginCQ) xsetupOuterJoinMemberStatus() {
+	    cq := q.QueryMemberStatus()
+        joinOnMap := make(map[string]string)
+        joinOnMap["loginMemberStatusCode"]="memberStatusCode"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "MemberStatus");
+}	
+	
+func (q *MemberLoginCQ) QueryMember() *MemberCQ {
+	if q.conditionQueryMember == nil {
+		q.conditionQueryMember = q.xcreateQueryMember()
+		q.xsetupOuterJoinMember()
+	}
+	return q.conditionQueryMember
+}
+
+func (q *MemberLoginCQ) xcreateQueryMember() *MemberCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberLogin", "Member")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateMemberCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "Member"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberLoginCQ) xsetupOuterJoinMember() {
+	    cq := q.QueryMember()
+        joinOnMap := make(map[string]string)
+        joinOnMap["memberId"]="memberId"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "Member");
+}	
+	
+func CreateMemberLoginCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *MemberLoginCQ {
+	cq := new(MemberLoginCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "MemberLogin"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

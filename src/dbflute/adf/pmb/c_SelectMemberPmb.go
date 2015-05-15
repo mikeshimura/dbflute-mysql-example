@@ -15,8 +15,8 @@ type C_SelectMemberPmb struct {
 func (o *C_SelectMemberPmb) GetName() interface{} {
 	return o.Name
 }
-func (o *C_SelectMemberPmb) SetName(value df.NullString) {
-	o.Name = value	
+func (o *C_SelectMemberPmb) SetName(value sql.NullString) {
+	o.Name = o.CheckAndComvertEmptyToNull(value)
 }
 
 func (o *C_SelectMemberPmb) GetEntityType() string {

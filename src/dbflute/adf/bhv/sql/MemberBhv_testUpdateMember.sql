@@ -1,5 +1,5 @@
 -- !df:pmb!
--- !!df.NullString name!!
+-- !!sql.NullString name!!
 Update member set member_status_code = 'WDL'
   
 WHERE 

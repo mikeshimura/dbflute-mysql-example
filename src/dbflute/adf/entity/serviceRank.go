@@ -85,7 +85,6 @@ func (t *ServiceRank) SetDisplayOrder(displayOrder int64) {
 	t.AddPropertyName("displayOrder")
 	t.displayOrder = displayOrder
 }
-
 func (t *ServiceRank) SetUp(){
 	t.servicePointIncidence.DecPoint = 3
 	

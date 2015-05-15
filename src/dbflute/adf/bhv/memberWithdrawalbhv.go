@@ -18,27 +18,31 @@ func (l *MemberWithdrawalBhv) GetDBMeta() *df.DBMeta{
 func (l *MemberWithdrawalBhv) GetBaseBehavior() *df.BaseBehavior {
 	return l.BaseBehavior
 }
-func (l *MemberWithdrawalBhv) Update(memberWithdrawal *entity.MemberWithdrawal, tx *sql.Tx) (int64, error) {
+func (l *MemberWithdrawalBhv) Update(memberWithdrawal *entity.MemberWithdrawal, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = memberWithdrawal
-	return l.BaseBehavior.DoUpdate(&entity, nil, tx)
+	return l.BaseBehavior.DoUpdate(&entity, nil, tx, ctx)
 }
-func (l *MemberWithdrawalBhv) Insert(memberWithdrawal *entity.MemberWithdrawal, tx *sql.Tx) (int64, error) {
+func (l *MemberWithdrawalBhv) Insert(memberWithdrawal *entity.MemberWithdrawal, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = memberWithdrawal
-	return l.BaseBehavior.DoInsert(&entity, nil, tx)
+	return l.BaseBehavior.DoInsert(&entity, nil, tx, ctx)
 }
-func (l *MemberWithdrawalBhv) Delete(memberWithdrawal *entity.MemberWithdrawal, tx *sql.Tx) (int64, error) {
+func (l *MemberWithdrawalBhv) Delete(memberWithdrawal *entity.MemberWithdrawal, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = memberWithdrawal
-	return l.BaseBehavior.DoDelete(&entity, nil, tx)
+	return l.BaseBehavior.DoDelete(&entity, nil, tx, ctx)
 }
 func (l *MemberWithdrawalBhv) SelectList(cb *cb.MemberWithdrawalCB, tx *sql.Tx) (*df.ListResultBean, error) {
 
 	return l.BaseBehavior.DoSelectList(cb, "MemberWithdrawal", tx)
 }
+func (l *MemberWithdrawalBhv) SelectCount(cb *cb.MemberWithdrawalCB, tx *sql.Tx) (int64, error) {
+
+	return l.BaseBehavior.DoSelectCount(cb, tx)
+}
 func (l *MemberWithdrawalBhv) OutsideSql() *df.OutsideSqlBasicExecutor {
 	return l.BaseBehavior.DoOutsideSql()
 }
 
-func (l *MemberWithdrawalBhv) ReadNextVal(tx *sql.Tx) (int64,error){
+func (l *MemberWithdrawalBhv) ReadNextVal(tx *sql.Tx) int64{
 	return l.BaseBehavior.DoSelectNextVal(tx)
 }
 

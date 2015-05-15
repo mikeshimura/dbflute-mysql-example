@@ -11,6 +11,10 @@ type MemberLogin struct {
 	mobileLoginFlg int64
 	loginMemberStatusCode string
 	df.BaseEntity
+MemberStatus_R  *MemberStatus
+
+Member_R  *Member
+
 }
 
 func CreateMemberLogin() *MemberLogin{
@@ -76,7 +80,18 @@ func (t *MemberLogin) SetLoginMemberStatusCode(loginMemberStatusCode string) {
 	t.AddPropertyName("loginMemberStatusCode")
 	t.loginMemberStatusCode = loginMemberStatusCode
 }
-
+func (t *MemberLogin) GetMemberStatus_R() *MemberStatus{
+	return t.MemberStatus_R
+}
+func (t *MemberLogin) SetMemberStatus_R(value *MemberStatus) {
+    t.MemberStatus_R = value
+}
+func (t *MemberLogin) GetMember_R() *Member{
+	return t.Member_R
+}
+func (t *MemberLogin) SetMember_R(value *Member) {
+    t.Member_R = value
+}
 func (t *MemberLogin) SetUp(){
 	
 }

@@ -21,11 +21,15 @@ func (l *SummaryWithdrawalBhv) SelectList(cb *cb.SummaryWithdrawalCB, tx *sql.Tx
 
 	return l.BaseBehavior.DoSelectList(cb, "SummaryWithdrawal", tx)
 }
+func (l *SummaryWithdrawalBhv) SelectCount(cb *cb.SummaryWithdrawalCB, tx *sql.Tx) (int64, error) {
+
+	return l.BaseBehavior.DoSelectCount(cb, tx)
+}
 func (l *SummaryWithdrawalBhv) OutsideSql() *df.OutsideSqlBasicExecutor {
 	return l.BaseBehavior.DoOutsideSql()
 }
 
-func (l *SummaryWithdrawalBhv) ReadNextVal(tx *sql.Tx) (int64,error){
+func (l *SummaryWithdrawalBhv) ReadNextVal(tx *sql.Tx) int64{
 	return l.BaseBehavior.DoSelectNextVal(tx)
 }
 

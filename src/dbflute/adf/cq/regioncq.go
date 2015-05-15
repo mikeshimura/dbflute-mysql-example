@@ -28,7 +28,10 @@ func (q *RegionCQ) SetRegionId_Equal(value int64) *RegionCQ {
 	q.regRegionId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *RegionCQ) SetRegionId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegionId(), "regionId")
+}
 func (q *RegionCQ) SetRegionId_NotEqual(value int64) *RegionCQ {
 	q.regRegionId(df.CK_NE_C, value)
 	return q
@@ -93,7 +96,10 @@ func (q *RegionCQ) SetRegionName_Equal(value string) *RegionCQ {
 	q.regRegionName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *RegionCQ) SetRegionName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegionName(), "regionName")
+}
 func (q *RegionCQ) SetRegionName_NotEqual(value string) *RegionCQ {
 	q.regRegionName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -147,3 +153,18 @@ func (q *RegionCQ) regRegionName(key *df.ConditionKey, value interface{}) {
 	q.BaseConditionQuery.RegQ(key, value, q.RegionName, "regionName")
 }
 
+
+func CreateRegionCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *RegionCQ {
+	cq := new(RegionCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "Region"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

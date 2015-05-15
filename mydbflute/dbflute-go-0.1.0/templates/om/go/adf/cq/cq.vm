@@ -1,0 +1,279 @@
+package cq
+
+import (
+	"github.com/mikeshimura/dbflute/df"
+#foreach ($package in $table.getNonNullImportPackage("df"))
+	"${package}"
+#end
+)
+
+type ${entityClassName}CQ struct {
+	BaseConditionQuery *df.BaseConditionQuery
+#foreach ($col in $table.columns)	
+	${col.javaName} *df.ConditionValue
+#end
+#foreach ($fk in $table.joinableForeignKeyList)
+#set ($foreignCQClassName = "${fk.foreignTableExtendedConditionQueryClassName}")
+    conditionQuery${fk.foreignPropertyNameInitCap} *${foreignCQClassName}
+#end
+}
+
+func (q *${entityClassName}CQ) GetBaseConditionQuery() *df.BaseConditionQuery{
+	return q.BaseConditionQuery
+}
+
+
+#foreach ($col in $table.columns)
+#set ($tmpJavaName = "${col.javaName}")
+#set ($tmpUncapitalisedJavaName = "${col.uncapitalisedJavaName}")
+#set ($goType = "${col.getNonNullGoType()}")
+func (q *${entityClassName}CQ) getCValue${tmpJavaName}() *df.ConditionValue {
+	if q.${tmpJavaName} == nil {
+		q.${tmpJavaName} = new(df.ConditionValue)
+	}
+	return q.${tmpJavaName}
+}
+
+
+#if (${col.isJavaNativeStringObject()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_Equal(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
+	return q
+}
+func (q *${entityClassName}CQ) Set${tmpJavaName}_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValue${tmpJavaName}(), "${tmpUncapitalisedJavaName}")
+}
+#if (${col.isAvailableStringNotEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_NotEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+#end
+
+#if (${col.isAvailableStringGreaterThan()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_GreaterThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_GT_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+#end
+
+#if (${col.isAvailableStringLessThan()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LessThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_LT_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+#end
+
+#if (${col.isAvailableStringGreaterEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_GreaterEqualThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_GE_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+#end
+#if (${col.isAvailableStringLessEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LessEqualThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_LE_C, q.BaseConditionQuery.FRES(value))
+	return q
+}	
+#end
+
+#if (${col.isAvailableStringLikeSearch()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LikeSearch(value string, option *df.LikeSearchOption) error {
+	return q.BaseConditionQuery.RegLSQ(df.CK_LS_C, value, q.getCValue${tmpJavaName}(), "${tmpUncapitalisedJavaName}", option)
+}
+
+func (q *${entityClassName}CQ) Set${tmpJavaName}_PrefixSearch(value string) error {
+	return q.Set${tmpJavaName}_LikeSearch(value, q.BaseConditionQuery.CLSOP())
+}
+#end
+
+#if (${col.isAvailableStringNotLikeSearch()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_NotLikeSearch(value string, option *df.LikeSearchOption) error {
+	return q.BaseConditionQuery.RegLSQ(df.CK_NLS_C, value, q.getCValue${tmpJavaName}(), "${tmpUncapitalisedJavaName}", option)
+}
+#end
+#end
+
+#if (${col.isJavaNativeNumberObject()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_Equal(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_EQ_C, value)
+	return q
+}
+func (q *${entityClassName}CQ) Set${tmpJavaName}_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValue${tmpJavaName}(), "${tmpUncapitalisedJavaName}")
+}
+#if (${col.isAvailableNumberNotEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_NotEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_NE_C, value)
+	return q
+}
+#end
+
+#if (${col.isAvailableNumberGreaterThan()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_GreaterThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_GT_C, value)
+	return q
+}
+#end
+
+#if (${col.isAvailableNumberLessThan()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LessThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_LT_C, value)
+	return q
+}
+#end	
+
+#if (${col.isAvailableNumberGreaterEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_GreaterEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_GE_C, value)
+	return q
+}
+#end	
+
+#if (${col.isAvailableNumberLessEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LessEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_LE_C, value)
+	return q
+}
+#end
+#if (${col.isAvailableNumberRangeOf()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_RangeOf(minNumber ${goType}, maxNumber ${goType}, rangeOfOption *df.RangeOfOption) error {
+	return q.BaseConditionQuery.RegROO(minNumber,maxNumber,q.getCValue${tmpJavaName}(),"${tmpUncapitalisedJavaName}",rangeOfOption)
+}	
+#end
+#end
+
+#if (${col.isJavaNativeDateObject()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_Equal(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_EQ_C, value)
+	return q
+}
+
+#if (${col.isAvailableDateNotEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_NotEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_NE_C, value)
+	return q
+}
+#end
+
+#if (${col.isAvailableDateGreaterThan()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_GreaterThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_GT_C, value)
+	return q
+}
+#end
+
+#if (${col.isAvailableDateLessThan()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LessThan(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_LT_C, value)
+	return q
+}
+#end	
+
+#if (${col.isAvailableDateGreaterEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_GreaterEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_GE_C, value)
+	return q
+}
+#end	
+
+#if (${col.isAvailableDateLessEqual()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_LessEqual(value ${goType}) *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_LE_C, value)
+	return q
+}
+#end
+#end
+
+#if (!${col.isNotNull()} || ${col.isPrimaryKey()})
+#if (${col.isAvailableIsNull()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_IsNull() *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_ISN_C, 0)
+	return q
+}
+#end
+#if ($col.isMakeIsNullOrEmpty())
+#if (${col.isAvailableIsNullOrEmpty()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_IsNullOrEmpty() *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_ISNOE_C, 0)
+	return q
+}
+#end
+#end
+#if (${col.isAvailableIsNotNull()})
+func (q *${entityClassName}CQ) Set${tmpJavaName}_IsNotNull() *${entityClassName}CQ {
+	q.reg${tmpJavaName}(df.CK_ISNN_C, 0)
+	return q
+}
+#end
+#end
+#if ($col.isAvailableOrderByAsc())
+func (q *${entityClassName}CQ) AddOrderBy_${tmpJavaName}_Asc() *${entityClassName}CQ {
+	q.BaseConditionQuery.RegOBA("${tmpUncapitalisedJavaName}")
+	return q
+}
+#end
+#if ($col.isAvailableOrderByDesc())
+func (q *${entityClassName}CQ) AddOrderBy_${tmpJavaName}_Desc() *${entityClassName}CQ {
+	q.BaseConditionQuery.RegOBD("${tmpUncapitalisedJavaName}")
+	return q
+}
+#end
+func (q *${entityClassName}CQ) reg${tmpJavaName}(key *df.ConditionKey, value interface{}) {
+	if q.${tmpJavaName} == nil {
+		q.${tmpJavaName} = new(df.ConditionValue)
+	}
+	q.BaseConditionQuery.RegQ(key, value, q.${tmpJavaName}, "${tmpUncapitalisedJavaName}")
+}
+
+#end
+
+#foreach ($fk in $table.joinableForeignKeyList)
+#set ($foreignCQClassName = "${fk.foreignTableExtendedConditionQueryClassName}")
+func (q *${entityClassName}CQ) Query${fk.foreignPropertyNameInitCap}() *${foreignCQClassName} {
+	if q.conditionQuery${fk.foreignPropertyNameInitCap} == nil {
+		q.conditionQuery${fk.foreignPropertyNameInitCap} = q.xcreateQuery${fk.foreignPropertyNameInitCap}()
+		q.xsetupOuterJoin${fk.foreignPropertyNameInitCap}()
+	}
+	return q.conditionQuery${fk.foreignPropertyNameInitCap}
+}
+
+func (q *${entityClassName}CQ) xcreateQuery${fk.foreignPropertyNameInitCap}() *${foreignCQClassName} {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("${entityClassName}", "${fk.foreignPropertyNameInitCap}")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := Create${foreignCQClassName}(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "${fk.foreignPropertyNameInitCap}"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *${entityClassName}CQ) xsetupOuterJoin${fk.foreignPropertyNameInitCap}() {
+	    cq := q.Query${fk.foreignPropertyNameInitCap}()
+        joinOnMap := make(map[string]string)
+#foreach ($columnName in $fk.localColumnNameList)
+#set ($localColumn = $table.getColumn($columnName))
+#set ($foreignColumnName = $fk.getLocalForeignMapping().get($columnName))
+        joinOnMap["$database.initUncap(${localColumn.javaName})"]="$fk.getForeignPropertyName(${foreignColumnName})"
+#end
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "${fk.foreignPropertyNameInitCap}");
+}	
+	
+#end
+func Create${entityClassName}CQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *${entityClassName}CQ {
+	cq := new(${entityClassName}CQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "${entityClassName}"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

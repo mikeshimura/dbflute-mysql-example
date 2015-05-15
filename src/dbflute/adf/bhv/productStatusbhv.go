@@ -18,27 +18,31 @@ func (l *ProductStatusBhv) GetDBMeta() *df.DBMeta{
 func (l *ProductStatusBhv) GetBaseBehavior() *df.BaseBehavior {
 	return l.BaseBehavior
 }
-func (l *ProductStatusBhv) Update(productStatus *entity.ProductStatus, tx *sql.Tx) (int64, error) {
+func (l *ProductStatusBhv) Update(productStatus *entity.ProductStatus, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = productStatus
-	return l.BaseBehavior.DoUpdate(&entity, nil, tx)
+	return l.BaseBehavior.DoUpdate(&entity, nil, tx, ctx)
 }
-func (l *ProductStatusBhv) Insert(productStatus *entity.ProductStatus, tx *sql.Tx) (int64, error) {
+func (l *ProductStatusBhv) Insert(productStatus *entity.ProductStatus, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = productStatus
-	return l.BaseBehavior.DoInsert(&entity, nil, tx)
+	return l.BaseBehavior.DoInsert(&entity, nil, tx, ctx)
 }
-func (l *ProductStatusBhv) Delete(productStatus *entity.ProductStatus, tx *sql.Tx) (int64, error) {
+func (l *ProductStatusBhv) Delete(productStatus *entity.ProductStatus, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = productStatus
-	return l.BaseBehavior.DoDelete(&entity, nil, tx)
+	return l.BaseBehavior.DoDelete(&entity, nil, tx, ctx)
 }
 func (l *ProductStatusBhv) SelectList(cb *cb.ProductStatusCB, tx *sql.Tx) (*df.ListResultBean, error) {
 
 	return l.BaseBehavior.DoSelectList(cb, "ProductStatus", tx)
 }
+func (l *ProductStatusBhv) SelectCount(cb *cb.ProductStatusCB, tx *sql.Tx) (int64, error) {
+
+	return l.BaseBehavior.DoSelectCount(cb, tx)
+}
 func (l *ProductStatusBhv) OutsideSql() *df.OutsideSqlBasicExecutor {
 	return l.BaseBehavior.DoOutsideSql()
 }
 
-func (l *ProductStatusBhv) ReadNextVal(tx *sql.Tx) (int64,error){
+func (l *ProductStatusBhv) ReadNextVal(tx *sql.Tx) int64{
 	return l.BaseBehavior.DoSelectNextVal(tx)
 }
 

@@ -8,7 +8,7 @@ import (
 
 type RegionCB struct {
 	BaseConditionBean *df.BaseConditionBean
-	Query             *cq.RegionCQ
+	query             *cq.RegionCQ
 }
 
 func CreateRegionCB() *RegionCB {
@@ -18,31 +18,42 @@ func CreateRegionCB() *RegionCB {
 	cb.BaseConditionBean.TableDbName = "Region"
 	cb.BaseConditionBean.Name = "RegionCB"
 	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
-	//dm:=DBMetaProvider_I.TableDbNameInstanceMap["Region"]
 	var dmx df.DBMeta = meta.RegionDbm
 	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
 	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
-	cb.Query = cb.createConditionQuery(nil, cb.BaseConditionBean.SqlClause, (*cb.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
 	return cb
+}
+
+func (l *RegionCB) Query() *cq.RegionCQ {
+	if l.query == nil {
+		l.query = cq.CreateRegionCQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
 }
 func (l *RegionCB) GetBaseConditionBean() *df.BaseConditionBean {
 	return l.BaseConditionBean
 }
 
-func (l *RegionCB) createConditionQuery(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *cq.RegionCQ {
-	cq := new(cq.RegionCQ)
-	cq.BaseConditionQuery = new(df.BaseConditionQuery)
-	cq.BaseConditionQuery.TableDbName = l.BaseConditionBean.TableDbName
-	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
-	cq.BaseConditionQuery.SqlClause = sqlClause
-	cq.BaseConditionQuery.AliasName = aliasName
-	cq.BaseConditionQuery.NestLevel = nestlevel
-	cq.BaseConditionQuery.DBMetaProvider = l.BaseConditionBean.DBMetaProvider
-	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
-	cq.BaseConditionQuery.ConditionQuery=cq
-	return cq
-}
-
 func (l *RegionCB) AllowEmptyStringQuery() {
 	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+
+func (l *RegionCB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *RegionCB) OrScopeQuery(fquery func(*RegionCB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type RegionNss struct {
+	Query *cq.RegionCQ
+}
+func (p *RegionNss) hasConditionQuery() bool {
+	return p.Query != nil
 }

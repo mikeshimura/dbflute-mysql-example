@@ -17,6 +17,8 @@ type Member struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+MemberStatus_R  *MemberStatus
+
 }
 
 func CreateMember() *Member{
@@ -130,7 +132,12 @@ func (t *Member) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *Member) GetMemberStatus_R() *MemberStatus{
+	return t.MemberStatus_R
+}
+func (t *Member) SetMemberStatus_R(value *MemberStatus) {
+    t.MemberStatus_R = value
+}
 func (t *Member) SetUp(){
 	
 }

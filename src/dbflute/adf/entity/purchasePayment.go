@@ -15,6 +15,8 @@ type PurchasePayment struct {
 	updateDatetime df.MysqlTimestamp
 	updateUser string
 	df.BaseEntity
+Purchase_R  *Purchase
+
 }
 
 func CreatePurchasePayment() *PurchasePayment{
@@ -112,7 +114,12 @@ func (t *PurchasePayment) SetUpdateUser(updateUser string) {
 	t.AddPropertyName("updateUser")
 	t.updateUser = updateUser
 }
-
+func (t *PurchasePayment) GetPurchase_R() *Purchase{
+	return t.Purchase_R
+}
+func (t *PurchasePayment) SetPurchase_R(value *Purchase) {
+    t.Purchase_R = value
+}
 func (t *PurchasePayment) SetUp(){
 	t.paymentAmount.DecPoint = 2
 	

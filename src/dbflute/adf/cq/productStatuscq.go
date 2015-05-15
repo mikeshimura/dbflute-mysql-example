@@ -28,7 +28,10 @@ func (q *ProductStatusCQ) SetProductStatusCode_Equal(value string) *ProductStatu
 	q.regProductStatusCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ProductStatusCQ) SetProductStatusCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueProductStatusCode(), "productStatusCode")
+}
 func (q *ProductStatusCQ) SetProductStatusCode_NotEqual(value string) *ProductStatusCQ {
 	q.regProductStatusCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -102,7 +105,10 @@ func (q *ProductStatusCQ) SetProductStatusName_Equal(value string) *ProductStatu
 	q.regProductStatusName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ProductStatusCQ) SetProductStatusName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueProductStatusName(), "productStatusName")
+}
 func (q *ProductStatusCQ) SetProductStatusName_NotEqual(value string) *ProductStatusCQ {
 	q.regProductStatusName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -169,7 +175,10 @@ func (q *ProductStatusCQ) SetDisplayOrder_Equal(value int64) *ProductStatusCQ {
 	q.regDisplayOrder(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *ProductStatusCQ) SetDisplayOrder_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDisplayOrder(), "displayOrder")
+}
 func (q *ProductStatusCQ) SetDisplayOrder_NotEqual(value int64) *ProductStatusCQ {
 	q.regDisplayOrder(df.CK_NE_C, value)
 	return q
@@ -214,3 +223,18 @@ func (q *ProductStatusCQ) regDisplayOrder(key *df.ConditionKey, value interface{
 	q.BaseConditionQuery.RegQ(key, value, q.DisplayOrder, "displayOrder")
 }
 
+
+func CreateProductStatusCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *ProductStatusCQ {
+	cq := new(ProductStatusCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "ProductStatus"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

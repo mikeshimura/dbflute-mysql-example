@@ -1,0 +1,15 @@
+package cmeta
+
+import (
+	"github.com/mikeshimura/dbflute/df"
+)
+
+func init() {
+#foreach ($table in $database.tableList)
+	#set($entityClassName=${table.extendedEntityClassName})	
+	Create_C_${entityClassName}Dbm()
+	var ${entityClassName}_meta df.DBMeta = C_${entityClassName}Dbm
+	df.DBMetaProvider_I.TableDbNameInstanceMap["C_${entityClassName}"] = &${entityClassName}_meta
+	df.DBMetaProvider_I.TableDbNameFlexibleMap.Put("C_${entityClassName}", "C_${entityClassName}")
+#end
+}

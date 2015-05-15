@@ -17,6 +17,10 @@ type MemberAddress struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+Member_R  *Member
+
+Region_R  *Region
+
 }
 
 func CreateMemberAddress() *MemberAddress{
@@ -130,7 +134,18 @@ func (t *MemberAddress) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *MemberAddress) GetMember_R() *Member{
+	return t.Member_R
+}
+func (t *MemberAddress) SetMember_R(value *Member) {
+    t.Member_R = value
+}
+func (t *MemberAddress) GetRegion_R() *Region{
+	return t.Region_R
+}
+func (t *MemberAddress) SetRegion_R(value *Region) {
+    t.Region_R = value
+}
 func (t *MemberAddress) SetUp(){
 	
 }

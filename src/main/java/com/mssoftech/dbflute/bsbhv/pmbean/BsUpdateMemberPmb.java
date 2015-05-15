@@ -18,7 +18,7 @@ public class BsUpdateMemberPmb implements ParameterBean, FetchBean {
     //                                                                           Attribute
     //                                                                           =========
     /** The parameter of name. */
-    protected df.NullString _name;
+    protected sql.NullString _name;
 
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
@@ -115,7 +115,7 @@ public class BsUpdateMemberPmb implements ParameterBean, FetchBean {
      * [get] name <br>
      * @return The value of name. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public df.NullString getName() {
+    public sql.NullString getName() {
         return filterStringParameter(_name);
     }
 
@@ -123,7 +123,7 @@ public class BsUpdateMemberPmb implements ParameterBean, FetchBean {
      * [set] name <br>
      * @param name The value of name. (NullAllowed)
      */
-    public void setName(df.NullString name) {
+    public void setName(sql.NullString name) {
         _name = name;
     }
 }

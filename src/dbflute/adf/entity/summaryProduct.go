@@ -73,7 +73,6 @@ func (t *SummaryProduct) SetLatestPurchaseDatetime(latestPurchaseDatetime df.Mys
 	t.AddPropertyName("latestPurchaseDatetime")
 	t.latestPurchaseDatetime = latestPurchaseDatetime
 }
-
 func (t *SummaryProduct) SetUp(){
 	
 }

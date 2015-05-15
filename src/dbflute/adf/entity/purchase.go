@@ -18,6 +18,10 @@ type Purchase struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+Member_R  *Member
+
+Product_R  *Product
+
 }
 
 func CreatePurchase() *Purchase{
@@ -139,7 +143,18 @@ func (t *Purchase) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *Purchase) GetMember_R() *Member{
+	return t.Member_R
+}
+func (t *Purchase) SetMember_R(value *Member) {
+    t.Member_R = value
+}
+func (t *Purchase) GetProduct_R() *Product{
+	return t.Product_R
+}
+func (t *Purchase) SetProduct_R(value *Product) {
+    t.Product_R = value
+}
 func (t *Purchase) SetUp(){
 	
 }

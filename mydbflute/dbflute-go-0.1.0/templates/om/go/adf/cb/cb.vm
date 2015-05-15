@@ -1,0 +1,91 @@
+package cb
+
+import (
+	"github.com/mikeshimura/dbflute/df"
+	"${goPackageBase}/adf/cq"
+	"${goPackageBase}/adf/meta"
+)
+
+type ${entityClassName}CB struct {
+	BaseConditionBean *df.BaseConditionBean
+	query             *cq.${entityClassName}CQ
+#foreach ($fk in $table.joinableForeignKeyList)
+#set ($foreignEntityClassName = "${fk.foreignTableExtendedEntityClassName}")
+    Nss${foreignEntityClassName} *${foreignEntityClassName}Nss
+#end
+}
+
+func Create${entityClassName}CB() *${entityClassName}CB {
+	cb := new(${entityClassName}CB)
+	cb.BaseConditionBean = new(df.BaseConditionBean)
+	cb.BaseConditionBean.DBMetaProvider = df.DBMetaProvider_I
+	cb.BaseConditionBean.TableDbName = "${entityClassName}"
+	cb.BaseConditionBean.Name = "${entityClassName}CB"
+	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
+	var dmx df.DBMeta = meta.${entityClassName}Dbm
+	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
+	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
+	return cb
+}
+
+func (l *${entityClassName}CB) Query() *cq.${entityClassName}CQ {
+	if l.query == nil {
+		l.query = cq.Create${entityClassName}CQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
+}
+func (l *${entityClassName}CB) GetBaseConditionBean() *df.BaseConditionBean {
+	return l.BaseConditionBean
+}
+
+func (l *${entityClassName}CB) AllowEmptyStringQuery() {
+	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+#foreach ($fk in $table.joinableForeignKeyList)
+#set ($foreignEntityClassName = "${fk.foreignTableExtendedEntityClassName}")
+func (l *${entityClassName}CB) SetupSelect_${fk.foreignPropertyNameInitCap}() *${foreignEntityClassName}Nss {
+	l.BaseConditionBean.DoSetupSelect(l.Query().GetBaseConditionQuery(),
+		l.Query().Query${fk.foreignPropertyNameInitCap}().GetBaseConditionQuery())
+	if l.Nss${foreignEntityClassName} == nil || !l.Nss${foreignEntityClassName}.hasConditionQuery() {
+		l.Nss${foreignEntityClassName} = new(${foreignEntityClassName}Nss)
+		l.Nss${foreignEntityClassName}.Query = l.Query().Query${fk.foreignPropertyNameInitCap}()
+	}
+	return l.Nss${foreignEntityClassName}
+}
+#end
+
+func (l *${entityClassName}CB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *${entityClassName}CB) OrScopeQuery(fquery func(*${entityClassName}CB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type ${entityClassName}Nss struct {
+	Query *cq.${entityClassName}CQ
+#foreach ($fk in $table.joinableForeignKeyList)
+#set ($foreignEntityClassName = "${fk.foreignTableExtendedEntityClassName}")
+    Nss${foreignEntityClassName} *${foreignEntityClassName}Nss
+#end
+}
+#foreach ($fk in $table.joinableForeignKeyList)
+#set ($foreignEntityClassName = "${fk.foreignTableExtendedEntityClassName}")
+func (p *${entityClassName}Nss) With${foreignEntityClassName}() *${foreignEntityClassName}Nss{
+	(*p.Query.BaseConditionQuery.BaseCB).GetBaseConditionBean().
+	DoSetupSelect(p.Query.BaseConditionQuery,p.Query.Query${fk.foreignPropertyNameInitCap}().GetBaseConditionQuery())
+	if p.Nss${foreignEntityClassName} == nil || !p.Nss${foreignEntityClassName}.hasConditionQuery() {
+		p.Nss${foreignEntityClassName} = new(${foreignEntityClassName}Nss)
+		p.Nss${foreignEntityClassName}.Query = p.Query.Query${fk.foreignPropertyNameInitCap}()
+	}
+	return p.Nss${foreignEntityClassName}
+}
+#end
+func (p *${entityClassName}Nss) hasConditionQuery() bool {
+	return p.Query != nil
+}

@@ -29,7 +29,10 @@ func (q *MemberStatusCQ) SetMemberStatusCode_Equal(value string) *MemberStatusCQ
 	q.regMemberStatusCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberStatusCQ) SetMemberStatusCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberStatusCode(), "memberStatusCode")
+}
 func (q *MemberStatusCQ) SetMemberStatusCode_NotEqual(value string) *MemberStatusCQ {
 	q.regMemberStatusCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -103,7 +106,10 @@ func (q *MemberStatusCQ) SetMemberStatusName_Equal(value string) *MemberStatusCQ
 	q.regMemberStatusName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberStatusCQ) SetMemberStatusName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberStatusName(), "memberStatusName")
+}
 func (q *MemberStatusCQ) SetMemberStatusName_NotEqual(value string) *MemberStatusCQ {
 	q.regMemberStatusName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -169,7 +175,10 @@ func (q *MemberStatusCQ) SetDescription_Equal(value string) *MemberStatusCQ {
 	q.regDescription(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberStatusCQ) SetDescription_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDescription(), "description")
+}
 func (q *MemberStatusCQ) SetDescription_NotEqual(value string) *MemberStatusCQ {
 	q.regDescription(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -236,7 +245,10 @@ func (q *MemberStatusCQ) SetDisplayOrder_Equal(value int64) *MemberStatusCQ {
 	q.regDisplayOrder(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberStatusCQ) SetDisplayOrder_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDisplayOrder(), "displayOrder")
+}
 func (q *MemberStatusCQ) SetDisplayOrder_NotEqual(value int64) *MemberStatusCQ {
 	q.regDisplayOrder(df.CK_NE_C, value)
 	return q
@@ -281,3 +293,18 @@ func (q *MemberStatusCQ) regDisplayOrder(key *df.ConditionKey, value interface{}
 	q.BaseConditionQuery.RegQ(key, value, q.DisplayOrder, "displayOrder")
 }
 
+
+func CreateMemberStatusCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *MemberStatusCQ {
+	cq := new(MemberStatusCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "MemberStatus"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

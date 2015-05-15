@@ -20,6 +20,9 @@ type SummaryWithdrawalDbm_T struct {
 func (b *SummaryWithdrawalDbm_T) GetProjectName() string {
 	return df.DBCurrent_I.ProjectName
 }
+func (b *SummaryWithdrawalDbm_T) CreateForeignInfoMap() {
+	b.ForeignInfoMap = make(map[string]*df.ForeignInfo)
+}
 
 func (b *SummaryWithdrawalDbm_T) GetDbCurrent() *df.DBCurrent {
 	return df.DBCurrent_I
@@ -40,47 +43,38 @@ func Create_SummaryWithdrawalDbm() {
 	summaryWithdrawal = SummaryWithdrawalDbm
 	SummaryWithdrawalDbm.DBMeta=&summaryWithdrawal
 	memberIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_ID
 	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
 	SummaryWithdrawalDbm.ColumnMemberId = df.CCI(&summaryWithdrawal, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	memberNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_NAME
 	memberNameSqlName.ColumnSqlName = "MEMBER_NAME"
 	memberNameSqlName.IrregularChar = false
-	SummaryWithdrawalDbm.ColumnMemberName = df.CCI(&summaryWithdrawal, "MEMBER_NAME", memberNameSqlName, "", "", "String.class", "memberName", "", false, false,false, "VARCHAR", 180, 0, "",false,"","", "","","",false,"df.NullString")
+	SummaryWithdrawalDbm.ColumnMemberName = df.CCI(&summaryWithdrawal, "MEMBER_NAME", memberNameSqlName, "", "", "String.class", "memberName", "", false, false,false, "VARCHAR", 180, 0, "",false,"","", "","","",false,"sql.NullString")
 	withdrawalReasonCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo WITHDRAWAL_REASON_CODE
 	withdrawalReasonCodeSqlName.ColumnSqlName = "WITHDRAWAL_REASON_CODE"
 	withdrawalReasonCodeSqlName.IrregularChar = false
-	SummaryWithdrawalDbm.ColumnWithdrawalReasonCode = df.CCI(&summaryWithdrawal, "WITHDRAWAL_REASON_CODE", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "","","",false,"df.NullString")
+	SummaryWithdrawalDbm.ColumnWithdrawalReasonCode = df.CCI(&summaryWithdrawal, "WITHDRAWAL_REASON_CODE", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "","","",false,"sql.NullString")
 	withdrawalReasonTextSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo WITHDRAWAL_REASON_TEXT
 	withdrawalReasonTextSqlName.ColumnSqlName = "WITHDRAWAL_REASON_TEXT"
 	withdrawalReasonTextSqlName.IrregularChar = false
-	SummaryWithdrawalDbm.ColumnWithdrawalReasonText = df.CCI(&summaryWithdrawal, "WITHDRAWAL_REASON_TEXT", withdrawalReasonTextSqlName, "", "", "String.class", "withdrawalReasonText", "", false, false,false, "TEXT", 65535, 0, "",false,"","", "","","",false,"df.NullString")
+	SummaryWithdrawalDbm.ColumnWithdrawalReasonText = df.CCI(&summaryWithdrawal, "WITHDRAWAL_REASON_TEXT", withdrawalReasonTextSqlName, "", "", "String.class", "withdrawalReasonText", "", false, false,false, "TEXT", 65535, 0, "",false,"","", "","","",false,"sql.NullString")
 	withdrawalReasonInputTextSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo WITHDRAWAL_REASON_INPUT_TEXT
 	withdrawalReasonInputTextSqlName.ColumnSqlName = "WITHDRAWAL_REASON_INPUT_TEXT"
 	withdrawalReasonInputTextSqlName.IrregularChar = false
-	SummaryWithdrawalDbm.ColumnWithdrawalReasonInputText = df.CCI(&summaryWithdrawal, "WITHDRAWAL_REASON_INPUT_TEXT", withdrawalReasonInputTextSqlName, "", "", "String.class", "withdrawalReasonInputText", "", false, false,false, "TEXT", 65535, 0, "",false,"","", "","","",false,"df.NullString")
+	SummaryWithdrawalDbm.ColumnWithdrawalReasonInputText = df.CCI(&summaryWithdrawal, "WITHDRAWAL_REASON_INPUT_TEXT", withdrawalReasonInputTextSqlName, "", "", "String.class", "withdrawalReasonInputText", "", false, false,false, "TEXT", 65535, 0, "",false,"","", "","","",false,"sql.NullString")
 	withdrawalDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo WITHDRAWAL_DATETIME
 	withdrawalDatetimeSqlName.ColumnSqlName = "WITHDRAWAL_DATETIME"
 	withdrawalDatetimeSqlName.IrregularChar = false
 	SummaryWithdrawalDbm.ColumnWithdrawalDatetime = df.CCI(&summaryWithdrawal, "WITHDRAWAL_DATETIME", withdrawalDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "withdrawalDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	memberStatusCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_STATUS_CODE
 	memberStatusCodeSqlName.ColumnSqlName = "MEMBER_STATUS_CODE"
 	memberStatusCodeSqlName.IrregularChar = false
-	SummaryWithdrawalDbm.ColumnMemberStatusCode = df.CCI(&summaryWithdrawal, "MEMBER_STATUS_CODE", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "","","",false,"df.NullString")
+	SummaryWithdrawalDbm.ColumnMemberStatusCode = df.CCI(&summaryWithdrawal, "MEMBER_STATUS_CODE", memberStatusCodeSqlName, "", "", "String.class", "memberStatusCode", "", false, false,false, "CHAR", 3, 0, "",false,"","", "","","",false,"sql.NullString")
 	memberStatusNameSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_STATUS_NAME
 	memberStatusNameSqlName.ColumnSqlName = "MEMBER_STATUS_NAME"
 	memberStatusNameSqlName.IrregularChar = false
-	SummaryWithdrawalDbm.ColumnMemberStatusName = df.CCI(&summaryWithdrawal, "MEMBER_STATUS_NAME", memberStatusNameSqlName, "", "", "String.class", "memberStatusName", "", false, false,false, "VARCHAR", 50, 0, "",false,"","", "","","",false,"df.NullString")
+	SummaryWithdrawalDbm.ColumnMemberStatusName = df.CCI(&summaryWithdrawal, "MEMBER_STATUS_NAME", memberStatusNameSqlName, "", "", "String.class", "memberStatusName", "", false, false,false, "VARCHAR", 50, 0, "",false,"","", "","","",false,"sql.NullString")
 	maxPurchasePriceSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MAX_PURCHASE_PRICE
 	maxPurchasePriceSqlName.ColumnSqlName = "MAX_PURCHASE_PRICE"
 	maxPurchasePriceSqlName.IrregularChar = false
 	SummaryWithdrawalDbm.ColumnMaxPurchasePrice = df.CCI(&summaryWithdrawal, "MAX_PURCHASE_PRICE", maxPurchasePriceSqlName, "", "", "Long.class", "maxPurchasePrice", "", false, false,false, "BIGINT", 19, 0, "",false,"","", "","","",false,"sql.NullInt64")

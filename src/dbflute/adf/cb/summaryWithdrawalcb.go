@@ -8,7 +8,7 @@ import (
 
 type SummaryWithdrawalCB struct {
 	BaseConditionBean *df.BaseConditionBean
-	Query             *cq.SummaryWithdrawalCQ
+	query             *cq.SummaryWithdrawalCQ
 }
 
 func CreateSummaryWithdrawalCB() *SummaryWithdrawalCB {
@@ -18,31 +18,42 @@ func CreateSummaryWithdrawalCB() *SummaryWithdrawalCB {
 	cb.BaseConditionBean.TableDbName = "SummaryWithdrawal"
 	cb.BaseConditionBean.Name = "SummaryWithdrawalCB"
 	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
-	//dm:=DBMetaProvider_I.TableDbNameInstanceMap["SummaryWithdrawal"]
 	var dmx df.DBMeta = meta.SummaryWithdrawalDbm
 	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
 	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
-	cb.Query = cb.createConditionQuery(nil, cb.BaseConditionBean.SqlClause, (*cb.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
 	return cb
+}
+
+func (l *SummaryWithdrawalCB) Query() *cq.SummaryWithdrawalCQ {
+	if l.query == nil {
+		l.query = cq.CreateSummaryWithdrawalCQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
 }
 func (l *SummaryWithdrawalCB) GetBaseConditionBean() *df.BaseConditionBean {
 	return l.BaseConditionBean
 }
 
-func (l *SummaryWithdrawalCB) createConditionQuery(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *cq.SummaryWithdrawalCQ {
-	cq := new(cq.SummaryWithdrawalCQ)
-	cq.BaseConditionQuery = new(df.BaseConditionQuery)
-	cq.BaseConditionQuery.TableDbName = l.BaseConditionBean.TableDbName
-	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
-	cq.BaseConditionQuery.SqlClause = sqlClause
-	cq.BaseConditionQuery.AliasName = aliasName
-	cq.BaseConditionQuery.NestLevel = nestlevel
-	cq.BaseConditionQuery.DBMetaProvider = l.BaseConditionBean.DBMetaProvider
-	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
-	cq.BaseConditionQuery.ConditionQuery=cq
-	return cq
-}
-
 func (l *SummaryWithdrawalCB) AllowEmptyStringQuery() {
 	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+
+func (l *SummaryWithdrawalCB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *SummaryWithdrawalCB) OrScopeQuery(fquery func(*SummaryWithdrawalCB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type SummaryWithdrawalNss struct {
+	Query *cq.SummaryWithdrawalCQ
+}
+func (p *SummaryWithdrawalNss) hasConditionQuery() bool {
+	return p.Query != nil
 }

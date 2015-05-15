@@ -18,27 +18,31 @@ func (l *MemberLoginBhv) GetDBMeta() *df.DBMeta{
 func (l *MemberLoginBhv) GetBaseBehavior() *df.BaseBehavior {
 	return l.BaseBehavior
 }
-func (l *MemberLoginBhv) Update(memberLogin *entity.MemberLogin, tx *sql.Tx) (int64, error) {
+func (l *MemberLoginBhv) Update(memberLogin *entity.MemberLogin, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = memberLogin
-	return l.BaseBehavior.DoUpdate(&entity, nil, tx)
+	return l.BaseBehavior.DoUpdate(&entity, nil, tx, ctx)
 }
-func (l *MemberLoginBhv) Insert(memberLogin *entity.MemberLogin, tx *sql.Tx) (int64, error) {
+func (l *MemberLoginBhv) Insert(memberLogin *entity.MemberLogin, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = memberLogin
-	return l.BaseBehavior.DoInsert(&entity, nil, tx)
+	return l.BaseBehavior.DoInsert(&entity, nil, tx, ctx)
 }
-func (l *MemberLoginBhv) Delete(memberLogin *entity.MemberLogin, tx *sql.Tx) (int64, error) {
+func (l *MemberLoginBhv) Delete(memberLogin *entity.MemberLogin, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = memberLogin
-	return l.BaseBehavior.DoDelete(&entity, nil, tx)
+	return l.BaseBehavior.DoDelete(&entity, nil, tx, ctx)
 }
 func (l *MemberLoginBhv) SelectList(cb *cb.MemberLoginCB, tx *sql.Tx) (*df.ListResultBean, error) {
 
 	return l.BaseBehavior.DoSelectList(cb, "MemberLogin", tx)
 }
+func (l *MemberLoginBhv) SelectCount(cb *cb.MemberLoginCB, tx *sql.Tx) (int64, error) {
+
+	return l.BaseBehavior.DoSelectCount(cb, tx)
+}
 func (l *MemberLoginBhv) OutsideSql() *df.OutsideSqlBasicExecutor {
 	return l.BaseBehavior.DoOutsideSql()
 }
 
-func (l *MemberLoginBhv) ReadNextVal(tx *sql.Tx) (int64,error){
+func (l *MemberLoginBhv) ReadNextVal(tx *sql.Tx) int64{
 	return l.BaseBehavior.DoSelectNextVal(tx)
 }
 

@@ -1,8 +1,0 @@
-<seelog>
-    <outputs>
-        <console formatid="nocolor"/>
-    </outputs>
-    <formats>
-        <format id="nocolor"  format="%Level %Msg%n"/>
-    </formats>
-</seelog>

@@ -17,6 +17,8 @@ type MemberAddressCQ struct {
 	UpdateDatetime *df.ConditionValue
 	UpdateUser *df.ConditionValue
 	VersionNo *df.ConditionValue
+    conditionQueryMember *MemberCQ
+    conditionQueryRegion *RegionCQ
 }
 
 func (q *MemberAddressCQ) GetBaseConditionQuery() *df.BaseConditionQuery{
@@ -37,7 +39,10 @@ func (q *MemberAddressCQ) SetMemberAddressId_Equal(value int64) *MemberAddressCQ
 	q.regMemberAddressId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberAddressCQ) SetMemberAddressId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberAddressId(), "memberAddressId")
+}
 func (q *MemberAddressCQ) SetMemberAddressId_NotEqual(value int64) *MemberAddressCQ {
 	q.regMemberAddressId(df.CK_NE_C, value)
 	return q
@@ -103,7 +108,10 @@ func (q *MemberAddressCQ) SetMemberId_Equal(value int64) *MemberAddressCQ {
 	q.regMemberId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberAddressCQ) SetMemberId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberId(), "memberId")
+}
 func (q *MemberAddressCQ) SetMemberId_NotEqual(value int64) *MemberAddressCQ {
 	q.regMemberId(df.CK_NE_C, value)
 	return q
@@ -262,7 +270,10 @@ func (q *MemberAddressCQ) SetAddress_Equal(value string) *MemberAddressCQ {
 	q.regAddress(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberAddressCQ) SetAddress_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueAddress(), "address")
+}
 func (q *MemberAddressCQ) SetAddress_NotEqual(value string) *MemberAddressCQ {
 	q.regAddress(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -329,7 +340,10 @@ func (q *MemberAddressCQ) SetRegionId_Equal(value int64) *MemberAddressCQ {
 	q.regRegionId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberAddressCQ) SetRegionId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegionId(), "regionId")
+}
 func (q *MemberAddressCQ) SetRegionId_NotEqual(value int64) *MemberAddressCQ {
 	q.regRegionId(df.CK_NE_C, value)
 	return q
@@ -437,7 +451,10 @@ func (q *MemberAddressCQ) SetRegisterUser_Equal(value string) *MemberAddressCQ {
 	q.regRegisterUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberAddressCQ) SetRegisterUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegisterUser(), "registerUser")
+}
 func (q *MemberAddressCQ) SetRegisterUser_NotEqual(value string) *MemberAddressCQ {
 	q.regRegisterUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -554,7 +571,10 @@ func (q *MemberAddressCQ) SetUpdateUser_Equal(value string) *MemberAddressCQ {
 	q.regUpdateUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberAddressCQ) SetUpdateUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueUpdateUser(), "updateUser")
+}
 func (q *MemberAddressCQ) SetUpdateUser_NotEqual(value string) *MemberAddressCQ {
 	q.regUpdateUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -621,7 +641,10 @@ func (q *MemberAddressCQ) SetVersionNo_Equal(value int64) *MemberAddressCQ {
 	q.regVersionNo(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberAddressCQ) SetVersionNo_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueVersionNo(), "versionNo")
+}
 func (q *MemberAddressCQ) SetVersionNo_NotEqual(value int64) *MemberAddressCQ {
 	q.regVersionNo(df.CK_NE_C, value)
 	return q
@@ -666,3 +689,70 @@ func (q *MemberAddressCQ) regVersionNo(key *df.ConditionKey, value interface{}) 
 	q.BaseConditionQuery.RegQ(key, value, q.VersionNo, "versionNo")
 }
 
+
+func (q *MemberAddressCQ) QueryMember() *MemberCQ {
+	if q.conditionQueryMember == nil {
+		q.conditionQueryMember = q.xcreateQueryMember()
+		q.xsetupOuterJoinMember()
+	}
+	return q.conditionQueryMember
+}
+
+func (q *MemberAddressCQ) xcreateQueryMember() *MemberCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberAddress", "Member")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateMemberCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "Member"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberAddressCQ) xsetupOuterJoinMember() {
+	    cq := q.QueryMember()
+        joinOnMap := make(map[string]string)
+        joinOnMap["memberId"]="memberId"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "Member");
+}	
+	
+func (q *MemberAddressCQ) QueryRegion() *RegionCQ {
+	if q.conditionQueryRegion == nil {
+		q.conditionQueryRegion = q.xcreateQueryRegion()
+		q.xsetupOuterJoinRegion()
+	}
+	return q.conditionQueryRegion
+}
+
+func (q *MemberAddressCQ) xcreateQueryRegion() *RegionCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberAddress", "Region")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateRegionCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "Region"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberAddressCQ) xsetupOuterJoinRegion() {
+	    cq := q.QueryRegion()
+        joinOnMap := make(map[string]string)
+        joinOnMap["regionId"]="regionId"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "Region");
+}	
+	
+func CreateMemberAddressCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *MemberAddressCQ {
+	cq := new(MemberAddressCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "MemberAddress"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

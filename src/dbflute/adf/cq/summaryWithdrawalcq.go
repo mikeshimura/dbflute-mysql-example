@@ -35,7 +35,10 @@ func (q *SummaryWithdrawalCQ) SetMemberId_Equal(value int64) *SummaryWithdrawalC
 	q.regMemberId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetMemberId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberId(), "memberId")
+}
 func (q *SummaryWithdrawalCQ) SetMemberId_NotEqual(value int64) *SummaryWithdrawalCQ {
 	q.regMemberId(df.CK_NE_C, value)
 	return q
@@ -92,7 +95,10 @@ func (q *SummaryWithdrawalCQ) SetMemberName_Equal(value string) *SummaryWithdraw
 	q.regMemberName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetMemberName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberName(), "memberName")
+}
 func (q *SummaryWithdrawalCQ) SetMemberName_NotEqual(value string) *SummaryWithdrawalCQ {
 	q.regMemberName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -170,7 +176,10 @@ func (q *SummaryWithdrawalCQ) SetWithdrawalReasonCode_Equal(value string) *Summa
 	q.regWithdrawalReasonCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetWithdrawalReasonCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonCode(), "withdrawalReasonCode")
+}
 func (q *SummaryWithdrawalCQ) SetWithdrawalReasonCode_NotEqual(value string) *SummaryWithdrawalCQ {
 	q.regWithdrawalReasonCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -248,7 +257,10 @@ func (q *SummaryWithdrawalCQ) SetWithdrawalReasonText_Equal(value string) *Summa
 	q.regWithdrawalReasonText(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetWithdrawalReasonText_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonText(), "withdrawalReasonText")
+}
 func (q *SummaryWithdrawalCQ) SetWithdrawalReasonText_NotEqual(value string) *SummaryWithdrawalCQ {
 	q.regWithdrawalReasonText(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -326,7 +338,10 @@ func (q *SummaryWithdrawalCQ) SetWithdrawalReasonInputText_Equal(value string) *
 	q.regWithdrawalReasonInputText(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetWithdrawalReasonInputText_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonInputText(), "withdrawalReasonInputText")
+}
 func (q *SummaryWithdrawalCQ) SetWithdrawalReasonInputText_NotEqual(value string) *SummaryWithdrawalCQ {
 	q.regWithdrawalReasonInputText(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -455,7 +470,10 @@ func (q *SummaryWithdrawalCQ) SetMemberStatusCode_Equal(value string) *SummaryWi
 	q.regMemberStatusCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetMemberStatusCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberStatusCode(), "memberStatusCode")
+}
 func (q *SummaryWithdrawalCQ) SetMemberStatusCode_NotEqual(value string) *SummaryWithdrawalCQ {
 	q.regMemberStatusCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -533,7 +551,10 @@ func (q *SummaryWithdrawalCQ) SetMemberStatusName_Equal(value string) *SummaryWi
 	q.regMemberStatusName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetMemberStatusName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberStatusName(), "memberStatusName")
+}
 func (q *SummaryWithdrawalCQ) SetMemberStatusName_NotEqual(value string) *SummaryWithdrawalCQ {
 	q.regMemberStatusName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -612,7 +633,10 @@ func (q *SummaryWithdrawalCQ) SetMaxPurchasePrice_Equal(value int64) *SummaryWit
 	q.regMaxPurchasePrice(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *SummaryWithdrawalCQ) SetMaxPurchasePrice_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMaxPurchasePrice(), "maxPurchasePrice")
+}
 func (q *SummaryWithdrawalCQ) SetMaxPurchasePrice_NotEqual(value int64) *SummaryWithdrawalCQ {
 	q.regMaxPurchasePrice(df.CK_NE_C, value)
 	return q
@@ -665,3 +689,18 @@ func (q *SummaryWithdrawalCQ) regMaxPurchasePrice(key *df.ConditionKey, value in
 	q.BaseConditionQuery.RegQ(key, value, q.MaxPurchasePrice, "maxPurchasePrice")
 }
 
+
+func CreateSummaryWithdrawalCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *SummaryWithdrawalCQ {
+	cq := new(SummaryWithdrawalCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "SummaryWithdrawal"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

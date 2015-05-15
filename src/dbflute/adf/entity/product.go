@@ -17,6 +17,10 @@ type Product struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+ProductCategory_R  *ProductCategory
+
+ProductStatus_R  *ProductStatus
+
 }
 
 func CreateProduct() *Product{
@@ -130,7 +134,18 @@ func (t *Product) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *Product) GetProductCategory_R() *ProductCategory{
+	return t.ProductCategory_R
+}
+func (t *Product) SetProductCategory_R(value *ProductCategory) {
+    t.ProductCategory_R = value
+}
+func (t *Product) GetProductStatus_R() *ProductStatus{
+	return t.ProductStatus_R
+}
+func (t *Product) SetProductStatus_R(value *ProductStatus) {
+    t.ProductStatus_R = value
+}
 func (t *Product) SetUp(){
 	
 }

@@ -1,0 +1,102 @@
+package cmeta
+
+import (
+	"github.com/mikeshimura/dbflute/df"
+)
+
+type C_${entityClassName}Dbm_T struct {
+	df.BaseDBMeta
+#foreach ($col in $table.columns)	
+	Column${col.javaName} *df.ColumnInfo
+#end
+}
+
+func (b *C_${entityClassName}Dbm_T) GetProjectName() string {
+	return df.DBCurrent_I.ProjectName
+}
+
+func (b *C_${entityClassName}Dbm_T) GetDbCurrent() *df.DBCurrent {
+	return df.DBCurrent_I
+}
+
+var C_${entityClassName}Dbm *C_${entityClassName}Dbm_T
+
+func Create_C_${entityClassName}Dbm() {
+	C_${entityClassName}Dbm = new(C_${entityClassName}Dbm_T)
+	C_${entityClassName}Dbm.TableDbName = "c_${table.tableDbName}"
+	C_${entityClassName}Dbm.TableDispName = "c_${table.tableDispName}"
+	C_${entityClassName}Dbm.TablePropertyName = "c_${entityClassName}"
+	C_${entityClassName}Dbm.TableSqlName = new(df.TableSqlName)
+	C_${entityClassName}Dbm.TableSqlName.TableSqlName = "c_${table.tableSqlName}"
+	C_${entityClassName}Dbm.TableSqlName.CorrespondingDbName = C_${entityClassName}Dbm.TableDbName
+
+
+	var ${myEntityVariableName} df.DBMeta
+	${myEntityVariableName} = C_${entityClassName}Dbm
+	C_${entityClassName}Dbm.DBMeta=&${myEntityVariableName}
+#foreach ($col in $table.columns)
+#set ($tmpJavaName = "${col.javaName}")
+#set ($tmpUncapitalisedJavaName = "${col.uncapitalisedJavaName}")		
+	${tmpUncapitalisedJavaName}SqlName := new(df.ColumnSqlName)
+	${tmpUncapitalisedJavaName}SqlName.ColumnSqlName = "${col.columnSqlName}"
+	${tmpUncapitalisedJavaName}SqlName.IrregularChar = false
+	C_${entityClassName}Dbm.Column${tmpJavaName} = df.CCI(&${myEntityVariableName}, "${col.name}", ${tmpUncapitalisedJavaName}SqlName, ${col.synonymSettingExpressionGo}, ${col.aliasSettingExpressionGo}, "${col.javaNativeTypeLiteral}", "${col.javaBeansRulePropertyName}", ${col.propertyAccessTypeLiteralGo}, ${col.isPrimaryKey()}, ${col.isAutoIncrement()},${col.isNotNull()}, "${col.dbTypeExpression}", ${col.columnSizeSettingExpression}, ${col.columnDecimalDigitsSettingExpression}, ${col.defaultValueSettingExpressionGo},${col.isCommonColumnGo()},"${col.optimistickLockExpressionGo}",${col.commentForDBMetaSettingExpressionGo}, ${col.foreignPropertyNameCommaStringLiteralExpressionGo},${col.referrerPropertyNameCommaStringLiteralExpressionGo},"${col.classificationMetaSettingExpressionGo}",${col.canBeColumnNullObjectGo()},"${col.getGoType()}")
+#end
+
+	C_${entityClassName}Dbm.ColumnInfoList = new(df.List)
+#foreach ($col in $table.columns)	
+	C_${entityClassName}Dbm.ColumnInfoList.Add(C_${entityClassName}Dbm.Column${col.javaName})
+#end	
+
+
+	C_${entityClassName}Dbm.ColumnInfoMap=make(map[string]int)
+#set($count=0)
+#foreach ($col in $table.columns)	
+	C_${entityClassName}Dbm.ColumnInfoMap["${col.getUncapitalisedJavaName()}"]=${count}
+	#set($count=$count+1)
+#end
+    C_${entityClassName}Dbm.PrimaryKey = ${table.hasPrimaryKey()}
+    C_${entityClassName}Dbm.CompoundPrimaryKey = ${table.hasCompoundPrimaryKey()}
+#if ($table.hasPrimaryKey())
+	ui := new(df.UniqueInfo)
+	ui.DbMeta = &${myEntityVariableName}
+	ui.Primary = true
+	ui.UniqueColumnList = new(df.List)
+#if ($table.hasSinglePrimaryKey())
+	ui.UniqueColumnList.Add(C_${entityClassName}Dbm.Column${table.primaryKeyAsOne.javaBeansRulePropertyNameInitCap})
+#else
+#foreach ($col in $table.primaryKey)
+    ui.UniqueColumnList.Add(C_${entityClassName}Dbm.Column${col.javaBeansRulePropertyNameInitCap})
+#end
+#end
+
+	C_${entityClassName}Dbm.PrimaryInfo = new(df.PrimaryInfo)
+	C_${entityClassName}Dbm.PrimaryInfo.UniqueInfo = ui
+	
+#else
+
+#end
+#if ($table.isUseSequence())
+	C_${entityClassName}Dbm.SequenceFlag = true
+	C_${entityClassName}Dbm.SequenceName = "${table.sequenceSqlName}"
+	C_${entityClassName}Dbm.SequenceIncrementSize = ${table.sequenceIncrementSizeExpression}
+	C_${entityClassName}Dbm.SequenceCacheSize = ${table.sequenceCacheSizeExpressionGo}
+#end
+#if ($table.isUseVersionNo())
+	C_${entityClassName}Dbm.VersionNoFlag = true
+	C_${entityClassName}Dbm.VersionNoColumnInfo = C_${entityClassName}Dbm.Column${table.versionNoJavaName}
+	
+#end
+#if ($table.hasAllCommonColumn())	
+	C_${entityClassName}Dbm.CommonColumnFlag = true
+	C_${entityClassName}Dbm.CommonColumnInfoList = new(df.List)
+	//getCommonColumnInfoList()
+	C_${entityClassName}Dbm.CommonColumnInfoBeforeInsertList = new(df.List)
+	//getCommonColumnInfoBeforeInsertList()
+	C_${entityClassName}Dbm.CommonColumnInfoBeforeUpdateList = new(df.List)
+	//getCommonColumnInfoBeforeUpdateList()
+	
+#end
+	var ${myEntityVariableName}Meta df.DBMeta = C_${entityClassName}Dbm
+	df.DBMetaInstanceHandler_I.TableDbNameInstanceMap["c_${entityClassName}"] = &${myEntityVariableName}Meta
+}

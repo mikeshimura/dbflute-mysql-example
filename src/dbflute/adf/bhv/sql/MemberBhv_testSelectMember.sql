@@ -1,6 +1,6 @@
 -- #df:entity#
 -- !df:pmb!
--- !!df.NullString name!!
+-- !!sql.NullString name!!
 SELECT 
   member.member_id, 
   member.member_name, 

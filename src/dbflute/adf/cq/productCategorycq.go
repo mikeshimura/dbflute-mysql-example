@@ -9,6 +9,7 @@ type ProductCategoryCQ struct {
 	ProductCategoryCode *df.ConditionValue
 	ProductCategoryName *df.ConditionValue
 	ParentCategoryCode *df.ConditionValue
+    conditionQueryProductCategorySelf *ProductCategoryCQ
 }
 
 func (q *ProductCategoryCQ) GetBaseConditionQuery() *df.BaseConditionQuery{
@@ -28,7 +29,10 @@ func (q *ProductCategoryCQ) SetProductCategoryCode_Equal(value string) *ProductC
 	q.regProductCategoryCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ProductCategoryCQ) SetProductCategoryCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueProductCategoryCode(), "productCategoryCode")
+}
 func (q *ProductCategoryCQ) SetProductCategoryCode_NotEqual(value string) *ProductCategoryCQ {
 	q.regProductCategoryCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -102,7 +106,10 @@ func (q *ProductCategoryCQ) SetProductCategoryName_Equal(value string) *ProductC
 	q.regProductCategoryName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ProductCategoryCQ) SetProductCategoryName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueProductCategoryName(), "productCategoryName")
+}
 func (q *ProductCategoryCQ) SetProductCategoryName_NotEqual(value string) *ProductCategoryCQ {
 	q.regProductCategoryName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -168,7 +175,10 @@ func (q *ProductCategoryCQ) SetParentCategoryCode_Equal(value string) *ProductCa
 	q.regParentCategoryCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ProductCategoryCQ) SetParentCategoryCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueParentCategoryCode(), "parentCategoryCode")
+}
 func (q *ProductCategoryCQ) SetParentCategoryCode_NotEqual(value string) *ProductCategoryCQ {
 	q.regParentCategoryCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -234,3 +244,44 @@ func (q *ProductCategoryCQ) regParentCategoryCode(key *df.ConditionKey, value in
 	q.BaseConditionQuery.RegQ(key, value, q.ParentCategoryCode, "parentCategoryCode")
 }
 
+
+func (q *ProductCategoryCQ) QueryProductCategorySelf() *ProductCategoryCQ {
+	if q.conditionQueryProductCategorySelf == nil {
+		q.conditionQueryProductCategorySelf = q.xcreateQueryProductCategorySelf()
+		q.xsetupOuterJoinProductCategorySelf()
+	}
+	return q.conditionQueryProductCategorySelf
+}
+
+func (q *ProductCategoryCQ) xcreateQueryProductCategorySelf() *ProductCategoryCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("ProductCategory", "ProductCategorySelf")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateProductCategoryCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "ProductCategorySelf"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *ProductCategoryCQ) xsetupOuterJoinProductCategorySelf() {
+	    cq := q.QueryProductCategorySelf()
+        joinOnMap := make(map[string]string)
+        joinOnMap["parentCategoryCode"]="productCategoryCode"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "ProductCategorySelf");
+}	
+	
+func CreateProductCategoryCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *ProductCategoryCQ {
+	cq := new(ProductCategoryCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "ProductCategory"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

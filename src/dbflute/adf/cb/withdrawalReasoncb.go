@@ -8,7 +8,7 @@ import (
 
 type WithdrawalReasonCB struct {
 	BaseConditionBean *df.BaseConditionBean
-	Query             *cq.WithdrawalReasonCQ
+	query             *cq.WithdrawalReasonCQ
 }
 
 func CreateWithdrawalReasonCB() *WithdrawalReasonCB {
@@ -18,31 +18,42 @@ func CreateWithdrawalReasonCB() *WithdrawalReasonCB {
 	cb.BaseConditionBean.TableDbName = "WithdrawalReason"
 	cb.BaseConditionBean.Name = "WithdrawalReasonCB"
 	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
-	//dm:=DBMetaProvider_I.TableDbNameInstanceMap["WithdrawalReason"]
 	var dmx df.DBMeta = meta.WithdrawalReasonDbm
 	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
 	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
-	cb.Query = cb.createConditionQuery(nil, cb.BaseConditionBean.SqlClause, (*cb.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
 	return cb
+}
+
+func (l *WithdrawalReasonCB) Query() *cq.WithdrawalReasonCQ {
+	if l.query == nil {
+		l.query = cq.CreateWithdrawalReasonCQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
 }
 func (l *WithdrawalReasonCB) GetBaseConditionBean() *df.BaseConditionBean {
 	return l.BaseConditionBean
 }
 
-func (l *WithdrawalReasonCB) createConditionQuery(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *cq.WithdrawalReasonCQ {
-	cq := new(cq.WithdrawalReasonCQ)
-	cq.BaseConditionQuery = new(df.BaseConditionQuery)
-	cq.BaseConditionQuery.TableDbName = l.BaseConditionBean.TableDbName
-	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
-	cq.BaseConditionQuery.SqlClause = sqlClause
-	cq.BaseConditionQuery.AliasName = aliasName
-	cq.BaseConditionQuery.NestLevel = nestlevel
-	cq.BaseConditionQuery.DBMetaProvider = l.BaseConditionBean.DBMetaProvider
-	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
-	cq.BaseConditionQuery.ConditionQuery=cq
-	return cq
-}
-
 func (l *WithdrawalReasonCB) AllowEmptyStringQuery() {
 	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+
+func (l *WithdrawalReasonCB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *WithdrawalReasonCB) OrScopeQuery(fquery func(*WithdrawalReasonCB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type WithdrawalReasonNss struct {
+	Query *cq.WithdrawalReasonCQ
+}
+func (p *WithdrawalReasonNss) hasConditionQuery() bool {
+	return p.Query != nil
 }

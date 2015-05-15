@@ -58,7 +58,6 @@ func (t *WithdrawalReason) SetDisplayOrder(displayOrder int64) {
 	t.AddPropertyName("displayOrder")
 	t.displayOrder = displayOrder
 }
-
 func (t *WithdrawalReason) SetUp(){
 	
 }

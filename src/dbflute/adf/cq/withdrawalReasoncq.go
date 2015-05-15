@@ -28,7 +28,10 @@ func (q *WithdrawalReasonCQ) SetWithdrawalReasonCode_Equal(value string) *Withdr
 	q.regWithdrawalReasonCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *WithdrawalReasonCQ) SetWithdrawalReasonCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonCode(), "withdrawalReasonCode")
+}
 func (q *WithdrawalReasonCQ) SetWithdrawalReasonCode_NotEqual(value string) *WithdrawalReasonCQ {
 	q.regWithdrawalReasonCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -102,7 +105,10 @@ func (q *WithdrawalReasonCQ) SetWithdrawalReasonText_Equal(value string) *Withdr
 	q.regWithdrawalReasonText(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *WithdrawalReasonCQ) SetWithdrawalReasonText_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueWithdrawalReasonText(), "withdrawalReasonText")
+}
 func (q *WithdrawalReasonCQ) SetWithdrawalReasonText_NotEqual(value string) *WithdrawalReasonCQ {
 	q.regWithdrawalReasonText(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -169,7 +175,10 @@ func (q *WithdrawalReasonCQ) SetDisplayOrder_Equal(value int64) *WithdrawalReaso
 	q.regDisplayOrder(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *WithdrawalReasonCQ) SetDisplayOrder_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDisplayOrder(), "displayOrder")
+}
 func (q *WithdrawalReasonCQ) SetDisplayOrder_NotEqual(value int64) *WithdrawalReasonCQ {
 	q.regDisplayOrder(df.CK_NE_C, value)
 	return q
@@ -214,3 +223,18 @@ func (q *WithdrawalReasonCQ) regDisplayOrder(key *df.ConditionKey, value interfa
 	q.BaseConditionQuery.RegQ(key, value, q.DisplayOrder, "displayOrder")
 }
 
+
+func CreateWithdrawalReasonCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *WithdrawalReasonCQ {
+	cq := new(WithdrawalReasonCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "WithdrawalReason"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

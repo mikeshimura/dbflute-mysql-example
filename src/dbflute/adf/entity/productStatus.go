@@ -58,7 +58,6 @@ func (t *ProductStatus) SetDisplayOrder(displayOrder int64) {
 	t.AddPropertyName("displayOrder")
 	t.displayOrder = displayOrder
 }
-
 func (t *ProductStatus) SetUp(){
 	
 }

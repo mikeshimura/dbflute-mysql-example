@@ -17,6 +17,7 @@ type MemberCQ struct {
 	UpdateDatetime *df.ConditionValue
 	UpdateUser *df.ConditionValue
 	VersionNo *df.ConditionValue
+    conditionQueryMemberStatus *MemberStatusCQ
 }
 
 func (q *MemberCQ) GetBaseConditionQuery() *df.BaseConditionQuery{
@@ -37,7 +38,10 @@ func (q *MemberCQ) SetMemberId_Equal(value int64) *MemberCQ {
 	q.regMemberId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberCQ) SetMemberId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberId(), "memberId")
+}
 func (q *MemberCQ) SetMemberId_NotEqual(value int64) *MemberCQ {
 	q.regMemberId(df.CK_NE_C, value)
 	return q
@@ -102,7 +106,10 @@ func (q *MemberCQ) SetMemberName_Equal(value string) *MemberCQ {
 	q.regMemberName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberCQ) SetMemberName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberName(), "memberName")
+}
 func (q *MemberCQ) SetMemberName_NotEqual(value string) *MemberCQ {
 	q.regMemberName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -168,7 +175,10 @@ func (q *MemberCQ) SetMemberAccount_Equal(value string) *MemberCQ {
 	q.regMemberAccount(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberCQ) SetMemberAccount_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberAccount(), "memberAccount")
+}
 func (q *MemberCQ) SetMemberAccount_NotEqual(value string) *MemberCQ {
 	q.regMemberAccount(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -234,7 +244,10 @@ func (q *MemberCQ) SetMemberStatusCode_Equal(value string) *MemberCQ {
 	q.regMemberStatusCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberCQ) SetMemberStatusCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberStatusCode(), "memberStatusCode")
+}
 func (q *MemberCQ) SetMemberStatusCode_NotEqual(value string) *MemberCQ {
 	q.regMemberStatusCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -469,7 +482,10 @@ func (q *MemberCQ) SetRegisterUser_Equal(value string) *MemberCQ {
 	q.regRegisterUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberCQ) SetRegisterUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegisterUser(), "registerUser")
+}
 func (q *MemberCQ) SetRegisterUser_NotEqual(value string) *MemberCQ {
 	q.regRegisterUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -586,7 +602,10 @@ func (q *MemberCQ) SetUpdateUser_Equal(value string) *MemberCQ {
 	q.regUpdateUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberCQ) SetUpdateUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueUpdateUser(), "updateUser")
+}
 func (q *MemberCQ) SetUpdateUser_NotEqual(value string) *MemberCQ {
 	q.regUpdateUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -653,7 +672,10 @@ func (q *MemberCQ) SetVersionNo_Equal(value int64) *MemberCQ {
 	q.regVersionNo(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberCQ) SetVersionNo_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueVersionNo(), "versionNo")
+}
 func (q *MemberCQ) SetVersionNo_NotEqual(value int64) *MemberCQ {
 	q.regVersionNo(df.CK_NE_C, value)
 	return q
@@ -698,3 +720,44 @@ func (q *MemberCQ) regVersionNo(key *df.ConditionKey, value interface{}) {
 	q.BaseConditionQuery.RegQ(key, value, q.VersionNo, "versionNo")
 }
 
+
+func (q *MemberCQ) QueryMemberStatus() *MemberStatusCQ {
+	if q.conditionQueryMemberStatus == nil {
+		q.conditionQueryMemberStatus = q.xcreateQueryMemberStatus()
+		q.xsetupOuterJoinMemberStatus()
+	}
+	return q.conditionQueryMemberStatus
+}
+
+func (q *MemberCQ) xcreateQueryMemberStatus() *MemberStatusCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("Member", "MemberStatus")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateMemberStatusCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "MemberStatus"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberCQ) xsetupOuterJoinMemberStatus() {
+	    cq := q.QueryMemberStatus()
+        joinOnMap := make(map[string]string)
+        joinOnMap["memberStatusCode"]="memberStatusCode"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "MemberStatus");
+}	
+	
+func CreateMemberCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *MemberCQ {
+	cq := new(MemberCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "Member"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

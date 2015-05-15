@@ -8,7 +8,7 @@ import (
 
 type SummaryProductCB struct {
 	BaseConditionBean *df.BaseConditionBean
-	Query             *cq.SummaryProductCQ
+	query             *cq.SummaryProductCQ
 }
 
 func CreateSummaryProductCB() *SummaryProductCB {
@@ -18,31 +18,42 @@ func CreateSummaryProductCB() *SummaryProductCB {
 	cb.BaseConditionBean.TableDbName = "SummaryProduct"
 	cb.BaseConditionBean.Name = "SummaryProductCB"
 	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
-	//dm:=DBMetaProvider_I.TableDbNameInstanceMap["SummaryProduct"]
 	var dmx df.DBMeta = meta.SummaryProductDbm
 	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
 	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
-	cb.Query = cb.createConditionQuery(nil, cb.BaseConditionBean.SqlClause, (*cb.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
 	return cb
+}
+
+func (l *SummaryProductCB) Query() *cq.SummaryProductCQ {
+	if l.query == nil {
+		l.query = cq.CreateSummaryProductCQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
 }
 func (l *SummaryProductCB) GetBaseConditionBean() *df.BaseConditionBean {
 	return l.BaseConditionBean
 }
 
-func (l *SummaryProductCB) createConditionQuery(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *cq.SummaryProductCQ {
-	cq := new(cq.SummaryProductCQ)
-	cq.BaseConditionQuery = new(df.BaseConditionQuery)
-	cq.BaseConditionQuery.TableDbName = l.BaseConditionBean.TableDbName
-	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
-	cq.BaseConditionQuery.SqlClause = sqlClause
-	cq.BaseConditionQuery.AliasName = aliasName
-	cq.BaseConditionQuery.NestLevel = nestlevel
-	cq.BaseConditionQuery.DBMetaProvider = l.BaseConditionBean.DBMetaProvider
-	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
-	cq.BaseConditionQuery.ConditionQuery=cq
-	return cq
-}
-
 func (l *SummaryProductCB) AllowEmptyStringQuery() {
 	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+
+func (l *SummaryProductCB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *SummaryProductCB) OrScopeQuery(fquery func(*SummaryProductCB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type SummaryProductNss struct {
+	Query *cq.SummaryProductCQ
+}
+func (p *SummaryProductNss) hasConditionQuery() bool {
+	return p.Query != nil
 }

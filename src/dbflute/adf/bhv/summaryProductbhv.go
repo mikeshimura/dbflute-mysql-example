@@ -21,11 +21,15 @@ func (l *SummaryProductBhv) SelectList(cb *cb.SummaryProductCB, tx *sql.Tx) (*df
 
 	return l.BaseBehavior.DoSelectList(cb, "SummaryProduct", tx)
 }
+func (l *SummaryProductBhv) SelectCount(cb *cb.SummaryProductCB, tx *sql.Tx) (int64, error) {
+
+	return l.BaseBehavior.DoSelectCount(cb, tx)
+}
 func (l *SummaryProductBhv) OutsideSql() *df.OutsideSqlBasicExecutor {
 	return l.BaseBehavior.DoOutsideSql()
 }
 
-func (l *SummaryProductBhv) ReadNextVal(tx *sql.Tx) (int64,error){
+func (l *SummaryProductBhv) ReadNextVal(tx *sql.Tx) int64{
 	return l.BaseBehavior.DoSelectNextVal(tx)
 }
 

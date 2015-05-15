@@ -1,0 +1,32 @@
+package adf
+
+import (
+	"github.com/mikeshimura/dbflute/df"
+#foreach ($import in $database.commonColumnImportList)
+	"$import"
+#end
+)
+
+type CommonColumnAutoSetupperImpl struct {
+	df.BaseCommonColumnAutoSetupper
+}
+
+func (p *CommonColumnAutoSetupperImpl) DoHandleCommonColumnOfInsertIfNeeds(
+	entity *df.Entity, context *df.Context) {
+#foreach ($resource in $database.commonColumnBeforeInsertList)
+	temp${resource.initCapName}:= ${resource.logic}
+	if &temp${resource.initCapName} != nil {
+		df.SetEntityValue(entity, "${resource.propertyName}", temp${resource.initCapName})
+	}
+#end	
+
+}
+func (p *CommonColumnAutoSetupperImpl) DoHandleCommonColumnOfUpdateIfNeeds(
+	entity *df.Entity, context *df.Context) {
+#foreach ($resource in $database.commonColumnBeforeUpdateList)
+	temp${resource.initCapName}:= ${resource.logic}
+	if &temp${resource.initCapName} != nil {
+		df.SetEntityValue(entity, "${resource.propertyName}", temp${resource.initCapName})
+	}
+#end	
+}

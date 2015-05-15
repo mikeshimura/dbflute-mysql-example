@@ -7,22 +7,22 @@ import (
 
 type C_SelectMember  struct {
 	MemberId sql.NullInt64
-	MemberName df.NullString
-	MemberAccount df.NullString
+	MemberName sql.NullString
+	MemberAccount sql.NullString
 	Birthdate df.MysqlNullDate
 	FormalizedDatetime df.MysqlNullTimestamp
-	MemberStatusCode df.NullString
-	MemberStatusName df.NullString
-	Description df.NullString
+	MemberStatusCode sql.NullString
+	MemberStatusName sql.NullString
+	Description sql.NullString
 	df.BaseEntity
 }
 func (l *C_SelectMember) GetMemberId () sql.NullInt64 {
 	return l.MemberId
 }
-func (l *C_SelectMember) GetMemberName () df.NullString {
+func (l *C_SelectMember) GetMemberName () sql.NullString {
 	return l.MemberName
 }
-func (l *C_SelectMember) GetMemberAccount () df.NullString {
+func (l *C_SelectMember) GetMemberAccount () sql.NullString {
 	return l.MemberAccount
 }
 func (l *C_SelectMember) GetBirthdate () df.MysqlNullDate {
@@ -31,13 +31,13 @@ func (l *C_SelectMember) GetBirthdate () df.MysqlNullDate {
 func (l *C_SelectMember) GetFormalizedDatetime () df.MysqlNullTimestamp {
 	return l.FormalizedDatetime
 }
-func (l *C_SelectMember) GetMemberStatusCode () df.NullString {
+func (l *C_SelectMember) GetMemberStatusCode () sql.NullString {
 	return l.MemberStatusCode
 }
-func (l *C_SelectMember) GetMemberStatusName () df.NullString {
+func (l *C_SelectMember) GetMemberStatusName () sql.NullString {
 	return l.MemberStatusName
 }
-func (l *C_SelectMember) GetDescription () df.NullString {
+func (l *C_SelectMember) GetDescription () sql.NullString {
 	return l.Description
 }
 
@@ -66,11 +66,11 @@ func (t *C_SelectMember) SetMemberId(memberId sql.NullInt64) {
 	t.AddPropertyName("memberId")
 	t.MemberId = memberId
 }
-func (t *C_SelectMember) SetMemberName(memberName df.NullString) {
+func (t *C_SelectMember) SetMemberName(memberName sql.NullString) {
 	t.AddPropertyName("memberName")
 	t.MemberName = memberName
 }
-func (t *C_SelectMember) SetMemberAccount(memberAccount df.NullString) {
+func (t *C_SelectMember) SetMemberAccount(memberAccount sql.NullString) {
 	t.AddPropertyName("memberAccount")
 	t.MemberAccount = memberAccount
 }
@@ -82,15 +82,15 @@ func (t *C_SelectMember) SetFormalizedDatetime(formalizedDatetime df.MysqlNullTi
 	t.AddPropertyName("formalizedDatetime")
 	t.FormalizedDatetime = formalizedDatetime
 }
-func (t *C_SelectMember) SetMemberStatusCode(memberStatusCode df.NullString) {
+func (t *C_SelectMember) SetMemberStatusCode(memberStatusCode sql.NullString) {
 	t.AddPropertyName("memberStatusCode")
 	t.MemberStatusCode = memberStatusCode
 }
-func (t *C_SelectMember) SetMemberStatusName(memberStatusName df.NullString) {
+func (t *C_SelectMember) SetMemberStatusName(memberStatusName sql.NullString) {
 	t.AddPropertyName("memberStatusName")
 	t.MemberStatusName = memberStatusName
 }
-func (t *C_SelectMember) SetDescription(description df.NullString) {
+func (t *C_SelectMember) SetDescription(description sql.NullString) {
 	t.AddPropertyName("description")
 	t.Description = description
 }

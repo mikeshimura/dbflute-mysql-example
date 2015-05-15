@@ -8,7 +8,7 @@ import (
 
 type ServiceRankCB struct {
 	BaseConditionBean *df.BaseConditionBean
-	Query             *cq.ServiceRankCQ
+	query             *cq.ServiceRankCQ
 }
 
 func CreateServiceRankCB() *ServiceRankCB {
@@ -18,31 +18,42 @@ func CreateServiceRankCB() *ServiceRankCB {
 	cb.BaseConditionBean.TableDbName = "ServiceRank"
 	cb.BaseConditionBean.Name = "ServiceRankCB"
 	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
-	//dm:=DBMetaProvider_I.TableDbNameInstanceMap["ServiceRank"]
 	var dmx df.DBMeta = meta.ServiceRankDbm
 	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
 	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
-	cb.Query = cb.createConditionQuery(nil, cb.BaseConditionBean.SqlClause, (*cb.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
 	return cb
+}
+
+func (l *ServiceRankCB) Query() *cq.ServiceRankCQ {
+	if l.query == nil {
+		l.query = cq.CreateServiceRankCQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
 }
 func (l *ServiceRankCB) GetBaseConditionBean() *df.BaseConditionBean {
 	return l.BaseConditionBean
 }
 
-func (l *ServiceRankCB) createConditionQuery(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *cq.ServiceRankCQ {
-	cq := new(cq.ServiceRankCQ)
-	cq.BaseConditionQuery = new(df.BaseConditionQuery)
-	cq.BaseConditionQuery.TableDbName = l.BaseConditionBean.TableDbName
-	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
-	cq.BaseConditionQuery.SqlClause = sqlClause
-	cq.BaseConditionQuery.AliasName = aliasName
-	cq.BaseConditionQuery.NestLevel = nestlevel
-	cq.BaseConditionQuery.DBMetaProvider = l.BaseConditionBean.DBMetaProvider
-	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
-	cq.BaseConditionQuery.ConditionQuery=cq
-	return cq
-}
-
 func (l *ServiceRankCB) AllowEmptyStringQuery() {
 	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+
+func (l *ServiceRankCB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *ServiceRankCB) OrScopeQuery(fquery func(*ServiceRankCB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type ServiceRankNss struct {
+	Query *cq.ServiceRankCQ
+}
+func (p *ServiceRankNss) hasConditionQuery() bool {
+	return p.Query != nil
 }

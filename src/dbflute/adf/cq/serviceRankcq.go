@@ -31,7 +31,10 @@ func (q *ServiceRankCQ) SetServiceRankCode_Equal(value string) *ServiceRankCQ {
 	q.regServiceRankCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ServiceRankCQ) SetServiceRankCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueServiceRankCode(), "serviceRankCode")
+}
 func (q *ServiceRankCQ) SetServiceRankCode_NotEqual(value string) *ServiceRankCQ {
 	q.regServiceRankCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -105,7 +108,10 @@ func (q *ServiceRankCQ) SetServiceRankName_Equal(value string) *ServiceRankCQ {
 	q.regServiceRankName(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ServiceRankCQ) SetServiceRankName_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueServiceRankName(), "serviceRankName")
+}
 func (q *ServiceRankCQ) SetServiceRankName_NotEqual(value string) *ServiceRankCQ {
 	q.regServiceRankName(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -172,7 +178,10 @@ func (q *ServiceRankCQ) SetServicePointIncidence_Equal(value df.Numeric) *Servic
 	q.regServicePointIncidence(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *ServiceRankCQ) SetServicePointIncidence_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueServicePointIncidence(), "servicePointIncidence")
+}
 func (q *ServiceRankCQ) SetServicePointIncidence_NotEqual(value df.Numeric) *ServiceRankCQ {
 	q.regServicePointIncidence(df.CK_NE_C, value)
 	return q
@@ -230,7 +239,10 @@ func (q *ServiceRankCQ) SetNewAcceptableFlg_Equal(value int64) *ServiceRankCQ {
 	q.regNewAcceptableFlg(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *ServiceRankCQ) SetNewAcceptableFlg_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueNewAcceptableFlg(), "newAcceptableFlg")
+}
 func (q *ServiceRankCQ) SetNewAcceptableFlg_NotEqual(value int64) *ServiceRankCQ {
 	q.regNewAcceptableFlg(df.CK_NE_C, value)
 	return q
@@ -287,7 +299,10 @@ func (q *ServiceRankCQ) SetDescription_Equal(value string) *ServiceRankCQ {
 	q.regDescription(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *ServiceRankCQ) SetDescription_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDescription(), "description")
+}
 func (q *ServiceRankCQ) SetDescription_NotEqual(value string) *ServiceRankCQ {
 	q.regDescription(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -354,7 +369,10 @@ func (q *ServiceRankCQ) SetDisplayOrder_Equal(value int64) *ServiceRankCQ {
 	q.regDisplayOrder(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *ServiceRankCQ) SetDisplayOrder_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueDisplayOrder(), "displayOrder")
+}
 func (q *ServiceRankCQ) SetDisplayOrder_NotEqual(value int64) *ServiceRankCQ {
 	q.regDisplayOrder(df.CK_NE_C, value)
 	return q
@@ -399,3 +417,18 @@ func (q *ServiceRankCQ) regDisplayOrder(key *df.ConditionKey, value interface{})
 	q.BaseConditionQuery.RegQ(key, value, q.DisplayOrder, "displayOrder")
 }
 
+
+func CreateServiceRankCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *ServiceRankCQ {
+	cq := new(ServiceRankCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "ServiceRank"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

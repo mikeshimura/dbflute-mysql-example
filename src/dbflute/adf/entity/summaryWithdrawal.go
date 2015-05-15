@@ -7,13 +7,13 @@ import (
 
 type SummaryWithdrawal struct {
 	memberId int64
-	memberName df.NullString
-	withdrawalReasonCode df.NullString
-	withdrawalReasonText df.NullString
-	withdrawalReasonInputText df.NullString
+	memberName sql.NullString
+	withdrawalReasonCode sql.NullString
+	withdrawalReasonText sql.NullString
+	withdrawalReasonInputText sql.NullString
 	withdrawalDatetime df.MysqlTimestamp
-	memberStatusCode df.NullString
-	memberStatusName df.NullString
+	memberStatusCode sql.NullString
+	memberStatusName sql.NullString
 	maxPurchasePrice sql.NullInt64
 	df.BaseEntity
 }
@@ -27,25 +27,25 @@ func CreateSummaryWithdrawal() *SummaryWithdrawal{
 func (l *SummaryWithdrawal) GetMemberId () int64 {
 	return l.memberId
 }
-func (l *SummaryWithdrawal) GetMemberName () df.NullString {
+func (l *SummaryWithdrawal) GetMemberName () sql.NullString {
 	return l.memberName
 }
-func (l *SummaryWithdrawal) GetWithdrawalReasonCode () df.NullString {
+func (l *SummaryWithdrawal) GetWithdrawalReasonCode () sql.NullString {
 	return l.withdrawalReasonCode
 }
-func (l *SummaryWithdrawal) GetWithdrawalReasonText () df.NullString {
+func (l *SummaryWithdrawal) GetWithdrawalReasonText () sql.NullString {
 	return l.withdrawalReasonText
 }
-func (l *SummaryWithdrawal) GetWithdrawalReasonInputText () df.NullString {
+func (l *SummaryWithdrawal) GetWithdrawalReasonInputText () sql.NullString {
 	return l.withdrawalReasonInputText
 }
 func (l *SummaryWithdrawal) GetWithdrawalDatetime () df.MysqlTimestamp {
 	return l.withdrawalDatetime
 }
-func (l *SummaryWithdrawal) GetMemberStatusCode () df.NullString {
+func (l *SummaryWithdrawal) GetMemberStatusCode () sql.NullString {
 	return l.memberStatusCode
 }
-func (l *SummaryWithdrawal) GetMemberStatusName () df.NullString {
+func (l *SummaryWithdrawal) GetMemberStatusName () sql.NullString {
 	return l.memberStatusName
 }
 func (l *SummaryWithdrawal) GetMaxPurchasePrice () sql.NullInt64 {
@@ -78,19 +78,19 @@ func (t *SummaryWithdrawal) SetMemberId(memberId int64) {
 	t.AddPropertyName("memberId")
 	t.memberId = memberId
 }
-func (t *SummaryWithdrawal) SetMemberName(memberName df.NullString) {
+func (t *SummaryWithdrawal) SetMemberName(memberName sql.NullString) {
 	t.AddPropertyName("memberName")
 	t.memberName = memberName
 }
-func (t *SummaryWithdrawal) SetWithdrawalReasonCode(withdrawalReasonCode df.NullString) {
+func (t *SummaryWithdrawal) SetWithdrawalReasonCode(withdrawalReasonCode sql.NullString) {
 	t.AddPropertyName("withdrawalReasonCode")
 	t.withdrawalReasonCode = withdrawalReasonCode
 }
-func (t *SummaryWithdrawal) SetWithdrawalReasonText(withdrawalReasonText df.NullString) {
+func (t *SummaryWithdrawal) SetWithdrawalReasonText(withdrawalReasonText sql.NullString) {
 	t.AddPropertyName("withdrawalReasonText")
 	t.withdrawalReasonText = withdrawalReasonText
 }
-func (t *SummaryWithdrawal) SetWithdrawalReasonInputText(withdrawalReasonInputText df.NullString) {
+func (t *SummaryWithdrawal) SetWithdrawalReasonInputText(withdrawalReasonInputText sql.NullString) {
 	t.AddPropertyName("withdrawalReasonInputText")
 	t.withdrawalReasonInputText = withdrawalReasonInputText
 }
@@ -98,11 +98,11 @@ func (t *SummaryWithdrawal) SetWithdrawalDatetime(withdrawalDatetime df.MysqlTim
 	t.AddPropertyName("withdrawalDatetime")
 	t.withdrawalDatetime = withdrawalDatetime
 }
-func (t *SummaryWithdrawal) SetMemberStatusCode(memberStatusCode df.NullString) {
+func (t *SummaryWithdrawal) SetMemberStatusCode(memberStatusCode sql.NullString) {
 	t.AddPropertyName("memberStatusCode")
 	t.memberStatusCode = memberStatusCode
 }
-func (t *SummaryWithdrawal) SetMemberStatusName(memberStatusName df.NullString) {
+func (t *SummaryWithdrawal) SetMemberStatusName(memberStatusName sql.NullString) {
 	t.AddPropertyName("memberStatusName")
 	t.memberStatusName = memberStatusName
 }
@@ -110,7 +110,6 @@ func (t *SummaryWithdrawal) SetMaxPurchasePrice(maxPurchasePrice sql.NullInt64) 
 	t.AddPropertyName("maxPurchasePrice")
 	t.maxPurchasePrice = maxPurchasePrice
 }
-
 func (t *SummaryWithdrawal) SetUp(){
 	
 }

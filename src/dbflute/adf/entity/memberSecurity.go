@@ -16,6 +16,8 @@ type MemberSecurity struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+Member_R  *Member
+
 }
 
 func CreateMemberSecurity() *MemberSecurity{
@@ -121,7 +123,12 @@ func (t *MemberSecurity) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *MemberSecurity) GetMember_R() *Member{
+	return t.Member_R
+}
+func (t *MemberSecurity) SetMember_R(value *Member) {
+    t.Member_R = value
+}
 func (t *MemberSecurity) SetUp(){
 	
 }

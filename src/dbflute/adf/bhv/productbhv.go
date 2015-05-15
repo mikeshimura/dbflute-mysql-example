@@ -18,27 +18,31 @@ func (l *ProductBhv) GetDBMeta() *df.DBMeta{
 func (l *ProductBhv) GetBaseBehavior() *df.BaseBehavior {
 	return l.BaseBehavior
 }
-func (l *ProductBhv) Update(product *entity.Product, tx *sql.Tx) (int64, error) {
+func (l *ProductBhv) Update(product *entity.Product, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = product
-	return l.BaseBehavior.DoUpdate(&entity, nil, tx)
+	return l.BaseBehavior.DoUpdate(&entity, nil, tx, ctx)
 }
-func (l *ProductBhv) Insert(product *entity.Product, tx *sql.Tx) (int64, error) {
+func (l *ProductBhv) Insert(product *entity.Product, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = product
-	return l.BaseBehavior.DoInsert(&entity, nil, tx)
+	return l.BaseBehavior.DoInsert(&entity, nil, tx, ctx)
 }
-func (l *ProductBhv) Delete(product *entity.Product, tx *sql.Tx) (int64, error) {
+func (l *ProductBhv) Delete(product *entity.Product, tx *sql.Tx, ctx *df.Context) (int64, error) {
 	var entity df.Entity = product
-	return l.BaseBehavior.DoDelete(&entity, nil, tx)
+	return l.BaseBehavior.DoDelete(&entity, nil, tx, ctx)
 }
 func (l *ProductBhv) SelectList(cb *cb.ProductCB, tx *sql.Tx) (*df.ListResultBean, error) {
 
 	return l.BaseBehavior.DoSelectList(cb, "Product", tx)
 }
+func (l *ProductBhv) SelectCount(cb *cb.ProductCB, tx *sql.Tx) (int64, error) {
+
+	return l.BaseBehavior.DoSelectCount(cb, tx)
+}
 func (l *ProductBhv) OutsideSql() *df.OutsideSqlBasicExecutor {
 	return l.BaseBehavior.DoOutsideSql()
 }
 
-func (l *ProductBhv) ReadNextVal(tx *sql.Tx) (int64,error){
+func (l *ProductBhv) ReadNextVal(tx *sql.Tx) int64{
 	return l.BaseBehavior.DoSelectNextVal(tx)
 }
 

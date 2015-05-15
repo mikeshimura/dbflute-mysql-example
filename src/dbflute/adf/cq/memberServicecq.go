@@ -15,6 +15,8 @@ type MemberServiceCQ struct {
 	UpdateDatetime *df.ConditionValue
 	UpdateUser *df.ConditionValue
 	VersionNo *df.ConditionValue
+    conditionQueryMember *MemberCQ
+    conditionQueryServiceRank *ServiceRankCQ
 }
 
 func (q *MemberServiceCQ) GetBaseConditionQuery() *df.BaseConditionQuery{
@@ -35,7 +37,10 @@ func (q *MemberServiceCQ) SetMemberServiceId_Equal(value int64) *MemberServiceCQ
 	q.regMemberServiceId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberServiceCQ) SetMemberServiceId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberServiceId(), "memberServiceId")
+}
 func (q *MemberServiceCQ) SetMemberServiceId_NotEqual(value int64) *MemberServiceCQ {
 	q.regMemberServiceId(df.CK_NE_C, value)
 	return q
@@ -101,7 +106,10 @@ func (q *MemberServiceCQ) SetMemberId_Equal(value int64) *MemberServiceCQ {
 	q.regMemberId(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberServiceCQ) SetMemberId_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueMemberId(), "memberId")
+}
 func (q *MemberServiceCQ) SetMemberId_NotEqual(value int64) *MemberServiceCQ {
 	q.regMemberId(df.CK_NE_C, value)
 	return q
@@ -159,7 +167,10 @@ func (q *MemberServiceCQ) SetServicePointCount_Equal(value int64) *MemberService
 	q.regServicePointCount(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberServiceCQ) SetServicePointCount_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueServicePointCount(), "servicePointCount")
+}
 func (q *MemberServiceCQ) SetServicePointCount_NotEqual(value int64) *MemberServiceCQ {
 	q.regServicePointCount(df.CK_NE_C, value)
 	return q
@@ -216,7 +227,10 @@ func (q *MemberServiceCQ) SetServiceRankCode_Equal(value string) *MemberServiceC
 	q.regServiceRankCode(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberServiceCQ) SetServiceRankCode_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueServiceRankCode(), "serviceRankCode")
+}
 func (q *MemberServiceCQ) SetServiceRankCode_NotEqual(value string) *MemberServiceCQ {
 	q.regServiceRankCode(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -333,7 +347,10 @@ func (q *MemberServiceCQ) SetRegisterUser_Equal(value string) *MemberServiceCQ {
 	q.regRegisterUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberServiceCQ) SetRegisterUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueRegisterUser(), "registerUser")
+}
 func (q *MemberServiceCQ) SetRegisterUser_NotEqual(value string) *MemberServiceCQ {
 	q.regRegisterUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -450,7 +467,10 @@ func (q *MemberServiceCQ) SetUpdateUser_Equal(value string) *MemberServiceCQ {
 	q.regUpdateUser(df.CK_EQ_C, q.BaseConditionQuery.FRES(value))
 	return q
 }
-
+func (q *MemberServiceCQ) SetUpdateUser_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueUpdateUser(), "updateUser")
+}
 func (q *MemberServiceCQ) SetUpdateUser_NotEqual(value string) *MemberServiceCQ {
 	q.regUpdateUser(df.CK_NE_C, q.BaseConditionQuery.FRES(value))
 	return q
@@ -517,7 +537,10 @@ func (q *MemberServiceCQ) SetVersionNo_Equal(value int64) *MemberServiceCQ {
 	q.regVersionNo(df.CK_EQ_C, value)
 	return q
 }
-
+func (q *MemberServiceCQ) SetVersionNo_InScope(list *df.List){
+	q.BaseConditionQuery.RegINS(df.CK_INS_C, list,
+		 q.getCValueVersionNo(), "versionNo")
+}
 func (q *MemberServiceCQ) SetVersionNo_NotEqual(value int64) *MemberServiceCQ {
 	q.regVersionNo(df.CK_NE_C, value)
 	return q
@@ -562,3 +585,70 @@ func (q *MemberServiceCQ) regVersionNo(key *df.ConditionKey, value interface{}) 
 	q.BaseConditionQuery.RegQ(key, value, q.VersionNo, "versionNo")
 }
 
+
+func (q *MemberServiceCQ) QueryMember() *MemberCQ {
+	if q.conditionQueryMember == nil {
+		q.conditionQueryMember = q.xcreateQueryMember()
+		q.xsetupOuterJoinMember()
+	}
+	return q.conditionQueryMember
+}
+
+func (q *MemberServiceCQ) xcreateQueryMember() *MemberCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberService", "Member")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateMemberCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "Member"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberServiceCQ) xsetupOuterJoinMember() {
+	    cq := q.QueryMember()
+        joinOnMap := make(map[string]string)
+        joinOnMap["memberId"]="memberId"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "Member");
+}	
+	
+func (q *MemberServiceCQ) QueryServiceRank() *ServiceRankCQ {
+	if q.conditionQueryServiceRank == nil {
+		q.conditionQueryServiceRank = q.xcreateQueryServiceRank()
+		q.xsetupOuterJoinServiceRank()
+	}
+	return q.conditionQueryServiceRank
+}
+
+func (q *MemberServiceCQ) xcreateQueryServiceRank() *ServiceRankCQ {
+	nrp := q.BaseConditionQuery.ResolveNextRelationPath("MemberService", "ServiceRank")
+	jan := q.BaseConditionQuery.ResolveJoinAliasName(nrp)
+	var basecq df.ConditionQuery = q
+	cq := CreateServiceRankCQ(&basecq, q.BaseConditionQuery.SqlClause, jan, q.BaseConditionQuery.NestLevel+1)
+	cq.BaseConditionQuery.BaseCB = q.BaseConditionQuery.BaseCB
+	cq.BaseConditionQuery.ForeignPropertyName = "ServiceRank"
+	cq.BaseConditionQuery.RelationPath = nrp
+	return cq
+}
+func (q *MemberServiceCQ) xsetupOuterJoinServiceRank() {
+	    cq := q.QueryServiceRank()
+        joinOnMap := make(map[string]string)
+        joinOnMap["serviceRankCode"]="serviceRankCode"
+        q.BaseConditionQuery.RegisterOuterJoin(
+        	cq.BaseConditionQuery.ConditionQuery, joinOnMap, "ServiceRank");
+}	
+	
+func CreateMemberServiceCQ(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *MemberServiceCQ {
+	cq := new(MemberServiceCQ)
+	cq.BaseConditionQuery = new(df.BaseConditionQuery)
+	cq.BaseConditionQuery.TableDbName = "MemberService"
+	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
+	cq.BaseConditionQuery.SqlClause = sqlClause
+	cq.BaseConditionQuery.AliasName = aliasName
+	cq.BaseConditionQuery.NestLevel = nestlevel
+	cq.BaseConditionQuery.DBMetaProvider = df.DBMetaProvider_I
+	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
+	var cqi df.ConditionQuery = cq
+	cq.BaseConditionQuery.ConditionQuery=&cqi
+	return cq
+}	

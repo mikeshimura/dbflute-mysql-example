@@ -20,6 +20,31 @@ type MemberServiceDbm_T struct {
 func (b *MemberServiceDbm_T) GetProjectName() string {
 	return df.DBCurrent_I.ProjectName
 }
+func (b *MemberServiceDbm_T) foreignMember() *df.ForeignInfo {
+	columns := []*df.ColumnInfo{
+		MemberServiceDbm.GetColumnInfoByPropertyName("memberId"),
+		MemberDbm.GetColumnInfoByPropertyName("memberId"),
+	}
+
+	return b.BaseDBMeta.Cfi("FK_MEMBER_SERVICE_MEMBER", "Member",
+		columns, 0, true, false, false, false,
+		"", nil, false, "memberServiceAsOne")
+}	
+func (b *MemberServiceDbm_T) foreignServiceRank() *df.ForeignInfo {
+	columns := []*df.ColumnInfo{
+		MemberServiceDbm.GetColumnInfoByPropertyName("serviceRankCode"),
+		ServiceRankDbm.GetColumnInfoByPropertyName("serviceRankCode"),
+	}
+
+	return b.BaseDBMeta.Cfi("FK_MEMBER_SERVICE_SERVICE_RANK_CODE", "ServiceRank",
+		columns, 1, false, false, false, false,
+		"", nil, false, "memberServiceList")
+}	
+func (b *MemberServiceDbm_T) CreateForeignInfoMap() {
+	b.ForeignInfoMap = make(map[string]*df.ForeignInfo)
+	b.ForeignInfoMap["Member"] = b.foreignMember()
+	b.ForeignInfoMap["ServiceRank"] = b.foreignServiceRank()
+}
 
 func (b *MemberServiceDbm_T) GetDbCurrent() *df.DBCurrent {
 	return df.DBCurrent_I
@@ -41,47 +66,38 @@ func Create_MemberServiceDbm() {
 	memberService = MemberServiceDbm
 	MemberServiceDbm.DBMeta=&memberService
 	memberServiceIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_SERVICE_ID
 	memberServiceIdSqlName.ColumnSqlName = "MEMBER_SERVICE_ID"
 	memberServiceIdSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnMemberServiceId = df.CCI(&memberService, "MEMBER_SERVICE_ID", memberServiceIdSqlName, "", "", "Integer.class", "memberServiceId", "", true, true,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	memberIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_ID
 	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnMemberId = df.CCI(&memberService, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", false, false,true, "INT", 10, 0, "",false,"","", "member","","",false,"int64")
 	servicePointCountSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo SERVICE_POINT_COUNT
 	servicePointCountSqlName.ColumnSqlName = "SERVICE_POINT_COUNT"
 	servicePointCountSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnServicePointCount = df.CCI(&memberService, "SERVICE_POINT_COUNT", servicePointCountSqlName, "", "", "Integer.class", "servicePointCount", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	serviceRankCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo SERVICE_RANK_CODE
 	serviceRankCodeSqlName.ColumnSqlName = "SERVICE_RANK_CODE"
 	serviceRankCodeSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnServiceRankCode = df.CCI(&memberService, "SERVICE_RANK_CODE", serviceRankCodeSqlName, "", "", "String.class", "serviceRankCode", "", false, false,true, "CHAR", 3, 0, "",false,"","", "serviceRank","","",false,"string")
 	registerDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_DATETIME
 	registerDatetimeSqlName.ColumnSqlName = "REGISTER_DATETIME"
 	registerDatetimeSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnRegisterDatetime = df.CCI(&memberService, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	registerUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_USER
 	registerUserSqlName.ColumnSqlName = "REGISTER_USER"
 	registerUserSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnRegisterUser = df.CCI(&memberService, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	updateDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_DATETIME
 	updateDatetimeSqlName.ColumnSqlName = "UPDATE_DATETIME"
 	updateDatetimeSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnUpdateDatetime = df.CCI(&memberService, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	updateUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_USER
 	updateUserSqlName.ColumnSqlName = "UPDATE_USER"
 	updateUserSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnUpdateUser = df.CCI(&memberService, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	versionNoSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo VERSION_NO
 	versionNoSqlName.ColumnSqlName = "VERSION_NO"
 	versionNoSqlName.IrregularChar = false
 	MemberServiceDbm.ColumnVersionNo = df.CCI(&memberService, "VERSION_NO", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "BIGINT", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")

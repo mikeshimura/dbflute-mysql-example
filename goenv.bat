@@ -1,1 +1,1 @@
-set GOPATH=D:\AW\Proj\go-dbflute\wkgoexample-p\go-example-postgres
+set GOPATH=D:\AW\Proj\go-dbflute\wkgoexample-m\dbflute-mysql-example

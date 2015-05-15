@@ -14,6 +14,9 @@ type WithdrawalReasonDbm_T struct {
 func (b *WithdrawalReasonDbm_T) GetProjectName() string {
 	return df.DBCurrent_I.ProjectName
 }
+func (b *WithdrawalReasonDbm_T) CreateForeignInfoMap() {
+	b.ForeignInfoMap = make(map[string]*df.ForeignInfo)
+}
 
 func (b *WithdrawalReasonDbm_T) GetDbCurrent() *df.DBCurrent {
 	return df.DBCurrent_I
@@ -34,17 +37,14 @@ func Create_WithdrawalReasonDbm() {
 	withdrawalReason = WithdrawalReasonDbm
 	WithdrawalReasonDbm.DBMeta=&withdrawalReason
 	withdrawalReasonCodeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo WITHDRAWAL_REASON_CODE
 	withdrawalReasonCodeSqlName.ColumnSqlName = "WITHDRAWAL_REASON_CODE"
 	withdrawalReasonCodeSqlName.IrregularChar = false
 	WithdrawalReasonDbm.ColumnWithdrawalReasonCode = df.CCI(&withdrawalReason, "WITHDRAWAL_REASON_CODE", withdrawalReasonCodeSqlName, "", "", "String.class", "withdrawalReasonCode", "", true, false,true, "CHAR", 3, 0, "",false,"","", "","memberWithdrawalList","",false,"string")
 	withdrawalReasonTextSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo WITHDRAWAL_REASON_TEXT
 	withdrawalReasonTextSqlName.ColumnSqlName = "WITHDRAWAL_REASON_TEXT"
 	withdrawalReasonTextSqlName.IrregularChar = false
 	WithdrawalReasonDbm.ColumnWithdrawalReasonText = df.CCI(&withdrawalReason, "WITHDRAWAL_REASON_TEXT", withdrawalReasonTextSqlName, "", "", "String.class", "withdrawalReasonText", "", false, false,true, "TEXT", 65535, 0, "",false,"","", "","","",false,"string")
 	displayOrderSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo DISPLAY_ORDER
 	displayOrderSqlName.ColumnSqlName = "DISPLAY_ORDER"
 	displayOrderSqlName.IrregularChar = false
 	WithdrawalReasonDbm.ColumnDisplayOrder = df.CCI(&withdrawalReason, "DISPLAY_ORDER", displayOrderSqlName, "", "", "Integer.class", "displayOrder", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")

@@ -23,6 +23,31 @@ type PurchaseDbm_T struct {
 func (b *PurchaseDbm_T) GetProjectName() string {
 	return df.DBCurrent_I.ProjectName
 }
+func (b *PurchaseDbm_T) foreignMember() *df.ForeignInfo {
+	columns := []*df.ColumnInfo{
+		PurchaseDbm.GetColumnInfoByPropertyName("memberId"),
+		MemberDbm.GetColumnInfoByPropertyName("memberId"),
+	}
+
+	return b.BaseDBMeta.Cfi("FK_PURCHASE_MEMBER", "Member",
+		columns, 0, false, false, false, false,
+		"", nil, false, "purchaseList")
+}	
+func (b *PurchaseDbm_T) foreignProduct() *df.ForeignInfo {
+	columns := []*df.ColumnInfo{
+		PurchaseDbm.GetColumnInfoByPropertyName("productId"),
+		ProductDbm.GetColumnInfoByPropertyName("productId"),
+	}
+
+	return b.BaseDBMeta.Cfi("FK_PURCHASE_PRODUCT", "Product",
+		columns, 1, false, false, false, false,
+		"", nil, false, "purchaseList")
+}	
+func (b *PurchaseDbm_T) CreateForeignInfoMap() {
+	b.ForeignInfoMap = make(map[string]*df.ForeignInfo)
+	b.ForeignInfoMap["Member"] = b.foreignMember()
+	b.ForeignInfoMap["Product"] = b.foreignProduct()
+}
 
 func (b *PurchaseDbm_T) GetDbCurrent() *df.DBCurrent {
 	return df.DBCurrent_I
@@ -44,62 +69,50 @@ func Create_PurchaseDbm() {
 	purchase = PurchaseDbm
 	PurchaseDbm.DBMeta=&purchase
 	purchaseIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo PURCHASE_ID
 	purchaseIdSqlName.ColumnSqlName = "PURCHASE_ID"
 	purchaseIdSqlName.IrregularChar = false
 	PurchaseDbm.ColumnPurchaseId = df.CCI(&purchase, "PURCHASE_ID", purchaseIdSqlName, "", "", "Long.class", "purchaseId", "", true, true,true, "BIGINT", 19, 0, "",false,"","", "","purchasePaymentList","",false,"int64")
 	memberIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo MEMBER_ID
 	memberIdSqlName.ColumnSqlName = "MEMBER_ID"
 	memberIdSqlName.IrregularChar = false
 	PurchaseDbm.ColumnMemberId = df.CCI(&purchase, "MEMBER_ID", memberIdSqlName, "", "", "Integer.class", "memberId", "", false, false,true, "INT", 10, 0, "",false,"","", "member","","",false,"int64")
 	productIdSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo PRODUCT_ID
 	productIdSqlName.ColumnSqlName = "PRODUCT_ID"
 	productIdSqlName.IrregularChar = false
 	PurchaseDbm.ColumnProductId = df.CCI(&purchase, "PRODUCT_ID", productIdSqlName, "", "", "Integer.class", "productId", "", false, false,true, "INT", 10, 0, "",false,"","", "product","","",false,"int64")
 	purchaseDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo PURCHASE_DATETIME
 	purchaseDatetimeSqlName.ColumnSqlName = "PURCHASE_DATETIME"
 	purchaseDatetimeSqlName.IrregularChar = false
 	PurchaseDbm.ColumnPurchaseDatetime = df.CCI(&purchase, "PURCHASE_DATETIME", purchaseDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "purchaseDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	purchaseCountSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo PURCHASE_COUNT
 	purchaseCountSqlName.ColumnSqlName = "PURCHASE_COUNT"
 	purchaseCountSqlName.IrregularChar = false
 	PurchaseDbm.ColumnPurchaseCount = df.CCI(&purchase, "PURCHASE_COUNT", purchaseCountSqlName, "", "", "Integer.class", "purchaseCount", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	purchasePriceSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo PURCHASE_PRICE
 	purchasePriceSqlName.ColumnSqlName = "PURCHASE_PRICE"
 	purchasePriceSqlName.IrregularChar = false
 	PurchaseDbm.ColumnPurchasePrice = df.CCI(&purchase, "PURCHASE_PRICE", purchasePriceSqlName, "", "", "Integer.class", "purchasePrice", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	paymentCompleteFlgSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo PAYMENT_COMPLETE_FLG
 	paymentCompleteFlgSqlName.ColumnSqlName = "PAYMENT_COMPLETE_FLG"
 	paymentCompleteFlgSqlName.IrregularChar = false
 	PurchaseDbm.ColumnPaymentCompleteFlg = df.CCI(&purchase, "PAYMENT_COMPLETE_FLG", paymentCompleteFlgSqlName, "", "", "Integer.class", "paymentCompleteFlg", "", false, false,true, "INT", 10, 0, "",false,"","", "","","",false,"int64")
 	registerDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_DATETIME
 	registerDatetimeSqlName.ColumnSqlName = "REGISTER_DATETIME"
 	registerDatetimeSqlName.IrregularChar = false
 	PurchaseDbm.ColumnRegisterDatetime = df.CCI(&purchase, "REGISTER_DATETIME", registerDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "registerDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	registerUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo REGISTER_USER
 	registerUserSqlName.ColumnSqlName = "REGISTER_USER"
 	registerUserSqlName.IrregularChar = false
 	PurchaseDbm.ColumnRegisterUser = df.CCI(&purchase, "REGISTER_USER", registerUserSqlName, "", "", "String.class", "registerUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	updateDatetimeSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_DATETIME
 	updateDatetimeSqlName.ColumnSqlName = "UPDATE_DATETIME"
 	updateDatetimeSqlName.IrregularChar = false
 	PurchaseDbm.ColumnUpdateDatetime = df.CCI(&purchase, "UPDATE_DATETIME", updateDatetimeSqlName, "", "", "java.time.LocalDateTime.class", "updateDatetime", "", false, false,true, "DATETIME", 19, 0, "",false,"","", "","","",false,"df.MysqlTimestamp")
 	updateUserSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo UPDATE_USER
 	updateUserSqlName.ColumnSqlName = "UPDATE_USER"
 	updateUserSqlName.IrregularChar = false
 	PurchaseDbm.ColumnUpdateUser = df.CCI(&purchase, "UPDATE_USER", updateUserSqlName, "", "", "String.class", "updateUser", "", false, false,true, "VARCHAR", 200, 0, "",false,"","", "","","",false,"string")
 	versionNoSqlName := new(df.ColumnSqlName)
-	//colsqlname dayoo VERSION_NO
 	versionNoSqlName.ColumnSqlName = "VERSION_NO"
 	versionNoSqlName.IrregularChar = false
 	PurchaseDbm.ColumnVersionNo = df.CCI(&purchase, "VERSION_NO", versionNoSqlName, "", "", "Long.class", "versionNo", "", false, false,true, "BIGINT", 19, 0, "",false,"OptimisticLockType.VERSION_NO","", "","","",false,"int64")

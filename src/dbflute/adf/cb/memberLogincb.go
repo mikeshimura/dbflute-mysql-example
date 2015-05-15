@@ -8,7 +8,9 @@ import (
 
 type MemberLoginCB struct {
 	BaseConditionBean *df.BaseConditionBean
-	Query             *cq.MemberLoginCQ
+	query             *cq.MemberLoginCQ
+    NssMemberStatus *MemberStatusNss
+    NssMember *MemberNss
 }
 
 func CreateMemberLoginCB() *MemberLoginCB {
@@ -18,31 +20,80 @@ func CreateMemberLoginCB() *MemberLoginCB {
 	cb.BaseConditionBean.TableDbName = "MemberLogin"
 	cb.BaseConditionBean.Name = "MemberLoginCB"
 	cb.BaseConditionBean.SqlClause = df.CreateSqlClause(cb, df.DBCurrent_I)
-	//dm:=DBMetaProvider_I.TableDbNameInstanceMap["MemberLogin"]
 	var dmx df.DBMeta = meta.MemberLoginDbm
 	(*cb.BaseConditionBean.SqlClause).SetDBMeta(&dmx)
 	(*cb.BaseConditionBean.SqlClause).SetUseSelectIndex(true)
-	cb.Query = cb.createConditionQuery(nil, cb.BaseConditionBean.SqlClause, (*cb.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
 	return cb
+}
+
+func (l *MemberLoginCB) Query() *cq.MemberLoginCQ {
+	if l.query == nil {
+		l.query = cq.CreateMemberLoginCQ(nil, l.BaseConditionBean.SqlClause, (*l.BaseConditionBean.SqlClause).GetBasePorintAliasName(), 0)
+		var cb df.ConditionBean = l
+		l.query.BaseConditionQuery.BaseCB = &cb	
+	}
+	return l.query
 }
 func (l *MemberLoginCB) GetBaseConditionBean() *df.BaseConditionBean {
 	return l.BaseConditionBean
 }
 
-func (l *MemberLoginCB) createConditionQuery(referrerQuery *df.ConditionQuery, sqlClause *df.SqlClause, aliasName string, nestlevel int8) *cq.MemberLoginCQ {
-	cq := new(cq.MemberLoginCQ)
-	cq.BaseConditionQuery = new(df.BaseConditionQuery)
-	cq.BaseConditionQuery.TableDbName = l.BaseConditionBean.TableDbName
-	cq.BaseConditionQuery.ReferrerQuery = referrerQuery
-	cq.BaseConditionQuery.SqlClause = sqlClause
-	cq.BaseConditionQuery.AliasName = aliasName
-	cq.BaseConditionQuery.NestLevel = nestlevel
-	cq.BaseConditionQuery.DBMetaProvider = l.BaseConditionBean.DBMetaProvider
-	cq.BaseConditionQuery.CQ_PROPERTY = "Query"
-	cq.BaseConditionQuery.ConditionQuery=cq
-	return cq
-}
-
 func (l *MemberLoginCB) AllowEmptyStringQuery() {
 	l.BaseConditionBean.AllowEmptyStringQuery()
+}
+
+func (l *MemberLoginCB) SetupSelect_MemberStatus() *MemberStatusNss {
+	l.BaseConditionBean.DoSetupSelect(l.Query().GetBaseConditionQuery(),
+		l.Query().QueryMemberStatus().GetBaseConditionQuery())
+	if l.NssMemberStatus == nil || !l.NssMemberStatus.hasConditionQuery() {
+		l.NssMemberStatus = new(MemberStatusNss)
+		l.NssMemberStatus.Query = l.Query().QueryMemberStatus()
+	}
+	return l.NssMemberStatus
+}
+func (l *MemberLoginCB) SetupSelect_Member() *MemberNss {
+	l.BaseConditionBean.DoSetupSelect(l.Query().GetBaseConditionQuery(),
+		l.Query().QueryMember().GetBaseConditionQuery())
+	if l.NssMember == nil || !l.NssMember.hasConditionQuery() {
+		l.NssMember = new(MemberNss)
+		l.NssMember.Query = l.Query().QueryMember()
+	}
+	return l.NssMember
+}
+
+func (l *MemberLoginCB) FetchFirst(fetchSize int){
+	(*l.GetBaseConditionBean().SqlClause).FetchFirst(fetchSize)
+}
+
+func (l *MemberLoginCB) OrScopeQuery(fquery func(*MemberLoginCB)){
+	(*l.BaseConditionBean.SqlClause).MakeOrScopeQueryEffective()
+	fquery(l)
+	(*l.BaseConditionBean.SqlClause).CloseOrScopeQuery()
+}
+
+type MemberLoginNss struct {
+	Query *cq.MemberLoginCQ
+    NssMemberStatus *MemberStatusNss
+    NssMember *MemberNss
+}
+func (p *MemberLoginNss) WithMemberStatus() *MemberStatusNss{
+	(*p.Query.BaseConditionQuery.BaseCB).GetBaseConditionBean().
+	DoSetupSelect(p.Query.BaseConditionQuery,p.Query.QueryMemberStatus().GetBaseConditionQuery())
+	if p.NssMemberStatus == nil || !p.NssMemberStatus.hasConditionQuery() {
+		p.NssMemberStatus = new(MemberStatusNss)
+		p.NssMemberStatus.Query = p.Query.QueryMemberStatus()
+	}
+	return p.NssMemberStatus
+}
+func (p *MemberLoginNss) WithMember() *MemberNss{
+	(*p.Query.BaseConditionQuery.BaseCB).GetBaseConditionBean().
+	DoSetupSelect(p.Query.BaseConditionQuery,p.Query.QueryMember().GetBaseConditionQuery())
+	if p.NssMember == nil || !p.NssMember.hasConditionQuery() {
+		p.NssMember = new(MemberNss)
+		p.NssMember.Query = p.Query.QueryMember()
+	}
+	return p.NssMember
+}
+func (p *MemberLoginNss) hasConditionQuery() bool {
+	return p.Query != nil
 }

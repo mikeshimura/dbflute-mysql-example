@@ -15,6 +15,10 @@ type MemberService struct {
 	updateUser string
 	versionNo int64
 	df.BaseEntity
+Member_R  *Member
+
+ServiceRank_R  *ServiceRank
+
 }
 
 func CreateMemberService() *MemberService{
@@ -112,7 +116,18 @@ func (t *MemberService) SetVersionNo(versionNo int64) {
 	t.AddPropertyName("versionNo")
 	t.versionNo = versionNo
 }
-
+func (t *MemberService) GetMember_R() *Member{
+	return t.Member_R
+}
+func (t *MemberService) SetMember_R(value *Member) {
+    t.Member_R = value
+}
+func (t *MemberService) GetServiceRank_R() *ServiceRank{
+	return t.ServiceRank_R
+}
+func (t *MemberService) SetServiceRank_R(value *ServiceRank) {
+    t.ServiceRank_R = value
+}
 func (t *MemberService) SetUp(){
 	
 }
